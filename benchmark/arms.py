@@ -26,6 +26,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 
 from benchmark.dataset import Split
+from benchmark.systemone import SystemOneStrategy
 from langchain_model_router import ChatRouter
 from langchain_model_router.strategies import (
     ClassifierStrategy,
@@ -90,6 +91,14 @@ _HARD_KEYWORDS = (
     "trade-offs",
 )
 
+# Opt-in arms: each runs only when its endpoint variable is set, because each needs its own local
+# server (see benchmark/README.md). Value: the server's `/v1/systemone` URL.
+_SYSTEMONE_ARMS = {
+    "systemone-jevk5-4b": "MODEL_ROUTER_BENCHMARK_JEVK5_4B_URL",
+    "systemone-jevk5-2b": "MODEL_ROUTER_BENCHMARK_JEVK5_2B_URL",
+    "systemone-kev-0.8b": "MODEL_ROUTER_BENCHMARK_KEV_URL",
+}
+
 _TIER_DESCRIPTIONS = {
     "small": "simple, short requests: single facts, basic arithmetic, "
     "one-step lookups, short definitions",
@@ -152,7 +161,8 @@ def embeddings() -> Embeddings:
 def _classifier_arms(
     routes: Callable[[], dict[str, BaseChatModel]], default: str, descriptions: dict[str, str]
 ) -> list[Arm]:
-    """`ClassifierStrategy` on the small Gemini model, on qwen3 and on Arch-Router."""
+    """`ClassifierStrategy` on the small Gemini model, on qwen3 and on Arch-Router, then one
+    `SystemOneStrategy` arm per decision-model endpoint that is configured."""
     deciders = {
         "classifier": small_model,  # "ask a small model" (classifier.py) — the small route's own
         "classifier-qwen3": qwen3_decider,
@@ -168,6 +178,17 @@ def _classifier_arms(
             ),
         )
         for name, decider in deciders.items()
+    ] + [
+        Arm(
+            name,
+            ChatRouter(
+                routes=routes(),
+                default_route=default,
+                strategy=SystemOneStrategy(os.environ[variable], descriptions),
+            ),
+        )
+        for name, variable in _SYSTEMONE_ARMS.items()
+        if os.environ.get(variable)
     ]
 
 

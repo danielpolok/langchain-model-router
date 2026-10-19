@@ -1,0 +1,2566 @@
+{
+  "classifier-qwen3": [
+    {
+      "item_id": "support-easy-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is one of the most common and frustrating questions because **there is no single answer.** The time it takes for a refund to appear depends almost entirely on three major factors:\n\n1.  **The payment method you used.**\n2.  **The merchant/company processing the refund.**\n3.  **Your bank or credit card company.**\n\nHere is a detailed breakdown of the typical timelines based on the method used:\n\n***\n\n### \ud83d\udcb3 1. Credit or Debit Card (The Longest Wait)\n\nWhen you use a credit or debit card, the money doesn't just \"come back\" from the seller; it has to travel through a complex network of banking institutions (the merchant's bank \u2192 the card network \u2192 your bank).\n\n*   **Typical Wait Time:** **5 to 10 business days.**\n*   **Why the delay?** The merchant's bank must initiate the refund, but the most significant delay is usually with *your* bank. They have to process the transaction and post the credit to your account.\n*   **Good to Know:** If you used a debit card, the funds might be temporarily held in a \"pending\" status for a day or two before they appear as available cash.\n\n### \ud83c\udd7f\ufe0f 2. PayPal\n\nPayPal refunds are often faster than credit card refunds because the transaction pathway is more direct.\n\n*   **Typical Wait Time:** **1 to 5 business days.**\n*   **Note:** If the money is being paid *out* to a linked bank account, that bank's rules will still apply, which could extend the time up to 3-5 days.\n\n### \ud83d\udce6 3. Digital Wallet or E-Gift Card\n\nIf the refund is issued as a credit balance or e-gift card within the same retailer's ecosystem (e.g., an online store issues a store credit), it is typically immediate.\n\n*   **Typical Wait Time:** **Instant.**\n*   **Caveat:** This credit can only be used on that specific retailer\u2019s website.\n\n### \ud83c\udfec 4. Cash/In-Person Store Refund\n\nIf you return an item and receive the refund in the form of cash, the money is physically given to you.\n\n*   **Typical Wait Time:** **Instant.**\n*   **Exception:** If the store processes the refund by running the credit on your card terminal, it will follow the card timeline (5\u201310 days).\n\n***\n\n### \ud83d\udca1 Summary Timeline Guide\n\n| Payment Method | Estimated Timeframe | Key Variable |\n| :--- | :--- | :--- |\n| **Credit/Debit Card** | 5\u201310 Business Days | Your Bank's Processing Time |\n| **PayPal** | 1\u20135 Business Days | Bank Payout Time |\n| **Store Credit / Gift Card** | Instant | N/A |\n| **Cash Refund** | Instant | N/A |\n\n***\n\n### What You Should Do if the Refund is Late\n\n1.  **Check Your Statement:** Do not assume the refund hasn't happened. Sometimes, the money appears on a separate statement or is marked as a \"pending credit.\"\n2.  **Check the Original Confirmation:** The company that approved the refund should have stated the expected timeline in the confirmation email.\n3.  **Wait 10 Business Days:** If the refund is for a credit/debit card and it has been 10 business days, it is reasonable to contact the seller or the merchant's customer service for a refund tracer.\n4.  **Contact Your Bank:** If the merchant confirms the refund has been sent, but you haven't seen it, call your bank and ask them to place a **\"pending credit hold\"** on your account from the specific merchant. They can sometimes help locate the incoming funds.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 136,
+          "output_tokens": 7,
+          "total_tokens": 143
+        },
+        "gemma4:latest": {
+          "input_tokens": 31,
+          "output_tokens": 1420,
+          "total_tokens": 1451
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 6,
+        "rationale": "The answer correctly states the general timeframe (5-7 business days) for card refunds, but it fails the critical constraint of being concise, providing excessive detail, multiple sections, and tables that violate the 'no more than a sentence or two' rule."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.7715825419873
+    },
+    {
+      "item_id": "support-easy-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Because the steps required depend entirely on **which account** you are locked out of (e.g., Google, Facebook, your bank, your company network, etc.), I cannot give you one single answer.\n\nHowever, I can give you a prioritized checklist of the fastest and most effective methods that work for nearly every major service.\n\n***\n\n### \ud83d\ude80 The Universal Fast-Track Checklist (Try these first)\n\n**1. Look for the \"Forgot Password?\" Link:**\nWhen you are on the login screen, almost every service will have a link below the password box that says \"Forgot Password,\" \"Trouble Logging In,\" or something similar. **Click this first.** It initiates the service's official recovery process.\n\n**2. Use Your Primary Recovery Method:**\nThe service will prompt you to verify your identity. These are the most common and fastest methods:\n*   **Recovery Email:** A link or code sent to a secondary email address you registered.\n*   **Recovery Phone Number:** A text message (SMS) containing a verification code.\n*   **Security Questions:** Answering pre-set questions (e.g., \"What was your mother's maiden name?\").\n\n**3. Check Your Authenticator App:**\nIf you used two-factor authentication (2FA) with an app like Google Authenticator or Authy, the recovery process will involve entering a constantly changing code generated by that app.\n\n***\n\n### \ud83d\udee1\ufe0f If the Standard Methods Fail (Contingency Plan)\n\nIf you don't have access to the recovery email, phone, or security questions, you need to escalate your recovery efforts by proving ownership.\n\n**1. Use a Trusted/Known Device:**\nAttempt the password reset process from a device (like your personal laptop or tablet) and a network (like your home Wi-Fi) that you have used to log in to that account *before*. Services often trust access attempts originating from familiar devices.\n\n**2. Look for Account Recovery Forms:**\nMajor companies (like Apple, Google, and Microsoft) have specific, detailed forms for when all other methods fail. You may have to fill out a lengthy form and wait for a manual review from their support team.\n\n**3. Contact Customer Support Directly (The Last Resort):**\nIf the account is for a commercial service (like a bank or utility), call their dedicated customer support line and explain that you are locked out. They may have internal verification methods that can help you regain access.\n\n***\n\n### \u26a0\ufe0f What to Avoid\n\n*   **Don't panic and click random links.** Only use the recovery links provided by the official website.\n*   **Never give your password to anyone.** Customer service agents will *never* ask you for your password.\n*   **Avoid suspicious email requests.** If you get an email asking for a password reset via a link, and you aren't sure it's legitimate, open the official website and navigate there yourself.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 140,
+          "output_tokens": 7,
+          "total_tokens": 147
+        },
+        "gemma4:latest": {
+          "input_tokens": 36,
+          "output_tokens": 983,
+          "total_tokens": 1019
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by providing sensible, generic guidance (mentioning 'Forgot Password?' links, recovery emails, and contacting support) while containing no fabricated URLs or internal tool names presented as fact."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.283247999846935
+    },
+    {
+      "item_id": "support-hard-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "I completely understand your frustration. Dealing with multiple issues\u2014shipping delays, missing refunds, and billing errors\u2014all at once is incredibly stressful.\n\nI will walk you through each of these issues sequentially, providing an explanation for what might be happening and the precise steps you should take for each one.\n\n***\n\n### \ud83d\udce6 Issue 1: Order #A1002 Hasn't Shipped After 2 Weeks\n\n**What is likely going on:**\nShipping delays are unfortunately common and can be caused by several factors: the warehouse experiencing high volume, customs inspection (if international), or unexpected logistical bottlenecks in the shipping carrier's network.\n\n**What you should do:**\n1. **Check Initial Details:** First, review the original confirmation email you received. Sometimes a separate email with a more detailed \"estimated ship date\" or a tracking number is sent later.\n2. **Locate the Tracking Status:** If you have a tracking number, enter it directly into the carrier's website (e.g., USPS, FedEx, DHL). The carrier's site will provide the most accurate real-time status, even if our internal system hasn't updated yet.\n3. **Next Action (Escalation):** If the tracking status hasn't updated in 3\u20135 days, or if the status hasn't been given at all, you must open a formal inquiry with customer service. When you contact them, provide:\n    * The Order Number (#A1002).\n    * The date you placed the order.\n    * The fact that the stated shipping window (or expected date) has passed.\n\n***\n\n### \ud83d\udcb8 Issue 2: My Last Refund Never Posted\n\n**What is likely going on:**\nWhen a company issues a refund, the money is returned to the original source of payment (your credit card, PayPal, etc.). The company sends the money immediately, but the *banks* and *payment processors* are what hold the money and process the final transaction. This can cause a noticeable delay.\n\n**What you should do:**\n1. **Wait for the Processing Time:** Most standard refunds take **7 to 14 business days** to appear back in your account. If it's still within this window, it simply hasn't reached your bank yet.\n2. **Check the Account:** Check your online bank account statement and/or credit card app. Sometimes, the pending refund amount is listed as a \"credit\" or \"pending reversal,\" even if the money hasn't fully posted to your available balance.\n3. **If the Time Passes:** If more than 14 business days have passed since the refund was originally confirmed, you need to do two things:\n    * Contact the company and ask for a **Refund Confirmation ID** or a **Transaction Reference Number** for the reversal.\n    * If the company cannot provide proof of the refund being sent, you must contact your **bank's fraud/customer service department** and give them the amount and the date it was supposed to be received. They can initiate an investigation (a chargeback) if the seller hasn't fulfilled their end of the process.\n\n***\n\n### \ud83d\udcb3 Issue 3: Being Charged Twice for the Same Subscription\n\n**What is likely going on:**\nThis is a clear billing error. There are two common reasons: 1) The company accidentally processed the renewal twice, or 2) You may have clicked up to the subscription page twice, triggering two separate payment cycles. Regardless of the cause, you should not pay for two services.\n\n**What you should do:**\n1. **Gather Proof Immediately:** Take a **screenshot** of your billing statement that clearly shows the two identical charges and the dates they posted.\n2. **Cancel the Duplicate Service:** Log into your account settings and immediately cancel one of the subscriptions to prevent further accidental charges.\n3. **Initiate a Refund Dispute:** Contact customer service immediately. When you contact them, you must provide:\n    * The **Screenshot** evidence.\n    * Your clear request: \"I was charged twice for the same service on [Date 1] and [Date 2]. I require a refund for the duplicate charge.\"\n    * **Action Item:** If they refuse a refund, you will have to dispute the charge through your credit card company (a chargeback) using your screenshot as evidence that the charge is incorrect.\n\n***\n\n**Summary Action Plan:**\n\nFor the fastest resolution, you must track these issues independently. I recommend making a list of the following information for when you call customer service:\n\n*   **Order #:** A1002\n*   **Service:** Subscription details\n*   **Charges:** The exact amount and the dates of both charges.\n*   **Refund Details:** The date the refund was originally confirmed.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 178,
+          "output_tokens": 7,
+          "total_tokens": 185
+        },
+        "gemma4:latest": {
+          "input_tokens": 75,
+          "output_tokens": 1652,
+          "total_tokens": 1727
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by addressing all three issues (late shipment, missing refund, double charge) in separate, clearly marked sections, suggesting concrete next steps for each, and maintaining appropriate caution by not claiming to know the account's actual state."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.652044707909226
+    },
+    {
+      "item_id": "support-hard-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "# API Integration Reliability Policy: Idempotency, Retry, and Caching\n\nThis policy outlines our defined behavior for handling request resilience mechanisms. The goal is to ensure data integrity and predictable outcomes for our technical partners.\n\n***\n\n## \ud83d\udee1\ufe0f The Principle of Idempotency\n\n**Definition:** An operation is idempotent if executing it multiple times with the same parameters yields the same result as executing it once.\n\n**Why it matters:** Network instability, timeouts, or client retries can cause a single logical request to be sent multiple times. To prevent unintended side effects (e.g., double-charging, double-refunds), **all critical, state-changing endpoints must be protected by an idempotency key.**\n\n### Idempotency Implementation Requirement\nFor any call that modifies data (e.g., `POST`, `PUT`, `DELETE`, or a dedicated refund endpoint), the partner *must* include a unique, client-generated `Idempotency-Key` header.\n\n**Example Header:** `Idempotency-Key: abc-123-xyz`\n\n***\n\n## \u21a9\ufe0f Refund Behavior\n\nRefunds represent a direct financial state change and are therefore highly susceptible to duplicate execution.\n\n**Interaction with Idempotency:** **Mandatory.** The `/refund` endpoint is designed to be idempotent.\n\n*   **Behavior:** When a unique `Idempotency-Key` is provided, the API will accept the request only if it has not been processed with that key before.\n*   **Scenario:** If a client retries a refund using the exact same `Idempotency-Key` after the initial request timed out, the API will safely return the original success status code and response body, preventing a double-refund.\n*   **Partner Action:** Always generate and use a unique key for every distinct refund action, even if the underlying charge details are the same.\n\n## \ud83d\udd01 Retry Behavior\n\nRetries are necessary for transient errors (e.g., HTTP 429 Rate Limits, HTTP 503 Service Unavailable, or connection timeouts).\n\n**Interaction with Idempotency:** **Crucial.** The suitability of retrying an operation depends entirely on its idempotency.\n\n| Operation Type | Safety of Retry | Recommended Approach |\n| :--- | :--- | :--- |\n| **Read Only (`GET`)** | **Safe.** Always safe to retry. | Implement automatic client-side exponential backoff (e.g., wait 1s, then 2s, then 4s). |\n| **Idempotent Write (`POST` with Key)** | **Safe.** If an `Idempotency-Key` is used, retrying is safe. | Implement automatic client-side exponential backoff. Use the key to ensure integrity. |\n| **Non-Idempotent Write (`POST` without Key)** | **Dangerous.** Retrying risks duplicate resource creation (e.g., charging a customer twice). | **DO NOT automatically retry.** Instead, handle transient errors by polling a dedicated status/confirmation endpoint to verify if the original request succeeded. |\n\n**Key Takeaway:** Never assume a request failed if the connection times out. Always use the defined retry strategy based on the operation\u2019s idempotency level.\n\n## \ud83d\udcbe Caching Behavior\n\nCaching improves performance but must be managed carefully to ensure the cached data reflects the current system state.\n\n**Interaction with Idempotency:** **None.** Caching operates independently of idempotency keys.\n\n| Data Type | Recommendation | HTTP Mechanism |\n| :--- | :--- | :--- |\n| **Read-Only Data (Product Lists, Static Configs)** | **Encourage Caching.** Cache results locally using established Time-To-Live (TTL) intervals. | Utilize standard HTTP Caching Headers (`Cache-Control`, `ETag`). |\n| **Status Checks (e.g., `GET /transaction/{id}`)** | **Conditional Caching.** Cache the result for a short period (e.g., 30 seconds) to reduce load. Must implement cache invalidation logic. | Use the `ETag` header on the response. If the resource changes, the API will return a new `ETag` forcing the client to re-fetch. |\n| **State-Changing Data (Charges, Refunds)** | **DO NOT Cache.** Never cache the result of a write operation. Always confirm success with a direct API response. | N/A |\n\n### Summary Checklist for Partners\n\n| Action | Goal | Must Use |\n| :--- | :--- | :--- |\n| **Write/Refund** | Prevent duplicate state changes. | **Idempotency-Key** |\n| **Read/GET** | Improve efficiency and reduce API calls. | **Cache-Control / ETag** |\n| **Retry** | Handle network instability. | **Exponential Backoff** (Avoid retrying non-idempotent calls) |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 153,
+          "output_tokens": 7,
+          "total_tokens": 160
+        },
+        "gemma4:latest": {
+          "input_tokens": 45,
+          "output_tokens": 1791,
+          "total_tokens": 1836
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by defining refunds, retries, and caching as distinct concepts, providing a highly coherent structure, and correctly connecting each mechanism to idempotency (e.g., requiring keys for refunds, linking retry safety to idempotency status, and detailing how caching must use context like ETag to prevent stale data)."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.552393042016774
+    },
+    {
+      "item_id": "support-easy-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Your order A1001 was shipped on 2026-09-18 and is scheduled to arrive on 2026-09-24.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 268,
+          "output_tokens": 14,
+          "total_tokens": 282
+        },
+        "gemma4:latest": {
+          "input_tokens": 656,
+          "output_tokens": 433,
+          "total_tokens": 1089
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 3,
+        "rationale": "The score is lowered because the answer fails to include the required function call to `lookup_order_status` with the specified order ID."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.420300415949896
+    },
+    {
+      "item_id": "support-easy-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Your order A1003 was delivered on 2026-09-15.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 270,
+          "output_tokens": 14,
+          "total_tokens": 284
+        },
+        "gemma4:latest": {
+          "input_tokens": 642,
+          "output_tokens": 379,
+          "total_tokens": 1021
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The score is lowered because the answer fails to include the required function call to `lookup_order_status` with the specified order ID."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.412604375043884
+    },
+    {
+      "item_id": "support-hard-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "research",
+        "messages_back": 0
+      },
+      "answer": "Yes, failed requests are handled automatically by the SDK. Specifically, the SDK is configured to retry a request up to **3 times** if it receives a rate limit error (429) or a server-side error (5xx). This retry mechanism uses **exponential backoff**, meaning the wait time between retries increases exponentially to give the service time to recover.\n\nThis controlled retry system is a key improvement over indefinite retries. If the system were to retry indefinitely, it could create a \"retry storm,\" overwhelming the service and worsening the initial problem. By capping the retries at three and introducing backoff delays, we manage our load, give the external service time to stabilize, and ensure we only exhaust resources when the failure is persistent rather than temporary.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 324,
+          "output_tokens": 14,
+          "total_tokens": 338
+        },
+        "gemma4:latest": {
+          "input_tokens": 712,
+          "output_tokens": 613,
+          "total_tokens": 1325
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by accurately reporting the '3 retries with exponential backoff on 429/5xx' fact and providing a detailed comparison to indefinite retries (e.g., 'retry storm,' 'overwhelming the service')."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 5.582375250058249
+    },
+    {
+      "item_id": "support-hard-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "I was unable to find specific documentation detailing how our caching keys prevent route leakage. However, based on standard caching principles, I can provide a simple, non-technical explanation for your customer:\n\n\"Our system treats each route's request as unique, assigning it a distinct digital 'key' in our cache. This ensures that the responses for one route are never mixed up with or accidentally served to a user accessing a different route.\"",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 324,
+          "output_tokens": 14,
+          "total_tokens": 338
+        },
+        "gemma4:latest": {
+          "input_tokens": 688,
+          "output_tokens": 704,
+          "total_tokens": 1392
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 3,
+        "rationale": "The answer successfully translates the concept into plain language in two sentences, but it fails to call search_docs for the cache-key fact and does not report that the cache key includes the route name."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 6.3281471251975745
+    },
+    {
+      "item_id": "coder-easy-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The Python `%` operator is a versatile operator that performs two main functions, depending on how it's used:\n\n1. **The Modulo Operator (Arithmetic)**: When used with two numbers, it calculates the **remainder** of a division. This is its most common and foundational use.\n2. **The String Formatting Operator (Legacy)**: Historically, and still functional, it was used for embedding values into strings (similar to `printf` in C). This method is now generally considered *outdated* in favor of f-strings or the `.format()` method.\n\nHere is a detailed breakdown of both uses.\n\n---\n\n## 1. The Modulo Operator (Arithmetic Use)\n\nWhen `A % B` is executed, the result is the remainder when `A` is divided by `B`.\n\n### Examples:\n\n| Operation | Calculation | Result | Explanation |\n| :---: | :---: | :---: | :--- |\n| `10 % 3` | 10 divided by 3 is 3 with a remainder of **1**. | `1` | $3 \\times 3 + 1 = 10$ |\n| `15 % 5` | 15 divided by 5 is 3 with a remainder of **0**. | `0` | 15 is perfectly divisible by 5. |\n| `7 % 2` | 7 divided by 2 is 3 with a remainder of **1**. | `1` | Useful for checking if a number is odd or even. |\n\n### Common Use Cases:\n\n* **Checking for Even/Odd:** If `N % 2 == 0`, the number `N` is even.\n* **Cyclic Behavior:** Calculating when an event repeats (e.g., finding the day of the week 100 days from now).\n* **Wrapping Around:** Used in arrays or circular buffers to ensure an index never exceeds the size of the container (e.g., `index = (index + 1) % size`).\n\n### Behavior with Negative Numbers (Important!)\n\nPython's modulo operator handles negative numbers in a way that the result always has the same sign as the **divisor** (the number on the right).\n\n```python\n# Positive/Negative\nprint(10 % -3)   # Output: -2 (The result has the sign of -3)\n# Negative/Positive\nprint(-10 % 3)   # Output: 2 (The result has the sign of 3)\n```\n\n---\n\n## 2. The String Formatting Operator (Legacy Use)\n\nThe `%` operator can also be used to format strings by embedding variables into placeholders within the string. This method mimics the formatting syntax of languages like C.\n\n### How it Works:\n\nYou place placeholders like `%s` (for strings), `%d` (for integers), and `%f` (for floating-point numbers) in the string, and then provide the variables to be inserted after the `%` operator.\n\n### Example:\n\n```python\nname = \"Alice\"\nage = 30\n\n# Using % for formatting\nmessage = \"My name is %s and I am %d years old.\" % (name, age)\n\nprint(message)\n# Output: My name is Alice and I am 30 years old.\n```\n\n### \u26a0\ufe0f Modern Alternatives (Highly Recommended!)\n\nWhile the formatting use of `%` still works, **it is considered outdated and less readable** than modern Python methods. You should use one of these instead:\n\n#### A. F-strings (Python 3.6+) - *The Best Option*\nF-strings are the easiest and most readable way to format strings. You prefix the string literal with an `f`.\n\n```python\nname = \"Alice\"\nage = 30\n\n# Using f-strings\nmessage = f\"My name is {name} and I am {age} years old.\"\nprint(message)\n```\n\n#### B. The `.format()` Method\nThis method is more flexible than f-strings and was the standard replacement before f-strings.\n\n```python\nname = \"Alice\"\nage = 30\n\n# Using .format()\nmessage = \"My name is {} and I am {} years old.\".format(name, age)\nprint(message)\n```\n\n---\n\n## Summary Table\n\n| Use Case | Operator/Syntax | Example | Primary Purpose | Recommendation |\n| :--- | :--- | :--- | :--- | :--- |\n| **Arithmetic** | `A % B` | `10 % 3` | Calculating the **remainder** of a division. | Use this method whenever you need modular arithmetic. |\n| **String Formatting** | `\"%s\" % (var)` | `\"Hi %s\" % \"Bob\"` | Embedding variables into strings. | **Avoid.** Use f-strings (f\"Hi {variable}\") instead. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 131,
+          "output_tokens": 7,
+          "total_tokens": 138
+        },
+        "gemma4:latest": {
+          "input_tokens": 25,
+          "output_tokens": 1057,
+          "total_tokens": 1082
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly describing the operator as the modulo/remainder operator and providing multiple clear examples of its use."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.370220749871805
+    },
+    {
+      "item_id": "coder-easy-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "A list is a mutable, ordered sequence that can be modified (items can be added, removed, or changed), whereas a tuple is an immutable, ordered sequence whose contents cannot be altered after creation.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 139,
+          "output_tokens": 7,
+          "total_tokens": 146
+        },
+        "gemma4:latest": {
+          "input_tokens": 34,
+          "output_tokens": 240,
+          "total_tokens": 274
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly stating that lists are mutable and tuples are immutable in a single sentence."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.3590137080755085
+    },
+    {
+      "item_id": "coder-hard-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is a very common and straightforward error!\n\nHere is a detailed breakdown of what is happening, and several ways you can fix it, depending on what your code is intended to do.\n\n---\n\n## \ud83d\udd0d What is Causing It?\n\nThe error is a `ZeroDivisionError: division by zero`.\n\nThis error occurs specifically on this line of code:\n\n```python\ntotal = sum(prices) / len(items)\n```\n\n**The cause:** The Python interpreter is calculating the denominator (`len(items)`), and that value is currently **zero (0)**.\n\n**In plain English:** You are trying to divide a number (the sum of prices) by zero. Division by zero is mathematically undefined, and Python correctly raises an error because you cannot perform this operation.\n\n**When does this happen?**\nIt happens when the list `items` is an **empty list** (`[]`). If `items` is empty, `len(items)` returns `0`.\n\n* **Example Scenario:** Your program runs, but it has no data to process. The list `items` was initialized or populated, but nothing was ever added to it.\n\n## \ud83d\udee0\ufe0f How to Fix It (The Solutions)\n\nYou need to check if the list `items` is empty **before** you attempt the division.\n\nHere are three common ways to handle this, depending on what result you want when the list is empty.\n\n### Solution 1: The \"Safe Guard\" (Recommended Best Practice)\n\nThe most robust way is to wrap your calculation in an `if` statement. If the list is empty, you can set a default value (like `0`) for the `total`, or you can skip the calculation entirely.\n\n```python\n# Assume 'items' is the list you are working with\n\nif len(items) > 0:\n    # Only calculate the average if there are items\n    total = sum(prices) / len(items)\nelse:\n    # If there are no items, the average must be 0 (or None, depending on requirements)\n    total = 0\n```\n\n### Solution 2: Using a Ternary Operator (Concise Code)\n\nIf you prefer a shorter, one-line fix, you can use a Python conditional expression (a ternary operator):\n\n```python\n# total will be the average if items exist, otherwise it will be 0.\ntotal = (sum(prices) / len(items)) if len(items) > 0 else 0\n```\n\n### Solution 3: Handling Edge Cases (Advanced)\n\nIf you are using this logic within a larger class or function, you might want to return a specific value or raise a controlled exception instead of just setting `total = 0`.\n\nFor example, if finding the average of zero items is considered an invalid state, you might structure your function like this:\n\n```python\ndef calculate_average(items):\n    if not items:  # 'not items' is a standard way to check if a list is empty\n        raise ValueError(\"Cannot calculate average: The item list is empty.\")\n    \n    # If we pass the check, we can safely calculate\n    prices = [item['price'] for item in items] # Assuming prices need to be extracted\n    return sum(prices) / len(items)\n\n# Test cases:\n# calculate_average([]) # This will now raise the custom ValueError\n# calculate_average([{'price': 10}]) # This works fine\n```\n\n## \u2728 Summary Table\n\n| Error | `ZeroDivisionError` |\n| :--- | :--- |\n| **Cause** | The list `items` is empty (`len(items)` is 0). |\n| **Problem Line** | `total = sum(prices) / len(items)` |\n| **Best Fix** | Use an `if` statement to check the length first: `if len(items) > 0: ... else: total = 0` |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 191,
+          "output_tokens": 7,
+          "total_tokens": 198
+        },
+        "gemma4:latest": {
+          "input_tokens": 94,
+          "output_tokens": 845,
+          "total_tokens": 939
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by identifying that the empty list `items` is the cause, suggesting multiple methods for implementing a length check (guard), and focusing only on the relevant error."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.560470791067928
+    },
+    {
+      "item_id": "coder-hard-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is a classic example of the **N+1 query problem**. For every order ID, the original function performs a separate database round trip, leading to high latency and resource overuse when the list of IDs is large.\n\nHere is the refactored function, followed by a detailed explanation of the trade-offs.\n\n---\n\n## \ud83d\ude80 Refactored Function\n\nWe must assume that your `db` layer can be updated to support retrieving multiple records using a single, optimized query (e.g., using a database `IN` clause).\n\n```python\ndef get_order_totals_refactored(order_ids):\n    \"\"\"\n    Fetches all required order totals using a single batch database query.\n    \"\"\"\n    if not order_ids:\n        return []\n\n    # 1. Perform ONE database query to fetch all necessary orders.\n    # We assume db.fetch_orders_by_ids handles the conversion of the list\n    # into a safe 'WHERE id IN (...)' query.\n    orders = db.fetch_orders_by_ids(order_ids)\n\n    # 2. Process the results in memory (Python list comprehension).\n    totals = [order.total for order in orders]\n    \n    return totals\n```\n\n***\n\n## \ud83e\udde0 Explanation and Trade-Offs\n\n### How the Refactoring Works\n\nThe fundamental change is moving from **sequential processing** (query 1, loop, query 2, loop, query 3...) to **batch processing** (gather all IDs $\\rightarrow$ query once $\\rightarrow$ process all results).\n\nInstead of letting the database execute $N$ trips, the refactored code constructs a query like this (conceptually):\n\n```sql\nSELECT total, * FROM orders WHERE id IN (id1, id2, id3, ..., idN);\n```\n\nThis drastically reduces network overhead and allows the database to optimize the retrieval of all data points in one efficient operation.\n\n### \u2705 Advantages (The Gains)\n\n1. **Performance (Time Complexity):** This is the biggest win. The time complexity shifts from $O(N)$ queries (where $N$ is the number of IDs) to $O(1)$ query executions. This means the function scales much better as the size of `order_ids` increases.\n2. **Reduced Latency:** Network latency (the time taken for a round trip between the application server and the database server) is often the biggest bottleneck. Minimizing these trips greatly improves speed.\n3. **Resource Efficiency:** It puts far less stress on the database connection pool, which is crucial for high-traffic applications.\n\n### \u26a0\ufe0f Trade-Offs and Considerations (The Costs)\n\n#### 1. Dependency on `db` Layer Modification (The Cost)\nThe most significant trade-off is that **the underlying data access layer (`db`) must be modified or updated.** The original function structure was simply calling a method (`db.fetch_order(oid)`). The refactoring requires implementing a new, more complex method (`db.fetch_orders_by_ids(order_ids)`) that handles list parametrization safely.\n\n#### 2. Database Query Limits (The Scalability Constraint)\nWhile batching is generally good, some database systems or ORMs impose limits on the number of parameters that can be passed in a single query (e.g., passing more than 100 IDs in an `IN` clause). If `order_ids` could contain thousands of items, you might need to implement a further optimization step: **Chunking**.\n\n*   **Mitigation (Chunking):** If $N$ is very large, the optimized function would not send all $N$ IDs at once, but instead send them in batches of $K$ (e.g., $K=500$), running multiple batch queries and concatenating the results.\n\n#### 3. Error Handling Complexity (The Code Complexity)\nThe original code handled errors naturally: if `db.fetch_order(oid)` failed for ID 5, the error would happen only for that ID. In the refactored code, the entire batch query executes together. If the batch fails (e.g., due to a malformed ID type, or a database connection issue), the failure affects the entire list, requiring slightly more robust `try...except` blocks around the single query call.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 193,
+          "output_tokens": 7,
+          "total_tokens": 200
+        },
+        "gemma4:latest": {
+          "input_tokens": 103,
+          "output_tokens": 1711,
+          "total_tokens": 1814
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by proposing batching the fetch into a single call, naming multiple real trade-offs (e.g., dependency on the DB layer, query limits, and error handling complexity), and providing a detailed refactoring that does not merely restate the original code."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.708027584012598
+    },
+    {
+      "item_id": "coder-easy-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": 0
+      },
+      "answer": "Yes, the snippet has a syntax error.\n\nThe tool reported: `SyntaxError: invalid syntax at line 2`.\n\nThe issue is that the `return x +` statement is incomplete; you need an expression after the plus sign.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 282,
+          "output_tokens": 14,
+          "total_tokens": 296
+        },
+        "gemma4:latest": {
+          "input_tokens": 654,
+          "output_tokens": 301,
+          "total_tokens": 955
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the assistant explicitly reports the output of a tool (`The tool reported: SyntaxError: invalid syntax at line 2`), fully satisfying the requirement to call and report the syntax error found by a linter."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.357498375000432
+    },
+    {
+      "item_id": "coder-easy-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": 0
+      },
+      "answer": "The code snippet has a syntax error: `SyntaxError: '(' was never closed at line 1`.\n\nYou are missing a closing parenthesis after the string literal. It should be `print('hello')`.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 268,
+          "output_tokens": 14,
+          "total_tokens": 282
+        },
+        "gemma4:latest": {
+          "input_tokens": 632,
+          "output_tokens": 377,
+          "total_tokens": 1009
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer reports the unclosed-parenthesis syntax error, fully satisfying the rubric's requirement to report the error found by a linter."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.35672895796597
+    },
+    {
+      "item_id": "coder-hard-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 350,
+          "output_tokens": 14,
+          "total_tokens": 364
+        },
+        "gemma4:latest": {
+          "input_tokens": 729,
+          "output_tokens": 1276,
+          "total_tokens": 2005
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the answer is missing entirely, failing to call the calculator, report the correct number of operations, or provide the required follow-on remark."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.519857875071466
+    },
+    {
+      "item_id": "coder-hard-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "The total cost is **$0.900002**.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 356,
+          "output_tokens": 14,
+          "total_tokens": 370
+        },
+        "gemma4:latest": {
+          "input_tokens": 747,
+          "output_tokens": 918,
+          "total_tokens": 1665
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the assistant reports a total ($0.900002) that is close to $0.90, satisfying the core requirement of the rubric."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 5.516277125105262
+    },
+    {
+      "item_id": "research-easy-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Photosynthesis is the process used by plants, algae, and certain bacteria to convert light energy, typically from the sun, into chemical energy in the form of glucose, using water and carbon dioxide.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 131,
+          "output_tokens": 7,
+          "total_tokens": 138
+        },
+        "gemma4:latest": {
+          "input_tokens": 24,
+          "output_tokens": 40,
+          "total_tokens": 64
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly describing plants converting light, water, and CO2 into glucose/energy."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.730700999964029
+    },
+    {
+      "item_id": "research-easy-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The mitochondria are the cell's powerhouse, responsible for generating usable energy (ATP) by converting nutrients through cellular respiration.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 149,
+          "output_tokens": 7,
+          "total_tokens": 156
+        },
+        "gemma4:latest": {
+          "input_tokens": 40,
+          "output_tokens": 316,
+          "total_tokens": 356
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer is a single, faithful summary that successfully retains both the mitochondria and ATP facts as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.596584499813616
+    },
+    {
+      "item_id": "research-hard-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is a fundamental question in machine learning, as the choice between supervised and unsupervised methods dictates the entire structure of the problem, the required data preprocessing, and the achievable outcomes.\n\nHere is a detailed comparison and contrast, followed by an explanation of why this choice is critical for a team dealing with mostly unlabeled data.\n\n---\n\n## \ud83e\udde0 Part 1: Defining the Approaches\n\n### \ud83d\udfe2 Supervised Learning\nSupervised learning is the process of training a model on a **labeled dataset**. In this scenario, the algorithm is given input data ($\\text{X}$) paired with the correct output or desired result ($\\text{Y}$). The model acts like a student being \"supervised\" by a teacher (the labels), learning a function that maps the inputs to the outputs ($f(X) = Y$).\n\n*   **How it works:** The algorithm learns from examples of the correct answer. If the input is a picture of a dog, and the label is \"dog,\" the model learns to associate the visual features of dogs with the label \"dog.\"\n*   **Goal:** Prediction. To accurately predict a specific, predefined outcome for new, unseen data.\n*   **Types of Tasks:**\n    *   **Classification:** Predicting a discrete label (e.g., classifying an email as *spam* or *not spam*).\n    *   **Regression:** Predicting a continuous value (e.g., predicting the *price* of a house based on its size).\n*   **Examples:** Image recognition, spam filters, predicting stock prices.\n\n### \ud83d\udd35 Unsupervised Learning\nUnsupervised learning is the process of training a model on an **unlabeled dataset**. The algorithm is given only the input data ($\\text{X}$) and no corresponding output ($\\text{Y}$). It is left to discover inherent structures, patterns, groupings, or relationships within the data on its own.\n\n*   **How it works:** The algorithm examines the data and identifies natural groupings or dimensions that maximize internal consistency. It doesn't know the \"right answer\"; it only knows how the data points relate to each other.\n*   **Goal:** Exploration and Structure Discovery. To understand the underlying geometry and natural organization of the data.\n*   **Types of Tasks:**\n    *   **Clustering:** Grouping similar data points together (e.g., segmenting customers into natural groups).\n    *   **Dimensionality Reduction:** Reducing the number of features while preserving crucial information (e.g., simplifying a complex dataset without losing key variance).\n    *   **Association:** Finding rules that describe relationships between variables (e.g., discovering that customers who buy bread often also buy butter).\n*   **Examples:** Market segmentation, recommendation systems, anomaly detection.\n\n---\n\n## \ud83d\udcca Part 2: Comparison and Contrast\n\n| Feature | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Data Requirement** | Labeled data ($\\text{X}, \\text{Y}$) | Unlabeled data ($\\text{X}$) |\n| **Primary Goal** | Prediction (Mapping X $\\rightarrow$ Y) | Discovery (Finding structure in X) |\n| **Output** | A defined prediction (e.g., \"Dog,\" 250,000) | Clusters, components, reduced dimensions |\n| **Supervision** | Required (The labels guide the learning) | Not required (The data guides the learning) |\n| **Key Question** | \"Given this, what is the known answer?\" | \"What hidden patterns exist here?\" |\n| **Common Algorithms** | Linear Regression, SVM, Decision Trees | K-Means, PCA, DBSCAN |\n\n---\n\n## \ud83d\udca1 Part 3: The Importance of Choice for Unlabeled Data\n\nThe crucial detail in your scenario is that the team has **mostly unlabeled data.** This limitation makes the choice between supervised and unsupervised methods critical because it dictates **which methods can be used at all** and **what goals can realistically be set.**\n\n### 1. The Constraint: Supervised Learning Is Impossible (Initially)\n\nSince supervised learning *requires* labeled examples, if the data is mostly unlabeled, a team cannot immediately build robust supervised models.\n\n*   **The Barrier:** The team cannot simply wait for labels; labeling massive datasets is prohibitively expensive, time-consuming, and often requires highly specialized human expertise.\n*   **The Consequence:** If the team attempts to force a supervised approach without labels, the model will be trained on insufficient or biased data, leading to poor generalization and failure in deployment.\n\n### 2. The Solution: Unsupervised Learning Must Lead the Way\n\nWhen data is unlabeled, **unsupervised learning is the mandatory starting point.** It allows the team to extract value and knowledge immediately, even without the answer key.\n\n**Why this choice matters for the team:**\n\n#### A. Defining Structure Before Prediction (Exploratory Analysis)\nUnsupervised techniques are used for **Exploratory Data Analysis (EDA)**. The team can use algorithms like K-Means clustering or Principal Component Analysis (PCA) to answer \"What are the natural groups in our data?\"\n\n*   **Example:** If the team has customer purchase records, clustering can reveal three distinct groups: \"Budget Shoppers,\" \"Luxury Buyers,\" and \"Occasional Bulk Buyers.\"\n\n#### B. Generating Hypotheses for Future Labeling\nThe results from unsupervised methods are not final answers; they are **insights** that generate hypotheses. These hypotheses then tell the team *where* to focus their labeling efforts.\n\n*   **From Unsupervised to Supervised:** Once the team discovers three distinct customer clusters, they can realize that future marketing campaigns need three different strategies. They can then deliberately take samples from each cluster, label them (\"requires Campaign A,\" \"requires Campaign B\"), and *then* use those smaller, targeted labels to train a powerful supervised model.\n\n#### C. Handling Anomaly Detection\nUnsupervised models are excellent at identifying data points that do not fit the discovered structure (outliers).\n\n*   **Value:** These outliers often represent novel, valuable, or fraudulent activity that the business has not yet defined, making them critical to investigate first.\n\n### Summary for the Team\n\n| If the data is mostly unlabeled... | The Team Must... | The Focus Must Be On... |\n| :--- | :--- | :--- |\n| **Don't...** | Try to build a supervised model immediately. | **Structure Discovery:** Understanding the natural groupings and dimensions of the data. |\n| **Do...** | Use unsupervised clustering, dimensionality reduction, and association rules. | **Hypothesis Generation:** Using the discovered patterns to inform *where* and *what* needs to be labeled next, making the subsequent supervised effort efficient and targeted. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 147,
+          "output_tokens": 7,
+          "total_tokens": 154
+        },
+        "gemma4:latest": {
+          "input_tokens": 38,
+          "output_tokens": 1616,
+          "total_tokens": 1654
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by clearly distinguishing labeled vs. unlabeled data and providing a detailed, strategic explanation of why unlabeled data necessitates an initial focus on unsupervised methods to guide future labeling efforts."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.38677941611968
+    },
+    {
+      "item_id": "research-hard-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This argument is **logically unsound**. While it is a common, persuasive pattern in business communication, it commits a fundamental logical fallacy: the fallacy of **Hasty Generalization** (or, more specifically, relying on **Unsupported Extrapolation**).\n\nHere is a detailed critique of the flaw and suggestions for a better way to reason about it.\n\n***\n\n## \ud83d\udd2c Analysis of the Flaw\n\nThe structure of the argument is:\n\n*   **Premise (Historical Observation):** P (Past success) has always happened.\n*   **Conclusion (Prediction):** Therefore, Q (Future success) must happen.\n\nThe logical flaw lies in assuming that the factors that caused the past successful outcomes ($\\text{P}$) are the *only* factors, and that they are guaranteed to persist, regardless of changes in context, market conditions, or internal execution.\n\n### 1. Fallacy of Induction (The \"Black Swan\" Problem)\nThe argument treats correlation (past success) as causation (guaranteed future success). Just because Product A, Product B, and Product C succeeded, it does not logically necessitate that Product D will succeed.\n\n*   **Why it fails:** Success in the past could be due to factors that are not repeatable. The success might be attributable to a favorable economic cycle, a temporary competitor vacuum, or the specific timing of a niche market need that Product D will not meet.\n*   **The missing variable:** The argument ignores the possibility of \"Black Swan\" events\u2014unforeseen external market changes (economic downturns, new technologies, regulatory shifts)\u2014that could derail even the most promising product.\n\n### 2. Ignoring Systemic Risks (The \"Non-Guaranteed\" Problem)\nLogical soundness requires that the premises provide sufficient evidence for the conclusion. Simply observing a pattern of success is not sufficient evidence to prove future success.\n\n*   **What the argument ignores:** The difficulty of the new product, resource constraints, changes in the target audience, or flaws in the business model that were not present in the previous, more successful products.\n\n***\n\n## \ud83d\udca1 Suggesting a Better Way to Reason\n\nTo make the argument logically sound (or, more accurately, *highly probable*), you must shift from predicting *outcomes* to demonstrating *robust underlying causal mechanisms* and *mitigating specific risks*.\n\nInstead of stating, \"It will succeed,\" the argument must prove, \"We have maximized the chances of success because of X, Y, and Z.\"\n\nHere are three ways to restructure the thinking:\n\n### 1. Method 1: Focusing on Causal Mechanism (The \"Why\")\n\nDo not talk about past revenue; talk about the *causes* of that revenue.\n\n*   **Poor Reasoning:** \"Products A, B, and C made money, so Product D will.\"\n*   **Improved Reasoning:** \"Products A, B, and C successfully tapped into the unmet need of [Specific Customer Segment] by solving [Specific Problem] using [Specific Technology/Methodology]. For Product D, we are applying this proven mechanism (the combination of solving X problem for Y segment with Z methodology) and have validated that the market still requires it. Therefore, the *conditions for success* remain in place.\"\n\n**Key shift:** Move from a statement of results to a statement of **repeatable process**.\n\n### 2. Method 2: Employing Comparative Risk Modeling (The \"If Not\")\n\nA strong argument anticipates failure. By acknowledging potential risks and showing that the team has accounted for them, the argument gains significant intellectual weight.\n\n*   **Poor Reasoning:** \"It will succeed because we always succeed.\"\n*   **Improved Reasoning:** \"While we have a strong track record, we know that [Specific Risk, e.g., increased competition, supply chain issues] could jeopardize the launch. To counter this, we have developed Plan B (a tiered rollout) and invested in diversifying our supplier base. Based on our success in mitigating these known risks, we are highly confident in the product's viability.\"\n\n**Key shift:** Demonstrate **foresight and contingency planning**, not just historical performance.\n\n### 3. Method 3: Quantifying Market Proof Points (The \"Proof\")\n\nUse specific, external data that relates directly to the market need, rather than just internal sales numbers.\n\n*   **Poor Reasoning:** \"We shipped it, so it will sell.\"\n*   **Improved Reasoning:** \"Our market research indicates that 70% of the target demographic currently faces the problem of [Problem X], but no current solution adequately addresses [Gap Y]. We have confirmed this need through three channels: [1] pre-sale sign-ups showing X volume, [2] beta testing feedback indicating Y features are essential, and [3] competitive analysis showing a gap in the market that our unique features address.\"\n\n**Key shift:** Base the confidence level on **external, measurable market demand**, making the prediction about the market's receptivity, not just the company\u2019s past ability.\n\n***\n\n### Summary Table\n\n| Aspect | Unsounds Argument | Sounder Approach |\n| :--- | :--- | :--- |\n| **Logic** | Fallacy of Hasty Generalization (Past $\\to$ Future) | Establishing Causal Mechanisms (Why it worked) |\n| **Focus** | Internal past successes (Sales numbers) | External market needs (Customer pain points) |\n| **Tone** | Confident, declarative, assumptive | Measured, detailed, evidence-based, risk-aware |\n| **Goal** | To assert inevitability | To demonstrate high probability and mitigation |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 165,
+          "output_tokens": 7,
+          "total_tokens": 172
+        },
+        "gemma4:latest": {
+          "input_tokens": 59,
+          "output_tokens": 1366,
+          "total_tokens": 1425
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by naming the flaw (Hasty Generalization/Unsupported Extrapolation, which covers 'no-guarantee-from-past-success reasoning') and suggesting multiple sound approaches, including focusing on causal mechanisms, risk modeling, and quantifying external market proof points."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.964599249884486
+    },
+    {
+      "item_id": "research-easy-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Refunds post to the original payment method 5-7 business days after approval.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 266,
+          "output_tokens": 14,
+          "total_tokens": 280
+        },
+        "gemma4:latest": {
+          "input_tokens": 640,
+          "output_tokens": 415,
+          "total_tokens": 1055
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 9,
+        "rationale": "The answer successfully reports the required '5-7 business days to the original payment method' fact, but it fails to show the required call to the `search_docs` tool."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.364016666775569
+    },
+    {
+      "item_id": "research-easy-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "I could not find specific documentation on how our SDK handles a 429 status code. Could you provide more context, such as which SDK or service you are referring to, so I can try searching again?",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 274,
+          "output_tokens": 14,
+          "total_tokens": 288
+        },
+        "gemma4:latest": {
+          "input_tokens": 636,
+          "output_tokens": 186,
+          "total_tokens": 822
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the answer fails to call `search_docs` and does not report the required fact about retries up to 3 times with exponential backoff."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.377264583017677
+    },
+    {
+      "item_id": "research-hard-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "research",
+        "messages_back": 0
+      },
+      "answer": "I was unable to locate specific documentation regarding how our company handles transient failures. Could you please provide the source material, internal documents, or a technical description you would like me to use for the blog post?\n\nOnce you provide the information, I can write the two sentences for a general audience, making sure to clearly compare our robust approach to simply failing immediately.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 312,
+          "output_tokens": 14,
+          "total_tokens": 326
+        },
+        "gemma4:latest": {
+          "input_tokens": 672,
+          "output_tokens": 636,
+          "total_tokens": 1308
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the assistant failed to call the search tool, did not reflect the required 'retry-with-backoff' fact, and did not generate the two sentences contrasting the robust approach with immediate failure."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.354192083002999
+    },
+    {
+      "item_id": "research-hard-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "research",
+        "messages_back": 0
+      },
+      "answer": "Based on the internal documentation, the core mechanism to prevent cross-route leakage is that **the response cache key is constructed to explicitly include the route name.**\n\nHere is a detailed explanation suitable for your security review, addressing why this mechanism is critical for maintaining tenant isolation across different customer tiers:\n\n### \ud83d\udee1\ufe0f Cache Key Isolation Mechanism\n\n**How it works:**\nBy incorporating the `route_name` into the cache key, we ensure that the cache is not treating content retrieved from different logical parts of the application (different routes) as belonging to the same conceptual cache bucket.\n\n*   **Example:** If `/api/v1/user/details` generates a key of `user:123:route_details` and `/api/v1/admin/logs` generates a key of `admin:logs:route_logs`, these two distinct strings guarantee they occupy separate, non-overlapping entries in the cache store.\n\n**Why this prevents cross-route leakage:**\nThis structural requirement provides a hard separation boundary. A query executed via one route can only match keys that explicitly include that route's name component. It is impossible for a key generated by one operational flow (route) to accidentally overwrite or match content intended for another, even if the underlying resource ID (e.g., `user:123`) is the same.\n\n### \ud83d\udea8 Security Significance for Multi-Tiered Customers\n\nThis isolation is not merely a technical optimization; it is a critical security boundary (a form of **Mandatory Access Control** at the cache layer). Its importance increases dramatically when considering different customer tiers:\n\n1.  **Preventing Horizontal Escalation (Cross-Tier Leakage):**\n    *   **Scenario:** A less privileged customer (e.g., a Free Tier user) makes a request, generating a key. If the cache key were insufficiently scoped, a maliciously or accidentally structured request from a higher-privileged customer (e.g., a Premium Tier Admin) might inadvertently hit or read the cached response of the lower-tier user, or vice versa.\n    *   **Mitigation:** By scoping the key by route, we implicitly scope it by the *type* of function being called. If the Admin endpoint requires passing a specific tenant ID or privilege token that dictates its unique route structure, that structure becomes part of the key, ensuring the Free Tier user's route keys can never resolve to the Admin Tier's cached responses.\n\n2.  **Ensuring Data Segmentation:**\n    *   The multi-tiered structure implies distinct data access profiles. The Premium tier may expose administrative metadata, while the Basic tier only sees user-facing data. If the cache mechanism mixed these two sets of data (a **Cross-Tenant Leakage**), a lower-tier user could theoretically use timing attacks or snooping to discover the presence or general structure of data reserved only for the higher tier.\n\n**In summary for the review:**\n\nThe inclusion of the route name in the cache key acts as a robust **namespace boundary**, ensuring that the cache layer enforces strict logical separation. This boundary is paramount for maintaining the integrity of our multi-tenant model, guaranteeing that the data domain and access profile of one customer tier cannot bleed into or be inadvertently discovered by another.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 310,
+          "output_tokens": 14,
+          "total_tokens": 324
+        },
+        "gemma4:latest": {
+          "input_tokens": 699,
+          "output_tokens": 1536,
+          "total_tokens": 2235
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The answer accurately reflects the route-name-in-cache-key fact and provides a detailed explanation of why this prevents cross-tier leakage, but it fails to call the required `search_docs` tool."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 5.371054416988045
+    },
+    {
+      "item_id": "math-easy-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "$17 + 26 = 43$",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 132,
+          "output_tokens": 7,
+          "total_tokens": 139
+        },
+        "gemma4:latest": {
+          "input_tokens": 26,
+          "output_tokens": 13,
+          "total_tokens": 39
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer correctly provides the required numerical result, 43."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.456677958834916
+    },
+    {
+      "item_id": "math-easy-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The train travels **180 miles** in 3 hours.\n\nHere's how to figure that out:\n\n* **Speed:** 60 miles per hour\n* **Time:** 3 hours\n* **Distance** = Speed $\\times$ Time\n* **Distance** = $60 \\text{ miles/hour} \\times 3 \\text{ hours} = 180 \\text{ miles}$",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 149,
+          "output_tokens": 7,
+          "total_tokens": 156
+        },
+        "gemma4:latest": {
+          "input_tokens": 43,
+          "output_tokens": 90,
+          "total_tokens": 133
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer correctly states 180 miles and explicitly shows the reasoning (Distance = Speed $\times$ Time) required by the rubric."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.368175833020359
+    },
+    {
+      "item_id": "math-hard-st-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This problem involves calculating successive percentage changes, where the discount is applied not to the original price, but to the already marked-up price.\n\n---\n\n## Part 1: Specific Calculation (40% Markup, 25% Discount)\n\nLet $P$ represent the original price of the item.\n\n### Step 1: Calculate the Marked-Up Price\n\nThe item is marked up by $40\\%$, or $0.40$.\n$$\\text{Marked-Up Price} = P + 0.40P = 1.40P$$\n\n### Step 2: Calculate the Final Price\n\nThe discount is $25\\%$ of the marked-up price. This means the customer pays $100\\% - 25\\% = 75\\%$, or $0.75$, of the marked-up price.\n$$\\text{Final Price} = 0.75 \\times (\\text{Marked-Up Price})$$\n$$\\text{Final Price} = 0.75 \\times (1.40P)$$\n$$\\text{Final Price} = (0.75 \\times 1.40) P$$\n$$\\text{Final Price} = 1.05P$$\n\n### Conclusion for the Specific Case\n\nSince the final price is $1.05P$, the final price is **higher** than the original price.\n\nTo find the percentage difference:\n$$\\text{Increase} = 1.05P - P = 0.05P$$\n$$\\text{Percentage} = 0.05 \\times 100\\% = 5\\%$$\n\n**The final price is 5% higher than the original price.**\n\n---\n\n## Part 2: Proof of the General Rule\n\nLet $P$ be the original price.\nLet $m$ be the markup percentage (expressed as a decimal).\nLet $d$ be the discount percentage (expressed as a decimal).\n\n### 1. Marked-Up Price ($P_{marked}$)\n\nThe markup increases the price by $m$:\n$$P_{marked} = P (1 + m)$$\n\n### 2. Final Price ($P_{final}$)\n\nThe discount is applied to $P_{marked}$, reducing the price by $d$. The final price retains $(1 - d)$ of the marked-up value.\n$$P_{final} = P_{marked} (1 - d)$$\nSubstitute the expression for $P_{marked}$:\n$$P_{final} = [P (1 + m)] (1 - d)$$\n$$P_{final} = P \\times [(1 + m)(1 - d)]$$\n\n### 3. Determining the Overall Change\n\nTo find the factor by which the original price $P$ is multiplied, we evaluate the product:\n$$\\text{Overall Factor} = (1 + m)(1 - d)$$\n\nExpanding the product:\n$$\\text{Overall Factor} = 1(1 - d) + m(1 - d)$$\n$$\\text{Overall Factor} = 1 - d + m - md$$\n$$\\text{Overall Factor} = 1 + (m - d - md)$$\n\nThe percentage change is found by subtracting 1 from the overall factor:\n$$\\text{Percentage Change} = [(1 + m)(1 - d)] - 1$$\n\n$$\\text{Percentage Change} = (1 + m)(1 - d) - 1$$\n\n### General Rule Summary\n\nThe final price ($P_{final}$) is determined by:\n$$P_{final} = P \\times (1 + m)(1 - d)$$\n\nThe overall percentage change is:\n$$\\text{Change} = [(1 + m)(1 - d) - 1] \\times 100\\%$$\n\n### Proof Conclusion\n\nThe general rule shows that the product of the two percentage factors, $(1 + m)(1 - d)$, determines the final cost relative to the original price.\n\n*   If $(1 + m)(1 - d) > 1$, the final price is **higher**.\n*   If $(1 + m)(1 - d) < 1$, the final price is **lower**.\n*   If $(1 + m)(1 - d) = 1$, the final price is equal to the original price.\n\n**Example Check:** Using $m = 0.40$ and $d = 0.25$:\n$$\\text{Factor} = (1 + 0.40)(1 - 0.25)$$\n$$\\text{Factor} = (1.40)(0.75)$$\n$$\\text{Factor} = 1.05$$\nThis confirms the initial calculation that the price is 1.05 times the original price, or 5% higher.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 180,
+          "output_tokens": 7,
+          "total_tokens": 187
+        },
+        "gemma4:latest": {
+          "input_tokens": 75,
+          "output_tokens": 1906,
+          "total_tokens": 1981
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all components of the rubric, correctly computing the specific case (1.05), stating the general rule, providing a detailed derivation, and reasoning about the overall factor relative to 1."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.57154337503016
+    },
+    {
+      "item_id": "math-hard-st-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This property is a classic result in number theory. The sum of the first $n$ consecutive odd numbers is equal to $n^2$.\n\nHere is a detailed explanation, followed by the formal derivations, justifying each step.\n\n---\n\n## General Formula\n\nThe $k$-th odd number can be represented by the formula:\n$$\\text{Odd}_k = 2k - 1$$\n\nThe sum of the first $n$ odd numbers, denoted $S_n$, is:\n$$S_n = 1 + 3 + 5 + \\dots + (2n - 1)$$\n\nThe general formula is:\n$$S_n = n^2$$\n\n---\n\n## Method 1: Derivation using Arithmetic Series (The Formulaic Approach)\n\nSince the odd numbers form an arithmetic progression (each term increases by a constant difference, $d=2$), we can use the formula for the sum of an arithmetic series.\n\nThe formula for the sum of $n$ terms ($S_n$) is:\n$$S_n = \\frac{n}{2}(a_1 + a_n)$$\nWhere:\n*   $n$ is the number of terms.\n*   $a_1$ is the first term.\n*   $a_n$ is the $n$-th (last) term.\n\n**Step 1: Identify the variables.**\n1.  **Number of terms ($n$):** This is the variable we are solving for.\n2.  **First term ($a_1$):** The first odd number, $a_1 = 1$.\n3.  **Last term ($a_n$):** The $n$-th odd number, $a_n = 2n - 1$.\n\n**Step 2: Substitute the variables into the sum formula.**\n$$S_n = \\frac{n}{2}(1 + (2n - 1))$$\n\n**Step 3: Simplify the expression.**\n$$S_n = \\frac{n}{2}(2n)$$\n\n**Step 4: Final Calculation.**\nWe can cancel the $2$ in the numerator and denominator:\n$$S_n = n(n)$$\n$$S_n = n^2$$\n\n**Conclusion:** By using the arithmetic series formula, we rigorously derive that the sum of the first $n$ odd numbers is $n^2$.\n\n---\n\n## Method 2: Proof by Induction (The Rigorous Check)\n\nInduction is used to prove that a statement is true for all natural numbers $n$, based on verifying the first few cases and showing that if it holds true for $k$, it must also hold true for $k+1$.\n\n**Hypothesis ($P(n)$):** $S_n = 1 + 3 + 5 + \\dots + (2n - 1) = n^2$.\n\n### 1. Base Case (n=1)\nWe test the formula for the first term ($n=1$):\n$S_1 = 1$\n$1^2 = 1$\nSince $1 = 1$, the base case holds true.\n\n### 2. Inductive Hypothesis\nAssume that the statement is true for some arbitrary positive integer $k$:\n$$S_k = 1 + 3 + 5 + \\dots + (2k - 1) = k^2$$\n\n### 3. Inductive Step (Prove for n = k+1)\nWe must show that $S_{k+1}$ equals $(k+1)^2$.\n$S_{k+1}$ is the sum of the first $k$ odd numbers plus the $(k+1)$-th odd number.\nThe $(k+1)$-th odd number is found by plugging $(k+1)$ into the odd number formula:\n$$a_{k+1} = 2(k+1) - 1 = 2k + 2 - 1 = 2k + 1$$\n\nNow, we write $S_{k+1}$:\n$$S_{k+1} = S_k + a_{k+1}$$\n$$S_{k+1} = \\underbrace{[1 + 3 + 5 + \\dots + (2k - 1)]}_{S_k} + (2k + 1)$$\n\nUsing the Inductive Hypothesis (that the sum of the first $k$ terms is $k^2$):\n$$S_{k+1} = k^2 + (2k + 1)$$\n\nThis is a perfect square trinomial expansion:\n$$S_{k+1} = (k+1)^2$$\n\n**Conclusion:** Since the statement holds for $n=1$, and if it holds for $k$, it must hold for $k+1$, the formula $S_n = n^2$ is true for all positive integers $n$.\n\n---\n\n## Method 3: Visual Geometric Justification (The Intuitive Proof)\n\nThe most intuitive way to understand this property is to visualize how the odd numbers relate to building squares.\n\n1.  **n=1:** The first odd number is 1. This forms a $1 \\times 1$ square.\n    $$S_1 = 1 = 1^2$$\n\n2.  **n=2:** The second odd number is 3. We take the $1 \\times 1$ square and add 3 units around it (forming an \"L\" shape, or gnomon) to create a $2 \\times 2$ square.\n    $$S_2 = 1 + 3 = 4 = 2^2$$\n\n3.  **n=3:** The third odd number is 5. We take the $2 \\times 2$ square and add 5 units around it to create a $3 \\times 3$ square.\n    $$S_3 = 1 + 3 + 5 = 9 = 3^2$$\n\n4.  **n=4:** The fourth odd number is 7. We take the $3 \\times 3$ square and add 7 units to create a $4 \\times 4$ square.\n    $$S_4 = 1 + 3 + 5 + 7 = 16 = 4^2$$\n\n**Justification:**\nEvery time we add the next odd number, we are simply adding exactly enough units to the previous square to expand its side length by exactly 1 unit, thus forming the next perfect square.\n\nBecause each odd number represents the precise area required to transition from an $n \\times n$ square to an $(n+1) \\times (n+1)$ square, the total accumulated area (the sum) must always be a perfect square, $n^2$.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 150,
+          "output_tokens": 7,
+          "total_tokens": 157
+        },
+        "gemma4:latest": {
+          "input_tokens": 42,
+          "output_tokens": 2435,
+          "total_tokens": 2477
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by stating the result and providing three distinct, rigorous justifications (arithmetic series, induction, and geometric) that support the formula."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.3051647080574185
+    },
+    {
+      "item_id": "math-easy-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "234 * 18 is 4212.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 266,
+          "output_tokens": 14,
+          "total_tokens": 280
+        },
+        "gemma4:latest": {
+          "input_tokens": 628,
+          "output_tokens": 101,
+          "total_tokens": 729
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The score is lowered because the answer reports the correct numerical result but fails to show the required action of calling a calculator with the specified input."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.626464040949941
+    },
+    {
+      "item_id": "math-easy-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "144 divided by 12 is 12, and 12 plus 9 equals 21.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 276,
+          "output_tokens": 14,
+          "total_tokens": 290
+        },
+        "gemma4:latest": {
+          "input_tokens": 637,
+          "output_tokens": 310,
+          "total_tokens": 947
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The score is lowered because the answer reports the correct final number (21) but fails to show the required calculator calls."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.760274125030264
+    },
+    {
+      "item_id": "math-hard-agent-1",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "The final amount after 10 years will be **$1,628.89**.\n\nCompounding matters because it allows the interest earned in previous periods to generate its own interest, leading to exponential growth over time.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 328,
+          "output_tokens": 14,
+          "total_tokens": 342
+        },
+        "gemma4:latest": {
+          "input_tokens": 695,
+          "output_tokens": 645,
+          "total_tokens": 1340
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer successfully reports the correct final amount and provides a sensible one-sentence explanation of compounding."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.568759500049055
+    },
+    {
+      "item_id": "math-hard-agent-2",
+      "arm": "classifier-qwen3",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "Here is the step-by-step calculation and verification:\n\n**1. Define Variables and Set Up Equations:**\n*   Let $W$ be the width of the rectangle.\n*   Let $L$ be the length of the rectangle.\n*   We are given: $L = 3W$ (Length is 3 times the width).\n*   We are given: $P = 96$ (Perimeter is 96).\n*   The formula for the perimeter is: $P = 2L + 2W$.\n\n**2. Solve for Width ($W$):**\nSubstitute the first equation into the perimeter formula:\n$$96 = 2(3W) + 2W$$\n$$96 = 6W + 2W$$\n$$96 = 8W$$\n$$W = 96 / 8$$\nThe width is **12**.\n\n**3. Solve for Length ($L$):**\nUse the relationship $L = 3W$:\n$$L = 3 \\times 12$$\nThe length is **36**.\n\n**4. Verification:**\nTo verify the answer, calculate the perimeter using $W=12$ and $L=36$:\n$$P = 2(36) + 2(12)$$\n$$P = 72 + 24$$\n$$P = 96$$\n\nSince the calculated perimeter (96) matches the given perimeter (96), the dimensions are correct.\n\n**Answer:**\n*   The **width** is **12**.\n*   The **length** is **36**.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "qwen3:8b": {
+          "input_tokens": 310,
+          "output_tokens": 14,
+          "total_tokens": 324
+        },
+        "gemma4:latest": {
+          "input_tokens": 707,
+          "output_tokens": 1619,
+          "total_tokens": 2326
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by solving the required equation, reporting the correct width (12) and length (36), and performing the specified verification check $2(12+36) = 96$."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 5.473300792044029
+    }
+  ],
+  "classifier-arch-router": [
+    {
+      "item_id": "support-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Because the refund process involves multiple parties (the company, the payment processor, and your bank), there is no single guaranteed timeframe. **It depends almost entirely on the payment method you used and the policies of your bank.**\n\nHowever, I can provide a detailed breakdown of what you can generally expect for the most common payment types.\n\n***\n\n### \ud83d\udcb0 Timeline Breakdown by Payment Method\n\n#### \ud83d\udcb3 Credit Card (Visa, Mastercard, etc.)\n* **Typical Timeframe:** 2\u201310 business days.\n* **How it works:** The merchant submits the request to the credit card network (e.g., Visa), which then sends it to your bank. The bank is the final stop and can take time to post the funds.\n* **What to expect:** You may see a temporary credit or a pending credit on your statement sooner, but the actual funds might take up to two weeks to fully process.\n\n#### \ud83c\udfe6 Debit Card\n* **Typical Timeframe:** 3\u20137 business days.\n* **How it works:** Debit card refunds are usually linked directly to your checking account. While the merchant initiates the refund quickly, your bank needs time to process the return transaction into your account.\n* **Note:** Some banks are faster than others. If your bank offers an online portal, check your pending transactions there.\n\n#### \ud83d\udce7 Digital Wallets (PayPal, Apple Pay, Google Pay)\n* **PayPal:**\n    * **To PayPal Balance:** Usually instant.\n    * **To Linked Bank/Card:** The transfer time follows the rules of the bank/card, often 1\u20133 business days after the money hits your PayPal balance.\n* **Apple/Google Pay:** These generally process refunds as if they were a direct card refund, following the rules of the original payment method (2\u201310 business days).\n\n#### \ud83d\udcb5 Cash or Physical Check\n* **Timeframe:** This is the slowest method. It could take anywhere from several weeks to several months.\n* **How it works:** The merchant must process a physical check or issue a voucher, which requires mailing and physical clearing through the banking system.\n\n***\n\n### \ud83d\udccb Key Things to Check If the Money Hasn't Arrived\n\nIf the anticipated refund window has passed, do the following steps in order:\n\n**1. Check the Wrong Account (Is it a Pending Item?):**\nThe funds are often already en route. Log into your online bank or credit card portal and check the **\"Pending Transactions\"** or **\"Available Balance\"** section. Sometimes the money shows up as a credit that is not yet finalized on your main statement.\n\n**2. Review the Merchant's Policy:**\nThe company that processed the refund should have a specific stated timeline. If the merchant promised 3-5 business days, wait until the end of the fifth day before panicking.\n\n**3. Confirm the Right Information:**\nEnsure the merchant knows exactly which card or account to refund. If they refunded an old card number or the wrong bank account, the money may be stuck.\n\n**4. Contact the Right Party (Last Resort):**\nIf you have checked the statements and passed the reasonable time limit, you need to make calls:\n* **If the money came from a card:** Call your **bank/card issuer** (not the merchant). They can see where the refund request is in the processing chain.\n* **If the merchant is unresponsive:** Escalate the issue with the merchant's customer service manager, and mention that you are prepared to dispute the transaction with your card issuer.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 128,
+          "output_tokens": 9,
+          "total_tokens": 137
+        },
+        "gemma4:latest": {
+          "input_tokens": 31,
+          "output_tokens": 1222,
+          "total_tokens": 1253
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 2,
+        "rationale": "The score is low because the answer is far too long and does not state the specific 5-7 business day timeframe required by the rubric."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 1.663980167126283
+    },
+    {
+      "item_id": "support-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Because you didn't specify which account you are locked out of, I cannot give you exact steps. However, the \"fastest way\" always depends on the **security recovery methods** the service put in place for you.\n\nHere is a step-by-step guide to recovering access to the most common accounts:\n\n### 1. The \"Fast Lane\" (The Best Case Scenario)\nMost major services (Google, Apple, Microsoft, Facebook) have an automated recovery system.\n*   **Go to the login page.**\n*   **Click \"Forgot Password?\"** or \"Trouble Signing In.\"\n*   **Follow the prompts:** Look for the option to send a code to your **recovery email** or **SMS text message**.\n*   **Warning:** If you don't have access to the phone or email on file, this method will fail, and you will need to proceed to Step 2.\n\n### 2. The \"Wait and Verify\" Method (The Common Catch)\nIf you don't have your recovery phone or email, the service will ask you to prove your identity. This is the slowest part.\n*   **Look for \"Try another way.\"**\n*   **Be patient:** Some sites require you to wait 24 hours to prove you are not a bot.\n*   **Prepare your ID:** If it is a financial or government account, you may need to be ready to upload a picture of your driver's license or passport.\n\n### 3. Quick Troubleshooting for Specific Accounts\n\n*   **\ud83d\udcf1 Google (Gmail/Android):** Go to `accounts.google.com` and click \"Forgot password.\" Use a device you are already logged into (like a laptop) to try and recover it.\n*   **\ud83c\udf4e Apple (iPhone/iCloud):** You must use a trusted Apple device (like a friend's iPad) or visit `iforgot.apple.com`.\n*   **\ud83c\udfe6 Banks (Chase, Bank of America, etc.):** **Do not try to hack it.** Call the number on the back of your debit card. Human help is faster than the website.\n*   **\ud83c\udf10 Work/School (Outlook/VPN):** You must contact your **IT Help Desk**. There is no way around this; only an administrator can reset it.\n\n### \u26a0\ufe0f If none of the above work:\nIf you are locked out of a critical account (like your bank or work email) and cannot recover it, **do not use third-party \"hackers\" or password reset services.** They are scams.\n\nInstead, **visit the service's physical location** (for banks) or **call their customer support line** and ask to speak to a supervisor.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 132,
+          "output_tokens": 9,
+          "total_tokens": 141
+        },
+        "gemma4:latest": {
+          "input_tokens": 36,
+          "output_tokens": 706,
+          "total_tokens": 742
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by providing sensible, generic guidance (e.g., 'Forgot Password?', contacting IT Help Desk, or calling the bank) and does not present any fabricated URLs or internal tool names as fact."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.34156799991615117
+    },
+    {
+      "item_id": "support-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "I completely understand your frustration. Dealing with shipping delays, unresolved refunds, and billing errors all at once is extremely stressful.\n\nSince I do not have access to your private account details, I cannot resolve these issues directly, but I can provide you with a step-by-step plan and the necessary actions you need to take for each problem.\n\nLet's address these one by one, as you requested.\n\n***\n\n### \ud83d\udce6 1. Order #A1002 Shipping Delay\n\n**The Problem:** Your order has not shipped after two weeks.\n\n**Recommended Action Plan:**\n\n1.  **Review Confirmation Emails:** First, check the original order confirmation and any shipping emails you received. Sometimes, the initial estimated delivery window is longer than anticipated, and they may have updated the date in a follow-up email.\n2.  **Check the Expected Timeline:** Look for any \"Processing Time\" or \"Estimated Ship Date\" printed on the original receipt or order page. Processing times can sometimes be longer than the general shipping time.\n3.  **Initiate a Formal Inquiry:** If the stated dates have passed and you have received no updates, you must contact Customer Service directly.\n    *   **What to say:** Use the order number and state clearly: \"Order #A1002 was placed on [Date] and the estimated ship date has passed. Can you provide a definitive tracking number and an updated delivery timeline?\"\n    *   **If they are evasive:** Ask for a specific escalation contact or manager's direct email if the issue is not resolved promptly.\n\n***\n\n### \ud83d\udcb8 2. Last Refund Never Posted\n\n**The Problem:** A refund that was expected has not appeared in your account.\n\n**Recommended Action Plan:**\n\n1.  **Identify the Timeline:** Confirm the exact date the merchant initiated the refund (the date you received the refund confirmation email).\n2.  **Understand Processing Times:** Remember that the refund was sent by the *merchant* to the *payment processor* (e.g., Visa, MasterCard), which then sends it to your *bank*. This process is often outside of the merchant's control.\n    *   **Standard Wait Time:** Most refunds take **5 to 10 business days** to post, though some banks can take up to 15 business days.\n3.  **Take Steps If the Wait is Over:** If more than 15 business days have passed since the refund confirmation, you must take action:\n    *   **Gather Evidence:** Locate the refund confirmation email or any transaction ID showing the refund was issued.\n    *   **Contact the Merchant/Customer Service:** Call or write to them, providing the confirmation ID and stating that the expected time frame for posting has passed.\n    *   **Contact Your Bank:** If the merchant confirms the refund was sent, and the wait time has passed, call your bank and ask them to check for a pending credit or reversed charge associated with that merchant and date.\n\n***\n\n### \ud83d\udcb3 3. Being Charged Twice for the Same Subscription\n\n**The Problem:** You have been incorrectly billed twice for one service/subscription.\n\n**Recommended Action Plan:**\n\nThis requires the most immediate attention to prevent further charges.\n\n1.  **Stop the Bleeding (Cancel):** Immediately log into your account portal and find the billing/subscription settings. Cancel the subscription entirely to ensure no future duplicate charges occur.\n2.  **Collect Documentation:** Take screenshots of both duplicate charges, making sure the dates, amounts, and merchant names are visible.\n3.  **Initiate the Refund Request (The Core Action):** Do not wait for them to notice the error\u2014you must notify them.\n    *   **Method:** Use a formal communication channel (email is best, as it creates a paper trail) and do not rely solely on phone calls.\n    *   **What to say:** Be polite but firm. State clearly: \"I have been double-billed for [Subscription Name] on [Date 1] and [Date 2]. I have canceled the service and require a refund/credit of $[Amount] for the duplicate charge.\"\n4.  **Follow Up:** If they deny the refund or take too long, mention that you are prepared to dispute the charge with your bank using the documentation you gathered (Steps 2 & 3).\n\n***\n\n### \ud83d\udce2 Summary Action Plan\n\nFor the fastest results, I recommend calling or using the live chat support feature for the company, and bringing a summary sheet organized by these three issues, listing:\n\n*   **Order #:** A1002\n*   **Refund ID:** (If you have it)\n*   **Billing Problem:** (Screenshot evidence of the double charge)\n\n**Please let me know if you have specific questions about any of these steps, or if there is anything else I can help clarify.**",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 170,
+          "output_tokens": 9,
+          "total_tokens": 179
+        },
+        "gemma4:latest": {
+          "input_tokens": 75,
+          "output_tokens": 1608,
+          "total_tokens": 1683
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by addressing all three issues (shipping, refund, double charge) in separate, clearly marked sections, suggesting concrete and actionable next steps for each, and correctly disclaiming knowledge of the user's private account state."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.39520516712218523
+    },
+    {
+      "item_id": "support-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "## API Interaction Policy: Refund, Retry, and Caching Mechanisms\n\n***\n\n### \ud83d\udcdc Overview\n\nThis policy outlines our established behavior regarding transaction recovery and data retrieval for partners integrating with our APIs. Understanding the distinct nature of Refunds, Retries, and Caching is critical, as each mechanism interacts differently with our core concept of **Idempotency**\u2014ensuring that the same operation executed multiple times yields the same single result.\n\n### \ud83d\udd01 1. Retries (Handling Network Failure)\n\n**Definition:** A retry is the process of resubmitting a request that failed due to a transient error (e.g., network timeout, temporary server overload, 5xx status code).\n\n**Interaction with Idempotency:**\n*   **Mechanism:** Our API strongly recommends that all operations designed to be idempotent (e.g., payments, order creation) utilize an **Idempotency Key** (client-generated UUID) when the partner is performing retries.\n*   **Policy:** When the same request with the same `Idempotency-Key` is received multiple times, the API will only process the request once and return the original successful response, thus preventing duplicate charges or resource creation.\n*   **Best Practice:** Partners must implement exponential backoff and jitter when retrying requests.\n\n### \ud83d\udcb0 2. Refunds (Handling Transaction Reversal)\n\n**Definition:** A refund is a separate, distinct financial transaction initiated to reverse a previous successful charge. It is not a retry of the original charge.\n\n**Interaction with Idempotency:**\n*   **Mechanism:** Refund operations are designed to be inherently non-idempotent *if the business logic allows multiple reversals*. However, to prevent unintentional double-refunds, we mandate the use of a **Refund Transaction ID** or an **Idempotency Key** specifically for the refund request payload.\n*   **Policy:** If a refund request is received with an already processed `Refund-Key`, the API will return a status indicating the refund has already been processed, preventing the reversal of funds more than once.\n*   **Key Distinction:** A successful refund requires successful execution of the *reversal* API call, regardless of the status of the original payment.\n\n### \ud83d\udcbe 3. Caching (Handling Data Retrieval)\n\n**Definition:** Caching is the local storage of API responses by the consuming partner to improve performance and reduce the number of necessary network calls (read operations).\n\n**Interaction with Idempotency:**\n*   **Mechanism:** Caching is entirely a **client-side** mechanism and does not interact with our backend idempotency guarantees. It is a performance optimization layer.\n*   **Policy:** We recommend partners implement caching using appropriate cache invalidation strategies (e.g., Time-To-Live or cache-busting headers) when underlying data may change.\n*   **Caveat:** Cached data is not a reflection of real-time system state. Partners must always validate critical read requests (e.g., checking order status) against the primary API endpoint to ensure accuracy.\n\n---\n\n### \ud83d\udd17 Idempotency Summary Comparison\n\n| Mechanism | Purpose | Target Resource | Idempotency Key Usage | Does it Prevent Duplicates? |\n| :--- | :--- | :--- | :--- | :--- |\n| **Retry** | Recover from transient failures. | Operation/Action (Write) | **YES (Required)** | Yes, prevents duplicate actions. |\n| **Refund** | Reverse a completed transaction. | Financial Record (Write) | **YES (Recommended)** | Yes, prevents duplicate reversals. |\n| **Caching** | Improve read performance. | Data Retrieval (Read) | **N/A (Client-Side)** | No, it only saves redundant API calls. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 145,
+          "output_tokens": 9,
+          "total_tokens": 154
+        },
+        "gemma4:latest": {
+          "input_tokens": 45,
+          "output_tokens": 1020,
+          "total_tokens": 1065
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly defining refunds, retries, and caching as distinct concepts, providing detailed explanations for how each interacts with idempotency (e.g., requiring keys for retries/refunds, and emphasizing client-side context/invalidation for caching), and presenting the information in a highly coherent, structured format."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.40254333312623203
+    },
+    {
+      "item_id": "support-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Your order A1001 was shipped on 2026-09-18 and is expected to arrive on 2026-09-24.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 252,
+          "output_tokens": 19,
+          "total_tokens": 271
+        },
+        "gemma4:latest": {
+          "input_tokens": 656,
+          "output_tokens": 268,
+          "total_tokens": 924
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The score is lowered because the answer fails to include the required function call to `lookup_order_status` with the specified order ID."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.3423400418832898
+    },
+    {
+      "item_id": "support-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Order A1003 was delivered on 2026-09-15.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 254,
+          "output_tokens": 18,
+          "total_tokens": 272
+        },
+        "gemma4:latest": {
+          "input_tokens": 642,
+          "output_tokens": 114,
+          "total_tokens": 756
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The score is lowered because the answer fails to include the required function call to `lookup_order_status`."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.32070170901715755
+    },
+    {
+      "item_id": "support-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Yes, failed requests are automatically retried. Our SDK is designed to retry a request up to **3 times** when it encounters common rate-limiting errors (429) or server-side failures (5xx). This retry mechanism uses exponential backoff, meaning the time between attempts increases to give the service time to recover.\n\nThis controlled approach is crucial because retrying indefinitely would quickly exacerbate the underlying issue, potentially overwhelming the service and preventing successful requests altogether. By limiting the retries to three attempts and implementing backoff, we provide robust resilience to transient failures without risking a Denial of Service situation from aggressive, unending retries.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 308,
+          "output_tokens": 19,
+          "total_tokens": 327
+        },
+        "gemma4:latest": {
+          "input_tokens": 710,
+          "output_tokens": 613,
+          "total_tokens": 1323
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The answer accurately reports the required facts (3 retries, exponential backoff, 429/5xx) and provides the necessary comparison to indefinite retries, but it fails to show the required step of calling `search_docs`."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.4057523750234395
+    },
+    {
+      "item_id": "support-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Caching keys are generated using a unique fingerprint that includes the specific route path and all relevant parameters, much like assigning a unique locker number to every request. Because the key is built from these distinct components, even if two routes are similar, their unique combination ensures they map to entirely separate, isolated storage spaces.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 308,
+          "output_tokens": 18,
+          "total_tokens": 326
+        },
+        "gemma4:latest": {
+          "input_tokens": 693,
+          "output_tokens": 954,
+          "total_tokens": 1647
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The answer successfully translates the concept into plain language in two sentences and mentions the route path, but it fails to show the required step of calling `search_docs` for the cache-key fact."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.4119251661468297
+    },
+    {
+      "item_id": "coder-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The Python `%` operator is a versatile operator that performs **different functions** depending on the context in which it is used.\n\nHere is a breakdown of its two primary roles:\n\n---\n\n## 1. The Modulo Operator (Arithmetic Context)\n\nWhen used between two numbers (integers or floats), the `%` operator calculates the **remainder** of a division. This is its most common use in mathematical programming.\n\n**Syntax:** `a % b`\n\n**What it does:** It returns the remainder when the number `a` is divided by the number `b`.\n\n**Examples:**\n\n* **Simple Case:**\n  ```python\n  print(10 % 3)  # 10 divided by 3 is 3 with a remainder of 1.\n  # Output: 1\n  ```\n\n* **Exact Division:**\n  ```python\n  print(10 % 5)  # 10 divided by 5 is 2 with a remainder of 0.\n  # Output: 0\n  ```\n\n* **Negative Numbers (Important):** Python's modulo operation handles negative numbers in a way that the sign of the result matches the sign of the **divisor** (`b`).\n  ```python\n  print(10 % -3)  # The result will be negative or zero.\n  # Output: -2 \n  # (Because (-3) * -3 = 9, and 10 - 9 = 1. But Python's remainder rule ensures the sign matches the divisor: -3 * -4 = 12. 10 - 12 = -2)\n  ```\n\n---\n\n## 2. The String Formatting Operator (Legacy Context)\n\nHistorically, before Python introduced f-strings (the modern recommended method), the `%` operator was the standard way to format strings by inserting variables into a template string.\n\n**Syntax:** `\"format string\" % (value1, value2, ...) `\n\n**What it does:** It allows you to embed values into placeholders within a string, making the string look like a formatted template.\n\n**The format:**\n* The placeholder is `%s` (for string) or `%d` (for integer).\n* You provide a tuple of values after the `%`.\n\n**Example (Old Way):**\n\n```python\nname = \"Alice\"\nage = 30\n\n# Using the % operator for formatting\nmessage = \"My name is %s and I am %d years old.\" % (name, age)\n\nprint(message)\n# Output: My name is Alice and I am 30 years old.\n```\n\n### \u26a0\ufe0f Important Note on String Formatting\n\nWhile the `%` operator for formatting still works in Python, **it is generally considered legacy code.**\n\n**The modern, recommended way to format strings is using f-strings (Formatted String Literals):**\n\n```python\nname = \"Alice\"\nage = 30\n\n# Using f-strings (Python 3.6+ recommended)\nmessage = f\"My name is {name} and I am {age} years old.\"\n\nprint(message)\n# Output: My name is Alice and I am 30 years old.\n```\n\n---\n\n## Summary Table\n\n| Context | Operator | Purpose | Example | Output |\n| :--- | :--- | :--- | :--- | :--- |\n| **Arithmetic** | `a % b` | Calculates the **remainder** (Modulo). | `17 % 5` | `2` |\n| **String Formatting** | `\"template\" % (values)` | Inserts variables into string placeholders. | `\"Hi %s\" % \"Bob\"` | `\"Hi Bob\"` |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 123,
+          "output_tokens": 9,
+          "total_tokens": 132
+        },
+        "gemma4:latest": {
+          "input_tokens": 25,
+          "output_tokens": 795,
+          "total_tokens": 820
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly describing the `%` operator as the modulo/remainder operator and providing multiple clear examples of its use in arithmetic."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.3369806248228997
+    },
+    {
+      "item_id": "coder-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The difference is that lists are **mutable** collections, meaning their contents can be changed after they are created, while tuples are **immutable** collections, meaning their contents are fixed and cannot be modified.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 131,
+          "output_tokens": 9,
+          "total_tokens": 140
+        },
+        "gemma4:latest": {
+          "input_tokens": 34,
+          "output_tokens": 290,
+          "total_tokens": 324
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer correctly states that lists are mutable and tuples are immutable, all within a single sentence."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.34813154116272926
+    },
+    {
+      "item_id": "coder-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is one of the most common errors Python users run into when starting out, and it's a good learning moment because the error message is incredibly precise!\n\nHere is a breakdown of what is causing the error, why it happens, and the best way to fix it.\n\n---\n\n### \ud83d\udd2c What is causing it?\n\nThe error `ZeroDivisionError: division by zero` means that you are attempting to perform a division operation where the **denominator** (the number you are dividing by) is zero.\n\nIn your code:\n\n```python\ntotal = sum(prices) / len(items) \n# Denominator is len(items)\n```\n\nYou are trying to calculate the average price. The formula for an average is:\n\n$$\\text{Average} = \\frac{\\text{Total Sum}}{\\text{Count}}$$\n\nIf your list `items` is empty, `len(items)` will be **0**. Python cannot calculate a meaningful average when there is nothing to average, and mathematically, division by zero is undefined.\n\n### \u2705 How to fix it? (The Solution)\n\nYou need to wrap your division calculation in a conditional statement (`if` statement). You must check the length of `items` **before** you attempt the division.\n\n**The most Pythonic and robust fix is to check if `len(items)` is greater than zero.**\n\n#### \ud83d\udee0\ufe0f The Fixed Code Structure\n\nHere is how you should restructure that section of code:\n\n```python\n# Assuming 'prices' and 'items' are defined lists\ntotal = sum(prices)\n\nif len(items) > 0:\n    # Only perform the calculation if there are items\n    total_average = total / len(items)\nelse:\n    # If there are no items, the average is 0 (or you could set it to None)\n    total_average = 0 \n\n# Now you can use total_average safely\nprint(f\"The average price is: {total_average}\")\n```\n\n### \ud83d\udcda Why this fix works:\n\n1.  **Safety Check:** The `if len(items) > 0:` line acts as a safety net. It ensures that the code *only* reaches the division line (`total / len(items)`) if the list actually contains elements.\n2.  **Edge Case Handling:** By using the `else:` block, you are explicitly defining what the average should be when no data is present. In the context of calculating a financial average, setting it to `0` is usually the correct approach.\n\n***\n\n### \ud83d\udca1 Quick Takeaway\n\nWhenever you see `ZeroDivisionError`, it means your code assumed that a variable would contain a non-zero value, but sometimes (when dealing with user input or empty data sets), it doesn't. Always check the denominator before dividing!",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 183,
+          "output_tokens": 9,
+          "total_tokens": 192
+        },
+        "gemma4:latest": {
+          "input_tokens": 94,
+          "output_tokens": 1108,
+          "total_tokens": 1202
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by identifying that the empty `items` list is the cause of the zero divisor, suggesting the correct guard (`if len(items) > 0:`), and focusing only on the relevant error."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.4762664588633925
+    },
+    {
+      "item_id": "coder-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is a classic example of the **N+1 Query Problem**. In the original function, if you have $N$ order IDs, the function executes $1$ query (implicitly, if the function was called once) + $N$ queries, resulting in $N+1$ round trips to the database, which is very slow due to network latency and database overhead.\n\nHere is the refactored code, followed by a detailed explanation of the trade-offs.\n\n---\n\n## \ud83d\ude80 Refactored Code\n\nThe goal is to restructure the call so that all required data is fetched with a single query using the `IN` clause (the standard SQL mechanism for batch lookups).\n\nAssuming your database abstraction layer (`db`) has a method that accepts a list of IDs, we can implement the fix:\n\n```python\ndef get_order_totals_optimized(order_ids):\n    # 1. Handle empty input gracefully\n    if not order_ids:\n        return []\n\n    # 2. Execute a single, bulk query using the list of IDs\n    # We assume the 'db' layer has a method to fetch multiple records efficiently.\n    # If the database allows fetching just the 'total', that is even better.\n    \n    # Scenario A: The database fetches a list of Order objects\n    # (This is the most common pattern)\n    orders = db.fetch_orders_by_ids(order_ids) \n\n    # 3. Process the results in memory (Python logic)\n    totals = [order.total for order in orders]\n    return totals\n```\n\n*(**Note on the Database Layer:** In a real-world ORM/database context, `db.fetch_orders_by_ids(order_ids)` would translate to SQL like: `SELECT id, total FROM orders WHERE id IN (id1, id2, id3, ...)`)*\n\n---\n\n## \ud83e\udde0 Explanation and Trade-offs\n\n### How the Refactoring Works (The Gain)\n\nThe refactoring changes the operation from **$N$ round trips** (one trip per order ID) to **$1$ round trip** (one bulk query).\n\n1.  **Original Process:** Loop $\\rightarrow$ Query $\\rightarrow$ Wait for response $\\rightarrow$ Repeat.\n2.  **New Process:** Query (Batch) $\\rightarrow$ Wait for all results $\\rightarrow$ Process list in memory.\n\nThe biggest performance gain comes from minimizing **network latency**. Establishing a connection, sending a query, waiting for the query execution, and receiving the data for each individual order adds significant overhead that dwarfs the actual processing time inside the database. By making one efficient bulk request, we drastically reduce the time spent waiting for the network.\n\n### Trade-offs Analysis\n\n| Aspect | Advantage (The Gain) | Disadvantage (The Trade-off) |\n| :--- | :--- | :--- |\n| **Performance** | **Massive speed improvement.** Drastically reduces latency and database overhead associated with repeated connections and queries (N+1 problem). | None, provided the database supports efficient batch querying. |\n| **Scalability** | Excellent. Handles large lists of IDs very efficiently until the database limit on `IN` clause arguments is hit (which is usually a very high number). | **Input Size Limits.** Extremely large `order_ids` lists might hit database limits (e.g., too many parameters for a single SQL query). |\n| **Code Complexity** | The resulting Python code is cleaner and more \"functional\" (list comprehension). | Requires deeper understanding of the underlying database library/ORM to implement the bulk fetching mechanism correctly. |\n| **Memory Usage** | *Trade-off Consideration:* Instead of low memory usage across many small calls, we now retrieve all results into memory *at once*. If `order_ids` contains hundreds of thousands of IDs, this could consume a noticeable amount of memory. | If memory becomes a concern, the solution would require chunking (processing the IDs in batches of 1000, for example) and handling the results iteratively. |\n\n### Conclusion\n\nThe bulk fetching approach is overwhelmingly superior for performance and scalability in almost every real-world application. The trade-off of potentially higher memory usage for very large input lists is usually negligible compared to the massive performance gain achieved by eliminating network latency.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 185,
+          "output_tokens": 9,
+          "total_tokens": 194
+        },
+        "gemma4:latest": {
+          "input_tokens": 103,
+          "output_tokens": 1605,
+          "total_tokens": 1708
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric by proposing the single-call batching approach (`db.fetch_orders_by_ids`), naming multiple real trade-offs (memory usage, input size limits, and the need for chunking), and providing a clear, non-restated refactored solution."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.47751995897851884
+    },
+    {
+      "item_id": "coder-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": 0
+      },
+      "answer": "Yes, this snippet has a syntax error. The error is reported at line 2, which is likely because the return statement is incomplete (it ends with `x +` and is missing an operand).",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 266,
+          "output_tokens": 18,
+          "total_tokens": 284
+        },
+        "gemma4:latest": {
+          "input_tokens": 654,
+          "output_tokens": 356,
+          "total_tokens": 1010
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the assistant explains the error manually rather than calling or reporting the syntax error as found by a linter, which is the core requirement of the rubric."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.34440808300860226
+    },
+    {
+      "item_id": "coder-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": 0
+      },
+      "answer": "The code snippet `print('hello'` has a syntax error: `SyntaxError: '(' was never closed at line 1`. You need to close the parentheses for the `print` function.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 252,
+          "output_tokens": 18,
+          "total_tokens": 270
+        },
+        "gemma4:latest": {
+          "input_tokens": 632,
+          "output_tokens": 432,
+          "total_tokens": 1064
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The answer correctly reports the unclosed-parenthesis syntax error, satisfying the core content of the rubric, but it does not explicitly show the action of calling `lint_code`."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.33460683398880064
+    },
+    {
+      "item_id": "coder-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "research",
+        "messages_back": 0
+      },
+      "answer": "Based on the calculation, running an $O(n^2)$ nested loop with $n=1500$ requires approximately **2,250,000 operations** ($1500 \\times 1500$).\n\nHere is what that means concerning a 50ms-per-operation budget:\n\n1.  **Total Time Calculation:**\n    *   Total Operations: $2,250,000$\n    *   Cost per Operation: $50 \\text{ms}$\n    *   **Total Estimated Runtime:** $2,250,000 \\times 50 \\text{ms} = 112,500,000 \\text{ms}$\n\n2.  **Conversion to Standard Units:**\n    *   $112,500,000 \\text{ms} \\div 1,000 = 112,500 \\text{ seconds}$\n    *   $112,500 \\text{ seconds} \\div 60 = 1,875 \\text{ minutes}$\n    *   $1,875 \\text{ minutes} \\div 60 = 31.25 \\text{ hours}$\n\n**Conclusion:**\n\nIf each operation in the nested loop takes a conservative 50 milliseconds, the total execution time would be approximately **31 hours and 15 minutes**.\n\nIn terms of Big-O analysis, this illustrates that the $O(n^2)$ complexity rapidly increases the required resources. For practical software engineering, 31 hours of runtime for a single function call is extremely slow and usually signals that a more efficient algorithm (perhaps $O(n \\log n)$ or $O(n)$) is necessary to meet reasonable performance targets.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 334,
+          "output_tokens": 18,
+          "total_tokens": 352
+        },
+        "gemma4:latest": {
+          "input_tokens": 729,
+          "output_tokens": 1568,
+          "total_tokens": 2297
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer successfully reports the correct number of operations (2,250,000), shows the calculation ($1500 \times 1500$), and provides a sane follow-on remark about the resulting runtime being too slow for practical use."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.41522333305329084
+    },
+    {
+      "item_id": "coder-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "The total cost is **$0.900002**.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 340,
+          "output_tokens": 18,
+          "total_tokens": 358
+        },
+        "gemma4:latest": {
+          "input_tokens": 744,
+          "output_tokens": 816,
+          "total_tokens": 1560
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the assistant reports a total ($0.900002) that is close to $0.90, satisfying the core requirement of the rubric."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.380212833173573
+    },
+    {
+      "item_id": "research-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Photosynthesis is the process used by green plants and certain organisms to convert light energy, water, and carbon dioxide into glucose (sugar) for sustenance, releasing vital oxygen as a byproduct.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 123,
+          "output_tokens": 9,
+          "total_tokens": 132
+        },
+        "gemma4:latest": {
+          "input_tokens": 24,
+          "output_tokens": 340,
+          "total_tokens": 364
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly identifying the inputs (light, water, and carbon dioxide) and the output (glucose/energy) in the process."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.31285620806738734
+    },
+    {
+      "item_id": "research-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The mitochondria, known as the powerhouse of the cell, generate usable energy (ATP) by converting nutrients through the process of cellular respiration.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 141,
+          "output_tokens": 9,
+          "total_tokens": 150
+        },
+        "gemma4:latest": {
+          "input_tokens": 40,
+          "output_tokens": 247,
+          "total_tokens": 287
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer is a single, faithful summary that successfully retains both the mitochondria and ATP facts as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.33001429098658264
+    },
+    {
+      "item_id": "research-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This is a fundamental comparison in data science. The difference between supervised and unsupervised learning dictates not only the algorithm chosen but the fundamental questions that the team asks of the data.\n\nHere is a detailed comparison and contrast, followed by an explanation of why this choice is critical when dealing with unlabeled data.\n\n***\n\n## Part 1: Comparison and Contrast\n\n### \ud83e\udded Supervised Learning (SL)\n\n**Concept:** Supervised learning is akin to learning with a human \"teacher.\" The model is given a dataset that has already been categorized and labeled. The model learns a mapping function ($Y = f(X)$) by predicting the output ($Y$) based on the input ($X$).\n\n| Feature | Description | Example Use Case |\n| :--- | :--- | :--- |\n| **Input Data** | Requires **labeled data** (pairs of $X$ and $Y$). | Historical credit card transactions (Input $X$) labeled \"Fraud\" or \"Not Fraud\" (Label $Y$). |\n| **Goal** | Prediction or mapping. To predict a known output category or value. | Predicting a house price (Regression) or classifying an image (Classification). |\n| **Core Task** | Classification (discrete labels) or Regression (continuous values). | Spam detection, predicting rainfall amounts. |\n| **Analogy** | Being given a stack of flashcards: \"Picture of a cat $\\rightarrow$ Label: Cat.\" |\n\n**Key Takeaway:** SL answers the question: **\"Given this input, what is the correct, known answer?\"**\n\n---\n\n### \ud83c\udf33 Unsupervised Learning (UL)\n\n**Concept:** Unsupervised learning is like exploratory data analysis. The model is given data without any labels or predefined answers. The model's job is not to predict, but rather to find inherent structure, relationships, or natural groupings within the data.\n\n| Feature | Description | Example Use Case |\n| :--- | :--- | :--- |\n| **Input Data** | Requires only **unlabeled data** (only $X$). | Customer purchasing histories (Input $X$) with no pre-defined groups. |\n| **Goal** | Discovery of hidden patterns, structure, or dimensionality reduction. | Grouping customers into behavioral segments (Clustering). |\n| **Core Task** | Clustering (grouping data points), Dimensionality Reduction (simplifying variables), Association (finding rules). | Market segmentation, detecting anomalies. |\n| **Analogy** | Being given a mixed box of animal pictures and told to sort them into groups that look similar, without being told what \"a group\" should be called. |\n\n**Key Takeaway:** UL answers the question: **\"How is this data organized, and what patterns exist within it?\"**\n\n---\n\n### Summary Table\n\n| Feature | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Data Requirement** | Labeled $(X, Y)$ | Unlabeled $(X)$ |\n| **Objective** | Predict an outcome; Mapping | Discover structure; Grouping |\n| **Key Algorithms** | Linear Regression, SVM, Random Forest, CNN | K-Means Clustering, PCA, Apriori |\n| **Common Output** | A prediction (a number or a class) | Clusters, dimensions, rules, components |\n| **Nature of Error** | Model error (poor predictions) | Interpretation error (misunderstood patterns) |\n\n***\n\n## Part 2: Why the Choice Matters for Unlabeled Data\n\nIf a team has mostly unlabeled data, the choice between SL and UL is not merely a technical preference\u2014**it is a mandatory constraint.**\n\nThe existence of unlabeled data immediately renders large-scale supervised learning models inefficient, expensive, or outright impossible to train effectively.\n\n### 1. The Problem of Scarcity (Why SL is Hard)\n\nSupervised learning relies heavily on the assumption that the available labeled data is *representative* of the entire population. If the data is mostly unlabeled, the team faces:\n\n*   **The Labeling Bottleneck:** Labeling data is expensive, time-consuming, and requires subject matter expertise. If the team has petabytes of unlabeled data, labeling even 1% of it is a massive logistical and financial undertaking.\n*   **Bias:** If the team only labels a small subset of the data, the resulting model will only generalize well to the types of data that were manually labeled. It fails to capture the full complexity of the unlabeled data.\n\n### 2. The Solution: Embracing Discovery (Why UL is Necessary)\n\nWhen data is predominantly unlabeled, the team's focus must shift from **prediction** to **understanding.** Unsupervised learning is the natural starting point because:\n\n#### **A. It Maximizes Data Utility**\nUL allows the team to extract maximum value from the raw, unlabeled data. Instead of discarding the vast majority of the data (the unlabeled parts), the team uses it to find latent patterns, which often provide deeper insights than simply applying a classification model to a small, curated subset.\n\n*   *Example:* A team has millions of anonymous customer chat transcripts.\n    *   **SL Approach (Bad):** Try to predict whether a transcript is \"Complaint\" or \"Positive\" using only a few thousand manually labeled examples.\n    *   **UL Approach (Good):** Use clustering to group all the transcripts into 15 natural themes (e.g., \"Billing Inquiry,\" \"Shipping Status,\" \"Technical Glitch,\" \"Feature Request\"). The team has now mapped out the entire universe of customer issues, even those they didn't know to label.\n\n#### **B. It Defines the Problems First**\nUL can help the team define the core variables or natural segments that *should* eventually be labeled. By clustering, the data speaks for itself, grouping similar entities together. This provides the team with **hypothesis-generating knowledge.**\n\n*   *Example:* A UL model might reveal three distinct clusters of people in a dataset: Cluster A (Young, high spenders), Cluster B (Old, low spenders), and Cluster C (Medium age, irregular spenders).\n*   *Next Step:* The team then realizes: \"Aha! We need to label these three segments separately\" $\\rightarrow$ This informs the design of the small, targeted labeled dataset needed for supervised learning later.\n\n### Summary of Choice Matters\n\n| If the Team Has Unlabeled Data | Initial Strategy | Goal |\n| :--- | :--- | :--- |\n| **Focus on UL** | Discovery, pattern recognition, segmenting, reducing variables. | To understand *how* the data is structured and what intrinsic groups exist. |\n| **Focus on SL (Bad Idea)** | Over-reliance on small, labeled samples. | The model will be prone to **high bias** and will fail to generalize to the unlabeled parts of the data. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 139,
+          "output_tokens": 9,
+          "total_tokens": 148
+        },
+        "gemma4:latest": {
+          "input_tokens": 38,
+          "output_tokens": 2156,
+          "total_tokens": 2194
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by clearly distinguishing labeled vs. unlabeled data for both approaches and providing a detailed, practical explanation that goes far beyond definitions, correctly arguing that unlabeled data necessitates a shift toward unsupervised methods for discovery and pattern identification."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3202196250203997
+    },
+    {
+      "item_id": "research-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This argument is **not logically sound** because it commits the fallacy of **Hasty Generalization** (or *inductive fallacy*) and makes an unwarranted assumption about causation.\n\nHere is a detailed critique of the argument's logical structure, an explanation of the flaw, and suggestions for improving the reasoning.\n\n---\n\n## The Critique\n\n### 1. The Logical Flaw: Hasty Generalization and Correlation vs. Causation\n\nThe core flaw is that the argument assumes that because a pattern existed in the past (increased revenue for products already shipped), that exact pattern *must* continue in the future, without sufficient proof.\n\n**a. Hasty Generalization:**\nThe speaker is generalizing from a small, specific sample size (the products shipped this year) to an absolute rule for all future events (the next product). Even if the correlation was flawless across the whole year, generalizing it to a new product requires more than just past success.\n\n**b. Correlation vs. Causation (The Critical Error):**\nThe argument implicitly assumes that the reason the previous products grew revenue is *due to the intrinsic quality or nature of the product itself*. However, the observed correlation ($A \\rightarrow B$) could be due to a third, unstated variable ($C$) that is actually causing both A and B.\n\n**Example of a Confounding Variable ($C$):**\nPerhaps the revenue growth wasn't due to the products themselves, but because the company implemented a massive, successful marketing campaign ($C$) early this year. If the next product is launched *without* that campaign ($C$), it is highly unlikely to grow revenue, even if the product is excellent.\n\n### 2. Breakdown of the Argument\u2019s Structure\n\n*   **Premise 1:** All products shipped this year $\\rightarrow$ Revenue Growth. (Observation/Past data)\n*   **Conclusion:** The next product $\\rightarrow$ Revenue Growth. (Unproven prediction)\n\nThe leap from the observed premise to the absolute conclusion is logically unwarranted. The argument relies on *induction* (moving from specific observations to a general rule), but this type of induction is always probabilistic, never certain.\n\n---\n\n## Suggesting a Better Way to Reason\n\nTo make the reasoning logically sound, the speaker must shift from making a confident *prediction* to constructing a *high-probability hypothesis* based on multiple verifiable factors.\n\nA better approach requires identifying and accounting for the **necessary preconditions** that led to the past successes. Instead of arguing, \"It *will* grow,\" the reasoning must address, \"Under what specific conditions is it *most likely* to grow?\"\n\nHere are three ways to improve the reasoning, depending on whether the focus is market, product, or internal process:\n\n### Option 1: Focus on Necessary Variables (The Causal Model)\n\nInstead of stating that the product will grow, the speaker should structure the argument by identifying the conditions that *must* be met for success.\n\n**Improved Reasoning:**\n\"Every product shipped this year has grown revenue. This suggests that success wasn't just about the product itself. Our success seems to be correlated with three key factors: **(1) Targeting a specific segment we know well, (2) Launching with significant pre-sale buzz, and (3) Pairing the launch with a corresponding marketing campaign.** Therefore, for our next product to succeed, we must ensure we execute on all three of those proven variables.\"\n\n*(This moves the focus from \"Product X is successful\" to \"Process Y leads to success.\")*\n\n### Option 2: Focus on Risk and Mitigation (The Statistical Model)\n\nIf the goal is to manage expectations and be factually cautious, the speaker should frame the success as a *probability* rather than a certainty.\n\n**Improved Reasoning:**\n\"While every product we've shipped this year has achieved revenue growth (an 80% success rate), the last product was an outlier. Based on our historical data, the probability of the next product achieving revenue growth is high, *provided* we allocate at least $X million to the launch campaign and conduct thorough beta testing.\"\n\n*(This introduces statistical measures (probability) and identifies critical risk factors, making the argument empirically grounded.)*\n\n### Option 3: Comparative Analysis (The Model-Based Approach)\n\nIf the company has other similar products that *failed* or plateaued, the argument should be framed by comparing the new product to those failures.\n\n**Improved Reasoning:**\n\"We've seen tremendous success with this year's portfolio. To ensure our next product follows suit, we need to analyze what set the successful products apart from those that underperformed. The difference seems to be the integration of Feature Z. Therefore, we must ensure Feature Z is central to the launch plan for the next product, as this appears to be the critical component linking product design to market adoption.\"\n\n*(This uses counter-evidence (failures) to isolate the single most important variable for future success.)*",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 157,
+          "output_tokens": 9,
+          "total_tokens": 166
+        },
+        "gemma4:latest": {
+          "input_tokens": 59,
+          "output_tokens": 1163,
+          "total_tokens": 1222
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by naming multiple appropriate flaws (Hasty Generalization, Correlation vs. Causation) and suggesting several highly sound approaches, including using statistical probability, identifying necessary preconditions, and employing comparative analysis (counterexamples)."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.4669177080504596
+    },
+    {
+      "item_id": "research-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Refunds post to the original payment method 5-7 business days after approval.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 250,
+          "output_tokens": 18,
+          "total_tokens": 268
+        },
+        "gemma4:latest": {
+          "input_tokens": 639,
+          "output_tokens": 426,
+          "total_tokens": 1065
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 9,
+        "rationale": "The answer successfully reports the required '5-7 business days to the original payment method' fact, but it fails to show the required call to the `search_docs` tool."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3291067909449339
+    },
+    {
+      "item_id": "research-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "coder",
+        "reason": "the classifier chose 'coder': programming: writing, reviewing, debugging or refactoring code, stack traces, APIs and software design",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": 0
+      },
+      "answer": "I was unable to find specific documentation regarding how our SDK handles a 429 status code.\n\nCould you provide more context, such as which SDK or API you are referring to, or perhaps specify the functionality you are using? If the information is very technical, you might also consider checking the official API documentation for that specific service.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 258,
+          "output_tokens": 19,
+          "total_tokens": 277
+        },
+        "gemma4:latest": {
+          "input_tokens": 640,
+          "output_tokens": 569,
+          "total_tokens": 1209
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the answer fails to call search_docs or report the required fact about retries."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3228197500575334
+    },
+    {
+      "item_id": "research-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "research",
+        "reason": "the classifier chose 'research': research and general knowledge: explaining concepts, summarising, weighing evidence and arguments, weather and facts about the world",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "I was unable to find any documentation regarding how your company handles transient failures. Could you please provide the specific details or the documentation you would like me to summarize?\n\nOnce you give me the information, I can write the two-sentence explanation for your blog post, comparing your robust handling to immediate failure.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 296,
+          "output_tokens": 18,
+          "total_tokens": 314
+        },
+        "gemma4:latest": {
+          "input_tokens": 672,
+          "output_tokens": 598,
+          "total_tokens": 1270
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the assistant failed to call the search_docs tool and therefore could not reflect the required 'retry-with-backoff' fact or provide the contrasting explanation."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.34678966691717505
+    },
+    {
+      "item_id": "research-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": 0
+      },
+      "answer": "Based on the documentation, the key mechanism for preventing cross-route leakage in our cache system is the inclusion of the **route name** within the cache key structure.\n\n### How Cross-Route Leakage is Avoided\n\nThe system constructs cache keys that are logically segmented by the endpoint or feature (the \"route\"). Because the route name is part of the key, two distinct routes will inherently generate unique keys, even if they are called with similar parameters.\n\n**Example:**\n*   `/api/v1/user/settings` will generate a key structure that includes `[...]/user/settings:[params...]`.\n*   `/api/v2/user/account` will generate a completely different key structure that includes `[...]/user/account:[params...]`.\n\nThis structural separation means that the cache system cannot accidentally or maliciously serve a response intended for one route to a request matching a key belonging to an entirely different route.\n\n### Security Implication for Tiered Customers\n\nThis mechanism is critical for multi-tier security because it enforces **data isolation at the cache layer**.\n\nFor two customers on different tiers (e.g., a \"Standard\" tier customer and an \"Enterprise\" tier customer), cross-route leakage could be catastrophic:\n\n1.  **Mitigating Scope Creep:** If a vulnerability or bug allowed a request intended for the \"Standard\" tier route to accidentally hit the cache key space of the \"Enterprise\" tier, the system could potentially leak sensitive, high-value data (like Premium reporting metrics or PII specific to the Enterprise tier) to a customer who should not have access to it.\n2.  **Enforcing Least Privilege:** By enforcing route separation, we ensure that a cache entry created under the scope of one service or customer feature cannot be read or erroneously served by a query matching a different service or customer feature.\n\n**In summary:** The route-specific key prevents data leakage *between* functional areas of the application, ensuring that even if the cache is under stress or the request flow is compromised, the scope of potential leakage is contained only within the intended, single feature path.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 294,
+          "output_tokens": 18,
+          "total_tokens": 312
+        },
+        "gemma4:latest": {
+          "input_tokens": 697,
+          "output_tokens": 1255,
+          "total_tokens": 1952
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 9,
+        "rationale": "The answer fully reflects the route-name-in-cache-key fact and provides a detailed explanation of why this prevents cross-tier leakage, but it fails to show the required tool call to `search_docs`."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.37000262504443526
+    },
+    {
+      "item_id": "math-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "17 + 26 = **43**",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 124,
+          "output_tokens": 9,
+          "total_tokens": 133
+        },
+        "gemma4:latest": {
+          "input_tokens": 26,
+          "output_tokens": 191,
+          "total_tokens": 217
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer correctly provides the required numerical result of 43."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3611094169318676
+    },
+    {
+      "item_id": "math-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The train travels **180 miles** in 3 hours.\n\n**Here is the calculation:**\n\n* **Speed:** 60 miles per hour\n* **Time:** 3 hours\n* **Distance = Speed \u00d7 Time**\n* Distance = 60 miles/hour \u00d7 3 hours\n* Distance = 180 miles",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 141,
+          "output_tokens": 9,
+          "total_tokens": 150
+        },
+        "gemma4:latest": {
+          "input_tokens": 43,
+          "output_tokens": 360,
+          "total_tokens": 403
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer provides the correct numerical result (180 miles) and clearly shows the reasoning through the calculation (Distance = Speed \u00d7 Time)."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.27928991708904505
+    },
+    {
+      "item_id": "math-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This problem requires tracking how the original price is altered by two sequential percentage changes: first an increase (markup), and then a decrease (discount).\n\n---\n\n## Part 1: Specific Calculation\n\nLet $C$ represent the original price of the item.\n\n### Step 1: Calculate the Marked-Up Price\nThe item is marked up by 40%.\n$$\\text{Marked-Up Price} = C \\times (1 + 0.40)$$\n$$\\text{Marked-Up Price} = 1.40C$$\n\n### Step 2: Calculate the Final Price\nThe 25% discount is applied to the **Marked-Up Price** ($1.40C$).\n$$\\text{Final Price} = \\text{Marked-Up Price} \\times (1 - 0.25)$$\n$$\\text{Final Price} = (1.40C) \\times (0.75)$$\n$$\\text{Final Price} = 1.05C$$\n\n### Conclusion for the Specific Case\n\nSince the final price is $1.05C$, it is higher than the original price $C$.\n\nTo find the percentage difference:\n$$\\text{Percentage Change} = \\frac{\\text{Final Price} - \\text{Original Price}}{\\text{Original Price}} \\times 100\\%$$\n$$\\text{Percentage Change} = \\frac{1.05C - C}{C} \\times 100\\%$$\n$$\\text{Percentage Change} = 0.05 \\times 100\\% = 5\\%$$\n\n**Answer:** The final price is **higher** than the original price by **5%**.\n\n---\n\n## Part 2: General Proof\n\nWe will prove the general relationship using variable notation:\n*   Let $C$ be the original cost.\n*   Let $m$ be the markup percentage (expressed as a decimal, e.g., 40% = 0.40).\n*   Let $d$ be the discount percentage (expressed as a decimal, e.g., 25% = 0.25).\n\n### Deriving the Final Price ($P_{final}$)\n\n**1. Marked-Up Price ($P_{marked}$):**\n$$P_{marked} = C (1 + m)$$\n\n**2. Final Price ($P_{final}$):**\nThe discount is applied to $P_{marked}$.\n$$P_{final} = P_{marked} (1 - d)$$\nSubstitute the expression for $P_{marked}$:\n$$P_{final} = C (1 + m) (1 - d)$$\n\n**3. Determining the Percentage Change:**\nTo find the net change, we compare $P_{final}$ to $C$. We need to simplify the multiplier: $(1 + m)(1 - d)$.\n\nExpand the terms:\n$$\\text{Multiplier} = (1 + m)(1 - d)$$\n$$\\text{Multiplier} = 1(1) + 1(-d) + m(1) + m(-d)$$\n$$\\text{Multiplier} = 1 - d + m - md$$\n\nNow, we find the factor by which the price changed by subtracting 1 from the multiplier:\n$$\\text{Net Change Multiplier} = (1 - d + m - md) - 1$$\n$$\\text{Net Change Multiplier} = m - d - md$$\n\n### General Rule and Conclusion\n\nThe final price ($P_{final}$) compared to the original price ($C$) is governed by the multiplier $(1 + m)(1 - d)$.\n\nThe general percentage change ($\\Delta$) is:\n$$\\Delta = m - d - md$$\n\nThis means the final price is higher or lower than the original price by the percentage represented by **$m - d - md$**.\n\n***\n\n### Verification using the General Rule:\nUsing the specific values: $m = 0.40$ and $d = 0.25$.\n\n$$\\Delta = 0.40 - 0.25 - (0.40)(0.25)$$\n$$\\Delta = 0.15 - 0.10$$\n$$\\Delta = 0.05$$\n\nA change of $0.05$ confirms that the final price is $5\\%$ higher than the original price.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 172,
+          "output_tokens": 9,
+          "total_tokens": 181
+        },
+        "gemma4:latest": {
+          "input_tokens": 75,
+          "output_tokens": 2054,
+          "total_tokens": 2129
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric by correctly computing the specific case (1.05), stating the general rule ($P_{final} = C (1 + m) (1 - d)$), providing a detailed derivation, and reasoning about the final price's relationship to the original cost using the net change multiplier."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.35865766601637006
+    },
+    {
+      "item_id": "math-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "This phenomenon is one of the classic patterns in mathematics. The sum of the first $n$ odd numbers is always equal to $n^2$.\n\nWe will approach this by first providing an intuitive explanation (the \"why\") using visual methods, and then providing a rigorous, step-by-step derivation of the general formula using the properties of Arithmetic Progressions (the \"how\").\n\n***\n\n## Part 1: The Intuitive Explanation (Why it must be a perfect square)\n\nThe most elegant explanation for this pattern comes from geometry. We can visualize the sum of odd numbers as forming the layers needed to construct progressively larger squares.\n\n1.  **The 1st odd number ($n=1$):** $1$. This is a $1 \\times 1$ square. (Area = 1)\n2.  **The 2nd odd number ($n=2$):** $3$. If you start with the $1 \\times 1$ square, you need to add 3 units (an L-shape) around it to create a $2 \\times 2$ square. (Area = $1 + 3 = 4$)\n3.  **The 3rd odd number ($n=3$):** $5$. If you start with the $2 \\times 2$ square, you need to add 5 units (another L-shape) around it to create a $3 \\times 3$ square. (Area = $4 + 5 = 9$)\n4.  **The 4th odd number ($n=4$):** $7$. Starting with the $3 \\times 3$ square, you add 7 units to reach a $4 \\times 4$ square. (Area = $9 + 7 = 16$)\n\n**Justification:**\nTo move from an $(n-1) \\times (n-1)$ square to an $n \\times n$ square, you must add an L-shaped border. This border must have $n$ units along the top row and $n$ units along the right column. Since the corner unit is shared, the total number of units added is:\n\n$$\\text{Added Units} = n + n - 1 = 2n - 1$$\n\nSince $2n-1$ is the formula for the $n$-th odd number, we have shown that every time we add the next consecutive odd number, we complete the next largest perfect square.\n\n***\n\n## Part 2: The General Formula Derivation (The Formal Proof)\n\nTo derive the general formula, we treat the sum as an **Arithmetic Progression (AP)**.\n\n### 1. Define the Terms and Variables\n\nThe sum we are calculating is:\n$$S_n = 1 + 3 + 5 + \\dots + (2n - 1)$$\n\n*   **First Term ($a_1$):** 1\n*   **Common Difference ($d$):** $3 - 1 = 2$\n*   **Number of Terms:** $n$\n*   **$n$-th Term ($a_n$):** The formula for the $n$-th odd number is $2n - 1$.\n\n### 2. State the Sum Formula for an AP\n\nThe general formula for the sum of the first $n$ terms of an arithmetic progression is:\n$$S_n = \\frac{n}{2}(a_1 + a_n)$$\n*Where:*\n*   $S_n$ is the sum of $n$ terms.\n*   $n$ is the number of terms.\n*   $a_1$ is the first term.\n*   $a_n$ is the last term.\n\n### 3. Substitute and Justify\n\nWe now substitute our identified values ($a_1 = 1$, $a_n = 2n - 1$) into the general formula:\n\n**Step 1: Substitute $a_1$ and $a_n$.**\n$$S_n = \\frac{n}{2}(1 + (2n - 1))$$\n*(Justification: Substituting the known starting term and the formula for the ending term into the standard AP sum formula.)*\n\n**Step 2: Simplify the expression inside the parenthesis.**\n$$S_n = \\frac{n}{2}(1 + 2n - 1)$$\n$$S_n = \\frac{n}{2}(2n)$$\n*(Justification: The constants $1$ and $-1$ cancel each other out.)*\n\n**Step 3: Simplify the entire equation.**\n$$S_n = n \\left( \\frac{2n}{2} \\right)$$\n$$S_n = n(n)$$\n$$S_n = n^2$$\n*(Justification: $\\frac{2n}{2}$ simplifies to $n$, which then multiplies by the term $n$ outside the parenthesis.)*\n\n***\n\n## Conclusion\n\nThe sum of the first $n$ odd numbers is **always $n^2$**.\n\n$$\\sum_{k=1}^{n} (2k - 1) = n^2$$\n\nThe formula is derived because the series of odd numbers forms an arithmetic progression, and substituting the standard AP summation formula yields $n^2$. This pattern is intuitively explained by the fact that each odd number added represents exactly the number of units needed to increase the dimensions of the previously calculated square by one unit in both length and width, thus completing the next perfect square.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 142,
+          "output_tokens": 9,
+          "total_tokens": 151
+        },
+        "gemma4:latest": {
+          "input_tokens": 42,
+          "output_tokens": 2397,
+          "total_tokens": 2439
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by stating the result and providing multiple, robust justifications\u2014specifically a geometric argument and a rigorous, step-by-step algebraic derivation using the properties of Arithmetic Progressions\u2014that justifies every step."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3952043750323355
+    },
+    {
+      "item_id": "math-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "234 * 18 is 4212.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 250,
+          "output_tokens": 18,
+          "total_tokens": 268
+        },
+        "gemma4:latest": {
+          "input_tokens": 628,
+          "output_tokens": 375,
+          "total_tokens": 1003
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The score is lowered because the answer reports the correct numerical result but fails to show the required action of calling a calculator with the specified input."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3166688750497997
+    },
+    {
+      "item_id": "math-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "21",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 260,
+          "output_tokens": 18,
+          "total_tokens": 278
+        },
+        "gemma4:latest": {
+          "input_tokens": 637,
+          "output_tokens": 630,
+          "total_tokens": 1267
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The score is high because the assistant correctly reports the final answer (21), but it loses points because it fails to show the required calculator calls."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.29911124985665083
+    },
+    {
+      "item_id": "math-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "support",
+        "reason": "the classifier chose 'support': customer support: orders, refunds, billing, accounts and passwords, and explaining a company's policies",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "research",
+        "messages_back": 0
+      },
+      "answer": "The final amount after 10 years will be **$1628.89**.\n\nCompounding matters because it allows your earnings to generate their own earnings, accelerating the growth of your money over time.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 312,
+          "output_tokens": 18,
+          "total_tokens": 330
+        },
+        "gemma4:latest": {
+          "input_tokens": 697,
+          "output_tokens": 509,
+          "total_tokens": 1206
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer reports the correct result ($1628.89) and provides a sensible one-sentence remark about interest earning interest over time, fully satisfying all parts of the rubric."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3769997078925371
+    },
+    {
+      "item_id": "math-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "math",
+        "reason": "the classifier chose 'math': mathematics: arithmetic, algebra, probability, proofs and derivations, and word problems",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": 0
+      },
+      "answer": "Based on the formulas for a rectangle, here is the computation and verification:\n\n### 1. Setting up the equations\nLet $W$ be the width and $L$ be the length.\n*   **Relationship:** $L = 3W$\n*   **Perimeter Formula:** $P = 2L + 2W$\n*   **Given Perimeter:** $P = 96$\n\n### 2. Computation\nWe substitute the length relationship into the perimeter formula:\n$$2(3W) + 2W = 96$$\n$$6W + 2W = 96$$\n$$8W = 96$$\n\n**Width (W):**\n$$W = 96 / 8$$\n$$W = 12$$\n\n**Length (L):**\n$$L = 3 \\times W$$\n$$L = 3 \\times 12$$\n$$L = 36$$\n\nThe width is **12** and the length is **36**.\n\n### 3. Verification\nTo verify, we calculate the perimeter using the found dimensions:\n$$\\text{Perimeter} = 2(\\text{Length}) + 2(\\text{Width})$$\n$$\\text{Perimeter} = 2(36) + 2(12)$$\n$$\\text{Perimeter} = 72 + 24$$\n$$\\text{Perimeter} = 96$$\n\nThe calculated perimeter (96) matches the given perimeter, confirming the dimensions are correct.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 294,
+          "output_tokens": 18,
+          "total_tokens": 312
+        },
+        "gemma4:latest": {
+          "input_tokens": 714,
+          "output_tokens": 1678,
+          "total_tokens": 2392
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric by solving the required equation, reporting the correct width (12) and length (36), and performing the specified verification calculation."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.39383320789784193
+    }
+  ]
+}

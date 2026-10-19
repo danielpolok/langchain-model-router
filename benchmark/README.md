@@ -79,9 +79,87 @@ unchanged.
   configuration*, not what the strategy could do calibrated.
 - **Provider prompt-caching loss from switching routes is not measured here.**
 
+## Local decision models
+
+Can a small local model make the classifier's routing decision for free? Same 32 items, run on
+2026-10-19 with `ollama:qwen3:8b` (thinking off; with it on one decision took 14-26 s instead of
+about 0.6 s) and Arch-Router-1.5B (`hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M`, 986 MB), both
+through the unchanged `ClassifierStrategy` and its generic prompt. Raw data:
+[`results/20261019T162230Z-tier.json`](results/20261019T162230Z-tier.json),
+[`results/20261019T163717Z-tier.json`](results/20261019T163717Z-tier.json),
+[`results/20261019T183746Z-domain.json`](results/20261019T183746Z-domain.json). Local models are
+priced at $0, which leaves out the hardware and power that run them.
+
+**Tier split** (route `small` / `frontier` by the dataset's easy/hard label). The baseline is the
+always-frontier arm of the same run; the two tier runs have different baselines, so quality is
+relative to each.
+
+| Arm | Routing accuracy | Cost saved | Quality vs baseline | Decision p50 / p95 |
+| --- | --- | --- | --- | --- |
+| `heuristic` | 20/32 (62%) | 51.9% | 98.6% | 0.000 s / 0.001 s |
+| `classifier` (Gemini flash-lite) | 31/32 (97%) | 18.9% | 100.0% | 0.92 s / 1.68 s |
+| `classifier-qwen3` | 28/32 (88%) | 14.4% | 96.4% | 0.75 s / 0.92 s |
+| `classifier-arch-router` | 20/32 (62%) | 53.1% | 105.8% | 0.23 s / 0.30 s |
+
+**Domain split** (one route per domain: `support`, `coder`, `research`, `math`; the routes are all
+the same small model, so only the decision is compared).
+
+| Arm | Routing accuracy | Decision p50 / p95 |
+| --- | --- | --- |
+| `classifier` (Gemini flash-lite) | 28/32 (88%) | 0.89 s / 1.41 s |
+| `classifier-qwen3` | 27/32 (84%) | 5.50 s / 5.97 s |
+| `classifier-arch-router` | 22/32 (69%) | 0.35 s / 0.48 s |
+
+How to read the numbers:
+
+- The Gemini classifier's domain row is from a run that was cut short when the Gemini credits ran
+  out; its 32 decisions finished, but its raw file was not kept, so this row is from that run's
+  printed report. The two local arms were rerun with the answering routes and the judge on a local
+  model (`gemma4`) and the answers' quality scores are not used here.
+- That rerun makes the local domain latencies unreliable: Ollama reloads each model between the
+  decision and the answer, which is most of qwen3's 5.5 s. The warm latencies in the tier table are
+  the fair ones.
+- Quality differences between the tier runs (for example 105.8% for Arch-Router) are within the
+  noise this benchmark already warns about; the baseline's own mean moved from 6.91 to 6.47
+  between the two runs.
+- Arch-Router sends exactly what the heuristic sends on the tier split (all 16 easy right, 12 of
+  16 hard to `small`), which is expected: it was trained on domain-style routes, not difficulty
+  tiers. On the domain split it routes 22/32 correctly, mostly `research` to `support` (4) and
+  `coder` to `research` or `support` (4).
+
+**Verdict.**
+
+- *Does a local decision model keep the classifier's accuracy?* Not on this data. `qwen3:8b` is
+  the closest (88% vs 97% on tiers, 84% vs 88% on domains); Arch-Router on the generic classifier
+  prompt is well behind (62% and 69%).
+- *Does it recover the saving the paid call cost?* No, on tiers. qwen3's decision is free, but its
+  four easy items sent to the frontier model cost more than the Gemini call it replaced: 14.4%
+  saved against the Gemini classifier's 18.9%, and both far below the heuristic's 51.9%. Arch-Router
+  saves 53.1% only because it behaves like the heuristic on tiers.
+- *Latency:* Arch-Router decides in about 0.23 s on this machine, well ahead of any other model
+  arm; `qwen3:8b` is no faster than the Gemini call (0.75 s vs 0.92 s).
+- *Follow-up:* worth filing one, narrow: the prompt and parse hooks on `ClassifierStrategy`, to see
+  whether Arch-Router's 69% is its own prompt format rather than the model (its published
+  accuracy uses that format, and its `"other"` answer should abstain). Not worth a new strategy or
+  anything that needs `transformers`, until that test says so.
+
+### System One decision models (not yet run)
+
+Models in the Jev family score a fixed list of options and return a probability for each in one
+forward pass, behind a `POST /v1/systemone` endpoint. `systemone.py` is the benchmark-only
+adapter (`SystemOneStrategy`, standard library only) and `arms.py` adds one opt-in arm per endpoint
+whose variable is set; no model has been downloaded or run yet.
+
+| Arm | Set to the server's `/v1/systemone` URL | Model |
+| --- | --- | --- |
+| `systemone-jevk5-4b` | `MODEL_ROUTER_BENCHMARK_JEVK5_4B_URL` | JevK5 4B (Apache-2.0) |
+| `systemone-jevk5-2b` | `MODEL_ROUTER_BENCHMARK_JEVK5_2B_URL` | JevK5 2B (Apache-2.0) |
+| `systemone-kev-0.8b` | `MODEL_ROUTER_BENCHMARK_KEV_URL` | Kev 0.8B (Apache-2.0 on its model card) |
+
 ## What it does
 
-Five arms, over the same 32-item dataset (`data/workload.json`):
+Five arms, over the same 32-item dataset (`data/workload.json`), plus the local-decision-model
+arms above (`--split domain` routes the same items to one route per domain instead):
 
 | Arm | What decides |
 | --- | --- |
@@ -114,7 +192,8 @@ For each (arm, item) pair, `runner.run_item`:
    distinct from both routes, so grading isn't a route grading its own answer.
 
 `report.py` aggregates every arm's `ItemResult`s into cost-saved-vs-baseline and
-quality-vs-baseline percentages and a verdict against the target.
+quality-vs-baseline percentages, routing accuracy against the dataset's expected route, the median
+and p95 time the strategy took to decide, and a verdict against the target.
 
 ## The dataset
 
@@ -164,7 +243,12 @@ prompt — which is *why* the per-call range is so wide); the judge (`gemini-3.1
 measured ~$0.0024/call. Even the worst case — every arm routing every item to the frontier model —
 puts a full run (32 items × 5 arms, answers + judging) at roughly **$1.60–1.70**.
 
+The `classifier-qwen3` and `classifier-arch-router` arms also need a local Ollama server with
+`ollama pull qwen3:8b` and `ollama pull hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M` done first.
+
 Useful flags:
+
+- `--split domain` — route the same items to one route per domain instead of by difficulty.
 
 - `--limit N` — cap the dataset to the first N items, for a cheap smoke test before the full run.
 - `--arms baseline-always-frontier heuristic` — run a subset of arms.
