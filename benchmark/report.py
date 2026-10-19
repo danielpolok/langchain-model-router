@@ -1,9 +1,11 @@
 """Aggregate `ItemResult`s into the report the task asks for: cost and quality per strategy
 against the always-frontier baseline, and a verdict on the target (>=30% lower cost at
->=95% of baseline quality)."""
+>=95% of baseline quality), plus each arm's routing accuracy and decision latency."""
 
 from __future__ import annotations
 
+import math
+import statistics
 from dataclasses import dataclass
 
 from benchmark.runner import ItemResult
@@ -23,8 +25,15 @@ class ArmSummary:
     total_cost_usd: float
     mean_quality: float | None
     """Mean judge score out of 10, over items that graded successfully. `None` if none did."""
-    frontier_calls: int
-    small_calls: int
+    routed: int
+    """Items with both a decision and an expected route — what routing accuracy is out of."""
+    routed_correctly: int
+    """How many of those took the route the dataset expects (a fallback counts by its route)."""
+    fallbacks: int
+    """Decisions where the strategy abstained or failed and the default route ran."""
+    decision_p50_s: float | None
+    decision_p95_s: float | None
+    """Median and 95th-percentile (nearest rank) strategy decision time, in seconds."""
     agent_items: int
     tool_correct: int
     """How many agent items called the tool `expected_tool` named."""
@@ -42,21 +51,36 @@ class ArmSummary:
         )
 
     @property
+    def routing_accuracy(self) -> float | None:
+        return self.routed_correctly / self.routed if self.routed else None
+
+    @property
     def tool_accuracy(self) -> float | None:
         return self.tool_correct / self.agent_items if self.agent_items else None
+
+
+def _p95(values: list[float]) -> float:
+    return sorted(values)[math.ceil(0.95 * len(values)) - 1]
 
 
 def _summarize_one(name: str, results: list[ItemResult]) -> ArmSummary:
     scores = [r.judge.score for r in results if r.judge is not None]
     agent = [r for r in results if r.tool_correct is not None]
+    routed = [r for r in results if r.decision and r.expected_route]
+    times = [r.decision_seconds for r in results if r.decision_seconds is not None]
     return ArmSummary(
         name=name,
         n_items=len(results),
         n_errors=sum(1 for r in results if r.error is not None),
         total_cost_usd=sum(r.cost.total_usd for r in results),
         mean_quality=(sum(scores) / len(scores)) if scores else None,
-        frontier_calls=sum(1 for r in results if r.decision and r.decision.route == "frontier"),
-        small_calls=sum(1 for r in results if r.decision and r.decision.route == "small"),
+        routed=len(routed),
+        routed_correctly=sum(
+            1 for r in routed if r.decision and r.decision.route == r.expected_route
+        ),
+        fallbacks=sum(1 for r in results if r.decision and r.decision.fallback),
+        decision_p50_s=statistics.median(times) if times else None,
+        decision_p95_s=_p95(times) if times else None,
         agent_items=len(agent),
         tool_correct=len([r for r in agent if r.tool_correct]),
     )
@@ -101,10 +125,14 @@ def _fmt_target(summary: ArmSummary) -> str:
     return "**met**" if met else "not met"
 
 
+def _fmt_seconds(value: float | None) -> str:
+    return f"{value:.3f}" if value is not None else "—"
+
+
 def render_markdown(summaries: dict[str, ArmSummary], *, title: str = "Benchmark results") -> str:
-    """The markdown report: one table, a per-arm errors/tool-accuracy note, and a verdict."""
-    order = [BASELINE_ARM, "keyword", "heuristic", "embedding", "classifier"]
-    rows = [summaries[name] for name in order if name in summaries]
+    """The markdown report: cost and quality, routing accuracy and decision latency, and a
+    verdict."""
+    rows = sorted(summaries.values(), key=lambda summary: summary.name != BASELINE_ARM)
 
     lines = [
         f"# {title}",
@@ -124,17 +152,38 @@ def render_markdown(summaries: dict[str, ArmSummary], *, title: str = "Benchmark
             f"{_fmt_pct(summary.quality_pct_of_baseline)} | {_fmt_target(summary)} |"
         )
 
-    lines += ["", "## Routing and tool-use detail", ""]
-    lines += ["| Arm | to small | to frontier | agent tool accuracy |", "| --- | --- | --- | --- |"]
+    lines += [
+        "",
+        "Local Ollama models are priced at $0: their cost excludes the hardware and power that "
+        "run them.",
+        "",
+        "## Routing and tool-use detail",
+        "",
+        "| Arm | Routing accuracy | Fallbacks | Decision p50 (s) | Decision p95 (s) "
+        "| Agent tool accuracy |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
     for summary in rows:
+        accuracy = (
+            f"{summary.routed_correctly}/{summary.routed} ({summary.routing_accuracy:.0%})"
+            if summary.routing_accuracy is not None
+            else "—"
+        )
         tool_acc = f"{summary.tool_accuracy:.0%}" if summary.tool_accuracy is not None else "—"
         lines.append(
-            f"| {summary.name} | {summary.small_calls} | {summary.frontier_calls} | {tool_acc} |"
+            f"| {summary.name} | {accuracy} | {summary.fallbacks} | "
+            f"{_fmt_seconds(summary.decision_p50_s)} | {_fmt_seconds(summary.decision_p95_s)} | "
+            f"{tool_acc} |"
         )
 
     met = [s.name for s in rows if s.meets_target]
     lines += ["", "## Verdict", ""]
-    if any(s.name != BASELINE_ARM and s.meets_target is None for s in rows):
+    if BASELINE_ARM not in summaries:
+        lines.append(
+            "No always-frontier baseline in this run, so no cost/quality verdict: compare the "
+            "arms on routing accuracy and decision latency."
+        )
+    elif any(s.name != BASELINE_ARM and s.meets_target is None for s in rows):
         lines.append(
             "Incomplete: at least one strategy has no baseline-relative figures to judge "
             "against (see the table above)."

@@ -1,0 +1,2717 @@
+{
+  "baseline-always-frontier": [
+    {
+      "item_id": "support-easy-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "On average, a refund takes **3 to 10 business days** to appear in your account after it has been approved. \n\nHowever, the exact timing depends heavily on the **payment method** you used:\n\n### Breakdown by Payment Method\n\n*   **Credit Cards:** **3 to 7 business days.** *(Note: In rare cases, it can take up to one full billing cycle to appear on your printed statement, though it usually shows up online much sooner.)*\n*   **Debit Cards:** **5 to 10 business days.** Banks often take slightly longer to process reversals back into checking accounts.\n*   **Digital Wallets (PayPal, Apple Cash, Venmo):**\n    *   *If paid with balance:* **Instant to 24 hours.**\n    *   *If linked to a card/bank:* **3 to 5 business days.**\n*   **Bank Transfer / ACH:** **3 to 5 business days.**\n*   **Store Credit / Gift Cards:** **Instant to 24 hours.**\n*   **\"Buy Now, Pay Later\" (Klarna, Afterpay, Affirm):** **3 to 7 business days.** Any upcoming payments will be canceled, and money already paid will be refunded to your card.\n\n---\n\n### Important Things to Keep in Mind:\n\n1. **\"Business Days\" vs. \"Calendar Days\":** Banks do not process refunds on weekends or federal holidays. A refund approved on a Friday afternoon likely won't start processing until Monday.\n2. **\"Pending\" Charges:** If the original purchase was still \"Pending\" (not fully posted) when the refund was issued, the merchant might simply **drop the charge** rather than issue a separate refund credit. It may just disappear from your statement entirely.\n3. **Internal Processing Delays:** Some companies \"approve\" a refund immediately, but their billing department only submits the transaction to the bank once a day or once a week.\n\n### When should you follow up?\nIf you don't see the money after **10 business days** (about two full calendar weeks), reach out to the **merchant** and ask for an **\"ARN\" (Acquirer Reference Number)** or transaction ID. You can then give that number to your bank, and they can track down the funds.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 16,
+          "output_tokens": 1141,
+          "total_tokens": 1157,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 657
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00429075,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The answer fails all parts of the rubric by providing an incorrect timeframe, including numerous invented policy details, and vastly exceeding the length limit of one or two sentences."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-easy-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The fastest way depends on which service you are locked out of, but for almost every modern account, **the automated self-service route is the fastest (1\u20133 minutes):**\n\n---\n\n### 1. The Fastest Universal Method\n1. Go to the login screen and click **\"Forgot Password?\"** or **\"Trouble signing in?\"**\n2. **Choose SMS or Authenticator App** for the reset code if offered (these usually arrive instantly, whereas email links can take a few minutes or get caught in spam filters).\n3. If using email, immediately check your **Spam / Junk / Promotions** folders if the link isn't in your inbox within 30 seconds.\n\n---\n\n### 2. Fastest Shortcuts by Platform\n\n* **Google / Gmail:** Go directly to **[g.co/recover](https://accounts.google.com/signin/recovery)** from a device or Wi-Fi network you\u2019ve used recently (Google bypasses security delays if it recognizes your device).\n* **Apple ID:** On an iPhone/iPad you already own, go to **Settings > [Your Name] > Sign-In & Security > Change Password**. It only requires your device passcode\u2014no email reset needed. Otherwise, go to **[iforgot.apple.com](https://iforgot.apple.com)**.\n* **Microsoft / Windows:** Go directly to **[account.live.com/password/reset](https://account.live.com/password/reset)**. If locked out of your Windows PC, click \"I forgot my PIN\" or \"Reset password\" directly on the lock screen.\n* **Work or School Accounts:** Don't wait for automated emails if your organization has strict security. Go to your company's **IT Self-Service Portal** or message your **IT Helpdesk directly via Slack/Teams/Phone**\u2014they can manually generate a temporary password in seconds.\n\n---\n\n### 3. Check Before You Reset (Could save time):\n* **Password Manager:** Check if your browser (Chrome/Safari settings) or a password manager (Apple Keychain, Bitwarden, 1Password) already has the password saved and you just mistyped it.\n* **Caps Lock:** Ensure your Caps Lock key isn't accidentally turned on.\n\n---\n\n**Which account or service are you locked out of?** Tell me the specific platform (e.g., Instagram, Windows, Yahoo, bank), and I will give you the exact direct link and fastest workaround.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 21,
+          "output_tokens": 1171,
+          "total_tokens": 1192,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 642
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.004407,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer provides sensible, generic guidance such as using the 'forgot password' link and contacting IT support, and it includes accurate, real URLs without fabricating any internal tool names."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-hard-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "I completely understand your frustration. Dealing with delayed shipping, missing money, and unauthorized charges all at once is exhausting. \n\nBecause I am an AI assistant and do not have direct access to your merchant account, order systems, or payment processor, I cannot look up your account directly. However, I can explain the common root causes for each situation and give you the exact steps to resolve them quickly.\n\nHere is a breakdown of what is likely happening and what to do, **one issue at a time**:\n\n---\n\n### 1. Order #A1002 Hasn\u2019t Shipped (2 Weeks)\n\n* **What is likely happening:** \n  * **Uncommunicated Backorder:** The item may have oversold, and the company is waiting on inventory from a supplier without having updated their storefront.\n  * **Fulfillment Glitch:** The order label might have been printed (or lost) in a warehouse queue without being physically scanned into the carrier's network.\n  * **Address Verification Hold:** A minor mismatch in the billing/shipping address or postal code can put an order in an automated \"fraud review\" limbo.\n\n* **What you should do:**\n  1. **Check your order confirmation:** Look for any fine print mentioning \"backordered,\" \"pre-order,\" or extended handling times.\n  2. **Send an escalation email:** Contact support with the subject line: `URGENT: Status of Order #A1002 - Past Shipping Window`.\n  3. **Demand an update or cancellation:** In your message, write: \n     > *\"Order #A1002 was placed 14 days ago and has not shipped. Please provide an immediate shipping date and tracking number. If the item is out of stock or cannot ship within 48 hours, please cancel the order and issue a full refund immediately.\"*\n\n---\n\n### 2. Missing Refund That Never Posted\n\n* **What is likely happening:** \n  * **Standard Banking Delays:** Most merchant refunds take **5 to 10 business days** (excluding weekends/holidays) to reflect on a statement.\n  * **Merchant Error:** Customer support marked the ticket as \"refunded,\" but the billing team never actually submitted the transaction to the payment gateway.\n  * **Credited Elsewhere:** The refund was sent back as store credit, a gift card, or applied to an alternate payment method (like PayPal balance instead of your linked card).\n\n* **What you should do:**\n  1. **Check the date and method:** Verify the exact date you received the refund confirmation email. If it has been more than 10 business days, move to the next step.\n  2. **Request an ARN (Acquirer Reference Number):** Reply to the refund confirmation email and ask:\n     > *\"It has been more than 10 business days, and the refund has not posted to my account. Please provide the Acquirer Reference Number (ARN) or merchant transaction ID for this refund so my bank can trace it.\"*\n  3. **Contact your bank:** Once you have the ARN, call the number on the back of your card. The bank can use that specific number to find the funds if they are stuck in clearing.\n\n---\n\n### 3. Double Charged for the Same Subscription\n\n* **What is likely happening:** \n  * **Pending Authorization Hold:** One charge is the real charge, and the other is a temporary \"pending\" hold that will drop off automatically in 1\u20133 business days.\n  * **Duplicate Accounts:** You might have inadvertently subscribed using two different login methods (e.g., one via your email, one via \"Sign in with Apple\" or Google).\n  * **Billing System Desync:** If you recently updated your payment details or changed your plan, the automated billing system may have triggered an overlapping renewal.\n\n* **What you should do:**\n  1. **Check your bank account status:** Look closely at the two charges. Are they **both \"Posted\"**, or is one listed as **\"Pending\"**? \n     * If one is pending, wait 48 hours to see if it drops off.\n  2. **Check your account profile:** Log in to the service and check your \"Billing\" or \"Subscriptions\" tab to see if two active seats/plans are listed.\n  3. **Request an immediate reversal:** If both charges have posted, reach out to billing:\n     > *\"My account was billed twice for my subscription on [Date] ($[Amount] each). Please refund the duplicate charge immediately and verify that my account is set to a single renewal cycle going forward.\"*\n\n---\n\n### Recommended Next Step\nIf this is all happening with the **same merchant**, you can combine these into a single support ticket to get a senior manager's attention. Would you like a drafted email covering all three issues together, or would you like to handle one specific issue first?",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 60,
+          "output_tokens": 2153,
+          "total_tokens": 2213,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 1116
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00811875,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant fully meets the rubric by addressing all three issues separately, providing concrete next steps for each, and explicitly stating it cannot access the user's actual account state."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-hard-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "# API Integration Policy: Retries, Refunds, Caching, and Idempotency\n\nThis policy outlines how our API handles network failures, transaction reversals, and performance optimization, with a specific focus on maintaining data integrity through **Idempotency**.\n\n---\n\n### 1. The Baseline: Idempotency\nAn idempotent operation can be applied multiple times without changing the result beyond the initial application. \n* Mutating endpoints (e.g., `POST /v1/payments`, `POST /v1/refunds`) accept an `Idempotency-Key: <UUID>` header.\n* Passing the same key with the same payload within **24 hours** will return the original cached response without re-executing the underlying business logic.\n\n---\n\n### 2. Operational Behaviors & Idempotency Interaction\n\n#### A. Retries (Handling Network Faults)\n* **Definition:** Automatically re-sending an identical API request following transient failures (e.g., HTTP `408`, `500`, `502`, `503`, `504`, or raw TCP timeouts).\n* **Interaction with Idempotency:** **Strict Dependency.** \n  * You **MUST** reuse the original `Idempotency-Key` when retrying a request.\n  * This guarantees that if our server processed the original request but the connection dropped before you received the response, your system will not create duplicate transactions (e.g., double billing).\n  * *Policy:* Implement exponential backoff with jitter. Never retry without an idempotency key.\n\n#### B. Refunds (Reversing State)\n* **Definition:** A distinct business event that reverses an executed transaction (e.g., `POST /v1/payments/{id}/refunds`).\n* **Interaction with Idempotency:** **Distinct Transaction Entity.**\n  * A refund is **not** a retry of an original transaction; it is a new state mutation.\n  * You **MUST generate a NEW `Idempotency-Key`** for each unique refund request.\n  * Retrying a *failed refund request* must reuse the *refund\u2019s* specific idempotency key to prevent refunding the customer twice.\n\n#### C. Caching (Optimizing Performance)\n* **Definition:** Storing and returning responses from intermediate network layers (CDNs, proxies, or client-side storage) to minimize latency and server load.\n* **Interaction with Idempotency:** **Different Layer of Concern.**\n  * **Safe Methods (`GET`, `HEAD`):** Caching relies on HTTP cache headers (`Cache-Control`, `ETags`). These methods are idempotent by design, and caching is encouraged for non-real-time reads.\n  * **Unsafe Methods (`POST`, `DELETE`):** Standard HTTP caching should **never** be applied to transactional endpoints. While our idempotency layer behaves like an internal cache (returning previous responses for duplicate keys), it operates at the database level to ensure consistency, not network acceleration.\n  * *Policy:* Do not cache `POST` responses on intermediate proxies. Rely on our idempotency layer for duplicate execution protection.\n\n---\n\n### 3. Comparison Matrix\n\n| Concept | Primary Purpose | Scope / Target | Idempotency Key Usage | Expected System Result |\n| :--- | :--- | :--- | :--- | :--- |\n| **Retry** | Fault tolerance | Transient errors & timeouts | **Re-use existing key** | Returns the original result; no new action taken. |\n| **Refund** | Business logic | Successfully settled charge | **Generate a NEW key** | Debits the account and creates a separate reversal record. |\n| **Caching** | Latency / load reduction | Read-heavy queries (`GET`) | **N/A** (Uses HTTP Headers) | Returns stored response; bypasses server processing entirely. |\n\n---\n\n### 4. Partner Integration Checklist\n\n1. **Never generate a new idempotency key for a retry.** Doing so bypasses deduplication and risks duplicate charges.\n2. **Never reuse a payment's idempotency key for its refund.** The API will reject this with a `422 Unprocessable Entity` or return the original payment record instead of initiating the refund.\n3. **Keep keys unique per distinct action.** We recommend using v4 UUIDs scoped to your internal database event IDs (e.g., `checkout_attempt_id`).",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 30,
+          "output_tokens": 1881,
+          "total_tokens": 1911,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 952
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00707625,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully meets the rubric by clearly defining refunds, retries, and caching as distinct concepts, explicitly detailing how each interacts with idempotency, and organizing the information into a highly coherent and structured policy document."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-easy-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "Order A1001 was shipped on September 18, 2026, and is expected to arrive on September 24, 2026.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 801,
+          "output_tokens": 125,
+          "output_token_details": {
+            "reasoning": 64
+          },
+          "input_tokens": 676
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00097575,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant accurately reports the shipping and arrival dates for order A1001 exactly as specified in the rubric without inventing any details."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-easy-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "Order **A1003** was delivered on **September 15, 2026**.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 861,
+          "output_tokens": 162,
+          "output_token_details": {
+            "reasoning": 115
+          },
+          "input_tokens": 699
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00113175,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly reports that order A1003 was delivered on September 15, 2026, fully satisfying the rubric without inventing details."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-hard-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "Yes, failed requests are retried automatically by our SDK up to 3 times with exponential backoff whenever encountering a rate limit (HTTP 429) or server-side error (HTTP 5xx). Capping retries at three attempts ensures transient glitches have a chance to resolve without causing the system-wide instability that indefinite retries would create. If we were to retry indefinitely, failing services experiencing an outage would be swamped by a continuous \"thundering herd\" of backlogged requests, consuming client memory and connection pools while preventing systems from ever recovering, whereas a bounded retry limit allows failures to surface quickly so your application can handle them gracefully.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 1159,
+          "output_tokens": 420,
+          "output_token_details": {
+            "reasoning": 266
+          },
+          "input_tokens": 739
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00212925,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant accurately reports the 3 retries with exponential backoff for 429/5xx errors and provides a strong comparison to the thundering herd problem of indefinite retries as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "support-hard-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 821,
+          "output_tokens": 105,
+          "output_token_details": {
+            "reasoning": 70
+          },
+          "input_tokens": 716
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00093075,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing all parts of the rubric including calling the search_docs tool and explaining the cache key."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-easy-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "In Python, the `%` operator has two primary uses depending on the context:\n\n---\n\n### 1. The Modulo Operator (Arithmetic)\nWhen used between numbers, `%` is the **modulo operator**. It calculates the **remainder** of a division between two numbers.\n\n```python\nresult = 10 % 3\nprint(result)  # Output: 1 (because 10 divided by 3 is 3 with a remainder of 1)\n```\n\n#### Common Uses:\n* **Checking if a number is even or odd:**\n  ```python\n  num = 4\n  if num % 2 == 0:\n      print(\"Even\")\n  else:\n      print(\"Odd\")\n  ```\n* **Wrapping around values (like hours on a clock):**\n  ```python\n  hour = 14\n  print(hour % 12)  # Output: 2\n  ```\n* **Works with floats:**\n  ```python\n  print(5.5 % 2)  # Output: 1.5\n  ```\n\n*(Note: In Python, the result of a modulo operation always takes the sign of the divisor/denominator: e.g., `-7 % 3` is `2`, but `7 % -3` is `-2`.)*\n\n---\n\n### 2. String Formatting (Old-style / printf-style)\nWhen used with strings, `%` acts as a **string formatting** (or interpolation) operator, similar to `printf` in C.\n\n```python\nname = \"Alice\"\nage = 30\n\n# %s stands for string, %d stands for integer\nmessage = \"My name is %s and I am %d years old.\" % (name, age)\nprint(message)\n# Output: My name is Alice and I am 30 years old.\n```\n\nCommon format specifiers include:\n* `%s` for strings\n* `%d` or `%i` for integers\n* `%f` for floating-point numbers (e.g., `%.2f` for two decimal places)\n\n> **Note:** While `%` for string formatting is still valid and widely seen in older codebases, modern Python (3.6+) generally favors **f-strings** because they are cleaner and faster:\n> ```python\n> message = f\"My name is {name} and I am {age} years old.\"\n> ```",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 10,
+          "output_tokens": 1292,
+          "total_tokens": 1302,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 764
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0048525,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly describes the operator as the modulo/remainder operator and provides multiple short examples, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-easy-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The primary difference is that lists are mutable, meaning their elements can be modified after creation, whereas tuples are immutable and cannot be changed once defined.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 19,
+          "output_tokens": 376,
+          "total_tokens": 395,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 347
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00142425,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly stating that lists are mutable and tuples are immutable in exactly one sentence."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-hard-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "### What is causing the error?\n\nThe error occurs because **`len(items)` equals `0`**, meaning your `items` list (or collection) is completely empty. \n\nIn mathematics and in Python, dividing by zero is undefined, so Python raises a `ZeroDivisionError`.\n\n---\n\n### How to fix it\n\nYou need to decide what the value of `total` should be when there are no items (for example, `0` or `None`).\n\nHere are the most common ways to handle this:\n\n#### Option 1: Use an inline conditional (Ternary operator) \u2014 *Recommended*\nCheck if the list has items before doing the division:\n\n```python\ntotal = sum(prices) / len(items) if items else 0\n```\n*(If `items` is empty, it assigns `0`; otherwise, it calculates the average.)*\n\n---\n\n#### Option 2: Use a standard `if / else` block\nUseful if you have more logic to run when the list is empty:\n\n```python\nif len(items) > 0:\n    total = sum(prices) / len(items)\nelse:\n    total = 0\n    print(\"Warning: No items found.\")\n```\n\n---\n\n#### Option 3: Use a `try / except` block\nCatch the error explicitly when it happens:\n\n```python\ntry:\n    total = sum(prices) / len(items)\nexcept ZeroDivisionError:\n    total = 0\n```\n\n---\n\n### One thing to double-check:\nNotice that you are summing **`prices`** but dividing by the length of **`items`**:\n```python\ntotal = sum(prices) / len(items)\n```\nIf `items` and `prices` are separate lists, make sure you didn't mean:\n```python\ntotal = sum(prices) / len(prices) if prices else 0\n```\nIf you meant to divide by the number of prices, checking `prices` instead of `items` will prevent this error if `prices` has elements while `items` does not.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 79,
+          "output_tokens": 1084,
+          "total_tokens": 1163,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 631
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00412425,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly identifies that the 'items' list is empty causing the division by zero, provides multiple valid ways to guard against it, and does not invent an unrelated cause."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-hard-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "Here is the refactored function using a batch fetch approach:\n\n```python\ndef get_order_totals(order_ids):\n    if not order_ids:\n        return []\n\n    # 1. Fetch all orders in a single database round-trip\n    orders = db.fetch_orders(order_ids)\n\n    # 2. Map orders by ID for O(1) lookup\n    order_map = {order.id: order.total for order in orders}\n\n    # 3. Reconstruct list to preserve original order and handle missing IDs\n    return [order_map.get(oid) for oid in order_ids]\n```\n\n---\n\n### Trade-offs & Considerations\n\n#### Advantages\n1. **Dramatic Latency Reduction ($O(N) \\to O(1)$ round-trips):** \n   Network latency dominates database performance. Moving from $N$ individual network calls to 1 eliminates the N+1 query problem, making this exponentially faster for larger lists.\n2. **Reduced DB Connection Overhead:**\n   A single bulk query reduces connection pooling pressure, query parsing overhead, and transactional overhead on the database.\n3. **Preserved Input Order and Duplicates:**\n   Relational databases return rows in arbitrary order when using `IN (...)`. Using a hash map (`order_map`) ensures the returned list matches the ordering and repetition of the input `order_ids`.\n\n#### Trade-offs & Edge Cases\n1. **Query Size Limits (Batch Limits):**\n   * *Issue:* Most databases have hard limits on query length or parameter count in an `IN (...)` clause (e.g., SQLite limits parameters to 999 or 32,766; Oracle limits `IN` clauses to 1,000 values).\n   * *Mitigation:* If `order_ids` can contain thousands of IDs, you may need to chunk the input (e.g., querying in batches of 500).\n2. **Memory Footprint:**\n   * *Issue:* Fetching all records at once loads the entire dataset into memory simultaneously, along with building an intermediate dictionary.\n   * *Mitigation:* If the list is large, only fetch the `id` and `total` fields from the DB (e.g., via a specialized query) rather than hydrating entire `Order` objects.\n3. **Handling Missing IDs:**\n   * *Issue:* If an ID in `order_ids` does not exist in the database, `order_map.get(oid)` returns `None`. Depending on your business logic, you might prefer skipping missing IDs, using `0`, or raising a `KeyError`/custom exception.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 88,
+          "output_tokens": 1473,
+          "total_tokens": 1561,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 900
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00558975,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant successfully refactored the function to use a single batch fetch and provided multiple valid trade-offs, including memory footprint and query size limits, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-easy-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "Yes, the snippet has a syntax error. On line 2, `return x +` is incomplete because the addition operator (`+`) expects a right-hand operand.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 872,
+          "output_tokens": 166,
+          "output_token_details": {
+            "reasoning": 106
+          },
+          "input_tokens": 706
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001152,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant failed to call the lint_code tool and instead guessed the syntax error without checking, which directly violates the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-easy-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "There is a syntax error:\n\n`SyntaxError: '(' was never closed at line 1`\n\n**Fix:** Add the closing parenthesis:\n```python\nprint('hello')\n```",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 841,
+          "output_tokens": 164,
+          "output_token_details": {
+            "reasoning": 106
+          },
+          "input_tokens": 677
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00112275,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly identifies and reports the unclosed-parenthesis syntax error, but fails to call the lint_code tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-hard-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 968,
+          "output_tokens": 149,
+          "output_token_details": {
+            "reasoning": 107
+          },
+          "input_tokens": 819
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001173,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing all requirements of the rubric including the calculation and the explanation of the time budget."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "coder-hard-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 1281,
+          "output_tokens": 436,
+          "output_token_details": {
+            "reasoning": 364
+          },
+          "input_tokens": 845
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00226875,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, completely failing to call a calculator or report the total cost as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-easy-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "**Photosynthesis** is the biological process by which green plants, algae, and certain bacteria use sunlight to convert carbon dioxide and water into energy-rich sugars and oxygen.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 9,
+          "output_tokens": 416,
+          "total_tokens": 425,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 382
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00156675,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly describing how plants use sunlight to convert carbon dioxide and water into energy-rich sugars."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-easy-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "Mitochondria power the cell by converting nutrients into energy (ATP).",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 25,
+          "output_tokens": 313,
+          "total_tokens": 338,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 299
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0011925,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant provides a faithful one-sentence summary that accurately retains the fact about mitochondria producing ATP, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-hard-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "### 1. Supervised vs. Unsupervised Learning: Comparison\n\nAt their core, the difference between supervised and unsupervised learning lies in the **presence of a ground-truth target** during training. \n\n| Dimension | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Input Data** | Labeled pairs: $(X, Y)$ (Features and ground-truth targets) | Unlabeled features only: $(X)$ |\n| **Primary Goal** | Learn a mapping function $f(X) \\rightarrow Y$ to predict outcomes on unseen data. | Discover inherent structure, patterns, or probability distributions in $X$. |\n| **Feedback Loop** | **Explicit:** The algorithm compares its prediction to the true label and computes a loss to update weights. | **Implicit/Heuristic:** No ground truth. The model minimizes a mathematical proxy (e.g., distance between points, reconstruction error). |\n| **Typical Tasks** | Classification (discrete output), Regression (continuous output). | Clustering, Dimensionality Reduction, Density Estimation, Anomaly Detection. |\n| **Common Algorithms**| Linear/Logistic Regression, Random Forests, XGBoost, Neural Networks. | K-Means, PCA, t-SNE, DBSCAN, Autoencoders, Gaussian Mixture Models. |\n| **Evaluation** | **Objective:** Directly measurable via metrics like Accuracy, F1-Score, RMSE, AUC-ROC. | **Subjective/Heuristic:** Harder to validate; uses metrics like Silhouette Score, Reconstruction Loss, or qualitative human review. |\n\n#### Key Similarities\n* Both use mathematical optimization (e.g., gradient descent) to minimize an objective function.\n* Both are susceptible to the **Curse of Dimensionality** and overfitting if not properly regularized.\n* Both require rigorous data preprocessing (cleaning, feature scaling, handling missing values).\n\n---\n\n### 2. Why the Choice Matters for a Team with Mostly Unlabeled Data\n\nWhen a team possesses abundant raw data but very few labels, deciding between these paradigms is not just an algorithmic choice\u2014it is a **strategic, financial, and operational decision**.\n\n#### A. Resource Allocation and Time-to-Value\n* **The Supervised Trap:** If the team insists on purely supervised learning, the project halts until a labeling pipeline is built. Labeling requires either:\n  * **Domain experts** (e.g., radiologists identifying tumors, fraud analysts tagging transactions), which is extremely expensive and slow.\n  * **Crowdsourcing** (e.g., MTurk), which introduces noisy, low-quality labels.\n* **The Unsupervised Advantage:** Unsupervised approaches allow the team to start extracting value immediately at near-zero marginal data cost. \n\n#### B. Alignment with the Business Objective\nThe choice dictates what kinds of questions the team can answer:\n* If the business goal is **exploratory** (*\"What distinct types of customers use our platform?\"*), unsupervised learning (e.g., K-Means clustering) directly solves the problem.\n* If the business goal is **predictive** (*\"Will this specific customer churn next month?\"*), pure unsupervised learning **cannot** answer this directly because it has no concept of what \"churn\" means. \n\n#### C. Evaluation and Risk of False Confidence\n* With supervised models, validation sets give the team high confidence in how the model will perform in production.\n* With unsupervised models, it is dangerously easy to find patterns that do not actually have business meaning. A clustering algorithm *will always* group data, even if the data is pure Gaussian noise. Validating whether those clusters are useful requires manual verification, which can reintroduce the human overhead the team tried to avoid.\n\n---\n\n### 3. Pragmatic Middle Paths for the Team\n\nA binary choice between supervised and unsupervised is often a false dichotomy. For a team with mostly unlabeled data, modern machine learning provides hybrid workflows:\n\n1. **Semi-Supervised Learning:** Train on the small subset of labeled data, use the model to generate \"pseudo-labels\" for high-confidence unlabeled data, and retrain on the combined set.\n2. **Self-Supervised Pre-training (Foundation Models):** Use the massive unlabeled dataset to train a model to predict masked parts of the input (like BERT or modern Computer Vision backbones). Once the model learns rich representations of the data, fine-tune it on the small labeled set with minimal compute and high accuracy.\n3. **Active Learning:** Use unsupervised techniques to cluster data, identify the most informative or uncertain samples, and send *only those specific samples* to humans for labeling. This maximizes the return on labeling investment.\n4. **Weak Supervision:** Use programmatic heuristics, regular expressions, or knowledge bases (e.g., using frameworks like Snorkel) to auto-generate noisy labels quickly at scale.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 23,
+          "output_tokens": 1975,
+          "total_tokens": 1998,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 962
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0074235,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly distinguishes between labeled and unlabeled data for both approaches and thoroughly explains the strategic implications for a team with mostly unlabeled data, including the need for labeling investment or leaning towards unsupervised and hybrid methods, avoiding a mere definitions dump."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-hard-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "Here is a critique of the argument, an explanation of its underlying flaws, and a framework for better reasoning.\n\n---\n\n### 1. Critique of Logical Soundness\n\nIn formal logic, an argument is **sound** only if:\n1. It is **valid** (the conclusion must follow if the premises are true).\n2. Its premises are **true**.\n\nThis argument is **not sound** because it is **deductively invalid**. Even if the premise is 100% true (every product this year has indeed grown revenue), the conclusion (*\"our next product will too\"*) does not necessarily follow. The argument treats a probabilistic trend from a limited past as a guarantee of the future. \n\n---\n\n### 2. The Underlying Flaws\n\nThe argument suffers from several interconnected logical and cognitive flaws:\n\n* **The Problem of Induction (Hasty Induction):** Just because an event has occurred repeatedly in the past does not guarantee it will occur in the future. (This is often illustrated by Nassim Taleb\u2019s *Turkey Problem*: A turkey fed every day for 1,000 days concludes humans love it, right up until Thanksgiving.)\n* **False Equivalence (Assuming Homogeneity):** The argument assumes the \"next product\" is structurally identical to the previous ones. It ignores product-specific variables: Is the new product targeting the same audience? Is the pricing model the same? Is the value proposition equally compelling?\n* **Ignoring Confounding Variables and Market Dynamics:** The success of previous products might have been driven by external factors\u2014such as favorable macroeconomics, seasonal demand, lack of competition, or aggressive marketing spend\u2014rather than an innate ability to launch winners. Market saturation or competitor responses could easily derail the next launch.\n* **The \"Hot Hand\" Fallacy:** It assumes that a streak of success inherently increases the probability of continuing that streak, mistaking correlation across a specific timeframe for a causal law.\n\n---\n\n### 3. A Better Way to Reason About It\n\nTo make sound business decisions, you should replace **unwarranted certainty** with **causal analysis** and **probabilistic thinking**.\n\n#### A. Shift from Deductive Certainty to Probabilistic Thinking\nInstead of stating what *will* happen, frame the historical data as a baseline prior probability, not a guarantee.\n* *Poor phrasing:* \"We succeeded before, so we will succeed again.\"\n* *Better phrasing:* \"Our recent track record suggests our current go-to-market strategy is effective, which increases our confidence, but success still depends on factors specific to this product.\"\n\n#### B. Perform Causal Attribution (Understand *Why*)\nIdentify the mechanisms that drove the previous successes rather than attributing the wins to simple momentum.\n* *Ask:* Did the previous products succeed because of a strong distribution channel, superior features, an under-served niche, or pure luck? \n* *Evaluate:* Does the new product share those exact success drivers?\n\n#### C. Evaluate the Next Product on Its Own Merits\nTreat the upcoming launch as an independent entity subject to its own risks:\n* Is there validated demand (pre-orders, waitlists, user interviews)?\n* Does it cannibalize existing revenue?\n* Has the competitive landscape changed since the last launch?\n\n#### A Reformulated, Sound Argument:\n> *\"The revenue growth of our recent product launches demonstrates that our current product development and marketing processes are functioning well. If our next product addresses a similar market need and executes against the same standards, it has a high probability of driving revenue. However, we must still validate demand and monitor market conditions specific to this launch.\"*",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 44,
+          "output_tokens": 1558,
+          "total_tokens": 1602,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 799
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0058755,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant fully meets the rubric by correctly identifying the flaw as the problem of induction and the hot hand fallacy (no guarantee from past success) and suggesting a sounder approach involving probabilistic thinking, causal analysis, and validating demand."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-easy-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "Refunds typically take **5 to 7 business days** to post to your original payment method once approved.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 932,
+          "output_tokens": 199,
+          "output_token_details": {
+            "reasoning": 157
+          },
+          "input_tokens": 733
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001296,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports the 5-7 business days fact, but fails to call the search_docs tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-easy-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 941,
+          "output_tokens": 202,
+          "output_token_details": {
+            "reasoning": 160
+          },
+          "input_tokens": 739
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00131175,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, completely failing to call search_docs or report the required fact about retrying up to 3 times with exponential backoff."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-hard-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 904,
+          "output_tokens": 180,
+          "output_token_details": {
+            "reasoning": 113
+          },
+          "input_tokens": 724
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001218,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing all parts of the rubric including calling search_docs and explaining the retry-with-backoff fact."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "research-hard-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 980,
+          "output_tokens": 192,
+          "output_token_details": {
+            "reasoning": 151
+          },
+          "input_tokens": 788
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001311,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing to call search_docs or address any part of the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-easy-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "17 + 26 = **43**",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 11,
+          "output_tokens": 95,
+          "total_tokens": 106,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 84
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0003645,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly answers 43, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-easy-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The train will travel **180 miles** in 3 hours. \n\n(Calculation: 60 miles/hour \u00d7 3 hours = 180 miles)",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 28,
+          "output_tokens": 194,
+          "total_tokens": 222,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 157
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0007485,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly answers 180 miles and explicitly shows the reasoning through the calculation, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-hard-st-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "### **Part 1: The Specific Case**\n\nThe final price is **higher** than the original price by **5%**.\n\n#### **Reasoning:**\nLet the original price of the item be $\\$100$.\n\n1. **Apply the 40% markup:**\n   $$\\text{Marked-up Price} = 100 \\times (1 + 0.40) = 100 \\times 1.40 = \\$140$$\n\n2. **Apply the 25% discount to the marked-up price:**\n   $$\\text{Final Price} = 140 \\times (1 - 0.25) = 140 \\times 0.75 = \\$105$$\n\n3. **Compare to the original price:**\n   $$\\text{Percentage Change} = \\frac{105 - 100}{100} \\times 100\\% = +5\\%$$\n\nBecause the final price is $\\$105$, it is **5% higher** than the original price of $\\$100$.\n\n---\n\n### **Part 2: General Rule and Proof**\n\nLet:\n* $P_0$ = the original price ($P_0 > 0$)\n* $m$ = the markup rate (expressed as a decimal, e.g., $40\\% = 0.40$)\n* $d$ = the discount rate (expressed as a decimal, e.g., $25\\% = 0.25$)\n\n#### **Proof:**\n\n1. **After the markup ($m$):**\n   The intermediate price $P_1$ is:\n   $$P_1 = P_0(1 + m)$$\n\n2. **After the discount ($d$):**\n   The final price $P_2$ is calculated by discounting $P_1$:\n   $$P_2 = P_1(1 - d)$$\n\n3. **Substitute $P_1$ into $P_2$:**\n   $$P_2 = P_0(1 + m)(1 - d)$$\n\n4. **Expand the expression:**\n   $$P_2 = P_0(1 + m - d - md)$$\n\n5. **Find the relative change:**\n   The net fractional change $\\Delta$ relative to the original price is:\n   $$\\Delta = \\frac{P_2 - P_0}{P_0} = \\frac{P_0(1 + m - d - md) - P_0}{P_0}$$\n   $$\\Delta = m - d - md$$\n\n---\n\n### **Conclusion & Decision Rules**\n\nThe net percentage change is given by:\n$$\\text{Net Change (\\%)} = (m - d - md) \\times 100\\%$$\n\n* **Final price is higher** if:\n  $$m - d - md > 0 \\implies m > \\frac{d}{1 - d}$$\n* **Final price is lower** if:\n  $$m - d - md < 0 \\implies m < \\frac{d}{1 - d}$$\n* **Final price is unchanged** if:\n  $$m - d - md = 0 \\implies m = \\frac{d}{1 - d} \\quad \\left(\\text{or } d = \\frac{m}{1 + m}\\right)$$\n\n*(Plugging in the original values: $\\Delta = 0.40 - 0.25 - (0.40 \\times 0.25) = 0.15 - 0.10 = +0.05 \\text{ or } +5\\%$.)*",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 60,
+          "output_tokens": 2064,
+          "total_tokens": 2124,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 1262
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.007785,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly calculates the 5% increase, states the general rule, shows the step-by-step derivation, and reasons about the conditions for the final price being higher or lower."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-hard-st-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The sum of the first $n$ odd positive integers is always equal to $n^2$ (a perfect square):\n\n$$1 + 3 + 5 + \\dots + (2n - 1) = n^2$$\n\nBelow is an intuitive explanation of **why** this occurs geometrically, followed by a rigorous, step-by-step **algebraic derivation**.\n\n---\n\n### Part 1: Visual Intuition (Why it forms a square)\n\nThe relationship between odd numbers and squares is easily seen through geometry using a grid of dots:\n\n1. Start with a single dot: **$1$** (which is $1^2$).\n2. To expand this into a $2 \\times 2$ square, add dots along the right side and top. You need 1 on the right, 1 on top, and 1 in the corner: **$3$** dots.\n   * Total dots: $1 + 3 = 4 = 2^2$.\n3. To expand the $2 \\times 2$ square into a $3 \\times 3$ square, wrap another $L$-shaped layer around it. You need 2 on the right, 2 on top, and 1 in the corner: **$5$** dots.\n   * Total dots: $1 + 3 + 5 = 9 = 3^2$.\n\n```text\n\u25cf  \u25cb  *        \u25cf = 1st odd number (1)\n\u25cb  \u25cb  *        \u25cb = 2nd odd number (3)\n*  *  *        * = 3rd odd number (5)\n```\n\n**In general:** \nTo grow an $(n-1) \\times (n-1)$ square into an $n \\times n$ square, you must add:\n* $(n - 1)$ dots along the top edge,\n* $(n - 1)$ dots along the right edge,\n* $1$ dot in the corner.\n\n$$\\text{Dots added} = (n - 1) + (n - 1) + 1 = 2n - 1$$\n\nSince $2n - 1$ is the definition of the **$n$-th odd number**, each successive odd number provides precisely the exact count of units needed to wrap around the previous square and produce the next larger square.\n\n---\n\n### Part 2: Step-by-Step Algebraic Derivation\n\nWe want to find a closed-form formula for the sum of the first $n$ odd numbers:\n$$S_n = 1 + 3 + 5 + \\dots + (2n - 1)$$\n\nWe will derive this using Gauss\u2019s pairing technique (the method used for arithmetic series).\n\n#### **Step 1: Define the general term**\nThe $k$-th positive odd integer can be written as:\n$$a_k = 2k - 1$$\n* **Justification:** For $k = 1$, $a_1 = 2(1) - 1 = 1$. Each subsequent odd number increases by $2$. Thus, the $n$-th odd number is $a_n = 2n - 1$.\n\n#### **Step 2: Write the sum in forward and reverse order**\nWrite the sum forwards:\n$$\\text{(Equation 1)} \\quad S_n = 1 + 3 + 5 + \\dots + (2n - 3) + (2n - 1)$$\n\nWrite the same sum in reverse order:\n$$\\text{(Equation 2)} \\quad S_n = (2n - 1) + (2n - 3) + \\dots + 5 + 3 + 1$$\n* **Justification:** Addition is **commutative** ($a + b = b + a$); changing the order of the terms does not change the total value of the sum.\n\n#### **Step 3: Add the two equations together term-by-term**\nAdd Equation 1 and Equation 2 vertically:\n$$2S_n = [1 + (2n - 1)] + [3 + (2n - 3)] + [5 + (2n - 5)] + \\dots + [(2n - 1) + 1]$$\n* **Justification:** Adding equals to equals results in equals (Addition Property of Equality).\n\n#### **Step 4: Simplify each pair**\nCompute the sum of each bracketed pair:\n* First pair: $1 + (2n - 1) = 2n$\n* Second pair: $3 + (2n - 3) = 2n$\n* Third pair: $5 + (2n - 5) = 2n$\n* Last pair: $(2n - 1) + 1 = 2n$\n\n* **Justification:** In an arithmetic progression, moving one term forward adds the common difference ($+2$), while moving one term backward subtracts the common difference ($-2$). These balance out:\n$$(a_k) + (a_{n-k+1}) = (2k - 1) + (2(n - k + 1) - 1) = 2k - 1 + 2n - 2k + 2 - 1 = 2n$$\nEvery pair evaluates to the constant value $2n$.\n\n#### **Step 5: Multiply the value of each pair by the number of pairs**\nSince there are $n$ odd numbers in the sequence, there are exactly $n$ pairs that each sum to $2n$:\n$$2S_n = \\underbrace{2n + 2n + 2n + \\dots + 2n}_{n \\text{ times}}$$\n$$2S_n = n \\times (2n)$$\n$$2S_n = 2n^2$$\n* **Justification:** Multiplication is defined as repeated addition of identical terms.\n\n#### **Step 6: Solve for $S_n$**\nDivide both sides of the equation by $2$:\n$$S_n = \\frac{2n^2}{2}$$\n$$S_n = n^2$$\n* **Justification:** Division Property of Equality (dividing both sides of an equation by a non-zero constant preserves equality).\n\n---\n\n### Conclusion\nBy both geometric construction and algebraic derivation, the sum of the first $n$ odd integers evaluates precisely to **$n^2$**, which is by definition a **perfect square**.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_tokens": 27,
+          "output_tokens": 3039,
+          "total_tokens": 3066,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 1631
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0114165,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant clearly states the result (n^2) and provides both a geometric and a rigorous algebraic justification, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-easy-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "234 * 18 = 4,212",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 752,
+          "output_tokens": 104,
+          "output_token_details": {
+            "reasoning": 70
+          },
+          "input_tokens": 648
+        }
+      },
+      "cost": {
+        "chat_usd": 0.000876,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports the answer as 4212, but fails to call the calculator as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-easy-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "The result of 144 divided by 12, plus 9, is **21**.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 741,
+          "output_tokens": 91,
+          "output_token_details": {
+            "reasoning": 46
+          },
+          "input_tokens": 650
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00082875,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reported the final answer as 21, but failed to call the calculator as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-hard-agent-1",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "The final amount is **$1,628.89** (or precisely $1,628.8946...).\n\nCompounding matters because you earn interest not just on your initial principal, but also on the accumulated interest from previous periods, leading to exponential rather than linear growth over time.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 1162,
+          "output_tokens": 349,
+          "output_token_details": {
+            "reasoning": 256
+          },
+          "input_tokens": 813
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0019185,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The assistant accurately reports the final amount of $1628.89 and provides a clear one-sentence explanation of compounding, but fails to call a calculator as specified in the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    },
+    {
+      "item_id": "math-hard-agent-2",
+      "arm": "baseline-always-frontier",
+      "decision": {
+        "route": "frontier",
+        "reason": "no strategy configured",
+        "strategy": null,
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": null
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemini-3.8-flash": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 1077,
+          "output_tokens": 261,
+          "output_token_details": {
+            "reasoning": 210
+          },
+          "input_tokens": 816
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00159075,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing to solve the equation, report the dimensions, or verify the result as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": null
+    }
+  ],
+  "classifier-arch-router": [
+    {
+      "item_id": "support-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "On average, an approved refund takes **3 to 10 business days** to show up in your account, but it can range from **instantly to 30 days** depending on the merchant, your bank, and the original payment method. \n\nHere is a breakdown of how long different payment methods typically take once the merchant initiates the refund:\n\n### 1. Payment Method\n* **Store Credit / Gift Cards:** Instant to 48 hours.\n* **PayPal / Venmo / Digital Wallets:** 3 to 5 business days to your bank, but often **instant** if it goes back to your PayPal/Venmo balance.\n* **Credit Cards:** 3 to 7 business days. (Note: Credit card companies usually don't process refunds over weekends or holidays).\n* **Debit Cards / Bank Accounts:** 7 to 10 business days. Debit cards are tied directly to checking accounts, which often have slower processing times.\n* **Cryptocurrency:** Usually within 24 hours, depending on network congestion.\n\n### 2. The Two-Step Process\nA refund actually happens in two phases:\n1. **Merchant Processing (1\u20133 days):** This is the time it takes for the company you bought from to approve the return and tell their payment processor to send the money back. \n2. **Financial Institution Processing (1\u20137 days):** This is the time it takes for your bank or credit card company to receive the funds and post them to your statement.\n\n### What should you do if it's taking too long?\n* **Wait for \"Business Days\":** Keep in mind that weekends and federal holidays do not count toward processing times.\n* **Check the original form of payment:** If your card expired or you closed the bank account the purchase was made from, the bank will usually bounce the refund back to the merchant as a check, which can take weeks.\n* **Contact the merchant:** If it has been **more than 10 business days**, reach out to the company and ask for an **ARN (Acquirer Reference Number)**. This is a unique tracking number for your refund that your bank can use to locate the missing funds.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 95,
+          "output_tokens": 9,
+          "total_tokens": 104
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 16,
+          "output_tokens": 459,
+          "total_tokens": 475,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0011523,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The answer fails all parts of the rubric because it provides incorrect timeframes, includes numerous invented policy details, and is significantly longer than the allowed one or two sentences."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 1.3392079172190279
+    },
+    {
+      "item_id": "support-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The fastest way to reset your password depends on the specific app or website you are trying to access, but here is the universal, standard procedure that works for 99% of online accounts:\n\n### 1. Use the \"Forgot Password\" Link (Fastest)\n1. Go to the login page of the service you are locked out of.\n2. Click the **\"Forgot Password?\"**, **\"Trouble logging in?\"**, or **\"Reset password\"** link, usually located right below or next to the login button.\n3. Enter your username, email address, or phone number associated with the account.\n\n### 2. Choose Verification (Email or SMS)\nThe system will usually offer you a few ways to prove your identity:\n* **Email:** Sends a secure reset link to your inbox. *(Check your spam/junk folder if it doesn't arrive within 1\u20132 minutes).*\n* **SMS/Text:** Sends a one-time verification code (OTP) to your registered mobile phone.\n* **Authenticator App:** If you have Two-Factor Authentication (2FA) enabled, enter the code from an app like Google Authenticator or Authy.\n\n### 3. Create a Strong New Password\nOnce verified, you will be prompted to create a new password. Make it strong (a mix of letters, numbers, and symbols) and unique so you don't use it anywhere else.\n\n---\n\n### What if that doesn't work?\nIf you no longer have access to the email or phone number associated with the account:\n* **Look for an \"I don't have access to these anymore\" option:** Many platforms allow you to verify your identity through alternative methods (answering security questions, providing a previous password, or submitting photo ID).\n* **Contact Support:** If automated recovery fails, you will need to reach out to the customer support or IT help desk of the specific platform. *(Note: Legitimate companies will never ask for your current password, but they may ask for verification details like billing info or account history).*",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 99,
+          "output_tokens": 9,
+          "total_tokens": 108
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 21,
+          "output_tokens": 430,
+          "total_tokens": 451,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0010812999999999999,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant provides sensible, generic guidance including using the 'forgot password' link and contacting support, without fabricating any URLs or internal tool names."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.2060470839496702
+    },
+    {
+      "item_id": "support-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "I can certainly help you untangle these issues one by one. I know how frustrating it is to deal with shipping delays, missing refunds, and billing errors all at once. \n\n*(Please note: Since I am an AI assistant, I don't have direct access to your account database, so I will explain the standard reasons these things happen and give you the exact steps to get them fixed.)*\n\nLet's take them one at a time, starting with the shipping delay for order #A1002.\n\n***\n\n### 1. Order #A1002 hasn't shipped after 2 weeks\n\n**What's likely going on:**\nA two-week delay usually means one of three things:\n*   **Backorder:** The item went out of stock right as you placed the order, but the system didn't update in time.\n*   **Payment/Fraud Flag:** Sometimes an automated security check flags an order and puts it on a manual hold, but the company fails to send an email asking for verification.\n*   **Logistical Backlog:** The warehouse might be overwhelmed due to high volume, seasonal rushes, or inventory audits.\n\n**What you should do about it:**\n1.  **Check your email (and spam/junk folder):** Look for any messages from the company about verification, delays, or backorders.\n2.  **Contact customer support directly:** Since it has been 14 days, the order is well outside normal processing times. \n    *   *Action:* Send a message or use live chat, reference **Order #A1002**, and ask: *\"Can you confirm if this item is currently in stock, and if not, when is the expected ship date? If it is delayed indefinitely, I would like to know my options for canceling.\"*\n\n***\n\nWould you like to move on to the second issue regarding your missing refund?",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 137,
+          "output_tokens": 9,
+          "total_tokens": 146
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 60,
+          "output_tokens": 400,
+          "total_tokens": 460,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001018,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 3,
+        "rationale": "The assistant successfully avoided claiming knowledge of the account state and provided concrete steps for the first issue, but failed the rubric by not addressing the missing refund and double charge."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.24967058282345533
+    },
+    {
+      "item_id": "support-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "frontier",
+        "reason": "the classifier chose 'frontier': requests that need real reasoning: multi-step analysis, comparisons, proofs or derivations, debugging, refactors with trade-offs, or several distinct sub-questions at once",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "### Partner Integration Policy: Retries, Caching, Refunds, and Idempotency\n\nThis policy defines the expected behaviors for network resilience, performance optimization, and transactional reversals when integrating with our API. \n\nAt the center of these mechanics is **Idempotency**\u2014guaranteed via the `Idempotency-Key: <UUID>` header on state-modifying requests (`POST`, `PATCH`). An idempotent request ensures that an operation can be repeated without unintended side effects.\n\n---\n\n### 1. Retries: Transport-Level Resilience\nNetwork partitions, timeouts (HTTP 504), and server-side rate limits (HTTP 429) or transient errors (HTTP 500, 503) require client-side retries.\n\n*   **Policy:** Partners **MUST** implement exponential backoff with jitter when retrying failed requests. \n*   **Interaction with Idempotency:** **Strictly Dependent.** \n    *   When retrying a request whose outcome is unknown (e.g., a connection timeout on a `POST /v1/charges`), you **MUST** send the exact same `Idempotency-Key`.\n    *   If the original request succeeded before the connection dropped, our API will return the original response without re-executing the operation (preventing duplicate charges).\n    *   *Failure to reuse the idempotency key during a retry is considered an integration fault and will lead to duplicate transactions.*\n\n### 2. Caching: Read-Path Optimization\nCaching reduces latency and load by reusing representations of data across our distributed edge and client networks.\n\n*   **Policy:** \n    *   **Safe Methods (`GET`, `HEAD`):** Responses include standard HTTP caching headers (`Cache-Control`, `ETag`). Partners **SHOULD** respect `max-age` directives to minimize redundant queries.\n    *   **Mutating Methods (`POST`, `PUT`, `DELETE`):** Responses are explicitly set to `Cache-Control: no-store` and must never be cached by edge or HTTP intermediary layers.\n*   **Interaction with Idempotency:** **Decoupled.**\n    *   HTTP caching optimizes *data retrieval* based on resource URLs. Idempotency guarantees *execution safety* on resource creation based on the payload and key.\n    *   While our idempotency layer functions internally like an ephemeral execution cache (storing the initial response for 24 hours per key), it operates at the business logic layer, entirely distinct from client-side or gateway HTTP caching.\n\n### 3. Refunds: Business-Level Reversals\nA refund is an explicit business domain action that reverses a previously finalized financial transaction.\n\n*   **Policy:** A refund **MUST NEVER** be attempted by re-sending, replaying, or modifying the original request, nor can it be initiated by invalidating a cache. A refund is initiated via a dedicated endpoint (e.g., `POST /v1/charges/{id}/refunds`).\n*   **Interaction with Idempotency:** **Independent Lifecycle.**\n    *   A refund is an entirely new transaction and **MUST NOT** reuse the `Idempotency-Key` of the original payment. Reusing the original payment's key will simply return the original payment confirmation.\n    *   Refund requests **MUST** have their own *new*, unique `Idempotency-Key` to prevent double-refunding the customer during transient network failures.\n\n---\n\n### Comparison Matrix\n\n| Mechanism | Purpose | Scope | State Impact | Interaction with Idempotency |\n| :--- | :--- | :--- | :--- | :--- |\n| **Retry** | Recover from transient network/server failures. | Transport / Client | **Zero** additional state change. | **Requires identical key.** Safe replay of an unconfirmed state change. |\n| **Caching** | Reduce latency and API consumption. | Network / Gateway / Client | **Zero** state change (Read-only). | **Orthogonal.** Idempotent write keys bypass standard HTTP caches. |\n| **Refund** | Invert or undo an accepted business transaction. | Business / Domain | **New** state change (Credit event). | **Requires a NEW key.** It is a new write operation requiring its own protection. |\n\n### Summary for Implementers\n*   **Re-sending the same action?** Same `Idempotency-Key` (Retry).\n*   **Reading existing data?** Obey `Cache-Control` (Cache).\n*   **Undoing an action?** New endpoint, new `Idempotency-Key` (Refund).",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 112,
+          "output_tokens": 10,
+          "total_tokens": 122
+        },
+        "gemini-3.8-flash": {
+          "input_tokens": 30,
+          "output_tokens": 2032,
+          "total_tokens": 2062,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 1062
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0076425,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer provides a highly coherent structure that clearly defines refunds, retries, and caching as distinct concepts and accurately explains how each interacts with idempotency keys."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.2499732910655439
+    },
+    {
+      "item_id": "support-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Order A1001 was shipped on September 18, 2026, and is scheduled to arrive on September 24, 2026.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 206,
+          "input_tokens": 186,
+          "output_tokens": 20
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 690,
+          "output_tokens": 61,
+          "input_tokens": 629
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0003412,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant accurately reports the shipping date of September 18, 2026, and the arrival date of September 24, 2026, without inventing any details, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.22320487489923835
+    },
+    {
+      "item_id": "support-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Order A1003 was delivered on September 15, 2026.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 206,
+          "input_tokens": 188,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 659,
+          "output_tokens": 44,
+          "input_tokens": 615
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0002945,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant accurately reports the delivery date as September 15, 2026, without inventing any additional details, fulfilling the rubric's requirements."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.21553666703402996
+    },
+    {
+      "item_id": "support-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Failed requests (specifically those resulting in a 429 Too Many Requests or a 5xx server error) are handled automatically by our SDK, which retries them up to 3 times using exponential backoff. This built-in limit protects both our infrastructure and downstream services from getting overwhelmed during temporary outages or traffic spikes, while still providing resilience against transient network blips. By contrast, if requests were retried indefinitely, a persistent outage or a misconfigured client could trigger a cascading failure, trapping system resources in endless loops, clogging the network with redundant traffic, and potentially worsening or prolonging the underlying outage.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 260,
+          "input_tokens": 242,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 823,
+          "output_tokens": 145,
+          "input_tokens": 678
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0005658999999999999,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant accurately reports the policy of 3 retries with exponential backoff for 429 and 5xx errors, and provides a clear, accurate comparison to the risks of indefinite retries such as cascading failures."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.22893320792354643
+    },
+    {
+      "item_id": "support-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Each route's address is used as a unique prefix to generate its cached data, ensuring they are stored completely separately. Because of this, information from one route can never be accessed or displayed by another.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 260,
+          "input_tokens": 242,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 737,
+          "output_tokens": 64,
+          "input_tokens": 673
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00036189999999999996,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant provided a two-sentence plain language explanation that mentions the route address, but it failed to call the search_docs tool as explicitly required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.2346769580617547
+    },
+    {
+      "item_id": "coder-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "In Python, the `%` operator has two primary roles: **Modulo Arithmetic** and **String Formatting**. \n\nHere is a breakdown of both:\n\n---\n\n### 1. The Modulo Operator (Arithmetic)\nWhen used with numbers, `%` is the **modulo operator**. It returns the **remainder** of a division operation.\n\n**Examples:**\n```python\nprint(7 % 3)  # Output: 1 (Because 3 goes into 7 twice, with 1 left over)\nprint(10 % 2) # Output: 0 (10 is evenly divisible by 2)\nprint(5 % 10) # Output: 5 (When the left number is smaller, the result is the left number)\n```\n\n**Common Uses:**\n* **Checking for even/odd numbers:** `if number % 2 == 0:` means the number is even.\n* **Cycling through a fixed range:** Useful in loops to repeat a pattern (e.g., `index % 5` will always result in numbers from `0` to `4`).\n\n*Note on Negative Numbers:* In Python, the result of the modulo operation takes the sign of the **divisor** (the right-hand operand).\n```python\nprint(-5 % 3)  # Output: 1\nprint(5 % -3)  # Output: -1\n```\n\n---\n\n### 2. String Formatting (Interpolation)\nWhen used with strings, the `%` operator acts as the **string formatting operator** (often called the \"modulo formatting\" or \"printf-style\" formatting). It allows you to inject variables into a string.\n\n**Examples:**\n```python\nname = \"Alice\"\nage = 30\n\n# Using %s for strings and %d for integers\nprint(\"Hello, %s. You are %d years old.\" % (name, age))\n# Output: Hello, Alice. You are 30 years old.\n```\n\n**Common Format Specifiers:**\n* `%s` - String\n* `%d` - Integer\n* `%f` - Floating-point number (e.g., `%.2f` for 2 decimal places)\n* `%x` - Hexadecimal\n\n> **Modern Note:** While string formatting with `%` is still supported in Python, it is considered legacy. Modern Python code generally prefers **f-strings** (`f\"Hello, {name}\"`) or the `.format()` method for better readability and power.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 90,
+          "output_tokens": 9,
+          "total_tokens": 99
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 10,
+          "output_tokens": 532,
+          "total_tokens": 542,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.001333,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly identifies the `%` operator as the modulo/remainder operator and provides clear, short examples of its use."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.23020791704766452
+    },
+    {
+      "item_id": "coder-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The main difference is that lists are mutable (modifiable) and defined using square brackets `[]`, whereas tuples are immutable (unchangeable) and defined using parentheses `()`.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 98,
+          "output_tokens": 9,
+          "total_tokens": 107
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 19,
+          "output_tokens": 35,
+          "total_tokens": 54,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 9.32e-05,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly states that lists are mutable and tuples are immutable in exactly one sentence, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.2194784169550985
+    },
+    {
+      "item_id": "coder-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "### What's causing the error?\n\nYou are getting a `ZeroDivisionError` because **`len(items)` is equal to `0`** (meaning your `items` list is empty). \n\nIn Python, dividing any number by zero is mathematically impossible, so Python raises this error to stop the program.\n\nEven though you are summing `prices`, you are dividing by the length of `items`. If `items` has 0 items, `len(items)` evaluates to `0`, causing `sum(prices) / 0`.\n\n---\n\n### How to fix it?\n\nYou need to check if the list has items in it **before** you do the division. Here are the three most common ways to fix this:\n\n#### 1. The `if` statement check (Safest and most explicit)\nOnly calculate the average if the list is not empty. Otherwise, assign a default value (like `0`).\n\n```python\nif len(items) > 0:\n    total = sum(prices) / len(items)\nelse:\n    total = 0  # Or handle the empty case however you need\n```\n\n#### 2. Using a ternary operator (Compact)\nIf you want to keep it on a single line:\n\n```python\ntotal = sum(prices) / len(items) if len(items) > 0 else 0\n```\n\n#### 3. Using `try-except` (Handling the exception directly)\nIf you expect empty lists to be rare and just want to catch the error when it happens:\n\n```python\ntry:\n    total = sum(prices) / len(items)\nexcept ZeroDivisionError:\n    total = 0  # Fallback value if items is empty\n```\n\n### Pro-Tip: Are `prices` and `items` connected?\nMake sure that `prices` and `items` are supposed to be the same length. If `prices` has items in it, but `items` is empty, you might actually want to divide by `len(prices)` instead:\n\n```python\ntotal = sum(prices) / len(prices)  # Using prices length instead\n```",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 150,
+          "output_tokens": 9,
+          "total_tokens": 159
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 79,
+          "output_tokens": 461,
+          "total_tokens": 540,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0011762,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly identifies that the `items` list is empty causing the division by zero, provides multiple valid ways to guard against it (such as checking the length or using try-except), and does not invent an unrelated cause."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.2740789579693228
+    },
+    {
+      "item_id": "coder-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Here is the refactored version of the function using a batch-fetching approach:\n\n```python\ndef get_order_totals(order_ids):\n    if not order_ids:\n        return []\n    \n    # Fetch all orders in a single database query (e.g., using SQL `IN` clause)\n    orders = db.fetch_orders_by_ids(order_ids)\n    \n    # Map the results by ID to preserve the order and handle missing IDs safely\n    order_map = {order.id: order.total for order in orders}\n    \n    # Reconstruct the totals in the exact order of the input `order_ids`\n    return [order_map.get(oid) for oid in order_ids]\n```\n\n*(Note: Assumes your database layer has or can be updated to have a `fetch_orders_by_ids` method that executes a query like `SELECT * FROM orders WHERE id IN (...)`).*\n\n---\n\n### Trade-offs of this approach\n\n#### **Pros (Why we do it):**\n1. **Massive Performance Improvement (N+1 Query Problem Fix):** \n   Instead of making $N$ round-trips to the database (where $N$ is the length of `order_ids`), this makes exactly **one** round-trip. Network latency is usually the biggest bottleneck in application performance, so reducing database calls drastically speeds up execution.\n2. **Reduced Database Load:** \n   Executing a single query with an `IN` clause is significantly lighter on the database server than opening, parsing, executing, and closing $N$ separate connections/cursors.\n\n#### **Cons & Risks (What to watch out for):**\n1. **Memory Consumption:**\n   If `order_ids` contains 100,000 items, fetching all corresponding full order objects into application memory at once could cause an Out-Of-Memory (OOM) error. *(Mitigation: Chunk the `order_ids` list into batches of, say, 500 or 1000 items if the input list can be exceptionally large).*\n2. **Handling Missing IDs:**\n   If one of the `order_ids` doesn't exist in the database, the naive loop would have raised an `AttributeError` on `order.total`. In the refactored approach, using `order_map.get(oid)` will return `None` for missing IDs instead. Depending on business logic, you may need to explicitly handle or log missing IDs.\n3. **Loss of Database-Enforced Ordering:**\n   SQL `IN` clauses do not guarantee that the rows will be returned in the same order as the IDs you passed in. The dictionary comprehension and final list comprehension (`[order_map.get(oid) for oid in order_ids]`) are strictly necessary here to ensure the output list aligns with the input `order_ids`.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 152,
+          "output_tokens": 9,
+          "total_tokens": 161
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 88,
+          "output_tokens": 625,
+          "total_tokens": 713,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0015889,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant successfully refactored the code to use a single batch fetch and accurately detailed multiple real trade-offs, including memory consumption and handling missing IDs."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.2773297498933971
+    },
+    {
+      "item_id": "coder-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Yes, that snippet has a syntax error. It ends abruptly with a `+` operator without an operand, which causes a `SyntaxError: invalid syntax`.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 218,
+          "input_tokens": 200,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 682,
+          "output_tokens": 57,
+          "input_tokens": 625
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00033,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant failed to call the lint_code tool as required by the rubric, instead guessing the syntax error directly."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.29939429205842316
+    },
+    {
+      "item_id": "coder-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Yes, there is a syntax error in that snippet: `(` was never closed (missing the closing parenthesis `)`).",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 204,
+          "input_tokens": 186,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 646,
+          "output_tokens": 43,
+          "input_tokens": 603
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00028839999999999996,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly identified the unclosed parenthesis syntax error but failed to call the lint_code tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.1984045000281185
+    },
+    {
+      "item_id": "coder-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 287,
+          "input_tokens": 268,
+          "output_tokens": 19
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 738,
+          "output_tokens": 46,
+          "input_tokens": 692
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00032260000000000004,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing all requirements of the rubric including the calculation and the explanation of the time budget."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.25691524986177683
+    },
+    {
+      "item_id": "coder-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "The total cost is approximately **$0.90** (precisely $0.900002).",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 292,
+          "input_tokens": 274,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 776,
+          "output_tokens": 65,
+          "input_tokens": 711
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0003758,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports the total as approximately $0.90, but fails to include or show a calculator call as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.23295887489803135
+    },
+    {
+      "item_id": "research-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Photosynthesis is the biological process by which plants, algae, and some bacteria convert sunlight, water, and carbon dioxide into chemical energy in the form of glucose while releasing oxygen as a byproduct.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 90,
+          "output_tokens": 9,
+          "total_tokens": 99
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 9,
+          "output_tokens": 38,
+          "total_tokens": 47,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 9.77e-05,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully meets the rubric by correctly describing plants converting sunlight, water, and carbon dioxide into chemical energy (glucose) in a single sentence."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.22157920897006989
+    },
+    {
+      "item_id": "research-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The mitochondria acts as the cell's powerhouse by converting nutrients into ATP through cellular respiration.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 108,
+          "output_tokens": 9,
+          "total_tokens": 117
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 25,
+          "output_tokens": 18,
+          "total_tokens": 43,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 5.25e-05,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant fully meets the rubric by providing a faithful one-sentence summary that retains the key fact about mitochondria producing ATP."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.21107641700655222
+    },
+    {
+      "item_id": "research-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "frontier",
+        "reason": "the classifier chose 'frontier': requests that need real reasoning: multi-step analysis, comparisons, proofs or derivations, debugging, refactors with trade-offs, or several distinct sub-questions at once",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Here is a comparison of supervised and unsupervised learning, followed by an analysis of what this choice means for a team working primarily with unlabeled data.\n\n---\n\n### 1. Supervised vs. Unsupervised Learning: Comparison\n\nAt the most fundamental level, the difference lies in **whether the training data includes ground-truth answers (labels).**\n\n| Feature | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Input Data** | **Labeled** data (Inputs $X$ paired with correct outputs $Y$). | **Unlabeled** data (Only inputs $X$; no ground truth). |\n| **Primary Goal** | Learn a mapping from inputs to outputs to **predict** future outcomes. | Discover hidden **structures, patterns, or groupings** within the data. |\n| **Feedback Loop** | **Direct:** The model compares its predictions against ground-truth labels and updates itself based on the error. | **None/Indirect:** Evaluated using intrinsic metrics (e.g., distance between points, variance captured). |\n| **Core Tasks** | \u2022 **Classification** (e.g., Spam vs. Not Spam)<br>\u2022 **Regression** (e.g., Predicting house prices) | \u2022 **Clustering** (e.g., Customer segmentation)<br>\u2022 **Dimensionality Reduction** (e.g., PCA for visualization)<br>\u2022 **Anomaly Detection** (e.g., Fraud/outlier detection) |\n| **Common Algorithms** | Linear/Logistic Regression, Random Forests, XGBoost, Support Vector Machines (SVM), Neural Networks. | K-Means, DBSCAN, Hierarchical Clustering, Principal Component Analysis (PCA), Autoencoders. |\n| **Success Metrics** | Objective and well-defined: Accuracy, Precision, Recall, F1-Score, Mean Squared Error (MSE). | More subjective: Silhouette Score, Davies-Bouldin Index, Reconstruction Error, manual human interpretation. |\n\n---\n\n### 2. Why the Choice Matters for a Team with Mostly Unlabeled Data\n\nWhen a team\u2019s data is mostly unlabeled, this choice is not merely technical\u2014it dictates **budget, timeline, project feasibility, and overall strategy.** \n\nHere is why the choice matters critically in this scenario:\n\n#### A. The Cost and Time Bottleneck of Supervised Learning\nIf the team chooses a purely **supervised approach**, they cannot begin model training immediately. \n* **Human Labeling is Expensive:** Annotating thousands (or millions) of records requires human time. If domain expertise is needed (e.g., radiologists labeling X-rays or legal experts labeling contracts), costs skyrocket.\n* **Risk of Delay:** The project shifts from an *engineering and modeling* task to a *data annotation and pipeline management* task, significantly delaying the time-to-value.\n\n#### B. Alignment with the Business Objective\nThe choice dictates what kinds of questions the team can actually answer:\n* **If the goal is predictive** (e.g., *\"Will this specific customer churn next month?\"*), **unsupervised learning alone cannot solve it.** The team *must* have historical labels of who churned to train a supervised model.\n* **If the goal is exploratory** (e.g., *\"What natural behavioral archetypes exist among our users?\"*), **unsupervised learning can start immediately.** The team can apply clustering (e.g., K-Means) or dimensionality reduction directly to the data without spending a dollar on labeling.\n\n#### C. Unlocking Hybrid Strategies (The Best Path Forward)\nKnowing the limits of both paradigms allows a team with mostly unlabeled data to look beyond a binary choice and adopt hybrid approaches:\n\n1. **Semi-Supervised Learning:** The team manually labels a small, high-quality subset of data (e.g., 5%) and uses algorithms that leverage the massive unlabeled set to generalize better than supervised learning could on the small labeled set alone.\n2. **Self-Supervised Learning (Foundation Models / Pre-training):** Common in NLP and Computer Vision, the team can pre-train a model on the unlabeled data (e.g., masking words or image patches and predicting them) to learn rich representations, then fine-tune it on their few labels.\n3. **Active Learning:** Instead of labeling data randomly, the team uses an unsupervised model or early-stage model to identify the most informative or ambiguous data points, asking humans to label *only those*. This can reduce the labeling effort required for a supervised model by up to 80\u201390%.\n\n### Summary\nFor a team with mostly unlabeled data, **defaulting to supervised learning creates an immediate cost and operational bottleneck**, while **defaulting to unsupervised learning risks delivering interesting patterns that don't solve the core business problem.** \n\nThe choice forces the team to clarify their end goal: if they must predict a specific outcome, they should use smart data-labeling techniques (active/semi-supervised learning); if they need discovery and pattern finding, unsupervised learning allows them to extract value immediately.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 106,
+          "output_tokens": 10,
+          "total_tokens": 116
+        },
+        "gemini-3.8-flash": {
+          "input_tokens": 23,
+          "output_tokens": 1996,
+          "total_tokens": 2019,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 943
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00750225,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly distinguishes between labeled and unlabeled data for both approaches and thoroughly explains the strategic implications for a team with mostly unlabeled data, including the need for labeling investment or adopting unsupervised and hybrid methods, successfully avoiding a mere definitions dump."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.21703579206950963
+    },
+    {
+      "item_id": "research-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "frontier",
+        "reason": "the classifier chose 'frontier': requests that need real reasoning: multi-step analysis, comparisons, proofs or derivations, debugging, refactors with trade-offs, or several distinct sub-questions at once",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "Here is a critique of the argument, an explanation of its underlying flaws, and a framework for better reasoning.\n\n---\n\n### 1. Critique of Logical Soundness\n\nIn formal logic, an argument is **sound** if and only if:\n1. It is **valid** (the conclusion logically follows from the premises).\n2. Its premises are **true**.\n\nThis argument is **not sound** because it is **deductively invalid**. Even if we accept the premise as 100% true (every product this year has grown revenue), the conclusion (*\"therefore our next product will too\"*) does not necessarily follow. \n\nThe argument treats an **inductive observation** (a pattern observed in the past) as a **deductive certainty** (an absolute guarantee about the future). \n\n---\n\n### 2. Explanation of the Flaws\n\n#### A. The Problem of Induction (Hasty Generalization)\nThe argument assumes that the future will strictly resemble the past. Just because a pattern has held over a limited time frame (\"this year\") does not mean it is a universal law. This is the classic \"black swan\" problem: seeing 100 white swans does not prove all swans are white; it only takes one failure to disprove the rule.\n\n#### B. Absence of a Causal Mechanism\nThe argument mistakes **correlation for causation**. It assumes that the act of *shipping a product* is what caused the revenue growth, completely ignoring the underlying factors that actually drive success, such as:\n* **Market conditions:** Was the market experiencing temporary tailwinds this year?\n* **Product differences:** Is the new product targeting the same audience, at the same price point, with the same level of market fit?\n* **Execution:** Does the team have the capacity to support another product, or are resources now stretched thin?\n\n#### C. Absolute vs. Probabilistic Language\nThe fatal logical flaw is the word **\"will.\"** Past performance can inform *probability*, but it cannot guarantee *certainty*.\n\n---\n\n### 3. A Better Way to Reason About It\n\nTo make the reasoning sound and strategically useful, you should shift from **deterministic thinking** (A happened, so B *will* happen) to **causal and probabilistic thinking** (A happened because of X, Y, and Z; if those factors apply to B, B is *likely* to succeed).\n\n#### Step-by-Step Framework:\n\n1. **Deconstruct Past Success (Find the \"Why\"):**  \n   * *Instead of:* \"Our products grew revenue.\"\n   * *Ask:* \"Why did they grow revenue? Was it superior distribution, pricing power, or unmet customer demand?\"\n\n2. **Evaluate the Next Product Against Those Drivers:**  \n   * Does the upcoming product share the specific traits that made the previous products successful?\n   * Are the external conditions (market demand, competition) still the same?\n\n3. **Frame the Conclusion Probabilistically:**  \n   * Account for variance, risk, and the law of diminishing returns.\n\n#### A Stronger, Better-Reasoned Argument:\n\n> *\"Every product we\u2019ve shipped this year has grown revenue because we targeted an underserved segment of our existing user base and leveraged our current sales channels. Because our next product follows this same playbook under similar market conditions, it has a **high probability** of growing revenue as well\u2014provided we maintain execution quality.\"*",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 124,
+          "output_tokens": 10,
+          "total_tokens": 134
+        },
+        "gemini-3.8-flash": {
+          "input_tokens": 44,
+          "output_tokens": 1479,
+          "total_tokens": 1523,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 764
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00557925,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant fully meets the rubric by correctly identifying the flaw as hasty generalization (the problem of induction/no guarantee from past success) and suggesting a more sound approach using causal and probabilistic reasoning."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.2307232921011746
+    },
+    {
+      "item_id": "research-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Refunds typically take **5 to 7 business days** to post to your original payment method after they have been approved.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 202,
+          "input_tokens": 184,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 659,
+          "output_tokens": 47,
+          "input_tokens": 612
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0003011,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports that refunds take 5-7 business days to the original payment method, but fails to call the search_docs tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.2038171668536961
+    },
+    {
+      "item_id": "research-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 210,
+          "input_tokens": 192,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 650,
+          "output_tokens": 43,
+          "input_tokens": 607
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00028960000000000005,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, completely failing to call search_docs or report the required fact about retrying up to 3 times with exponential backoff."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.21524262498132885
+    },
+    {
+      "item_id": "research-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "Instead of giving up the moment a temporary glitch or server hiccup occurs, our system automatically pauses and tries again a few times before giving up. While failing immediately leaves the user stranded with an error on a bad connection, this patient retry approach smoothly rides out brief network bumps behind the scenes.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 248,
+          "input_tokens": 230,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 745,
+          "output_tokens": 79,
+          "input_tokens": 666
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00039729999999999995,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant successfully explains retries and contrasts them with immediate failure in plain language, but it fails to call the search_docs tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.24773066700436175
+    },
+    {
+      "item_id": "research-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "frontier",
+        "messages_back": 0
+      },
+      "answer": "Based on our internal documentation, our cache key generation **includes the route name**, which ensures that two different routes never share a cache entry and prevents cross-route leakage.\n\n### Why this matters for two customers on different tiers:\n\nIf a free-tier customer and a paid-tier customer (or any two customers with different entitlements) request resources from different routes, including the route name in the cache key prevents the system from accidentally serving a cached response generated for one route to a user requesting data from another route. \n\nMore importantly, in a robust multi-tenant architecture, ensuring that route boundaries are strictly enforced in cache keys prevents privilege escalation and data leakage vectors\u2014such as a user on a lower tier inadvertently accessing data or UI components intended only for higher tiers if route checks or data scopes overlap.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 247,
+          "input_tokens": 228,
+          "output_tokens": 19
+        },
+        "gemini-3.8-flash": {
+          "input_tokens": 304,
+          "output_tokens": 141,
+          "total_tokens": 445,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 121
+          }
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 354,
+          "output_tokens": 162,
+          "total_tokens": 516,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00126795,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 4,
+        "rationale": "The assistant failed to call the search_docs tool and did not specifically mention different tier models, though it correctly identified the route-name-in-cache-key fact and explained its general importance for different tiers."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.25666508288122714
+    },
+    {
+      "item_id": "math-easy-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "17 + 26 = 43",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 91,
+          "output_tokens": 9,
+          "total_tokens": 100
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 11,
+          "output_tokens": 10,
+          "total_tokens": 21,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 2.83e-05,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly answers 43, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.20231449999846518
+    },
+    {
+      "item_id": "math-easy-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "The train travels **180 miles** in 3 hours. \n\nHere is the math: \n60 miles/hour \u00d7 3 hours = 180 miles.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 108,
+          "output_tokens": 9,
+          "total_tokens": 117
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 28,
+          "output_tokens": 39,
+          "total_tokens": 67,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0001059,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly answers 180 miles and explicitly shows the reasoning by multiplying the speed by the time."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.209852583007887
+    },
+    {
+      "item_id": "math-hard-st-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "frontier",
+        "reason": "the classifier chose 'frontier': requests that need real reasoning: multi-step analysis, comparisons, proofs or derivations, debugging, refactors with trade-offs, or several distinct sub-questions at once",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "### 1. Specific Case (40% Markup, 25% Discount)\n\n**Answer:** \nThe final price is **higher** than the original price by **5%**.\n\n---\n\n### Step-by-Step Reasoning\n\nLet the original price be $P_0$.\n\n1. **Apply the 40% markup:**\n   $$\\text{Marked-up Price } (P_1) = P_0 \\times (1 + 0.40) = 1.40 \\times P_0$$\n\n2. **Apply the 25% discount to the marked-up price:**\n   $$\\text{Final Price } (P_{\\text{final}}) = P_1 \\times (1 - 0.25) = 1.40 \\times P_0 \\times 0.75$$\n\n3. **Calculate the combined factor:**\n   $$1.40 \\times 0.75 = 1.05$$\n   $$P_{\\text{final}} = 1.05 \\times P_0$$\n\n4. **Determine the percentage change:**\n   $$\\text{Percentage Change} = \\frac{P_{\\text{final}} - P_0}{P_0} \\times 100\\% = \\frac{1.05 P_0 - P_0}{P_0} \\times 100\\% = +5\\%$$\n\n*(Example with numbers: If the item costs \\$100, marking it up 40% makes it \\$140. A 25% discount off \\$140 reduces the price by $\\$140 \\times 0.25 = \\$35$, resulting in a final price of $\\$140 - \\$35 = \\$105$, which is 5% more than \\$100.)*\n\n---\n\n### 2. General Rule and Proof\n\nLet:\n* $P$ = Original price ($P > 0$)\n* $m$ = Markup rate as a decimal (e.g., $40\\% = 0.40$)\n* $d$ = Discount rate as a decimal (e.g., $25\\% = 0.25$, where $0 \\le d < 1$)\n\n#### **Derivation:**\n\n1. The price after markup:\n   $$P_{\\text{marked}} = P(1 + m)$$\n\n2. The price after discount:\n   $$P_{\\text{final}} = P_{\\text{marked}}(1 - d) = P(1 + m)(1 - d)$$\n\n3. Expand the product:\n   $$P_{\\text{final}} = P(1 + m - d - md)$$\n\n4. The relative change relative to the original price is:\n   $$\\Delta = \\frac{P_{\\text{final}} - P}{P} = (1 + m - d - md) - 1 = m - d - md$$\n\n#### **Conclusion:**\nThe net percentage change is given by the formula:\n$$\\text{Net Change} = (m - d - md) \\times 100\\%$$\n\n* **Higher than original** if $m - d - md > 0 \\implies m(1 - d) > d \\implies \\mathbf{m > \\frac{d}{1 - d}}$\n* **Lower than original** if $m - d - md < 0 \\implies \\mathbf{m < \\frac{d}{1 - d}}$\n* **Equal to original** if $m - d - md = 0 \\implies \\mathbf{m = \\frac{d}{1 - d}}$\n\n#### **Verification with the problem's values:**\nPlugging in $m = 0.40$ and $d = 0.25$:\n$$\\Delta = 0.40 - 0.25 - (0.40)(0.25) = 0.15 - 0.10 = 0.05 \\text{ (or } +5\\%)$$",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 139,
+          "output_tokens": 10,
+          "total_tokens": 149
+        },
+        "gemini-3.8-flash": {
+          "input_tokens": 60,
+          "output_tokens": 2130,
+          "total_tokens": 2190,
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 1251
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0080325,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant correctly computes the 5% increase for the specific case, derives the general formula final = original * (1+m) * (1-d), and accurately reasons about the conditions for the final price being higher or lower than the original."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.24017658410593867
+    },
+    {
+      "item_id": "math-hard-st-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": 0
+      },
+      "answer": "To explain why the sum of the first $n$ odd numbers is always a perfect square and to derive the general formula, we can approach the problem using both an intuitive geometric method and a rigorous algebraic method.\n\n---\n\n### Part 1: Geometric Explanation (Visualizing the Sum)\n\nLet's look at the first few odd numbers and try to build them visually using dots or unit squares.\n\n1. **Sum of the first 1 odd number:** \n   $1 = 1$ (A $1 \\times 1$ square)\n\n2. **Sum of the first 2 odd numbers:** \n   $1 + 3 = 4$ \n   *(We can arrange 1 dot in the corner, and add an \"L-shaped\" border of 3 dots to make a $2 \\times 2$ square).*\n\n3. **Sum of the first 3 odd numbers:** \n   $1 + 3 + 5 = 9$ \n   *(Adding another L-shaped border of 5 dots gives a $3 \\times 3$ square).*\n\n**Generalizing the pattern:**\nEvery time we add the next odd number, we are essentially adding an L-shaped layer of dots (called a **gnomon**) that expands a $(k-1) \\times (k-1)$ square into a $k \\times k$ square. \n\nBecause each added odd number perfectly completes the next larger square, the total sum after adding $n$ odd numbers must be a square of dimensions $n \\times n$, which is $n^2$.\n\n---\n\n### Part 2: Derivation and Justification of the General Formula\n\nTo prove this algebraically, we must define the sequence of odd numbers and find the sum of the first $n$ terms.\n\n#### Step 1: Define the $k$-th odd number\nThe sequence of positive odd numbers is $1, 3, 5, 7, \\dots$\nWe can represent any odd number using the algebraic expression:\n$$a_k = 2k - 1$$\n* **Justification:** For $k = 1$, $2(1) - 1 = 1$. For $k = 2$, $2(2) - 1 = 3$. For $k = 3$, $2(3) - 1 = 5$. This formula correctly generates the $k$-th odd number for any integer $k \\ge 1$.\n\n#### Step 2: Set up the sum\nWe want to find the sum of the first $n$ odd numbers, denoted as $S_n$. Using summation notation:\n$$S_n = \\sum_{k=1}^{n} (2k - 1)$$\n* **Justification:** This expression represents $1 + 3 + 5 + \\dots + (2n - 1)$, which is precisely the sum of the first $n$ odd numbers.\n\n#### Step 3: Apply the properties of summation\nWe can split the summation into two separate parts using the linearity property of sums ($\\sum (a_k \\pm b_k) = \\sum a_k \\pm \\sum b_k$):\n$$S_n = \\sum_{k=1}^{n} (2k) - \\sum_{k=1}^{n} (1)$$\n\nNext, we factor out the constant $2$ from the first sum:\n$$S_n = 2 \\left( \\sum_{k=1}^{n} k \\right) - \\sum_{k=1}^{n} 1$$\n* **Justification:** Factoring constants out of sums and splitting terms are valid algebraic operations derived from the distributive property of multiplication over addition.\n\n#### Step 4: Evaluate the individual sums\n1. **The sum of the first $n$ integers:** \n   $$\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$$\n   *(This is the standard, proven formula for triangular numbers, famously derived by Carl Friedrich Gauss).*\n\n2. **The sum of $1$ $n$ times:** \n   $$\\sum_{k=1}^{n} 1 = \\underbrace{1 + 1 + \\dots + 1}_{n \\text{ times}} = n$$\n\n#### Step 5: Substitute and simplify\nSubstitute these results back into our equation for $S_n$:\n$$S_n = 2 \\left( \\frac{n(n+1)}{2} \\right) - n$$\n\nNow, simplify the algebraic expression:\n1. The $2$ in the numerator and the $2$ in the denominator cancel out:\n   $$S_n = n(n+1) - n$$\n2. Distribute the $n$:\n   $$S_n = n^2 + n - n$$\n3. Combine like terms:\n   $$S_n = n^2$$\n\n---\n\n### Conclusion\n\nBy both geometric visualization and rigorous algebraic derivation, we have proven that:\n$$\\sum_{k=1}^{n} (2k - 1) = n^2$$\n\nThe sum of the first $n$ odd numbers is always equal to $n^2$, which is by definition a **perfect square** (since $n$ is an integer).",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "input_tokens": 109,
+          "output_tokens": 10,
+          "total_tokens": 119
+        },
+        "gemini-3.5-flash-lite": {
+          "input_tokens": 27,
+          "output_tokens": 1134,
+          "total_tokens": 1161,
+          "input_token_details": {
+            "cache_read": 0
+          }
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0028431,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The assistant clearly states the result that the sum is n^2 and provides both a geometric and an algebraic justification, fully satisfying the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.242198167135939
+    },
+    {
+      "item_id": "math-easy-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "234 * 18 = 4212",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 202,
+          "input_tokens": 184,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 628,
+          "output_tokens": 33,
+          "input_tokens": 595
+        }
+      },
+      "cost": {
+        "chat_usd": 0.000261,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports the final answer of 4212, but fails to call a calculator tool as specified in the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.22647933289408684
+    },
+    {
+      "item_id": "math-easy-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "The result is 21.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 212,
+          "input_tokens": 194,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 638,
+          "output_tokens": 32,
+          "input_tokens": 606
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00026179999999999997,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The assistant correctly reports the final answer of 21, but fails to call the calculator tool as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "small",
+      "decision_seconds": 0.20136470906436443
+    },
+    {
+      "item_id": "math-hard-agent-1",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "The final amount after 10 years is $1,628.89. \n\nCompounding matters because it allows you to earn returns not just on your initial principal, but also on all the accumulated interest from previous periods, creating a powerful snowball effect of exponential growth over time.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 264,
+          "input_tokens": 246,
+          "output_tokens": 18
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 758,
+          "output_tokens": 91,
+          "input_tokens": 667
+        }
+      },
+      "cost": {
+        "chat_usd": 0.00042760000000000004,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The assistant correctly reports the final amount and provides a sensible one-sentence explanation of compounding, but fails to explicitly call a calculator as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.22351066605187953
+    },
+    {
+      "item_id": "math-hard-agent-2",
+      "arm": "classifier-arch-router",
+      "decision": {
+        "route": "small",
+        "reason": "the classifier chose 'small': simple, short requests: single facts, basic arithmetic, one-step lookups, short definitions",
+        "strategy": "ClassifierStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "small",
+        "messages_back": 0
+      },
+      "answer": "",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": {
+          "total_tokens": 247,
+          "input_tokens": 228,
+          "output_tokens": 19
+        },
+        "gemini-3.5-flash-lite": {
+          "input_token_details": {
+            "cache_read": 0
+          },
+          "total_tokens": 671,
+          "output_tokens": 36,
+          "input_tokens": 635
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0002805,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The assistant provided no answer, failing to solve the equation, report the dimensions, or verify the result as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "frontier",
+      "decision_seconds": 0.23790345806628466
+    }
+  ]
+}

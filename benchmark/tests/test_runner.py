@@ -284,3 +284,26 @@ def test_the_full_toolkit_is_bound_for_every_agent_item() -> None:
     for item in load_dataset():
         if item.expected_tool:
             assert item.expected_tool in names
+
+
+def test_the_strategy_s_decision_is_timed_and_scored_against_the_split() -> None:
+    router = ChatRouter(
+        routes={"small": _small(), "frontier": _frontier()},
+        default_route="small",
+        strategy=HeuristicStrategy("small", "frontier"),
+    )
+    arm = Arm("heuristic", router)
+    for item in (SINGLE_TURN_ITEM, AGENT_ITEM):
+        tier = run_item(arm, item, FakeJudge(), embed=False)
+        assert tier.expected_route == "small"
+        assert tier.decision_seconds is not None
+        assert tier.decision_seconds >= 0.0
+
+    domain = run_item(arm, SINGLE_TURN_ITEM, FakeJudge(), embed=False, split="domain")
+    assert domain.expected_route == "math"
+
+
+def test_no_decision_time_is_recorded_when_no_strategy_runs() -> None:
+    router = ChatRouter(routes={"frontier": _frontier()}, default_route="frontier")
+    result = run_item(Arm("baseline", router), SINGLE_TURN_ITEM, FakeJudge(), embed=False)
+    assert result.decision_seconds is None

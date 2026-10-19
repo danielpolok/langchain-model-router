@@ -97,3 +97,37 @@ def test_render_markdown_includes_every_arm_and_a_verdict() -> None:
     assert "heuristic" in report
     assert "## Verdict" in report
     assert "Target met by: heuristic" in report
+
+
+def test_routing_accuracy_and_decision_latency_are_computed_per_arm() -> None:
+    results = [
+        _result("1", "classifier", route="small", cost=0.1, score=8),
+        _result("2", "classifier", route="small", cost=0.1, score=8),
+        _result("3", "classifier", route="frontier", cost=0.1, score=8),
+        _result("4", "classifier", route="small", cost=0.0, score=0, error="boom"),
+    ]
+    for result, expected, seconds in zip(
+        results, ["small", "frontier", "frontier", "small"], [0.1, 0.3, 0.2, None], strict=True
+    ):
+        result.expected_route = expected
+        result.decision_seconds = seconds
+    results[1].decision = RoutingDecision(route="small", reason="test", fallback=True)
+
+    summary = summarize({"classifier": results})["classifier"]
+
+    assert (summary.routed_correctly, summary.routed) == (2, 3)  # the errored item isn't counted
+    assert summary.fallbacks == 1
+    assert summary.decision_p50_s == pytest.approx(0.2)
+    assert summary.decision_p95_s == pytest.approx(0.3)
+
+
+def test_the_report_shows_accuracy_latency_and_every_arm_without_a_baseline() -> None:
+    result = _result("1", "classifier-qwen3", route="coder", cost=0.0, score=8)
+    result.expected_route = "coder"
+    result.decision_seconds = 0.5
+
+    report = render_markdown(summarize({"classifier-qwen3": [result]}))
+
+    assert "| classifier-qwen3 | 1/1 (100%) | 0 | 0.500 | 0.500 | — |" in report
+    assert "priced at $0" in report
+    assert "No always-frontier baseline" in report

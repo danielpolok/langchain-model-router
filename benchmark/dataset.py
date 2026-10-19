@@ -16,6 +16,10 @@ from typing import Literal, get_args
 
 Difficulty = Literal["easy", "hard"]
 Kind = Literal["single_turn", "agent"]
+Split = Literal["tier", "domain"]
+"""How the routes divide the same items: by difficulty (`"small"` / `"frontier"`), or one route
+per domain (`"support"`, `"coder"`, `"research"`, `"math"`) — the style dedicated router models
+such as Arch-Router are trained on."""
 
 _DIFFICULTIES: tuple[Difficulty, ...] = get_args(Difficulty)
 _KINDS: tuple[Kind, ...] = get_args(Kind)
@@ -43,6 +47,13 @@ class WorkloadItem:
     provenance: str
     """Where this item's content comes from (task requirement: documented provenance)."""
     expected_tool: str | None = None
+
+
+def expected_route(item: WorkloadItem, split: Split) -> str:
+    """The route a perfect router would pick for `item` under `split`."""
+    if split == "domain":
+        return item.domain
+    return "small" if item.difficulty == "easy" else "frontier"
 
 
 def _item_from_dict(raw: dict[str, object]) -> WorkloadItem:
