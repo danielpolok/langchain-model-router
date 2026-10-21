@@ -3,8 +3,10 @@
     uv run python -m benchmark.run
 
 Needs `GEMINI_API_KEY`: every route, the classifier's own call, the embeddings and the judge are
-all Gemini. Every call is real and billed; see `benchmark/README.md` before running this against a
-metered key.
+all Gemini. The `classifier-qwen3` and `classifier-arch-router` arms also need a local Ollama server
+with their models pulled. `--split domain` routes the same items to one route per domain. Every
+Gemini call is real and billed; see `benchmark/README.md` before running this against a metered
+key.
 """
 
 from __future__ import annotations
@@ -21,7 +23,7 @@ from dotenv import load_dotenv
 
 from benchmark.arms import build_arms
 from benchmark.costing import CostBreakdown
-from benchmark.dataset import load_dataset
+from benchmark.dataset import Split, load_dataset
 from benchmark.judge import JudgeVerdict, judge_model
 from benchmark.report import render_markdown, summarize
 from benchmark.runner import ItemResult, run_arm
@@ -43,6 +45,8 @@ def _to_raw(result: ItemResult) -> dict[str, object]:
         "cost": asdict(result.cost),
         "judge": result.judge.model_dump() if result.judge else None,
         "error": result.error,
+        "expected_route": result.expected_route,
+        "decision_seconds": result.decision_seconds,
     }
 
 
@@ -59,16 +63,18 @@ def _from_raw(raw: dict[str, Any]) -> ItemResult:
         cost=CostBreakdown(**raw["cost"]),
         judge=JudgeVerdict(**raw["judge"]) if raw["judge"] else None,
         error=raw["error"],
+        expected_route=raw.get("expected_route"),
+        decision_seconds=raw.get("decision_seconds"),
     )
 
 
 def _run(
-    arm_names: list[str] | None, limit: int | None, pause: float
+    arm_names: list[str] | None, limit: int | None, pause: float, split: Split
 ) -> tuple[dict[str, list[ItemResult]], Path]:
     items = list(load_dataset())
     if limit:
         items = items[:limit]
-    arms = build_arms()
+    arms = build_arms(split)
     if arm_names:
         arms = [arm for arm in arms if arm.name in arm_names]
         if not arms:
@@ -79,14 +85,21 @@ def _run(
     by_arm: dict[str, list[ItemResult]] = {}
     for arm in arms:
         print(f"running {arm.name} ({len(items)} items)...", file=sys.stderr)
-        results = run_arm(arm, items, judge, embed=(arm.name == "embedding"), pause_seconds=pause)
+        results = run_arm(
+            arm,
+            items,
+            judge,
+            embed=(arm.name == "embedding"),
+            pause_seconds=pause,
+            split=split,
+        )
         by_arm[arm.name] = results
         errors = sum(1 for r in results if r.error)
         print(f"  {len(results) - errors}/{len(results)} ok", file=sys.stderr)
 
     RESULTS_DIR.mkdir(exist_ok=True)
     stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    raw_path = RESULTS_DIR / f"{stamp}.json"
+    raw_path = RESULTS_DIR / f"{stamp}-{split}.json"
     raw = {arm: [_to_raw(r) for r in results] for arm, results in by_arm.items()}
     raw_path.write_text(json.dumps(raw, indent=2))
     print(f"raw results: {raw_path}", file=sys.stderr)
@@ -95,7 +108,13 @@ def _run(
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--arms", nargs="*", default=None, help="Arm names (default: all five).")
+    parser.add_argument("--arms", nargs="*", default=None, help="Arm names (default: all).")
+    parser.add_argument(
+        "--split",
+        choices=["tier", "domain"],
+        default="tier",
+        help="Route by difficulty (small/frontier) or one route per domain.",
+    )
     parser.add_argument("--limit", type=int, default=None, help="Cap the dataset to N items.")
     parser.add_argument(
         "--pause", type=float, default=1.0, help="Seconds between items (rate-limit courtesy)."
@@ -115,7 +134,7 @@ def main(argv: list[str] | None = None) -> int:
         raw = json.loads(raw_path.read_text())
         by_arm = {arm: [_from_raw(r) for r in results] for arm, results in raw.items()}
     else:
-        by_arm, raw_path = _run(args.arms, args.limit, args.pause)
+        by_arm, raw_path = _run(args.arms, args.limit, args.pause, args.split)
 
     summaries = summarize(by_arm)
     report = render_markdown(summaries)

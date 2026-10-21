@@ -7,6 +7,12 @@ no local server dependency — `"small"` (`gemini-3.5-flash-lite`) and `"frontie
 for the offline-adjacent live-Ollama test) once a budget-constrained run made an all-cloud pair
 worth measuring first. The baseline always answers on `"frontier"`; each strategy decides per
 request whether `"small"` is safe.
+
+Two more arms put `ClassifierStrategy` on a local decision model through Ollama, priced at $0:
+`classifier-qwen3` (`ollama:qwen3:8b`, thinking off) and `classifier-arch-router` (Katanemo's
+Arch-Router-1.5B, a router fine-tune). With `split="domain"` the same items are routed to one route
+per domain instead, by the three classifier arms only — every domain route is the small model, so
+the run measures the decision, not the answers.
 """
 
 from __future__ import annotations
@@ -19,6 +25,8 @@ from langchain.chat_models import init_chat_model
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 
+from benchmark.dataset import Split
+from benchmark.systemone import SystemOneStrategy
 from langchain_model_router import ChatRouter
 from langchain_model_router.strategies import (
     ClassifierStrategy,
@@ -35,8 +43,13 @@ SMALL_MODEL = os.environ.get(
 )
 EMBED_MODEL = os.environ.get("MODEL_ROUTER_GEMINI_EMBED_MODEL", "gemini-embedding-2-preview")
 OLLAMA_SMOKE_MODEL = os.environ.get("MODEL_ROUTER_OLLAMA_MODEL", "ollama:qwen3:8b")
-"""Not one of the benchmark's own arms — only `test_live_ollama_smoke.py`'s free, local,
-budget-independent sanity check uses this."""
+"""The `classifier-qwen3` arm's decision model, and `test_live_ollama_smoke.py`'s free, local,
+budget-independent sanity check."""
+ARCH_ROUTER_MODEL = os.environ.get(
+    "MODEL_ROUTER_BENCHMARK_ARCH_ROUTER_MODEL", "ollama:hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M"
+)
+"""The `classifier-arch-router` arm's decision model: the Q4_K_M GGUF build (about 1 GB), pulled
+with `ollama pull hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M`."""
 
 # Uncalibrated pending a real run (embedding.py: EmbeddingStrategy's threshold has no shipped
 # default by design). Override with
@@ -78,6 +91,32 @@ _HARD_KEYWORDS = (
     "trade-offs",
 )
 
+# Opt-in arms: each runs only when its endpoint variable is set, because each needs its own local
+# server (see benchmark/README.md). Value: the server's `/v1/systemone` URL.
+_SYSTEMONE_ARMS = {
+    "systemone-jevk5-4b": "MODEL_ROUTER_BENCHMARK_JEVK5_4B_URL",
+    "systemone-jevk5-2b": "MODEL_ROUTER_BENCHMARK_JEVK5_2B_URL",
+    "systemone-kev-0.8b": "MODEL_ROUTER_BENCHMARK_KEV_URL",
+}
+
+_TIER_DESCRIPTIONS = {
+    "small": "simple, short requests: single facts, basic arithmetic, "
+    "one-step lookups, short definitions",
+    "frontier": "requests that need real reasoning: multi-step analysis, "
+    "comparisons, proofs or derivations, debugging, refactors with "
+    "trade-offs, or several distinct sub-questions at once",
+}
+_DOMAIN_DESCRIPTIONS = {
+    "support": "customer support: orders, refunds, billing, accounts and passwords, "
+    "and explaining a company's policies",
+    "coder": "programming: writing, reviewing, debugging or refactoring code, "
+    "stack traces, APIs and software design",
+    "research": "research and general knowledge: explaining concepts, summarising, "
+    "weighing evidence and arguments, weather and facts about the world",
+    "math": "mathematics: arithmetic, algebra, probability, proofs and derivations, "
+    "and word problems",
+}
+
 
 @dataclass(frozen=True)
 class Arm:
@@ -104,17 +143,67 @@ def ollama_smoke_model() -> BaseChatModel:
     return init_chat_model(OLLAMA_SMOKE_MODEL)
 
 
+def qwen3_decider() -> BaseChatModel:
+    # Thinking off: with it on, one decision took 14-26 s instead of about 0.6 s on a local run.
+    return init_chat_model(OLLAMA_SMOKE_MODEL, reasoning=False)
+
+
+def arch_router_decider() -> BaseChatModel:
+    return init_chat_model(ARCH_ROUTER_MODEL)
+
+
 def embeddings() -> Embeddings:
     from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
     return GoogleGenerativeAIEmbeddings(model=EMBED_MODEL)
 
 
-def build_arms() -> list[Arm]:
-    """The baseline plus keyword, heuristic, embedding and classifier — a fresh instance of
+def _classifier_arms(
+    routes: Callable[[], dict[str, BaseChatModel]], default: str, descriptions: dict[str, str]
+) -> list[Arm]:
+    """`ClassifierStrategy` on the small Gemini model, on qwen3 and on Arch-Router, then one
+    `SystemOneStrategy` arm per decision-model endpoint that is configured."""
+    deciders = {
+        "classifier": small_model,  # "ask a small model" (classifier.py) — the small route's own
+        "classifier-qwen3": qwen3_decider,
+        "classifier-arch-router": arch_router_decider,
+    }
+    return [
+        Arm(
+            name,
+            ChatRouter(
+                routes=routes(),
+                default_route=default,
+                strategy=ClassifierStrategy(decider(), descriptions),
+            ),
+        )
+        for name, decider in deciders.items()
+    ] + [
+        Arm(
+            name,
+            ChatRouter(
+                routes=routes(),
+                default_route=default,
+                strategy=SystemOneStrategy(os.environ[variable], descriptions),
+            ),
+        )
+        for name, variable in _SYSTEMONE_ARMS.items()
+        if os.environ.get(variable)
+    ]
+
+
+def build_arms(split: Split = "tier") -> list[Arm]:
+    """The tier split's arms: the baseline plus keyword, heuristic, embedding and the three
+    classifiers — or, for the domain split, the three classifiers alone. A fresh instance of
     each model per arm, since a route must not be shared between two `ChatRouter`s that might
     run concurrently (nothing here forbids it, but each arm owning its own keeps the arms
     independent for a parallel run)."""
+    if split == "domain":
+        return _classifier_arms(
+            lambda: {domain: small_model() for domain in _DOMAIN_DESCRIPTIONS},
+            "support",
+            _DOMAIN_DESCRIPTIONS,
+        )
     return [
         Arm(
             "baseline-always-frontier",
@@ -148,21 +237,9 @@ def build_arms() -> list[Arm]:
                 ),
             ),
         ),
-        Arm(
-            "classifier",
-            ChatRouter(
-                routes={"small": small_model(), "frontier": frontier_model()},
-                default_route="small",
-                strategy=ClassifierStrategy(
-                    small_model(),  # "ask a small model" (classifier.py) — the small route's own
-                    {
-                        "small": "simple, short requests: single facts, basic arithmetic, "
-                        "one-step lookups, short definitions",
-                        "frontier": "requests that need real reasoning: multi-step analysis, "
-                        "comparisons, proofs or derivations, debugging, refactors with "
-                        "trade-offs, or several distinct sub-questions at once",
-                    },
-                ),
-            ),
+        *_classifier_arms(
+            lambda: {"small": small_model(), "frontier": frontier_model()},
+            "small",
+            _TIER_DESCRIPTIONS,
         ),
     ]
