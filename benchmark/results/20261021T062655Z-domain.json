@@ -1,0 +1,1124 @@
+{
+  "systemone-kev-0.8b": [
+    {
+      "item_id": "support-easy-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (88%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This is one of the most frequently asked questions, and unfortunately, the answer is: **It depends entirely on several factors.**\n\nThere is no standard timeframe because the refund has to pass through multiple systems\u2014the merchant's system, the payment processor, and finally, your bank.\n\nHere is a detailed breakdown of the typical timelines based on the method of payment:\n\n***\n\n### \ud83d\udcb3 1. By Payment Method (Most Important)\n\nThe biggest factor determining the speed is whether you paid with a credit card, a debit card, or a digital wallet.\n\n#### \ud83d\udfe2 Credit Cards (Generally the Fastest)\n*   **Timeline:** 2 to 7 business days.\n*   **How it works:** When the company approves the refund, they send a request back to the payment processor. The processor sends it to your bank. Because credit card transactions are designed for quick reversals, this usually posts relatively quickly.\n*   **Note:** You may see a \"pending\" credit on your statement first, and then the funds will fully post days later.\n\n#### \ud83d\udfe1 Debit Cards (Often Slower)\n*   **Timeline:** 3 to 10 business days.\n*   **How it works:** Debit card refunds often rely on an ACH (Automated Clearing House) transfer, which is less immediate than credit card processing. Your bank may also take extra time to verify that the refund is legitimate before posting the funds back to your account.\n\n#### \ud83d\udd35 Digital Wallets / Alternative Payments (PayPal, Apple Pay, etc.)\n*   **Timeline:** Varies widely.\n*   **How it works:** If you receive the refund back to your *original bank account* (not into the wallet balance), you will be subject to your bank's standard processing times (3\u201310 days). If the wallet itself issued a gift card or credit, the funds are immediately available in the wallet but won't show up as cash in your bank account.\n\n***\n\n### \u23f3 2. By Institution (The Company)\n\nSometimes, the company initiating the refund is the bottleneck.\n\n*   **The Merchant/Company:** Some companies (especially large retailers) are very efficient and initiate the refund immediately upon approval. Others might take a few days to manually process the reversal on their end.\n*   **Your Bank:** Your bank is the final gatekeeper. Even if the merchant sends the money today, if your bank processes ACH transfers only once a day, the funds won't show up until the next business day's processing cycle.\n\n***\n\n### \ud83d\udca1 Summary Timeline (Expected Window)\n\n| Scenario | Payment Type | Typical Range | Best Bet |\n| :--- | :--- | :--- | :--- |\n| **Fastest** | Credit Card | 2\u20135 Business Days | Check your statement for a \"pending\" credit first. |\n| **Standard** | Debit Card | 5\u201310 Business Days | Assume the full timeline to account for bank processing. |\n| **Slowest** | Bank Transfer/ACH | 7\u201314 Business Days | If you wait longer than two weeks, call your bank. |\n\n***\n\n### \ud83d\udee0\ufe0f What You Should Do Now (Actionable Advice)\n\n1.  **Check the Refund Confirmation:** The company or store that approved the refund should tell you *exactly* what payment method they are refunding to.\n2.  **Keep Records:** Write down the date of the refund approval, the dollar amount, and a confirmation or case number.\n3.  **Call Your Bank (If Concerned):** If the amount is significantly late (e.g., past the 10-day mark for a debit card), call your bank. Tell them: \"I am expecting a refund of [Amount] from [Company Name] which was approved on [Date].\" They can look up the expected incoming funds and tell you if the money is delayed or if something needs to be done on your end.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 31,
+          "output_tokens": 1384,
+          "total_tokens": 1415
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 3,
+        "rationale": "The answer correctly states the general timeframe but fails the rubric by providing excessive detail, multiple sections, and exceeding the limit of 'no more than a sentence or two.'"
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.19139245804399252
+    },
+    {
+      "item_id": "support-easy-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (60%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "Since I don't know what account you are locked out of (email, bank, social media, work system, etc.), I can't give you a specific fix.\n\nHowever, **every single service follows a very predictable recovery process.** To get you back in the fastest way, you need to follow this structured approach, starting with the quickest fixes.\n\n***\n\n### \ud83d\ude80 Phase 1: The 30-Second Fixes (Try These First)\n\nBefore you hit the \"Forgot Password\" link, make sure you aren't making a simple error:\n\n1.  **Check the Basics:** Are you using the correct **username**, **email address**, and **website URL**?\n2.  **Look for Caps Lock:** Ensure your Caps Lock key is off. Passwords are case-sensitive.\n3.  **The \"Forgot Password\" Link:** Always click the official link that says **\"Forgot Password?\"** or **\"Need Help Signing In?\"** Never try to guess the password directly.\n\n### \ud83d\udd11 Phase 2: The Recovery Flow (The Standard Method)\n\nThis is the method the site was designed for. You must start here:\n\n1.  **Initiate Recovery:** Click the \"Forgot Password\" link on the login screen.\n2.  **Identify Yourself:** The site will ask you a question to prove you own the account. This is usually one of three things:\n    *   **Recovery Email:** They send a password reset link to a secondary email address you linked to the account.\n    *   **Phone Number (SMS):** They send a one-time code via text message (SMS).\n    *   **Security Question:** They ask you a secret question (\"What was the name of your first pet?\").\n3.  **Use the Code/Link:** Use the code or click the link immediately. This will take you to a new screen where you can set a brand new password.\n\n#### \ud83d\udca1 Pro Tip: If the Recovery Methods Fail\n\nIf you don't have access to the recovery email or phone number, the site will usually offer a button that says **\"Try another way,\"** or **\"I don't have access to my recovery email/phone.\"** Click this\u2014this is the path to manual account recovery.\n\n***\n\n### \ud83d\udea7 Phase 3: If All Else Fails (The Long Shot)\n\nIf you cannot access your email, phone, or answer security questions, you must go through the platform's formal help system. Be prepared that this path is the slowest.\n\n*   **Contact Customer Support:** Look for a **\"Support,\"** **\"Help Center,\"** or **\"Contact Us\"** link.\n*   **Be Patient:** Most major companies (banks, social media, etc.) require strict identity verification before they will help. You might have to wait for an email or phone call that cannot be sped up.\n*   **Be Prepared to Verify Identity:** They will ask you for details *only* the true owner would know (e.g., account creation date, billing information, recent activity, etc.).\n\n***\n\n### \ud83d\udea6 Summary Checklist:\n\n| If you are stuck on... | Try this first... |\n| :--- | :--- |\n| **The Login Page** | Click \"Forgot Password?\" |\n| **The Recovery Page** | Use the linked **alternate email/phone.** |\n| **No Access Methods** | Look for **\"Try another way\"** or contact support. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 36,
+          "output_tokens": 1338,
+          "total_tokens": 1374
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by providing sensible, generic guidance (mentioning 'Forgot Password,' email reset, and contacting support) while strictly avoiding fabricated URLs or internal tool names."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.3121874160133302
+    },
+    {
+      "item_id": "support-hard-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (93%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "I understand how incredibly frustrating it is to deal with multiple issues like delays, missing refunds, and incorrect charges all at once. Please know that I can guide you on the general steps for each of these, but because I do not have access to your account details, you will need to follow these steps by contacting the company's dedicated support channels (customer service, billing department, etc.).\n\nWe will address each item individually, starting with the order status, then the refund, and finally the billing charges.\n\n***\n\n### \ud83d\udce6 1. Order #A1002 Not Shipped After 2 Weeks\n\n**What this likely means:**\nA two-week delay for an unshipped item can be due to several things: an unexpected inventory shortage, a processing backlog at the warehouse, or a logistical hiccup with the shipping carrier.\n\n**What you should do:**\n1. **Check for Initial Notifications:** Review your original order confirmation email and any subsequent emails from the company. Sometimes, the delay is announced proactively before the issue becomes visible on your account.\n2. **Check the Estimated Shipping Date (ESD):** Log into your account (if possible) and see if the company has provided an updated estimated shipping window.\n3. **Escalate the Inquiry:** If the company has not provided an updated timeline, you need to contact their **Customer Support or Order Fulfillment team** immediately. When you contact them, specifically ask:\n    *   *\u201cWhat is the **current, updated** internal status of this order?\u201d*\n    *   *\u201cCan you provide an estimated **new** shipping date or a tracking number and its expected activation date?\u201d*\n\n***\n\n### \ud83d\udcb8 2. Refund Never Posted\n\n**What this likely means:**\nWhile it is stressful when money doesn't appear where expected, there are generally a few reasons a refund might seem \"lost.\" Most commonly, the delay is due to processing times between the merchant and your bank.\n\n**What you should do:**\n1. **Confirm the Processed Date:** Contact the company and ask for two things: **(a) the Refund Transaction ID** and **(b) the date they actually processed the refund.** Do not rely only on the date they promise.\n2. **Verify Bank Hold Time:** Reputable companies usually process refunds quickly, but it can take **5\u201310 business days** for the money to appear back in your account. If the refund was processed within the last few business days, give your bank until the end of the business week.\n3. **Check Your Bank Statement/App:** Sometimes the refund doesn't appear as cash, but rather as a **credit** or **pending reversal** on your account statement. Check the recent transactions carefully for this credit amount.\n4. **If the Wait Period Passes:** If the confirmed date they processed the refund has passed (and it has been more than 10 business days), you must contact your **bank** and provide them with the Refund Transaction ID given to you by the company. Your bank can investigate the status of that specific outgoing payment.\n\n***\n\n### \ud83d\udcb3 3. Charged Twice for the Same Subscription\n\n**What this likely means:**\nThis is a clear billing error, and you should not pay for services you have not received twice. This usually happens due to a technical glitch, a failure in billing cycle reconciliation, or perhaps accidentally triggering a renewal manually.\n\n**What you should do:**\n1. **Gather Evidence:** Take clear screenshots of both charges, including the dates, the amount, and the transaction IDs.\n2. **Do Not Wait:** This is a billing issue, so you need to contact the **Billing Department** or **Support Team** immediately.\n3. **Submit a Refund Request:** Clearly state: *\"I have been charged twice for the same subscription on [Date 1] and [Date 2]. I am requesting a full refund of the duplicate charge of [Amount] and confirmation that the account will only be billed for the correct service cycle going forward.\"*\n4. **Confirm Prevention:** As part of the resolution, ask the company to confirm **how** the double charge will be prevented in the future and ask for written confirmation that your billing is corrected.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 75,
+          "output_tokens": 1470,
+          "total_tokens": 1545
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by addressing all three issues separately, suggesting concrete next steps for each, and correctly avoiding any claim to know the account's actual state."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.39558245800435543
+    },
+    {
+      "item_id": "support-hard-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (59%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "# API Interaction Policy: Idempotency, Refunds, Retries, and Caching\n\n***\n\n## \ud83d\udcc4 Scope\n\nThis policy outlines the expected behavior, technical guidelines, and interactions regarding **Refunds**, **Retries**, and **Caching** for technical partners integrating with our API. Understanding these behaviors is crucial for maintaining accurate state management and ensuring transactional integrity.\n\n## \u2728 Foundational Principle: Idempotency\n\n**Definition:** Idempotency is the property of an operation or function such that executing it multiple times produces the same result as executing it once.\n\n**Our Mandate:** All critical financial or state-changing API endpoints (e.g., `/transactions`, `/refunds`) **must** be designed and utilized as idempotent by the integrating partner. When utilizing our APIs, assume that network failures or processing delays may necessitate retries.\n\n---\n\n## \ud83d\udd04 Behavior Deep Dive\n\n### 1. Idempotent Operations (The Standard)\n\nFor *initial* state-changing requests (e.g., creating a payment, initiating a refund), partners **must** use an `Idempotency-Key` header.\n\n*   **Mechanism:** The partner sends a unique UUID as the `Idempotency-Key`.\n*   **Server Action:** Our API processes the request only on the first encounter of that key. Subsequent requests with the same key within the defined window will return the original response without re-executing the logic, preventing duplicate charges or state changes.\n*   **Best Practice:** Use this key for the initial **Call** and any immediate, state-altering **Refunds**.\n\n### 2. Retry Behavior (Network Failure Handling)\n\nRetry behavior addresses temporary network disruptions, time-outs, or transient service unavailability (e.g., HTTP 503 or 429).\n\n*   **Goal:** To safely re-attempt an operation that may have failed or timed out, without introducing duplicate side effects.\n*   **Idempotency Interaction:**\n    *   **When to Retry:** Only when receiving a temporary, client-non-specific status code (e.g., 5xx).\n    *   **Mandatory Action:** If the original request used an `Idempotency-Key`, the partner **must** include that exact key in the retried request. This ensures the server safely handles the re-execution attempt.\n    *   **Caution:** Never retry a request after receiving a definitive client error (e.g., 400 Bad Request, 401 Unauthorized), as the error indicates a permanent issue with the payload or credentials.\n\n### 3. Refund Behavior (State Change)\n\nA refund is a specific type of state-changing transaction that must be managed with strict idempotency controls.\n\n*   **Goal:** To ensure that a refund amount is credited back exactly once, regardless of how many times the partner attempts to initiate it.\n*   **Idempotency Interaction:**\n    *   **Mechanism:** Refunds **must** be treated as a critical transaction and require a unique, dedicated `Idempotency-Key`.\n    *   **Server Action:** The API will check the key. If the refund has already been processed with that key, the server will return the successful original response status code, rather than executing the financial logic again.\n    *   **Key Requirement:** The `Idempotency-Key` must uniquely represent the intended refund transaction (e.g., incorporating the original transaction ID and the refund attempt identifier).\n\n### 4. Caching Behavior (Client Optimization)\n\nCaching involves the client storing temporary API responses to avoid making redundant requests for data that is not expected to change immediately.\n\n*   **Goal:** To improve performance and reduce API call overhead (latency reduction).\n*   **Idempotency Interaction:**\n    *   **Nature:** Caching is a **read operation optimization**, not a transactional state-change mechanism. It fundamentally *bypasses* the need for idempotency keys on the client side for the data being cached.\n    *   **Warning:** Cached data is only valid until the specified Time-To-Live (TTL) or until the data source is manually invalidated by the partner. Caching a response does **not** guarantee the data\u2019s current status in our production system.\n    *   **Best Practice:** Use caching for reference data (e.g., currency codes, status definitions), but **never** cache the result of a successful POST or PUT request that alters state.\n\n---\n\n## \ud83d\udca1 Summary Matrix\n\n| Action Type | Primary Purpose | Does it Change State? | Must Use `Idempotency-Key`? | Impact on Idempotency |\n| :--- | :--- | :--- | :--- | :--- |\n| **Initial Call** | Create resource/transaction | Yes | **YES** | Ensures the operation runs only once. |\n| **Refund** | Reverse a transaction | Yes | **YES** | Guarantees the refund credit happens exactly once. |\n| **Retry** | Recover from network failure | Potentially | **YES** | Allows safe re-execution of the intended, unique request. |\n| **Cache** | Improve read performance | No | N/A | Bypasses the server logic entirely; does not interact with idempotency. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 45,
+          "output_tokens": 1289,
+          "total_tokens": 1334
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric by providing a highly coherent structure, dedicating distinct sections to refunds, retries, and caching, and accurately connecting each concept to idempotency (e.g., mandating keys for refunds/retries, and correctly explaining that caching must manage context/TTL to avoid serving stale data)."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.28022641711868346
+    },
+    {
+      "item_id": "support-easy-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (87%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": null
+      },
+      "answer": "Order A1001 was shipped on 2026-09-18 and is scheduled to arrive on 2026-09-24.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1275,
+          "output_tokens": 619,
+          "input_tokens": 656
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The score is reduced because the answer fails to call the required function `lookup_order_status` with the correct order ID, although it correctly reports all the necessary details."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.2760297500062734
+    },
+    {
+      "item_id": "support-easy-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (89%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": null
+      },
+      "answer": "Your order A1003 was delivered on 2026-09-15.",
+      "tool_called": "lookup_order_status",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 778,
+          "output_tokens": 136,
+          "input_tokens": 642
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 5,
+        "rationale": "The score is lowered because the answer fails to include the required function call to `lookup_order_status` with the specified order ID."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.32801658287644386
+    },
+    {
+      "item_id": "support-hard-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (39%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": null
+      },
+      "answer": "The SDK is designed to handle transient failures gracefully by automatically retrying requests a maximum of **three times** using an exponential backoff strategy when encountering specific rate limiting (429) or server error (5xx) responses. This controlled approach is crucial because setting a firm limit prevents runaway processes; if retries were indefinite, the system could become trapped in a failure loop, repeatedly hammering the service and potentially overwhelming both your system and the downstream API, leading to instability or resource exhaustion. By limiting attempts, we ensure that if the underlying issue is systemic or prolonged, the process stops after a reasonable effort, providing clear failure reporting instead of continuous, unproductive retries.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1444,
+          "output_tokens": 735,
+          "input_tokens": 709
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The answer accurately reports the '3 retries with exponential backoff on 429/5xx' fact and provides an excellent comparison to indefinite retries, but it fails the rubric requirement of calling `search_docs`."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.34365504095330834
+    },
+    {
+      "item_id": "support-hard-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (53%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "I was unable to find documentation regarding how our caching keys work.\n\nCould you please provide me with the technical details about the caching mechanism? Once I have that information, I can write the two-sentence, non-technical explanation for the customer.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1317,
+          "output_tokens": 631,
+          "input_tokens": 686
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The answer fails the rubric because it does not call search_docs, does not report that the cache key includes the route name, and does not provide the two-sentence plain language explanation."
+      },
+      "error": null,
+      "expected_route": "support",
+      "decision_seconds": 0.34324324992485344
+    },
+    {
+      "item_id": "coder-easy-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (84%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The Python `%` operator is a versatile operator that is used for two main purposes, depending on the context:\n\n1. **The Modulo Operator (Most Common Use):** When used with two numeric operands (integers or floats), it calculates the **remainder** of the division.\n2. **String Formatting:** It is used to insert values into a string, following a C-style formatting syntax.\n\nHere is a detailed breakdown of both uses.\n\n---\n\n## 1. Modulo Operator (Remainder)\n\nThis is the most common interpretation of `%`.\n\n**Syntax:** `A % B`\n\n**Function:** It returns the remainder when the number `A` is divided by the number `B`.\n\n**Examples:**\n\n* **`10 % 3`**\n    * 10 divided by 3 is 3 with a remainder of 1.\n    * **Result:** `1`\n* **`7 % 7`**\n    * 7 divided by 7 is 1 with a remainder of 0.\n    * **Result:** `0`\n* **`15 % 4`**\n    * 15 divided by 4 is 3 with a remainder of 3.\n    * **Result:** `3`\n\n### Handling Negative Numbers (Important!)\n\nThe result of the modulo operation always takes the sign of the **divisor** (`B`).\n\n* **Positive Divisor:**\n    * `(-10) % 3` = `2` (Because $-10 = 3 \\times -4 + 2$)\n* **Negative Divisor:**\n    * `10 % (-3)` = `-2` (Because $10 = -3 \\times -3 + (-2)$)\n\n### Practical Use: Checking for Even/Odd\n\nA very common application is to check if a number is even or odd:\n\n* If `N % 2` is `0`, the number `N` is **even**.\n* If `N % 2` is `1` (or `-1`), the number `N` is **odd**.\n\n---\n\n## 2. String Formatting (Older Method)\n\nHistorically, before modern methods like `str.format()` and f-strings, the `%` operator was the standard way to embed variables into strings.\n\n**Syntax:** `\"string containing %s %d\" % (variable1, variable2)`\n\n**How it works:**\n\nYou use **conversion specifiers** (like `%s` for string, `%d` for integer, `%f` for float) as placeholders in your format string. Then, you append the values to the right of the `%` operator as a tuple, and Python substitutes the values in order.\n\n**Example:**\n\n```python\nname = \"Alice\"\nage = 30\n# Using % for formatting\nmessage = \"My name is %s and I am %d years old.\" % (name, age)\nprint(message) \n# Output: My name is Alice and I am 30 years old.\n```\n\n***\n\n## \ud83c\udf1f Modern Recommendation (Which Method to Use)\n\nWhile the `%` operator still works for string formatting, **it is generally recommended to use modern methods for readability and safety:**\n\n1. **F-strings (Formatted String Literals):** (Python 3.6+) This is the easiest and most modern way.\n    ```python\n    name = \"Alice\"\n    age = 30\n    message = f\"My name is {name} and I am {age} years old.\"\n    # No % operator used\n    ```\n\n2. **`str.format()`:** (Older but still valid)\n    ```python\n    name = \"Alice\"\n    age = 30\n    message = \"My name is {} and I am {} years old.\".format(name, age)\n    ```\n\n### Summary Table\n\n| Use Case | Operator | Example | Notes |\n| :--- | :--- | :--- | :--- |\n| **Remainder Math** | `%` | `10 % 3` -> `1` | Always the most common use. |\n| **String Formatting** | `%` | `\"Hi %s\" % \"Bob\"` | Functional, but **outdated**. |\n| **Modern Formatting** | `f\"\"` | `f\"Hi {name}\"` | **Recommended** for new code. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 25,
+          "output_tokens": 946,
+          "total_tokens": 971
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly describes the operator as the modulo/remainder operator and provides multiple clear examples of its use in mathematics."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.3240016249474138
+    },
+    {
+      "item_id": "coder-easy-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (82%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "A list is a mutable collection that can be modified after creation (adding, deleting, or changing elements), whereas a tuple is an immutable collection whose contents cannot be altered.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 34,
+          "output_tokens": 154,
+          "total_tokens": 188
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly stating that lists are mutable and tuples are immutable, all within a single sentence."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.28918345808051527
+    },
+    {
+      "item_id": "coder-hard-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (89%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This is a very common and straightforward error!\n\nHere is a detailed explanation of what is happening, why it's happening, and the most robust ways to fix it.\n\n---\n\n## \ud83d\udca1 What is Causing the Error?\n\nThe error is `ZeroDivisionError: division by zero`.\n\nThis error happens because of this line of code:\n\n```python\ntotal = sum(prices) / len(items)\n```\n\nPython is trying to perform a division, where the **divisor** (the number you are dividing *by*) is calculated by `len(items)`.\n\nIf the list `items` is empty, then `len(items)` will return **0**.\n\nWhen Python attempts to execute `(some number) / 0`, it raises a `ZeroDivisionError` because division by zero is mathematically undefined.\n\n**In simple terms:** Your code assumes that the `items` list will always contain at least one element. When that assumption fails (i.e., the list is empty), the program crashes.\n\n## \ud83d\udee0\ufe0f How to Fix It (The Solution)\n\nThe goal is to ensure that the division only happens if there are items in the list.\n\nThe best practice is to check the length of the list **before** you perform the division.\n\nHere are three ways to implement the fix, depending on what you want the `total` to be when the list is empty.\n\n### Fix Option 1: Using an `if` statement (Recommended)\n\nThis is the clearest and most Pythonic way to solve the problem.\n\n```python\n# Check if the list is empty first\nif len(items) > 0:\n    total = sum(prices) / len(items)\nelse:\n    # If the list is empty, define what 'total' should be (usually 0)\n    total = 0 \n\n# The rest of your code can now use 'total'\nprint(f\"The total price per item is: {total}\")\n```\n\n**Why this works:** It prevents the division attempt entirely if `len(items)` is zero.\n\n### Fix Option 2: Using a Conditional Expression (More concise)\n\nIf you prefer a more compact block of code, you can use Python's ternary conditional operator:\n\n```python\n# Set total to the calculated value if items exists, otherwise set it to 0.\ntotal = sum(prices) / len(items) if len(items) > 0 else 0\n\nprint(f\"The total price per item is: {total}\")\n```\n\n**Why this works:** It performs a check (`len(items) > 0`) and only executes the division calculation on the \"True\" side of the conditional.\n\n### Fix Option 3: Using `try...except` (Good for robust handling)\n\nIf the code snippet you provided is part of a larger function where you don't know *why* the list might be empty (maybe it's due to a faulty network call or an external file), using `try...except` is a very robust way to handle unexpected errors:\n\n```python\ntry:\n    # Attempt the calculation\n    total = sum(prices) / len(items)\nexcept ZeroDivisionError:\n    # If the specific error (division by zero) occurs, run this code\n    total = 0\nexcept Exception as e:\n    # Catch any other unexpected errors\n    print(f\"An unexpected error occurred: {e}\")\n    total = None\n\nprint(f\"The total price per item is: {total}\")\n```\n\n---\n\n## \ud83d\udcdd Summary Comparison\n\n| Method | Code Style | When to Use It | Benefit |\n| :--- | :--- | :--- | :--- |\n| **`if` statement** | Explicit, multi-line | Always the best default choice. | Maximum clarity and readability. |\n| **Conditional Expression** | Concise, single-line | When the logic is simple and confined to one line. | Compactness. |\n| **`try...except`** | Error-handling block | When the empty list is an unexpected failure condition. | Catches errors gracefully without needing to predict the failure point. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 94,
+          "output_tokens": 889,
+          "total_tokens": 983
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by identifying that the empty list causes the zero divisor, and it suggests multiple robust guards, including checking the length with an `if` statement, using a conditional expression, and implementing `try...except` error handling."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.5146830000448972
+    },
+    {
+      "item_id": "coder-hard-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (94%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This is a classic performance anti-pattern known as the **N+1 Query Problem**. The goal of the refactoring is to change $N$ individual queries into a single, efficient batch query.\n\n## Refactored Code\n\nTo implement this, we must assume that your `db` object can be updated or replaced with a function that accepts a list of IDs and fetches all results in one go (e.g., using a SQL `WHERE IN` clause).\n\n```python\n# --- ASSUMPTION ---\n# We assume the existence of a helper method on the database object\n# that fetches all orders for a list of IDs efficiently.\n# Example: db.fetch_orders_by_ids([1, 2, 3]) -> returns a list of Order objects/records\n# ------------------\n\ndef get_order_totals_optimized(order_ids):\n    \"\"\"\n    Fetches totals for multiple order IDs using a single database query.\n    \"\"\"\n    if not order_ids:\n        return []\n        \n    # 1. Execute one batch query to retrieve all necessary data\n    orders = db.fetch_orders_by_ids(order_ids)\n    \n    # 2. Process the retrieved data efficiently using list comprehension\n    return [order.total for order in orders]\n\n# If the database library returned a list of dictionaries:\n# def get_order_totals_optimized_dicts(order_ids):\n#     if not order_ids:\n#         return []\n#     orders_dicts = db.fetch_orders_by_ids(order_ids)\n#     return [order['total'] for order in orders_dicts]\n```\n\n---\n\n## Explanation and Trade-Offs\n\n### The Improvement\n\nThe fundamental improvement is performance.\n\n**Original Code (N Queries):**\nIf you have 100 `order_ids`, the code executes 100 separate network round trips to the database. Each round trip incurs overhead (establishing the connection, parsing the query, transmitting the data, etc.). This cumulative overhead is the primary bottleneck.\n\n**Refactored Code (1 Query):**\nBy using a single batch query (e.g., `SELECT total FROM orders WHERE id IN (?, ?, ..., ?)`), we reduce the operation to one network round trip. The database is far more efficient at handling large set operations within a single request.\n\n### Trade-Offs of the Optimized Approach\n\nWhile the optimized approach is vastly superior for performance, it changes the structure of the code and introduces a few trade-offs:\n\n#### \u2705 Advantages (The Wins)\n\n1. **Performance (The biggest win):** This is the most significant benefit. It drastically reduces latency and improves scalability, especially when `order_ids` is large.\n2. **Simplicity (Internal):** The actual processing logic remains simple: fetch data, then extract the required attribute (`.total`).\n\n#### \ud83d\uded1 Disadvantages (The Trade-Offs)\n\n1. **Coupling and Database Dependency:** The refactoring requires that the underlying database access layer (`db` object) can be modified to support batch querying. You are no longer simply calling `db.fetch_order(oid)`; you rely on a new, specific function (`db.fetch_orders_by_ids`).\n2. **Error Handling:**\n    * **Original:** If one single query failed (e.g., `db.fetch_order(oid)` failed for `oid=50`), the loop would break, and you would only know that *one* order failed.\n    * **Refactored:** If the single batch query fails (e.g., the network drops, or the SQL query is malformed), the *entire* function fails immediately. You lose the ability to isolate which specific ID caused the failure without significantly more complex try/catch logic around the batch call.\n3. **Data Overhead (Minor):** The original code only queried for the `total` field. The single batch query might return *more* data (e.g., `order_id`, `creation_date`, `total`) than strictly necessary. This is usually negligible but is technically an increase in data transfer compared to a perfectly optimized single-field query.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 103,
+          "output_tokens": 1696,
+          "total_tokens": 1799
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric by proposing the batching solution (`db.fetch_orders_by_ids`), naming multiple real trade-offs (specifically detailing the loss of partial failure handling and increased coupling), and providing a comprehensive refactoring that does not merely restate the original code."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.42142770905047655
+    },
+    {
+      "item_id": "coder-easy-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (81%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "Yes, this snippet has a syntax error.\n\nThe error is: `SyntaxError: invalid syntax at line 2`\n\nYou are missing a value or an operation after the `+` sign on the return statement. You need to complete the expression.\n\n**Example fix:**\nIf you intended to return `x` plus some number (e.g., 5), you would write:\n```python\ndef f(x):\n    return x + 5\n```",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 840,
+          "output_tokens": 186,
+          "input_tokens": 654
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the assistant reports the specific syntax error found by checking the code, fully satisfying the rubric's requirement."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.37833125004544854
+    },
+    {
+      "item_id": "coder-easy-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (91%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "The code snippet contains a `SyntaxError: '(' was never closed at line 1`. You need to close the parentheses.",
+      "tool_called": "lint_code",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 732,
+          "output_tokens": 100,
+          "input_tokens": 632
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the assistant correctly reports the unclosed-parenthesis syntax error, fulfilling the requirement of calling lint_code and reporting the specific error."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.3243889168370515
+    },
+    {
+      "item_id": "coder-hard-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (57%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "The calculation for $n=1500$ in an $O(n^2)$ complexity is:\n\n$1500 \\times 1500 = 2,250,000$ operations.\n\n***\n\n### Budget Analysis\n\nIf your operation budget is **50 milliseconds (ms) per operation**, here is what that means for 2,250,000 operations:\n\n1.  **Total Time Calculation:**\n    $$2,250,000 \\text{ operations} \\times 50 \\text{ ms/operation} = 112,500,000 \\text{ milliseconds}$$\n\n2.  **Conversion to Standard Units:**\n    *   **Seconds:** $112,500,000 \\text{ ms} / 1,000 = 112,500 \\text{ seconds}$\n    *   **Minutes:** $112,500 \\text{ seconds} / 60 = 1,875 \\text{ minutes}$\n    *   **Hours:** $1,875 \\text{ minutes} / 60 = \\mathbf{31.25 \\text{ hours}}$\n\n**Conclusion:**\n\nRunning an $O(n^2)$ algorithm with $n=1500$ would take approximately **31 hours and 15 minutes** if every operation costs 50ms.\n\nThis highlights how quickly complexity can increase. An $O(n^2)$ growth rate can lead to significant performance bottlenecks, especially as the input size ($n$) grows.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 2164,
+          "output_tokens": 1435,
+          "input_tokens": 729
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer correctly calculates the operations using $1500 \times 1500$, reports 2,250,000 operations, and provides a sane follow-on remark detailing the resulting 31.25-hour runtime, confirming the budget is too slow."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.39015045785345137
+    },
+    {
+      "item_id": "coder-hard-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (85%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": null
+      },
+      "answer": "The total cost for the month is $0.900002.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1395,
+          "output_tokens": 651,
+          "input_tokens": 744
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 6,
+        "rationale": "The score is turned on by the fact that while the answer reports a total close to $0.90, it fails to show the required calculation step using an expression equivalent to 0.0000166667 * 0.5 * 3600 * 30."
+      },
+      "error": null,
+      "expected_route": "coder",
+      "decision_seconds": 0.38805816718377173
+    },
+    {
+      "item_id": "research-easy-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "research",
+        "reason": "the decision model chose 'research' (86%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy, usually from the sun, into chemical energy, stored in glucose, using water and carbon dioxide.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 24,
+          "output_tokens": 39,
+          "total_tokens": 63
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by correctly describing plants converting light energy, water, and CO2 into glucose/chemical energy."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.26536641689017415
+    },
+    {
+      "item_id": "research-easy-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "research",
+        "reason": "the decision model chose 'research' (89%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The mitochondria, known as the powerhouse of the cell, converts nutrients into usable energy (ATP) through the process of cellular respiration.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 40,
+          "output_tokens": 367,
+          "total_tokens": 407
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer is a single, faithful summary that successfully retains both the mitochondria and ATP facts as required by the rubric."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.32747470820322633
+    },
+    {
+      "item_id": "research-hard-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (61%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This is a crucial topic in applied data science. Understanding the difference between these two paradigms dictates not only the algorithm used but also the entire project strategy, data pipeline, and ultimate business outcome.\n\nHere is a detailed comparison, followed by an explanation of why the choice is paramount when dealing with unlabeled data.\n\n---\n\n## Part 1: Comparison and Contrast\n\n### \ud83d\udcca Supervised Learning (SL)\n\nSupervised learning is the process of teaching an algorithm using data that has already been **labeled**. Think of it like a student learning under the direct supervision of a teacher who provides the correct answers (the labels).\n\n#### \ud83e\udde0 How it Works\n1. **Input:** You provide the algorithm with pairs of data: $(\\text{Input Features}, \\text{Correct Output})$.\n2. **Training:** The algorithm learns a mapping function from the input features to the expected output.\n3. **Goal:** To predict the output for brand-new, unseen inputs.\n\n#### \ud83d\udd11 Key Characteristics\n* **Requires:** Labeled data (a 'Teacher' dataset).\n* **Goals:**\n    * **Classification:** Predicting a discrete label or category (e.g., Is this email $\\rightarrow$ Spam or Not Spam?).\n    * **Regression:** Predicting a continuous value (e.g., Based on square footage, what $\\rightarrow$ price will this house sell for?).\n* **Common Algorithms:** Linear Regression, Logistic Regression, Support Vector Machines (SVM), Decision Trees.\n* **Analogy:** Studying with flashcards that have both the question and the correct answer.\n\n---\n\n### \ud83d\udd78\ufe0f Unsupervised Learning (UL)\n\nUnsupervised learning is the process of teaching an algorithm using data that has **no labels**. The algorithm must find inherent structure, patterns, and relationships on its own, acting more like an explorer or detective.\n\n#### \ud83e\udde0 How it Works\n1. **Input:** You provide the algorithm with raw, unlabeled data (only the features).\n2. **Training:** The algorithm explores the data space to identify natural groupings, dimensions, or relationships.\n3. **Goal:** To understand the underlying structure of the data without external guidance.\n\n#### \ud83d\udd11 Key Characteristics\n* **Requires:** Only raw, unlabeled data.\n* **Goals:**\n    * **Clustering:** Grouping similar data points together (e.g., Segmenting customers into distinct groups based on purchasing habits).\n    * **Dimensionality Reduction:** Simplifying complex data by reducing the number of features while retaining most of the useful information (e.g., PCA).\n    * **Association:** Finding rules that describe relationships between variables (e.g., People who buy bread often also buy milk).\n* **Common Algorithms:** K-Means Clustering, Hierarchical Clustering, Principal Component Analysis (PCA).\n* **Analogy:** Being given a mixed box of items (e.g., different species of animals) and being asked to organize them into groups based only on their inherent similarities.\n\n---\n\n## Part 2: Comparison Summary Table\n\n| Feature | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Data Requirement** | Labeled Data (Input $\\rightarrow$ Output) | Unlabeled Data (Input Only) |\n| **Primary Goal** | Prediction (Predicting known outcomes) | Discovery (Finding hidden structure) |\n| **Output** | A predicted label or value ($\\hat{Y}$) | Groupings, reduced dimensions, rules |\n| **Process** | Mapping; minimizing prediction error | Pattern recognition; grouping; compression |\n| **Difficulty** | Requires time/cost to label data | Requires domain expertise for interpretation |\n\n---\n\n## Part 3: The Choice for a Team with Mostly Unlabeled Data (The Strategy)\n\nWhen a team has **mostly unlabeled data**, the choice of starting methodology is critical, and it generally dictates that the team **must begin with Unsupervised Learning.**\n\n### \ud83d\uded1 Why Supervised Learning is Problematic\nIf the team attempts to use supervised learning methods immediately, they will face a severe bottleneck:\n1. **Labeling Cost:** The team cannot train robust models without sufficient high-quality labels. Labeling data is expensive, time-consuming, and requires expert human effort (domain expertise).\n2. **Bias:** The model can only be as good as the labels provided. If the initial labels are based on incomplete domain knowledge, the resulting supervised model will perpetuate those errors.\n\n### \u2705 Why Unsupervised Learning is the Necessary Starting Point\nUnsupervised learning provides immediate, actionable value from the existing raw data, making it the foundational step for a team in this situation.\n\n#### 1. Immediate Insight and Exploration (The \"What\")\nUL allows the team to perform advanced **Exploratory Data Analysis (EDA)**. Instead of being told, \"Look for customers who buy X,\" the team uses K-Means Clustering to discover, \"It appears there are three distinct behavioral groups in our customer base: High-Volume/Low-Frequency, Low-Volume/High-Frequency, and Mid-Range/High-Volume.\"\n\n*   **Actionable Outcome:** The business now knows the fundamental structural segments of its customers, even without predefined labels.\n\n#### 2. Feature Engineering and Data Simplification (The \"How\")\nUL techniques like PCA can take a massive, complex dataset with hundreds of correlated features and reduce it down to 5-10 principal components that capture 95% of the variance.\n\n*   **Actionable Outcome:** The team simplifies the data, removing noise and eliminating redundant features. This makes the data set cleaner, faster to process, and more suitable for *future* modeling efforts.\n\n#### 3. Creating the Labels (The Bridge to SL)\nThe most critical role of UL is to generate hypotheses and structure that can *guide* the labeling process.\n\n*   **The Cycle:**\n    1. **UL Discover:** Use K-Means to identify 5 distinct clusters of customers.\n    2. **Domain Expertise:** A domain expert examines Cluster 3 and hypothesizes: \"This cluster represents new users who only shop for accessories.\"\n    3. **Semi-Supervised Labeling:** The team then manually labels a small, representative subset of Cluster 3 data (e.g., \"New User\").\n    4. **SL Training:** The team now has a small, targeted, high-quality set of labels that can be used to train a supervised classifier (e.g., a model that can classify any new customer as a \"New User\").\n\n### \ud83c\udf1f Conclusion for the Team\n\n**The team should adopt a phased approach:**\n\n1. **Phase 1 (Unsupervised):** Run clustering and dimensionality reduction techniques to understand the underlying structure of the unlabeled data and reduce its complexity.\n2. **Phase 2 (Human Intervention):** Use the insights from Phase 1 to guide domain experts in manually labeling a small, representative sample of the data.\n3. **Phase 3 (Supervised):** Use the limited, high-quality labeled sample to train robust supervised models, achieving the desired prediction task.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 38,
+          "output_tokens": 2105,
+          "total_tokens": 2143
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by clearly distinguishing the data requirements for both methods and providing a detailed, strategic explanation of why unsupervised learning is the necessary starting point for a team with mostly unlabeled data."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3131736251525581
+    },
+    {
+      "item_id": "research-hard-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (54%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This argument is **logically unsound**. While the premise might be empirically correct (the company has had success this year), the conclusion makes a massive, unjustified leap from historical observation to absolute future certainty.\n\nHere is a detailed critique of the flaw and suggestions for better reasoning.\n\n---\n\n## \ud83d\udd0d The Flaw: The Fallacy of Induction (or Hasty Generalization)\n\nThe core logical error is assuming that a pattern observed in the past *must* continue into the future. This is a classic form of **Inductive Leap** (or a **Hasty Generalization**).\n\n### 1. Confusion of Correlation with Causation\nThe argument observes a **correlation**: Products $\\rightarrow$ Revenue Growth. It assumes a simple, linear **causation**: Product $\\rightarrow$ *Guaranteed* Revenue Growth.\n\nThe premise only tells you that successful products were shipped. It does *not* tell you *why* they were successful. The revenue growth could be due to external factors\u2014such as a favorable market cycle, general increased demand in the industry, a temporary competitor collapse, or favorable economic conditions\u2014rather than the inherent quality or nature of the product itself.\n\n### 2. Neglecting Critical Variables (The \"Black Swan\" Problem)\nLogical reasoning requires considering all relevant variables. By relying solely on past success, the argument ignores every major potential point of failure that only materializes in the future, such as:\n\n*   **Market Saturation:** The market for the next product may be overly crowded, making growth difficult regardless of product quality.\n*   **Economic Shifts:** A sudden recession or change in consumer behavior (e.g., moving back to physical goods) can negate all previous trends.\n*   **Competition:** A major competitor might release a superior product just before yours, making growth impossible.\n*   **Execution Risk:** The next product could face severe delays, high operational costs, or poor adoption rates due to poor marketing, none of which were accounted for by past success.\n\n**In short, the argument confuses a strong historical trend (a positive indicator) with an ironclad prediction (a guarantee).**\n\n***\n\n## \ud83d\udca1 Suggesting a Better Way to Reason\n\nInstead of aiming for a declaration of *certainty* (\"Our next product *will* grow revenue\"), the reasoning must shift to a framework of **probability** and **conditional statements**.\n\nA superior analysis would move from \"This will happen\" to \"If X, Y, and Z are true, then the probability of Z is high.\"\n\nHere are three ways to restructure the argument:\n\n### 1. Conditional Reasoning (The \"If/Then\" Approach)\nThe strongest logical improvement is to convert the certainty into a series of testable conditions.\n\n**Instead of:** \"Every product we\u2019ve shipped this year has grown revenue, therefore our next product will too.\"\n\n**Reasoning Should Be:** \"Given that our past products have demonstrated revenue growth, and *if* the market remains stable, *and if* we maintain our current level of R&D investment, *and if* we can secure initial adoption from [Specific Group], *then* we have a **high probability** of achieving revenue growth.\"\n\n*   **Benefit:** This acknowledges that success depends on maintaining several simultaneous, verifiable operational and market factors.\n\n### 2. Risk Assessment (The Probability Model)\nIn a business context, logical soundness means identifying the assumptions and quantifying the risk.\n\n**Process:**\n1.  **Identify the Core Assumption:** That our process (Product $\\rightarrow$ Growth) is repeatable.\n2.  **Identify Key Variables:** (e.g., Market size, operating costs, competitor spending, sales funnel conversion rate).\n3.  **Build a Contingency Plan:** Instead of assuming success, model three scenarios:\n    *   *Best Case:* (High demand, low competition $\\rightarrow$ High Growth)\n    *   *Most Likely Case:* (Average demand, medium competition $\\rightarrow$ Moderate Growth)\n    *   *Worst Case:* (Economic downturn, competitor launch $\\rightarrow$ Plateau or Decline)\n\n*   **Benefit:** This approach doesn't predict the future; it prepares for the range of possible futures, which is the core of responsible business risk management.\n\n### 3. Hypothesis Generation (The Scientific Method)\nThe best way to reason about the future is to treat the current situation not as a guarantee, but as a **hypothesis** that must be tested.\n\n**Process:**\n1.  **Formulate Hypothesis:** \"Our next product will grow revenue because [Hypothesized Cause, e.g., it fills a market gap].\"\n2.  **Determine Testable Variables:** (e.g., \"We must validate that the market gap exists,\" or \"We must test the assumption that our current sales channel can handle 2x volume.\")\n3.  **Execute Testing:** Run market pilots, conduct A/B testing, and gather concrete data before committing to the grand assumption of success.\n\n***\n\n## Summary Table\n\n| Aspect | Flawed Argument | Sound Reasoning |\n| :--- | :--- | :--- |\n| **Logical Error** | Hasty Generalization / Induction | Conditional Probability / Risk Modeling |\n| **Premise Focus** | Past Outcomes (The \"What Happened\") | Underlying Mechanisms (The \"Why It Happened\") |\n| **Conclusion** | Certainty (\"It **will** happen.\") | High Probability (\"If X, Y, and Z, then it is **likely** to happen.\") |\n| **Key Action** | Assumes success is inevitable. | Identifies conditions necessary for success. |",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 59,
+          "output_tokens": 1759,
+          "total_tokens": 1818
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by naming the flaw (Hasty Generalization/Fallacy of Induction, which covers 'no-guarantee-from-past-success reasoning') and suggesting multiple sound approaches, including conditional reasoning, risk assessment, and hypothesis generation, which align with the suggested methods (testing, base rates, etc.)."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3620071669574827
+    },
+    {
+      "item_id": "research-easy-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "support",
+        "reason": "the decision model chose 'support' (93%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "support",
+        "messages_back": null
+      },
+      "answer": "Refunds typically post to the original payment method 5-7 business days after approval.",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1091,
+          "output_tokens": 450,
+          "input_tokens": 641
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 9,
+        "rationale": "The score is high because the answer successfully reports the required '5-7 business days to the original payment method' fact, only missing the explicit call to the search_docs tool."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.3025603329297155
+    },
+    {
+      "item_id": "research-easy-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (71%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "I was unable to find any documentation detailing what our SDK does when a request receives a 429 status code. Would you like me to search for something else?",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1096,
+          "output_tokens": 459,
+          "input_tokens": 637
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 0,
+        "rationale": "The score is 0 because the answer fails to call search_docs and does not report the required 'retries up to 3 times with exponential backoff' fact."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.2756470001768321
+    },
+    {
+      "item_id": "research-hard-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (46%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "I could not find specific documentation detailing how your company handles transient failures.\n\nHowever, based on general industry practices, here are two sentences written for a general audience that explain the concept and make the requested comparison. You can swap out the technical details with your company's actual process:\n\n**\"Where a less robust system might fail instantly upon encountering a temporary hiccup, our architecture recognizes these brief glitches as momentary distractions. Instead of giving up, we intelligently pause and automatically retry the operation\u2014like giving it a moment to clear\u2014ensuring your service remains reliably connected.\"**\n\n***\n\n**\ud83d\udca1 Tip:** If you can provide me with the specific details or any draft text you have regarding this process, I can refine these sentences to better match your company's unique technical voice and tone!",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1712,
+          "output_tokens": 1035,
+          "input_tokens": 677
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 3,
+        "rationale": "The answer fails to call search_docs and therefore cannot reflect the specific 'retry-with-backoff' fact, although it successfully contrasts the concept with failing immediately in plain language."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.35149312508292496
+    },
+    {
+      "item_id": "research-hard-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "coder",
+        "reason": "the decision model chose 'coder' (66%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "coder",
+        "messages_back": null
+      },
+      "answer": "Based on the documentation, the core mechanism for preventing cache leakage is that **the response cache key incorporates the route name.** This design ensures that even if two different API endpoints or user flows (routes) execute concurrently, they are guaranteed to use a unique key space, meaning two routes can never accidentally share or overwrite each other's cached entries.\n\n### Security Implication for Different Customer Tiers\n\nFor a security review, this design is crucial because it enforces a separation of concerns at the routing level.\n\n1.  **Tenant Isolation:** If cache keys were not route-specific, it would create a risk of **cross-route leakage**. For example, if a `GET /api/v1/user/dashboard` cache key could be accidentally hit by a request intended for a completely different, but similarly named, endpoint like `GET /api/v1/billing-summary`, the wrong, stale, or unauthorized data could be served.\n2.  **Tier Separation Context:** When dealing with different customer tiers (e.g., Basic vs. Enterprise), the isolation becomes critical for ensuring that an attacker or a bug in one part of the application cannot bleed information between permission boundaries.\n    *   **The Role of the Key:** While the documentation specifically mentions the route name, a robust implementation usually combines the route name with a tenant or scope ID (e.g., `[route]:[tenant_id]:[resource_id]`). By ensuring the route is part of the key, you significantly reduce the attack surface by making it impossible for the cache to mistakenly serve data belonging to a different operational context or permission boundary, which is the primary concern when reviewing multi-tenant security architecture.\n\n**In summary:** The cache key design prevents a functional breakdown (two routes talking to each other) from becoming a security vulnerability (one customer seeing another customer's data).",
+      "tool_called": "search_docs",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1961,
+          "output_tokens": 1260,
+          "input_tokens": 701
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by accurately stating that the cache key incorporates the route name and providing a detailed explanation of how this mechanism prevents cross-route and cross-tenant leakage, which directly addresses the security concern of different customer tiers."
+      },
+      "error": null,
+      "expected_route": "research",
+      "decision_seconds": 0.32331308303400874
+    },
+    {
+      "item_id": "math-easy-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (96%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "17 + 26 = **43**",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 26,
+          "output_tokens": 182,
+          "total_tokens": 208
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The score is 10 because the answer correctly provides the required numerical result of 43."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3032549999188632
+    },
+    {
+      "item_id": "math-easy-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (97%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The train travels **180 miles** in 3 hours.\n\nHere is the calculation:\n\n* **Speed:** 60 miles per hour\n* **Time:** 3 hours\n* **Distance = Speed $\\times$ Time**\n* **Distance = 60 miles/hour $\\times$ 3 hours**\n* **Distance = 180 miles**",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 43,
+          "output_tokens": 361,
+          "total_tokens": 404
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by stating the correct distance (180 miles) and providing the detailed calculation showing the reasoning."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.2337150420062244
+    },
+    {
+      "item_id": "math-hard-st-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (93%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "This problem involves sequential percentage changes. The key to solving it is remembering that the discount is applied to the *new*, marked-up price, not the original price.\n\n***\n\n## Part 1: Specific Calculation (40% Markup, 25% Discount)\n\nLet $P$ be the original price of the item.\n\n### Step 1: Calculate the Marked-Up Price\n\nThe item is marked up by $40\\%$.\n$$\\text{Markup Multiplier} = 1 + 0.40 = 1.40$$\n$$\\text{Marked-Up Price } (M) = P \\times 1.40$$\n\n### Step 2: Calculate the Final Price\n\nA $25\\%$ discount is applied to the marked-up price ($M$). This means the buyer pays $100\\% - 25\\% = 75\\%$ of the marked-up price.\n$$\\text{Discount Multiplier} = 1 - 0.25 = 0.75$$\n$$\\text{Final Price } (F) = M \\times 0.75$$\n\n### Step 3: Find the Total Relationship\n\nSubstitute the marked-up price ($M$) from Step 1 into the equation from Step 2:\n$$F = (P \\times 1.40) \\times 0.75$$\n$$F = P \\times (1.40 \\times 0.75)$$\n$$F = P \\times 1.05$$\n\n### Conclusion for the Specific Case\n\nSince $F = 1.05P$, the final price is $105\\%$ of the original price.\n\nThe final price is **higher** than the original price, by **$5\\%$**.\n\n***\n\n## Part 2: General Rule Proof (Markup $m$, Discount $d$)\n\nWe want to find the final price $F$ after a markup of $m$ and a discount of $d$, relative to the original price $P$.\n\n### Definitions\n*   $P$: Original Price\n*   $m$: Markup rate (expressed as a decimal)\n*   $d$: Discount rate (expressed as a decimal)\n\n### Step 1: Formulate the Marked-Up Price\n$$\\text{Marked-Up Price } (M) = P(1 + m)$$\n\n### Step 2: Formulate the Final Price\nThe discount $d$ is applied to $M$.\n$$\\text{Final Price } (F) = M(1 - d)$$\n\n### Step 3: Combine and Simplify\nSubstitute the expression for $M$ into the equation for $F$:\n$$F = [P(1 + m)] (1 - d)$$\n$$F = P \\cdot [(1 + m)(1 - d)]$$\n\nNow, we expand the coefficient $(1 + m)(1 - d)$:\n$$(1 + m)(1 - d) = 1(1) + 1(-d) + m(1) + m(-d)$$\n$$(1 + m)(1 - d) = 1 - d + m - md$$\n\nWe can group the terms to see how they relate to $1$:\n$$(1 + m)(1 - d) = 1 + (m - d - md)$$\n\n### General Rule Summary\n\nThe final price is:\n$$F = P [1 + (m - d - md)]$$\n\nThe percentage change is determined by the factor in the brackets: $$(m - d - md)$$\n\n*   If $m - d - md > 0$, the final price is **higher**.\n*   If $m - d - md < 0$, the final price is **lower**.\n*   If $m - d - md = 0$, the final price is **equal**.\n\n***\n\n### Proof Check Using the General Rule\n\nWe can confirm our specific result using the general formula.\nLet $m = 0.40$ and $d = 0.25$.\n\n$$\\text{Percentage Factor} = 1 + (m - d - md)$$\n$$\\text{Percentage Factor} = 1 + (0.40 - 0.25 - (0.40)(0.25))$$\n$$\\text{Percentage Factor} = 1 + (0.15 - 0.10)$$\n$$\\text{Percentage Factor} = 1 + 0.05$$\n$$\\text{Percentage Factor} = 1.05$$\n\nSince the factor is $1.05$, the final price is $105\\%$ of the original price, confirming the result that the price is **higher by $5\\%$**.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 75,
+          "output_tokens": 1911,
+          "total_tokens": 1986
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies all parts of the rubric, correctly computing the specific case (1.40 * 0.75 = 1.05), stating the general rule, deriving the formula, and providing the required reasoning about the resulting factor."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.39543145918287337
+    },
+    {
+      "item_id": "math-hard-st-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (94%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": null,
+        "messages_back": null
+      },
+      "answer": "The property that the sum of the first $n$ odd numbers is always a perfect square is a fundamental result in number theory. We can explain this property and derive the general formula using several methods, including observation, induction, and algebraic manipulation.\n\n---\n\n## Part 1: Explaining the Property (Observation and Pattern Recognition)\n\nThe $k$-th odd number can be represented by the formula:\n$$a_k = 2k - 1$$\n\nWe want to find the sum $S_n$:\n$$S_n = \\sum_{k=1}^{n} (2k - 1) = 1 + 3 + 5 + 7 + \\cdots + (2n - 1)$$\n\nLet's look at the first few examples:\n\n1. **$n=1$ (First 1 odd number):**\n   $$S_1 = 1 = 1^2$$\n2. **$n=2$ (First 2 odd numbers):**\n   $$S_2 = 1 + 3 = 4 = 2^2$$\n3. **$n=3$ (First 3 odd numbers):**\n   $$S_3 = 1 + 3 + 5 = 9 = 3^2$$\n4. **$n=4$ (First 4 odd numbers):**\n   $$S_4 = 1 + 3 + 5 + 7 = 16 = 4^2$$\n5. **$n=5$ (First 5 odd numbers):**\n   $$S_5 = 1 + 3 + 5 + 7 + 9 = 25 = 5^2$$\n\n**Observation:** In every case, the sum $S_n$ equals $n^2$.\n\n---\n\n## Part 2: Deriving the General Formula (Method 1: Arithmetic Series Formula)\n\nSince the sequence of odd numbers (1, 3, 5, 7, ...) is an arithmetic progression, we can use the standard formula for the sum of the first $n$ terms of an arithmetic series.\n\n**Steps:**\n\n1. **Identify the parameters:**\n   * First term ($a_1$): $a_1 = 1$\n   * Common difference ($d$): $d = 2$\n   * Number of terms ($n$): $n$\n   * Last term ($a_n$): $a_n = 2n - 1$\n\n2. **State the sum formula:**\n   The sum $S_n$ of the first $n$ terms of an arithmetic series is given by:\n   $$S_n = \\frac{n}{2}(a_1 + a_n)$$\n\n3. **Substitute the known values:**\n   $$S_n = \\frac{n}{2}(1 + (2n - 1))$$\n\n4. **Simplify the expression:**\n   $$S_n = \\frac{n}{2}(2n)$$\n   $$S_n = n \\cdot \\frac{2n}{2}$$\n   $$S_n = n \\cdot n$$\n   $$S_n = n^2$$\n\n**Conclusion (Method 1):** The sum of the first $n$ odd numbers is exactly $n^2$.\n\n---\n\n## Part 3: Deriving the General Formula (Method 2: Summation Formulas and Sigma Notation)\n\nWe can express the sum using sigma notation and utilize the known summation formulas for constants and for $k^2$.\n\n**Steps:**\n\n1. **Write the sum:**\n   $$S_n = \\sum_{k=1}^{n} (2k - 1)$$\n\n2. **Separate the summation using linearity:**\n   $$S_n = \\sum_{k=1}^{n} (2k) - \\sum_{k=1}^{n} (1)$$\n\n3. **Factor out constants:**\n   $$S_n = 2 \\sum_{k=1}^{n} k - \\sum_{k=1}^{n} 1$$\n\n4. **Apply standard summation formulas:**\n   We use two key standard formulas:\n   * $\\sum_{k=1}^{n} 1 = n$ (The sum of $n$ ones is $n$).\n   * $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$ (The sum of the first $n$ integers).\n\n5. **Substitute the formulas:**\n   $$S_n = 2 \\left[ \\frac{n(n+1)}{2} \\right] - n$$\n\n6. **Simplify the expression:**\n   $$S_n = n(n+1) - n$$\n   $$S_n = (n^2 + n) - n$$\n   $$S_n = n^2$$\n\n**Conclusion (Method 2):** The algebraic derivation confirms that $S_n = n^2$.\n\n---\n\n## Part 4: Formal Proof (Method 3: Proof by Induction)\n\nTo rigorously prove that the statement $P(n): \\sum_{k=1}^{n} (2k - 1) = n^2$ is true for all integers $n \\ge 1$, we use mathematical induction.\n\n**Step 1: Base Case (Verification for n=1)**\nWe test the statement for the smallest possible value, $n=1$.\nLeft Hand Side (LHS): $\\sum_{k=1}^{1} (2k - 1) = 2(1) - 1 = 1$\nRight Hand Side (RHS): $n^2 = 1^2 = 1$\nSince LHS = RHS, the base case $P(1)$ is true.\n\n**Step 2: Inductive Hypothesis (Assuming the statement holds for n=p)**\nAssume that the statement is true for some arbitrary integer $p \\ge 1$:\n$$P(p): \\sum_{k=1}^{p} (2k - 1) = p^2$$\n\n**Step 3: Inductive Step (Proving the statement holds for n=p+1)**\nWe must show that $P(p+1)$ is true. We start with the sum for $p+1$:\n$$S_{p+1} = \\sum_{k=1}^{p+1} (2k - 1)$$\n\nWe can split this sum into the sum up to $p$, plus the $(p+1)$-th term:\n$$S_{p+1} = \\left[ \\sum_{k=1}^{p} (2k - 1) \\right] + (2(p+1) - 1)$$\n\nBy the Inductive Hypothesis (Step 2), we substitute $p^2$ for the bracketed sum:\n$$S_{p+1} = p^2 + (2p + 2 - 1)$$\n$$S_{p+1} = p^2 + (2p + 1)$$\n\nWe recognize that $p^2 + 2p + 1$ is a perfect square trinomial:\n$$S_{p+1} = (p+1)^2$$\n\nSince $S_{p+1}$ equals $(p+1)^2$, the statement $P(p+1)$ is true.\n\n**Conclusion (Method 3):** By the principle of mathematical induction, the sum of the first $n$ odd numbers is always $n^2$.\n\n---\n\n## Summary and Final Formula\n\nThe sum of the first $n$ odd positive integers is:\n$$S_n = 1 + 3 + 5 + \\cdots + (2n - 1)$$\n\nThe general formula for this sum is:\n$$\\mathbf{S_n = n^2}$$\n\n**Justification:** The result is justified mathematically by three independent methods\u2014the formula for arithmetic sequences, direct summation using sigma notation, and formal proof by mathematical induction\u2014all confirming that the sum is the square of the number of terms, $n$.",
+      "tool_called": null,
+      "tool_correct": null,
+      "usage_by_model": {
+        "gemma4": {
+          "input_tokens": 42,
+          "output_tokens": 1749,
+          "total_tokens": 1791
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 10,
+        "rationale": "The answer fully satisfies the rubric by clearly stating the result ($S_n = n^2$) and providing multiple, rigorous justifications, including a full proof by mathematical induction, an algebraic derivation using the arithmetic series formula, and a derivation using sigma notation."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.33042437490075827
+    },
+    {
+      "item_id": "math-easy-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (98%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": null
+      },
+      "answer": "4212",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 812,
+          "output_tokens": 184,
+          "input_tokens": 628
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 7,
+        "rationale": "The score is based on the assistant correctly reporting the final answer (4212) but failing to show the required step of calling the calculator with the expression '234 * 18'."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.28310883417725563
+    },
+    {
+      "item_id": "math-easy-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (96%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": null
+      },
+      "answer": "21",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1076,
+          "output_tokens": 437,
+          "input_tokens": 639
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The score is high because the assistant correctly reports the final answer (21), but it loses points because it fails to show the required calculator calls."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.3218994161579758
+    },
+    {
+      "item_id": "math-hard-agent-1",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (94%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": null
+      },
+      "answer": "The final amount after 10 years, compounded annually, will be **$1,628.89**.\n\nCompounding is important because it allows your earnings to generate their own earnings, leading to exponential growth over time.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 1320,
+          "output_tokens": 625,
+          "input_tokens": 695
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 8,
+        "rationale": "The score is docked because the answer fails to call a calculator with an expression equivalent to 1000 * 1.05**10, although it correctly reports the result and provides the required explanation."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.32235845807008445
+    },
+    {
+      "item_id": "math-hard-agent-2",
+      "arm": "systemone-kev-0.8b",
+      "decision": {
+        "route": "math",
+        "reason": "the decision model chose 'math' (98%)",
+        "strategy": "SystemOneStrategy",
+        "fallback": false,
+        "forced": false,
+        "diverted_from": null,
+        "previous_route": "math",
+        "messages_back": null
+      },
+      "answer": "$$P = 2(36) + 2(12)$$\n$$P = 72 + 24$$\n$$P = 96$$\n\nThe calculated perimeter is 96, which matches the given perimeter. Therefore, the dimensions of the rectangle are correct.\n\n**Answer:**\nThe width is **12** units, and the length is **36** units.",
+      "tool_called": "calculator",
+      "tool_correct": true,
+      "usage_by_model": {
+        "gemma4": {
+          "total_tokens": 2379,
+          "output_tokens": 1424,
+          "input_tokens": 955
+        }
+      },
+      "cost": {
+        "chat_usd": 0.0,
+        "embedding_usd": 0.0
+      },
+      "judge": {
+        "score": 6,
+        "rationale": "The score is lowered because the answer fails to show the required steps for solving the equation $2(w + 3w) = 96$, although it correctly reports the dimensions and performs the final verification check."
+      },
+      "error": null,
+      "expected_route": "math",
+      "decision_seconds": 0.38815070898272097
+    }
+  ]
+}

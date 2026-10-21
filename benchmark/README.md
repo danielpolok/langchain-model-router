@@ -100,6 +100,7 @@ relative to each.
 | `classifier` (Gemini flash-lite) | 31/32 (97%) | 18.9% | 100.0% | 0.92 s / 1.68 s |
 | `classifier-qwen3` | 28/32 (88%) | 14.4% | 96.4% | 0.75 s / 0.92 s |
 | `classifier-arch-router` | 20/32 (62%) | 53.1% | 105.8% | 0.23 s / 0.30 s |
+| `systemone-kev-0.8b` | 19/32 (59%) | not measured | not measured | 0.21 s / 0.31 s |
 
 **Domain split** (one route per domain: `support`, `coder`, `research`, `math`; the routes are all
 the same small model, so only the decision is compared).
@@ -109,6 +110,7 @@ the same small model, so only the decision is compared).
 | `classifier` (Gemini flash-lite) | 28/32 (88%) | 0.89 s / 1.41 s |
 | `classifier-qwen3` | 27/32 (84%) | 5.50 s / 5.97 s |
 | `classifier-arch-router` | 22/32 (69%) | 0.35 s / 0.48 s |
+| `systemone-kev-0.8b` | 23/32 (72%) | 0.32 s / 0.42 s |
 
 How to read the numbers:
 
@@ -143,18 +145,50 @@ How to read the numbers:
   accuracy uses that format, and its `"other"` answer should abstain). Not worth a new strategy or
   anything that needs `transformers`, until that test says so.
 
-### System One decision models (not yet run)
+### System One decision models
 
 Models in the Jev family score a fixed list of options and return a probability for each in one
 forward pass, behind a `POST /v1/systemone` endpoint. `systemone.py` is the benchmark-only
 adapter (`SystemOneStrategy`, standard library only) and `arms.py` adds one opt-in arm per endpoint
-whose variable is set; no model has been downloaded or run yet.
+whose variable is set. Only Kev has been run; JevK5 has not.
 
 | Arm | Set to the server's `/v1/systemone` URL | Model |
 | --- | --- | --- |
-| `systemone-jevk5-4b` | `MODEL_ROUTER_BENCHMARK_JEVK5_4B_URL` | JevK5 4B (Apache-2.0) |
-| `systemone-jevk5-2b` | `MODEL_ROUTER_BENCHMARK_JEVK5_2B_URL` | JevK5 2B (Apache-2.0) |
+| `systemone-jevk5-4b` | `MODEL_ROUTER_BENCHMARK_JEVK5_4B_URL` | JevK5 4B (Apache-2.0), not run |
+| `systemone-jevk5-2b` | `MODEL_ROUTER_BENCHMARK_JEVK5_2B_URL` | JevK5 2B (Apache-2.0), not run |
 | `systemone-kev-0.8b` | `MODEL_ROUTER_BENCHMARK_KEV_URL` | Kev 0.8B (Apache-2.0 on its model card) |
+
+**Kev 0.8B, run 2026-10-21** on the Kev-enabled `llama-server` (`kev-0.8b-q8_0.gguf`, 127.0.0.1,
+one slot) with the unchanged adapter. Raw data:
+[`results/20261021T053940Z-tier.json`](results/20261021T053940Z-tier.json) and
+[`results/20261021T062655Z-domain.json`](results/20261021T062655Z-domain.json). Both runs: 32 items,
+0 errors, 0 fallbacks. The answering routes and the judge were `gemma4` through Ollama, so there is
+no always-frontier baseline in these runs and no cost or quality figure; the rows above compare
+routing accuracy and decision latency only. The latencies are wall-clock time for the HTTP call
+to the local server on a busy laptop, so read them as an order of magnitude.
+
+- *Tier split:* 19/32 (59%). It sends 8 of 16 hard items to `small` and 5 of 16 easy items to
+  `frontier`, so it is neither the heuristic's "every easy right, most hard wrong" nor a better
+  version of it: its errors are on both sides.
+- *Domain split:* 23/32 (72%). `math` is 8/8 and `coder` 7/8, but `research` is 2/8 (4 to `coder`,
+  1 to `math`, 1 to `support`) and 2 of 8 `support` items go to `coder`.
+
+**Verdict.** Kev is fast (about 0.2-0.3 s, in the Arch-Router range and ahead of every classifier
+that generates text) and never errored or abstained, but it is not accurate enough here: 59% on
+tiers is no better than the free heuristic (62%) and 72% on domains is slightly ahead of
+Arch-Router (69%) and behind `qwen3:8b` (84%) and the Gemini classifier (88%). One run, 32 items,
+a 0.8B model on route descriptions that were written for the text classifiers and not tuned for it,
+so this is a first reading, not a bound. It does not change the recommendation above: no new
+strategy is justified by this result.
+
+**Earlier failed Kev runs (not in git).** Two first attempts on 2026-10-19 (`20261019T193327Z-tier`
+and `20261019T193329Z-domain`) recorded 32 errors out of 32 and no routing accuracy. The Kev
+endpoint and the adapter were fine; the errors were in the local answering route (`No data
+received from Ollama stream`), and a rerun without a price entry for `gemma4` fails every item
+with `KeyError: no price for model 'gemma4'`. The working runs used
+`MODEL_ROUTER_BENCHMARK_PRICE_OVERRIDES` with a $0 price for `gemma4` and `gemma4:latest`. The two
+failed files were left untracked and are not part of the results. The 2026-10-21 runs took hours of
+wall-clock time because the Mac slept mid-run.
 
 ## What it does
 
