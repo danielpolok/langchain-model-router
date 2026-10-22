@@ -99,6 +99,7 @@ usage as usual. `routing_decision(response)` tells you which route answered and 
 | [`ConfigurableStrategy`](https://github.com/danielpolok/langchain-model-router/blob/main/docs/strategies.md#configurablestrategy-combine-rules) | Your rules, combining keywords, scores, media and tools | None | A policy with several conditions |
 | [`EmbeddingStrategy`](https://github.com/danielpolok/langchain-model-router/blob/main/docs/strategies.md#embeddingstrategy-route-on-meaning) | Similarity to example requests | One embedding call | Topics without telltale words |
 | [`ClassifierStrategy`](https://github.com/danielpolok/langchain-model-router/blob/main/docs/strategies.md#classifierstrategy-let-a-small-model-choose) | A small model reads route descriptions and picks one | One small-model call | Subtle distinctions, when accuracy matters most |
+| [`DecisionModelStrategy`](https://github.com/danielpolok/langchain-model-router/blob/main/docs/strategies.md#decisionmodelstrategy-ask-a-decision-model) | A decision model scores the routes, and abstains when unsure | One decision-model call | A decision model you already run, such as Jev or Kev |
 | [Your own function](https://github.com/danielpolok/langchain-model-router/blob/main/docs/strategies.md#your-own-strategy) | Your code | Whatever your code costs | Business rules, an existing classifier |
 
 Start with a strategy that makes no extra call. Reach for embeddings or a classifier when words and

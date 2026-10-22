@@ -16,6 +16,7 @@ user asked before, give the strategy [`lookback`](#follow-up-questions-lookback)
 | [`ConfigurableStrategy`](#configurablestrategy-combine-rules) | Rules you combine | None |
 | [`EmbeddingStrategy`](#embeddingstrategy-route-on-meaning) | Similarity to example requests | One embedding call |
 | [`ClassifierStrategy`](#classifierstrategy-let-a-small-model-choose) | A small model's choice | One small-model call |
+| [`DecisionModelStrategy`](#decisionmodelstrategy-ask-a-decision-model) | A decision model's calibrated pick | One decision-model call |
 | [Your own](#your-own-strategy) | Your code | Whatever your code costs |
 
 ## Setup
@@ -363,6 +364,77 @@ With `lookback=2`, the prompt also shows the user's two previous messages, so th
 follow-up in their light. See [Follow-up questions](#follow-up-questions-lookback), which also
 covers caching the classifier's answers.
 
+## `DecisionModelStrategy`: ask a decision model
+
+A decision model, such as TypeSafe's Jev or the open Kev, doesn't write an answer. It scores a
+fixed list of options in one quick pass and gives each a probability. Describe each route in plain
+words, and the routes become its options. It also says how sure it is, so when it isn't sure
+enough the strategy abstains and the default route answers.
+
+The strategy takes any LangChain `Runnable` that speaks the System One API: it takes the request
+body as a dict and returns the response. `TypeSafeClassifier` from `langchain-typesafe` is one.
+This example runs Kev 0.8B on a **local System One server** (a Kev-enabled `llama-server` on
+port 8080), wrapped in a `RunnableLambda`:
+
+```python
+import json
+import urllib.request
+
+from langchain_core.runnables import RunnableLambda
+
+from langchain_model_router import DecisionModelStrategy
+
+
+def kev(body):
+    request = urllib.request.Request(
+        "http://127.0.0.1:8080/v1/systemone",
+        data=json.dumps(body).encode(),
+        headers={"content-type": "application/json"},
+    )
+    with urllib.request.urlopen(request) as response:
+        return json.load(response)
+
+
+router = ChatRouter(
+    routes={"general": small, "coder": frontier},
+    default_route="general",
+    strategy=DecisionModelStrategy(
+        RunnableLambda(kev, name="Kev"),
+        {
+            "coder": "programming: code, bugs, errors, SQL, tooling",
+            "general": "anything that isn't programming",
+        },
+        min_confidence=0.5,
+    ),
+)
+
+ask(router, "My loop never terminates, what's wrong with it?")
+ask(router, "Recommend a good book about the Roman Empire")
+ask(router, "What's the best way to learn?")
+```
+
+```text
+coder    the decision model chose 'coder' (probability 0.78, confidence 0.57): programming: code, bugs, errors, SQL, tooling
+general  the decision model chose 'general' (probability 0.99, confidence 0.97): anything that isn't programming
+general  DecisionModelStrategy could not decide; fell back to the default route
+FallbackWarning: DecisionModelStrategy could not decide; falling back to the default route 'general'
+```
+
+The strategy sends one `choice` question, named `route`, whose options are the routes. It reads
+the answer's `choice`, `confidence` and `probabilities`, either from the raw System One response
+(`{"answers": {"route": {...}}}`) or from an object whose `choices["route"]` holds them, as
+`TypeSafeClassifier`'s result does.
+
+- **The pick decides** when its `confidence` reaches `min_confidence`. The reason shows the
+  chosen route's probability and the confidence; they differ, as the output above shows.
+- **Below `min_confidence`** the strategy abstains, as it did for the third question. It defaults
+  to `0`, which trusts every pick. Calibrate it by reading the confidence in the reasons.
+- **An answer that isn't one of the routes** abstains, and so does an empty request, without a
+  call. **A failed call** falls back to the default route with a `FallbackWarning` naming the
+  error.
+
+The decision model's call appears in your trace under the strategy, like the classifier's.
+
 ## Follow-up questions: `lookback`
 
 People rarely repeat the topic in a follow-up. "Thanks! Which one does SQLite use?" looks easy,
@@ -682,7 +754,7 @@ question before it. `Sticky` differs in never moving a conversation once it has 
   `adecide`, the async form, runs `decide` in a worker thread by default.
 - **Pass `request.config` on.** If your strategy calls a model itself, override `adecide` with a
   native async version, and pass `request.config` to the call so it is traced and costed under
-  the strategy. `ClassifierStrategy` does exactly this.
+  the strategy. `ClassifierStrategy` and `DecisionModelStrategy` do exactly this.
 - **Failures fall back.** If the strategy raises, or names a route the router doesn't have, the
   default route answers and a `FallbackWarning` says why.
 - **Set `lookback` to read earlier messages.** With `lookback = 2` on the class, or

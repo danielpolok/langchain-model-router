@@ -12,6 +12,9 @@ does. The routing strategy interface carries a stricter
 
 ### Added
 
+- `DecisionModelStrategy` routes with a decision model, such as TypeSafe's Jev or Kev, through
+  any `Runnable` that speaks the System One API. It abstains below `min_confidence`, and the
+  reason shows the chosen route's probability.
 - Requests are diverted away from a route that can't take the images, audio, video or PDFs in
   the conversation, including ones from earlier turns, as its `profile` reports. A
   `ContentSupportWarning` says so, and `NoContentCapableRouteError` is raised when no route can

@@ -10,6 +10,8 @@ import urllib.request
 import pytest
 from dotenv import load_dotenv
 
+from tests.system_one import SYSTEM_ONE_URL, system_one_reachable
+
 # Loaded once at collection time so `requires_env`-gated tests (provider keys, LangSmith) see
 # what's in .env without the shell having sourced it. Never loaded by `src/` — dev-only, and
 # never overrides a variable the environment already sets.
@@ -71,6 +73,9 @@ def pytest_runtest_setup(item: pytest.Item) -> None:
 
     if any(item.iter_markers(name="requires_ollama")) and not _ollama_reachable():
         pytest.skip(f"no Ollama server reachable at {_OLLAMA_BASE_URL}")
+
+    if any(item.iter_markers(name="requires_system_one")) and not system_one_reachable():
+        pytest.skip(f"no System One server reachable at {SYSTEM_ONE_URL}")
 
     if any(item.iter_markers(name="requires_langsmith")) and (why := _langsmith_unusable()):
         pytest.skip(why)

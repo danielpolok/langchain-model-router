@@ -7,7 +7,8 @@ and a warning the output shows must actually be raised. That catches a policy th
 deciding, such as an embedding threshold that no longer fits the model.
 
 The pages' examples use Gemini models. Skips without `GEMINI_API_KEY` (`requires_env`, root
-`conftest.py`), which Gemini reads when `GOOGLE_API_KEY` is unset.
+`conftest.py`), which Gemini reads when `GOOGLE_API_KEY` is unset. The decision-model example
+calls a local System One server instead; when none is reachable, that block alone is left out.
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ import pytest
 
 from langchain_model_router import RoutingWarning
 from tests.docs import PAGES, python_blocks, relative
+from tests.system_one import SYSTEM_ONE_URL, system_one_reachable
 
 ROUTER_WARNINGS = [cls.__name__ for cls in (RoutingWarning, *RoutingWarning.__subclasses__())]
 
@@ -36,6 +38,8 @@ def test_every_example_on_the_page_runs(page: Path) -> None:
     namespace: dict[str, Any] = module.__dict__
     try:
         for block in python_blocks(page):
+            if SYSTEM_ONE_URL in block.code and not system_one_reachable():
+                continue  # no later block uses what it defines
             with warnings.catch_warnings(record=True) as caught:
                 warnings.simplefilter("always")
                 result = eval(block.compiled(), namespace)
