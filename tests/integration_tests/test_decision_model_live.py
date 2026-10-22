@@ -1,9 +1,10 @@
 """The decision-model strategy against a real System One server: Kev 0.8B behind `llama-server`.
 
-What only a real model can show: the request body the strategy builds is one a System One server
-accepts, and its answer, read back, routes a clear request where it belongs. The routes are fakes,
-since only the decision model's choice is under test. Skips when no server listens at
-`SYSTEM_ONE_URL` (`requires_system_one`, root `conftest.py`).
+What only a real model can show: the System One request body the strategy builds is one a real
+server accepts, its answer has the `choice`, `confidence` and `probabilities` the strategy reads,
+and a clear request is routed where it belongs. The routes are fakes, since only the decision
+model's choice is under test. Skips when no server listens at `SYSTEM_ONE_URL`
+(`requires_system_one`, root `conftest.py`).
 """
 
 from __future__ import annotations
@@ -47,7 +48,12 @@ def system_one(body: dict[str, Any]) -> dict[str, Any]:
     ],
 )
 async def test_a_real_decision_model_routes_a_clear_request(question: str, route: str) -> None:
-    strategy = DecisionModelStrategy(RunnableLambda(system_one, name="Kev"), ROUTE_DESCRIPTIONS)
+    strategy = DecisionModelStrategy(
+        RunnableLambda(system_one, name="Kev"),
+        ROUTE_DESCRIPTIONS,
+        api="system_one",
+        min_confidence=0.0,  # this test is about the choice; the threshold has its own tests
+    )
     router = ChatRouter(
         routes={
             name: FakeChatModel(model_name=f"model-{name}", reply=f"{name} answer")

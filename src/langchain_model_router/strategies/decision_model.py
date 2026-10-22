@@ -1,10 +1,11 @@
 r"""`DecisionModelStrategy`, opt-in because it makes a call: ask a decision model which route fits.
 
-A decision model (TypeSafe's Jev, or an open System One model such as Kev) scores a fixed list of
-options and returns a calibrated probability for each, in one forward pass and without generating
-text. That makes it a natural router: the routes are the options, each described in plain words,
-and the model's confidence says when to trust its pick. Like `ClassifierStrategy`, it makes a call
-every request, so construction takes the application's own decision model, with no default.
+A decision model (TypeSafe's Jev, open System One models such as Kev, OpenAI's `gpt-6-luna`)
+scores a fixed list of options and returns a calibrated probability for each, in one forward pass
+and without generating text. That makes it a natural router: the routes are the options, each
+described in plain words, and the model's confidence says when to trust its pick. Like
+`ClassifierStrategy`, it makes a call every request, so construction takes the application's own
+decision model, with no default.
 
 Setting one up
 --------------
@@ -15,39 +16,52 @@ DecisionModelStrategy(
         "support": "account issues: password resets, billing, cancellations",
         "coder": "programming help: code, debugging, stack traces, refactors",
     },
+    api="system_one",
     min_confidence=0.25,
 )
 ```
 
-The model it takes
-------------------
-Any `Runnable` that speaks the System One API: it takes the request body as a dict and returns
-the answer. The strategy never makes an HTTP call itself, so the application chooses the client —
-`TypeSafeClassifier` from `langchain-typesafe`, or a `RunnableLambda` around its own call to a
-local server. It sends one `choice` question, named `route`:
+The two APIs
+------------
+Decision models speak one of two APIs, with different request bodies, so `api` names the one the
+`Runnable` expects. It is required rather than guessed from the `Runnable`, which is usually a
+`RunnableLambda` and says nothing about the server behind it. The strategy asks one `choice`
+question, named `route`, whose options are the routes `request.routes` and `route_descriptions`
+both name, in the router's declaration order (the same rule, and the same `RoutingError` when
+there is no overlap, as `ClassifierStrategy`):
 
-    {"state": "<the request's text>", "questions": {"route": {"type": "choice",
-        "instructions": "Which route should answer this request?",
-        "criteria": {"<route>": "<description>", ...}}}}
+- `"system_one"`, TypeSafe's System One API (`POST /v1/systemone`: TypeSafe, OpenRouter, the
+  LangSmith gateway, a self-hosted Kev or `ollajev` server)::
 
-and reads the answer to it from either of the two shapes such a `Runnable` returns: the raw
-System One response, `{"answers": {"route": {...}}}`, or an object whose `choices["route"]` is the
-answer. The answer carries `choice`, `confidence` and `probabilities`, as keys or as attributes.
-The model's name, a timeout or an API key belong to the `Runnable`, not to this strategy.
+      {"state": "<text>", "questions": {"route": {"type": "choice", "instructions": "...",
+          "criteria": {"<route>": "<description>", ...}}}}
 
-The criteria are the routes that `request.routes` and `route_descriptions` both name, in the
-router's own declaration order — the same rule, and the same `RoutingError` when there is no
-overlap, as `ClassifierStrategy`.
+- `"openai_decisions"`, OpenAI's Decisions API (`POST /v1/decisions`: OpenAI, the LangSmith
+  gateway, compatible servers)::
+
+      {"input": "<text>", "questions": [{"type": "choice", "name": "route", "instructions": "...",
+          "choices": [{"value": "<route>", "description": "<description>"}, ...]}]}
+
+The body carries no `model`: the model's name, an API key and a timeout belong to the `Runnable`.
+The strategy never makes an HTTP call itself.
+
+The answer is read from whatever the `Runnable` returns, in any of these shapes: the System One
+response (`answers` maps the question's name to the answer), the Decisions response (`answers` is
+a list of answers, each with its `name`), or an object whose `answers` attribute maps the name to
+the answer, as `TypeSafeClassifier`'s and `OpenAIDecisions`' results do. The answer itself may be a
+dict or an object; it carries `choice`, `confidence` and `probabilities`, the latter a mapping of
+option to probability or the Decisions API's list of `{"value", "probability"}`.
 
 Deciding, and not deciding
 ---------------------------
-- **The answer decides** when it names one of the options and its `confidence` reaches
-  `min_confidence`. The reason carries the chosen option's probability and the confidence, so a
-  trace shows how sure the model was, and calibrating `min_confidence` is a matter of reading
-  reasons.
+- **The answer decides** when it names one of the routes and its `confidence` reaches
+  `min_confidence`. Every decision-model API reports `confidence` for a `choice` answer, a number
+  from 0 to 1 saying how concentrated the probabilities are; it is not the chosen option's
+  probability (Kev, with two options, reports `2p - 1`). The reason carries both, so calibrating
+  `min_confidence` is a matter of reading reasons.
 - **Below `min_confidence`** it abstains, and the router takes the default route.
 - **An empty request** — no text — abstains before any call is made.
-- **An answer outside the options** abstains: it is no answer to the question asked.
+- **An answer outside the routes, or a refusal**, abstains: it is no answer to the question asked.
 - **A failed call** — a network error, a timeout, a response without the answer — is not caught
   here. It propagates out of `decide`/`adecide`, and the router turns it into the default route
   with a `FallbackWarning` naming the cause, as it does for `ClassifierStrategy`.
@@ -62,7 +76,7 @@ No dependency beyond `langchain-core` is imported.
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal
 
 from langchain_model_router.errors import RoutingError
 from langchain_model_router.strategies.classifier import _checked_route_descriptions, _offered
@@ -75,10 +89,11 @@ __all__ = ["DecisionModelStrategy"]
 
 _QUESTION = "route"
 _INSTRUCTIONS = "Which route should answer this request?"
+_APIS = ("system_one", "openai_decisions")
 
 
 class DecisionModelStrategy(RoutingStrategy):
-    """Routes by asking a decision model, through the System One API, which route fits.
+    """Routes by asking a decision model which route fits.
 
     ```python
     ChatRouter(
@@ -90,25 +105,27 @@ class DecisionModelStrategy(RoutingStrategy):
                 "support": "account issues: password resets, billing, cancellations",
                 "coder": "programming help: code, debugging, stack traces, refactors",
             },
+            api="system_one",
             min_confidence=0.25,
         ),
     )
     ```
 
-    The module docstring describes the request it sends, the two answer shapes it reads, and
+    The module docstring describes the request each API gets, the answer shapes it reads, and
     when it abstains.
 
     Args:
-        model: A `Runnable` that takes a System One request body and returns its answer, such as
-            `TypeSafeClassifier` or a `RunnableLambda` around an HTTP call. There is no default,
-            so this strategy can never be enabled by accident.
-        route_descriptions: Each route's description, at least one: the question's criteria.
-        min_confidence: The confidence the answer must reach to decide; below it, the strategy
-            abstains. Defaults to `0`, so every answer that names an option decides.
+        model: A `Runnable` that takes the request body of `api` and returns its response, such
+            as a `RunnableLambda` around an HTTP call. There is no default, so this strategy can
+            never be enabled by accident.
+        route_descriptions: Each route's description, at least one: the question's options.
+        api: The API the `Runnable` speaks: `"system_one"` or `"openai_decisions"`.
+        min_confidence: The answer's `confidence`, from 0 to 1, must reach this to decide;
+            below it, the strategy abstains.
 
     Raises:
         RoutingError: for configuration that could never route — no routes, a blank route or
-            description — or a `min_confidence` that isn't a number.
+            description — an unknown `api`, or a `min_confidence` that isn't a number from 0 to 1.
     """
 
     def __init__(
@@ -116,26 +133,36 @@ class DecisionModelStrategy(RoutingStrategy):
         model: Runnable[dict[str, Any], Any],
         route_descriptions: Mapping[str, str],
         *,
-        min_confidence: float = 0.0,
+        api: Literal["system_one", "openai_decisions"],
+        min_confidence: float,
     ) -> None:
         """Check the configuration and keep the decision `model`.
 
         Args:
-            model: The `Runnable` that answers System One requests.
+            model: The `Runnable` that answers requests in `api`'s format.
             route_descriptions: Each route's description.
+            api: The API the `Runnable` speaks.
             min_confidence: The confidence the answer must reach to decide.
 
         Raises:
-            RoutingError: for configuration that could never route, or a non-numeric
-                `min_confidence`.
+            RoutingError: for configuration that could never route, an unknown `api`, or a
+                `min_confidence` outside 0 to 1.
         """
-        if isinstance(min_confidence, bool) or not isinstance(min_confidence, (int, float)):
-            msg = f"min_confidence must be a number, got {min_confidence!r}"
+        if api not in _APIS:
+            msg = f"api must be 'system_one' or 'openai_decisions', got {api!r}"
+            raise RoutingError(msg)
+        if (
+            isinstance(min_confidence, bool)
+            or not isinstance(min_confidence, (int, float))
+            or not 0 <= min_confidence <= 1
+        ):
+            msg = f"min_confidence must be a number from 0 to 1, got {min_confidence!r}"
             raise RoutingError(msg)
         self.model = model
         self.route_descriptions = _checked_route_descriptions(
             route_descriptions, "DecisionModelStrategy"
         )
+        self.api = api
         self.min_confidence = float(min_confidence)
 
     def decide(self, request: RoutingRequest) -> RoutingChoice | None:
@@ -173,27 +200,38 @@ class DecisionModelStrategy(RoutingStrategy):
         return self._finish(result, choices)
 
     def _body(self, text: str, choices: tuple[str, ...]) -> dict[str, Any]:
-        criteria = {route: self.route_descriptions[route] for route in choices}
-        question = {"type": "choice", "instructions": _INSTRUCTIONS, "criteria": criteria}
-        return {"state": text, "questions": {_QUESTION: question}}
+        descriptions = {route: self.route_descriptions[route] for route in choices}
+        if self.api == "system_one":
+            question = {"type": "choice", "instructions": _INSTRUCTIONS, "criteria": descriptions}
+            return {"state": text, "questions": {_QUESTION: question}}
+        options = [{"value": route, "description": about} for route, about in descriptions.items()]
+        question = {"type": "choice", "name": _QUESTION, "instructions": _INSTRUCTIONS}
+        return {"input": text, "questions": [{**question, "choices": options}]}
 
     def _finish(self, result: Any, choices: tuple[str, ...]) -> RoutingChoice | None:
-        """Turn the answer, in either shape, into a choice, or `None` to abstain."""
-        answers = result["answers"] if isinstance(result, Mapping) else result.choices
+        """Turn the answer, in any of the shapes the module docstring lists, into a choice."""
+        answers = _get(result, "answers")
+        if not isinstance(answers, Mapping):  # the Decisions API's list of named answers
+            answers = {_get(answer, "name"): answer for answer in answers}
         answer = answers[_QUESTION]
-
-        def field(name: str) -> Any:
-            return answer[name] if isinstance(answer, Mapping) else getattr(answer, name)
-
-        route = field("choice")
+        if _get(answer, "type") == "refusal":
+            return None
+        route = _get(answer, "choice")
         if route not in choices:
             return None  # an answer outside the options is no answer
-        confidence = float(field("confidence"))
+        confidence = float(_get(answer, "confidence"))
         if confidence < self.min_confidence:
             return None
-        probability = float(field("probabilities")[route])
+        probabilities = _get(answer, "probabilities")
+        if not isinstance(probabilities, Mapping):  # the Decisions API's list
+            probabilities = {_get(p, "value"): _get(p, "probability") for p in probabilities}
         reason = (
-            f"the decision model chose {route!r} (probability {probability:.2f}, confidence "
-            f"{confidence:.2f}): {self.route_descriptions[route]}"
+            f"the decision model chose {route!r} (probability {probabilities[route]:.2f}, "
+            f"confidence {confidence:.2f}): {self.route_descriptions[route]}"
         )
         return RoutingChoice(route=route, reason=reason)
+
+
+def _get(value: Any, name: str) -> Any:
+    """`value[name]` for a dict, `value.name` for an object; `None` when it has neither."""
+    return value.get(name) if isinstance(value, Mapping) else getattr(value, name, None)

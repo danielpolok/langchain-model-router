@@ -366,15 +366,23 @@ covers caching the classifier's answers.
 
 ## `DecisionModelStrategy`: ask a decision model
 
-A decision model, such as TypeSafe's Jev or the open Kev, doesn't write an answer. It scores a
-fixed list of options in one quick pass and gives each a probability. Describe each route in plain
-words, and the routes become its options. It also says how sure it is, so when it isn't sure
-enough the strategy abstains and the default route answers.
+A decision model, such as TypeSafe's Jev, the open Kev or OpenAI's `gpt-6-luna`, doesn't write an
+answer. It scores a fixed list of options in one quick pass and gives each a probability. Describe
+each route in plain words, and the routes become its options. It also says how sure it is, so
+when it isn't sure enough the strategy abstains and the default route answers.
 
-The strategy takes any LangChain `Runnable` that speaks the System One API: it takes the request
-body as a dict and returns the response. `TypeSafeClassifier` from `langchain-typesafe` is one.
-This example runs Kev 0.8B on a **local System One server** (a Kev-enabled `llama-server` on
-port 8080), wrapped in a `RunnableLambda`:
+Decision models speak one of two APIs, and you name the one yours speaks with `api`:
+
+| `api` | API | Served by |
+| --- | --- | --- |
+| `"system_one"` | TypeSafe's System One, `POST /v1/systemone` | TypeSafe, OpenRouter, the LangSmith gateway, a self-hosted Kev or `ollajev` server |
+| `"openai_decisions"` | OpenAI's Decisions API, `POST /v1/decisions` | OpenAI, the LangSmith gateway, compatible servers |
+
+The strategy takes a LangChain `Runnable` that sends the request body to your decision model and
+returns the response. It makes no HTTP call itself. This example runs Kev 0.8B on a **local
+System One server**, a Kev-enabled `llama-server` on port 8080, wrapped in a `RunnableLambda`.
+To run without any paid API, both routes answer with the same local model through Ollama; in
+practice they would be different models:
 
 ```python
 import json
@@ -395,8 +403,10 @@ def kev(body):
         return json.load(response)
 
 
+local = init_chat_model("ollama:qwen3:8b")
+
 router = ChatRouter(
-    routes={"general": small, "coder": frontier},
+    routes={"general": local, "coder": local},
     default_route="general",
     strategy=DecisionModelStrategy(
         RunnableLambda(kev, name="Kev"),
@@ -404,6 +414,7 @@ router = ChatRouter(
             "coder": "programming: code, bugs, errors, SQL, tooling",
             "general": "anything that isn't programming",
         },
+        api="system_one",
         min_confidence=0.5,
     ),
 )
@@ -420,18 +431,29 @@ general  DecisionModelStrategy could not decide; fell back to the default route
 FallbackWarning: DecisionModelStrategy could not decide; falling back to the default route 'general'
 ```
 
-The strategy sends one `choice` question, named `route`, whose options are the routes. It reads
-the answer's `choice`, `confidence` and `probabilities`, either from the raw System One response
-(`{"answers": {"route": {...}}}`) or from an object whose `choices["route"]` holds them, as
-`TypeSafeClassifier`'s result does.
+**`min_confidence` is required, from 0 to 1, and is compared with the answer's `confidence`.**
+Every decision-model API reports `confidence` for its pick. It measures how concentrated the
+probabilities are, so it is lower than the chosen route's probability: above, Kev gave `coder` a
+probability of 0.78 and a confidence of 0.57. Below `min_confidence` the strategy abstains, as it
+did for the third question. Choose it by reading the confidence in the reasons for requests
+typical of your traffic.
 
-- **The pick decides** when its `confidence` reaches `min_confidence`. The reason shows the
-  chosen route's probability and the confidence; they differ, as the output above shows.
-- **Below `min_confidence`** the strategy abstains, as it did for the third question. It defaults
-  to `0`, which trusts every pick. Calibrate it by reading the confidence in the reasons.
-- **An answer that isn't one of the routes** abstains, and so does an empty request, without a
-  call. **A failed call** falls back to the default route with a `FallbackWarning` naming the
-  error.
+The strategy asks one `choice` question, named `route`, whose options are the routes:
+
+- With `"system_one"` it sends `{"state": text, "questions": {"route": {"type": "choice",
+  "instructions": ..., "criteria": {route: description}}}}`.
+- With `"openai_decisions"` it sends `{"input": text, "questions": [{"type": "choice", "name":
+  "route", "instructions": ..., "choices": [{"value": route, "description": description}]}]}`.
+  The API needs a `model` too: your `Runnable` adds it to the body.
+
+It reads either API's response, and the result objects of LangChain's `TypeSafeClassifier`
+(`langchain-typesafe`) and `OpenAIDecisions` (`langchain-openai`). Those two classes take their
+own question objects rather than a request body, so put a `RunnableLambda` in front of one that
+builds its `Choice` from the body.
+
+- **An answer that isn't one of the routes, or a refusal**, abstains.
+- **An empty request** abstains without a call.
+- **A failed call** falls back to the default route with a `FallbackWarning` naming the error.
 
 The decision model's call appears in your trace under the strategy, like the classifier's.
 
