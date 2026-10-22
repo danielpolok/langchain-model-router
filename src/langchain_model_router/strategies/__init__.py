@@ -2,11 +2,12 @@
 
 Each one implements `RoutingStrategy` and is exported from `langchain_model_router` itself.
 The heuristic ones make no model or API call; the opt-in ones (embedding similarity,
-small-LLM classifier) take the model or embeddings they use from the application.
+small-LLM classifier, decision model) take the model or embeddings they use from the application.
 """
 
 from langchain_model_router.strategies.classifier import ClassifierStrategy
 from langchain_model_router.strategies.configurable import ConfigurableStrategy
+from langchain_model_router.strategies.decision_model import DecisionModelStrategy
 from langchain_model_router.strategies.embedding import EmbeddingStrategy
 from langchain_model_router.strategies.heuristic import HeuristicStrategy
 from langchain_model_router.strategies.keyword import KeywordStrategy
@@ -14,6 +15,7 @@ from langchain_model_router.strategies.keyword import KeywordStrategy
 __all__ = [
     "ClassifierStrategy",
     "ConfigurableStrategy",
+    "DecisionModelStrategy",
     "EmbeddingStrategy",
     "HeuristicStrategy",
     "KeywordStrategy",

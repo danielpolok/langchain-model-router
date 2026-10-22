@@ -12,6 +12,10 @@ does. The routing strategy interface carries a stricter
 
 ### Added
 
+- `DecisionModelStrategy` routes with a decision model, such as TypeSafe's Jev, Kev or OpenAI's
+  `gpt-6-luna`, through any `Runnable` that speaks the System One or the OpenAI Decisions API,
+  named with `api`. It abstains when the answer's confidence is below the required
+  `min_confidence`, and the reason shows the chosen route's probability and the confidence.
 - Requests are diverted away from a route that can't take the images, audio, video or PDFs in
   the conversation, including ones from earlier turns, as its `profile` reports. A
   `ContentSupportWarning` says so, and `NoContentCapableRouteError` is raised when no route can

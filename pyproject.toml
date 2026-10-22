@@ -79,6 +79,7 @@ addopts = "--strict-markers --strict-config"
 markers = [
     "requires_env(*names): skip unless every named environment variable is set",
     "requires_ollama: skip unless a local Ollama server is reachable",
+    "requires_system_one: skip unless a local System One server is reachable",
     "requires_langsmith: skip unless LangSmith accepts the configured credentials",
 ]
 

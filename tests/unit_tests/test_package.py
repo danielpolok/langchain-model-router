@@ -28,6 +28,7 @@ PINNED_EXPORTS = {
     "ConfigurableStrategy",
     "EmbeddingStrategy",
     "ClassifierStrategy",
+    "DecisionModelStrategy",
 }
 
 

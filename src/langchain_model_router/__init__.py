@@ -20,6 +20,7 @@ from langchain_model_router.router import ChatRouter
 from langchain_model_router.strategies import (
     ClassifierStrategy,
     ConfigurableStrategy,
+    DecisionModelStrategy,
     EmbeddingStrategy,
     HeuristicStrategy,
     KeywordStrategy,
@@ -36,6 +37,7 @@ __all__ = [
     "ClassifierStrategy",
     "ConfigurableStrategy",
     "ContentSupportWarning",
+    "DecisionModelStrategy",
     "EmbeddingStrategy",
     "FallbackWarning",
     "ForcedRouteError",

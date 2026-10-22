@@ -209,7 +209,9 @@ class ClassifierStrategy(RoutingStrategy):
                 a non-negative integer.
         """
         self.model = model
-        self.route_descriptions = _checked_route_descriptions(route_descriptions)
+        self.route_descriptions = _checked_route_descriptions(
+            route_descriptions, "ClassifierStrategy"
+        )
         self.lookback = checked_lookback(lookback)
 
     def decide(self, request: RoutingRequest) -> RoutingChoice | None:
@@ -270,14 +272,7 @@ class ClassifierStrategy(RoutingStrategy):
         declaration order — the check only a request can make, same precedent as
         `KeywordStrategy`/`EmbeddingStrategy`.
         """
-        choices = tuple(route for route in routes if route in self.route_descriptions)
-        if choices:
-            return choices
-        msg = (
-            f"no route in route_descriptions is one this router has: route_descriptions names "
-            f"{_names(self.route_descriptions)}; the routes are {_names(routes)}"
-        )
-        raise RoutingError(msg)
+        return _offered(routes, self.route_descriptions)
 
     def _finish(self, result: dict[str, Any], distance: int) -> RoutingChoice | None:
         """Turn the classifier's answer into a choice.
@@ -298,16 +293,33 @@ class ClassifierStrategy(RoutingStrategy):
         return RoutingChoice(route=route, reason=reason, messages_back=distance)
 
 
-def _checked_route_descriptions(route_descriptions: Mapping[str, str]) -> Mapping[str, str]:
+def _offered(routes: tuple[str, ...], route_descriptions: Mapping[str, str]) -> tuple[str, ...]:
+    """The router's routes that `route_descriptions` also names, in the router's order.
+
+    Raises `RoutingError` when there are none, since such a mapping can never decide.
+    """
+    choices = tuple(route for route in routes if route in route_descriptions)
+    if choices:
+        return choices
+    msg = (
+        f"no route in route_descriptions is one this router has: route_descriptions names "
+        f"{_names(route_descriptions)}; the routes are {_names(routes)}"
+    )
+    raise RoutingError(msg)
+
+
+def _checked_route_descriptions(
+    route_descriptions: Mapping[str, str], strategy: str
+) -> Mapping[str, str]:
     if not isinstance(route_descriptions, Mapping):
         msg = (
-            f"route_descriptions is {type(route_descriptions).__name__}: a ClassifierStrategy "
+            f"route_descriptions is {type(route_descriptions).__name__}: a {strategy} "
             "takes a mapping of route name to a human-readable description, such as "
             "{'coder': 'programming help: code, debugging, stack traces'}"
         )
         raise RoutingError(msg)
     if not route_descriptions:
-        msg = "route_descriptions is empty: a ClassifierStrategy needs at least one route"
+        msg = f"route_descriptions is empty: a {strategy} needs at least one route"
         raise RoutingError(msg)
     checked: dict[str, str] = {}
     for route, description in route_descriptions.items():
