@@ -4,18 +4,120 @@ Does routing actually save money without costing quality — and are the strateg
 own model or embedding calls worth their overhead, or do the free ones already get there?
 
 The target: **at least 30% lower inference cost at at least 95% of always-frontier quality** on a
-mixed workload. This harness runs five arms over one dataset against real models, prices every call
-from real usage, has an LLM judge grade every answer, and reports each arm against an
-always-frontier baseline. Rerun it any time — after changing the dataset, the models, or the
-embedding threshold — with:
+mixed workload. This harness runs each arm over one dataset against real models, records every
+answer and routing decision, has every answer graded against its rubric, and reports each arm
+against an always-frontier baseline.
+
+It runs with **no API key and no paid call**: the routes and decision models are local Ollama
+models, and grading is a separate, offline step. Rerun it any time with:
 
 ```bash
-uv run python -m benchmark.run
+ollama pull qwen3:8b gpt-oss:20b hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M  # once
+uv run python -m benchmark.run                       # writes results/<stamp>-tier.json, ungraded
+uv run python -m benchmark.run --export-ungraded results/<stamp>-tier.json
+# grade results/<stamp>-tier-ungraded.json, writing results/<stamp>-tier-grades.json
+uv run python -m benchmark.run --import-grades results/<stamp>-tier.json results/<stamp>-tier-grades.json
 ```
 
-## Results
+The last command merges the grades into the results file and writes the report beside it. See
+[Grading](#grading) and [Cost without dollars](#cost-without-dollars).
 
-One real run, 2026-09-23. Raw per-item data is in
+## Results: local models, graded by Claude
+
+One run of each split, 2026-10-22, with no paid model anywhere:
+
+- **Routes:** `ollama:qwen3:8b`, thinking off (`small`), and `ollama:gpt-oss:20b` (`frontier`).
+- **Decision models:** `qwen3:8b` (thinking off) and Arch-Router-1.5B through Ollama, and Kev 0.8B
+  on a local System One server (`kev-0.8b-q8_0.gguf`).
+- **Grader:** Claude (Claude Opus 5.5), offline, blind to the arm, every answer graded; see
+  [Grading](#grading).
+- **Machine:** an Apple M4 with 24 GB, which cannot hold `gpt-oss:20b` and `qwen3:8b` in memory
+  together, so Ollama reloads models between calls.
+
+Raw data, grades and reports:
+[`results/20261022T191458Z-tier.json`](results/20261022T191458Z-tier.json) (report
+[`.md`](results/20261022T191458Z-tier.md), grades
+[`-grades.json`](results/20261022T191458Z-tier-grades.json)) and
+[`results/20261022T201918Z-domain.json`](results/20261022T201918Z-domain.json) (report
+[`.md`](results/20261022T201918Z-domain.md), grades
+[`-grades.json`](results/20261022T201918Z-domain-grades.json)).
+
+**Tier split** (route `small` / `frontier` by the dataset's easy/hard label): 6 arms × 32 items,
+**0 errors**, 192 answers graded.
+
+| Arm | Routing accuracy | Frontier calls avoided | Mean quality (/10) | Quality vs baseline | Decision p50 / p95 | Tool accuracy |
+| --- | --- | --- | --- | --- | --- | --- |
+| `baseline-always-frontier` | — | — | 8.97 | — | — | 69% |
+| `keyword` | 22/32 (69%) | 81.2% | 8.00 | 89.2% | 0.000 s / 0.002 s | 88% |
+| `heuristic` | 20/32 (62%) | 87.5% | 8.31 | 92.7% | 0.000 s / 0.001 s | 94% |
+| `classifier-qwen3` | 29/32 (91%) | 40.6% | 7.94 | 88.5% | 5.01 s / 5.67 s | 81% |
+| `classifier-arch-router` | 21/32 (66%) | 84.4% | 7.81 | 87.1% | 0.37 s / 1.70 s | 88% |
+| `systemone-kev-0.8b` | 19/32 (59%) | 59.4% | 7.72 | 86.1% | 0.27 s / 0.38 s | 94% |
+
+**No arm meets the target on this pair** (at least 95% of baseline quality with at least 30% of
+frontier calls avoided). Every strategy avoids enough frontier calls; all of them lose 7-14% of
+the baseline's quality. How to read it:
+
+- **The gap between the routes is real here, unlike the Gemini pair.** Across all arms, `qwen3:8b`
+  scored 8.85 on easy items and 6.61 on hard ones; `gpt-oss:20b` scored 8.58 and 8.11. The small
+  model is as good on easy items and clearly worse on hard ones, which is the trade-off routing is
+  meant to manage, so every hard item sent to `small` costs quality.
+- **Accuracy alone doesn't buy quality back.** `classifier-qwen3` routes most accurately (29/32)
+  and still scores lowest-but-two, because `gpt-oss:20b` sometimes returns an empty final answer
+  after a tool call: 8 of its 79 frontier answers across the arms were empty, 4 of them in this
+  arm, and an empty answer scores 0. The baseline had one. That is a model failure, not a routing
+  one, and with one run per arm it is enough to reorder arms this close.
+- **The cheap strategies hold up.** `heuristic` keeps the most quality (92.7%) while avoiding the
+  most frontier calls (87.5%), with no decision model at all, as in the Gemini run.
+- **Decision latency includes model reloads.** `classifier-qwen3`'s 5 s is mostly Ollama swapping
+  `qwen3:8b` back in after `gpt-oss:20b`; the warm figure from the earlier run was 0.75 s.
+  Arch-Router's p95 has the same cause. Kev runs on its own server, so it never waits for Ollama.
+- **Tool accuracy is measured from the trace, not graded.** The exported answer carries no record
+  of the tool call, so the grades judge the reported result, and the tool column says whether the
+  expected tool was called.
+- **Why the always-frontier baseline has the lowest tool accuracy (69%).** All five of its misses
+  are arithmetic items where `calculator` was expected (`coder-hard-agent-1/2`,
+  `math-easy-agent-2`, `math-hard-agent-1/2`), and in all five `gpt-oss:20b` called no tool at
+  all: it reasons and does the arithmetic itself. It called `lookup_order_status`, `search_docs`
+  and `lint_code` every time. So it is not weak at calling tools, it skips the calculator when it
+  can work the sum out, and the cheap arms score higher because they send most of those items to
+  `qwen3:8b`, which called the calculator on 21 of the 25 arithmetic items it answered. The
+  baseline scored 10/10 on all five of those answers; its real weakness is the empty final answer
+  described above.
+- **Why `keyword` has 26 fallbacks.** `KeywordStrategy` here only lists words that send a request
+  to `frontier` ("compare", "derive", "refactor"...), and abstains when none appears, so the
+  default route `small` answers. 26 of 32 items had no such word: all 16 easy items (correctly
+  `small`) and 10 hard ones (missed). The 6 it decided were all hard and all right. A fallback is
+  this strategy's normal "small" answer, not a failure.
+
+**Domain split** (one route per domain: `support`, `coder`, `research`, `math`; every route is
+`qwen3:8b`, so only the decision differs): 3 arms × 32 items, **0 errors**, 96 answers graded.
+
+| Arm | Routing accuracy | Mean quality (/10) | Decision p50 / p95 | Tool accuracy |
+| --- | --- | --- | --- | --- |
+| `classifier-qwen3` | 27/32 (84%) | 8.31 | 0.99 s / 1.65 s | 94% |
+| `classifier-arch-router` | 19/32 (59%) | 7.97 | 0.27 s / 0.91 s | 88% |
+| `systemone-kev-0.8b` | 23/32 (72%) | 8.09 | 0.25 s / 0.43 s | 88% |
+
+- Routing accuracy matches the earlier runs for `classifier-qwen3` (27/32) and Kev (23/32);
+  Arch-Router is 19/32 here against 22/32 before, on the same generic prompt.
+- The quality column is a sanity check, not a comparison: the same model answers whichever
+  domain route is picked, so the 0.3-point spread is sampling noise between runs of one model.
+- Latency is lower than in the tier run because only one answering model is loaded, so
+  `qwen3:8b`'s decisions stay warm (about 1 s).
+
+**Verdict for both splits, local and graded by Claude.** The free `heuristic` strategy is still
+the best trade-off: on the tier split it avoids the most frontier calls and keeps the most
+quality, and no decision model beats it. `qwen3:8b` remains the most accurate local decision
+model on both splits, but on the tier split that accuracy did not turn into quality, and it is
+the slowest when the routes compete for memory. Kev and Arch-Router are fast but no more accurate
+than the heuristic on tiers. None of the arms met the target against `gpt-oss:20b`, which says
+the local small model gives up more on hard items than the old Gemini small model did.
+
+## Earlier results: Gemini routes and judge (2026-09-23)
+
+Every number in this section came from paid Gemini models: the routes, the classifier's decision
+model, the embeddings and the judge. One real run, 2026-09-23. Raw per-item data is in
 [`results/20260923T085017Z.json`](results/20260923T085017Z.json) and the rendered report in
 [`results/20260923T085017Z.md`](results/20260923T085017Z.md).
 
@@ -79,7 +181,12 @@ unchanged.
   configuration*, not what the strategy could do calibrated.
 - **Provider prompt-caching loss from switching routes is not measured here.**
 
-## Local decision models
+## Earlier results: local decision models on Gemini routes (2026-10-19 to 2026-10-21)
+
+Only the decision models in this section were local. In the tier table, the answering routes and
+the judge were the Gemini models above, so its cost and quality columns are Gemini numbers; the
+Kev rows and the local domain rerun used `gemma4` routes and an in-run `gemma4` judge whose scores
+are not used.
 
 Can a small local model make the classifier's routing decision for free? Same 32 items, run on
 2026-10-19 with `ollama:qwen3:8b` (thinking off; with it on one decision took 14-26 s instead of
@@ -192,23 +299,37 @@ wall-clock time because the Mac slept mid-run.
 
 ## What it does
 
-Five arms, over the same 32-item dataset (`data/workload.json`), plus the local-decision-model
-arms above (`--split domain` routes the same items to one route per domain instead):
+Every arm runs over the same 32-item dataset (`data/workload.json`); `--split domain` routes the
+same items to one route per domain instead, with the classifier arms only.
 
-| Arm | What decides |
-| --- | --- |
-| `baseline-always-frontier` | nothing — every request goes to `gemini-3.8-flash` |
-| `keyword` | `KeywordStrategy`: a short list of "this needs the frontier" keywords |
-| `heuristic` | `HeuristicStrategy` on its shipped defaults (`DEFAULT_WEIGHTS`/`DEFAULT_THRESHOLD`) |
-| `embedding` | `EmbeddingStrategy`, Gemini embeddings, an **uncalibrated** threshold (see below) |
-| `classifier` | `ClassifierStrategy`, classifying on the small route's own model |
+| Arm | What decides | Runs |
+| --- | --- | --- |
+| `baseline-always-frontier` | nothing — every request goes to the frontier route | always |
+| `keyword` | `KeywordStrategy`: a short list of "this needs the frontier" keywords | always |
+| `heuristic` | `HeuristicStrategy` on its shipped defaults (`DEFAULT_WEIGHTS`/`DEFAULT_THRESHOLD`) | always |
+| `classifier-qwen3` | `ClassifierStrategy` on `ollama:qwen3:8b`, thinking off | always |
+| `classifier-arch-router` | `ClassifierStrategy` on Arch-Router-1.5B through Ollama | always |
+| `systemone-kev-0.8b` (and the JevK5 arms) | `SystemOneStrategy` on a local System One server | when its URL is set |
+| `embedding` | `EmbeddingStrategy`, Gemini embeddings, an **uncalibrated** threshold | Gemini opt-in |
+| `classifier` | `ClassifierStrategy` on the small route's own model | Gemini opt-in |
 
-Two candidate routes throughout, both Gemini so the whole benchmark runs from one API key with no
-local-server dependency: `"small"` (`gemini-3.5-flash-lite`) and `"frontier"` (`gemini-3.8-flash`)
-— override with `MODEL_ROUTER_BENCHMARK_SMALL_MODEL` / `MODEL_ROUTER_BENCHMARK_FRONTIER_MODEL`. The
-repository's other usual small/frontier pair (`ollama:qwen3:8b` / `gemini-3-flash-preview`) is what
-`test_live_ollama_smoke.py` uses for its free, budget-independent sanity check — see "Testing this
-harness itself". `arms.py` builds all five arms.
+**The routes are local by default:** `"small"` is `ollama:qwen3:8b` with thinking off and
+`"frontier"` is `ollama:gpt-oss:20b`. Why this pair, of the models installed here (`qwen3:8b`,
+`gemma4`, `gpt-oss:20b`, Arch-Router):
+
+- `gpt-oss:20b` is the largest (21B parameters, a mixture of experts with about 3.6B active per
+  token, so it still answers at a usable speed on a laptop) and always reasons, like the Gemini
+  frontier model did. `gemma4` is an 8B model, the same size class as `qwen3:8b`, so it would not
+  give a real capability gap.
+- `qwen3:8b` with thinking off is the quick, cheap tier, and it is already the `classifier-qwen3`
+  decision model, matching the original design of a classifier on the small route's own model.
+
+Override with `MODEL_ROUTER_BENCHMARK_SMALL_MODEL` / `MODEL_ROUTER_BENCHMARK_FRONTIER_MODEL`.
+
+**Gemini is an explicit opt-in:** `MODEL_ROUTER_BENCHMARK_GEMINI=1` switches the defaults back to
+the paid pair (`gemini-3.5-flash-lite` small, `gemini-3.8-flash` frontier) and adds the
+`embedding` and `classifier` arms. Without it, nothing in a run calls Gemini. `arms.py` builds
+every arm.
 
 For each (arm, item) pair, `runner.run_item`:
 
@@ -222,8 +343,8 @@ For each (arm, item) pair, `runner.run_item`:
 4. Prices it (`costing.py`, `pricing.py`) — real usage × pinned $/token, plus an *estimate* for
    `EmbeddingStrategy`'s per-request query: `Embeddings` reports no usage at all, so there is
    nothing to measure, and the strategy's own chars-per-token method stands in.
-5. Grades the final answer against the item's `rubric` with an LLM judge (`judge.py`) — a model
-   distinct from both routes, so grading isn't a route grading its own answer.
+5. Leaves the answer ungraded for the offline step (see [Grading](#grading)), or grades it with an
+   in-run judge model if one is configured.
 
 `report.py` aggregates every arm's `ItemResult`s into cost-saved-vs-baseline and
 quality-vs-baseline percentages, routing accuracy against the dataset's expected route, the median
@@ -239,14 +360,41 @@ and p95 time the strategy took to decide, and a verdict against the target.
 noted. `dataset.validate()` checks the shape (enough domains, both difficulties, both kinds, every
 agent item names a real tool) every time it loads.
 
-## The judge
+## Grading
 
-`DEFAULT_JUDGE_MODEL` (`judge.py`) is `gemini-3.1-pro-preview` — a separate, stronger Gemini model
-than either candidate route, so it never grades its own answer under the "frontier" name. It is
-never added to any arm's `routes=`; nothing in `runner.py` ever routes to it. Override with
-`MODEL_ROUTER_BENCHMARK_JUDGE_MODEL` if you'd rather point it at a different provider (e.g. an
-Anthropic model, for a judge with no shared vendor with either route at all — this needs
-`langchain-anthropic` and its own API key, neither of which this repo installs by default).
+By default a run has no judge model: every result's `judge` is empty. Grading is a separate step,
+so it needs no paid model:
+
+1. `--export-ungraded RAW` writes `<RAW stem>-ungraded.json` beside the results: one entry per
+   answered, ungraded result with its arm, item id, prompt, rubric, answer, and `grading_prompt`,
+   the exact text an in-run judge would see (`judge.grading_prompt`).
+2. A grader reads each `grading_prompt` and writes a grades file: a JSON list of
+   `{"arm", "item_id", "score", "rationale"}`, where `score` (0-10) and `rationale` follow the
+   `JudgeVerdict` schema.
+3. `--import-grades RAW GRADES` checks every grade (a known answered result, a valid
+   `JudgeVerdict`) before changing anything, writes them into the results file, says how many
+   answers are still ungraded, and renders the report.
+
+**The recorded grades come from Claude** (Claude Opus 5.5, `claude-opus-5-5`), working in the
+Claude Code session that ran the benchmark: it read every exported answer and scored it strictly
+against its rubric with the grading prompt above. That is not a separate paid API call from the
+benchmark; nothing in the harness calls Claude. The answers were shown blind (shuffled within each
+item and labelled by export index, not by arm), and the grades files are kept beside the results
+(`results/<stamp>-<split>-grades.json`).
+
+An in-run judge is still available: set `MODEL_ROUTER_BENCHMARK_JUDGE_MODEL` (for example
+`google_genai:gemini-3.1-pro-preview`, the paid judge of the earlier Gemini runs). It is never
+added to any arm's `routes=`; nothing in `runner.py` ever routes to it.
+
+## Cost without dollars
+
+Local models cost $0 per token (`pricing.py` lists them; the hardware and power that run them are
+not priced), so a run on local routes has no dollar cost to save. When the baseline cost $0,
+`report.py` reports **frontier calls avoided** instead of cost saved: the share of items the arm
+answered on the `small` route, against a baseline that answers every item on `frontier`, and the
+target check uses that figure. It equals the dollar saving only if a small call costs nothing next
+to a frontier one, and it does not count a decision model's own calls; the decision latency
+column shows what those cost in time. With the Gemini opt-in, cost is real dollars as before.
 
 ## What's uncalibrated, on purpose
 
@@ -263,44 +411,45 @@ Anthropic model, for a judge with no shared vendor with either route at all — 
 ## Running it for real
 
 ```bash
-uv run python -m benchmark.run
+uv run python -m benchmark.run                  # tier split
+uv run python -m benchmark.run --split domain   # domain split
 ```
 
-Needs only `GEMINI_API_KEY` — every route, the classifier's own call, embeddings and the judge are
-all Gemini. Every call is real and billed — `pricing.py`'s comments cite the source and date;
-recheck it if it's old.
+Needs no API key. It needs a local Ollama server with `qwen3:8b`, `gpt-oss:20b` and
+`hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M` pulled, and, for the Kev arm,
+`MODEL_ROUTER_BENCHMARK_KEV_URL` set to a running System One server. A full local run is slow:
+the 2026-10-22 runs took about 2 hours (tier) and 1 hour (domain) on an Apple M4 with 24 GB, mostly answer
+generation and Ollama reloading models that don't fit in memory together. On a Mac, keep it awake
+for the whole run (`caffeinate -dimsu uv run python -m benchmark.run`): an earlier run lost hours
+when the machine slept.
 
-**Measured cost, not guessed:** a live call to each candidate model on one easy and one hard
-dataset-style prompt gave $0.0005–0.010/call for `gemini-3.8-flash` and $0.00003–0.0025/call for
-`gemini-3.5-flash-lite` (both models reason by default — `gemini-3.8-flash` even on a trivial
-prompt — which is *why* the per-call range is so wide); the judge (`gemini-3.1-pro-preview`)
-measured ~$0.0024/call. Even the worst case — every arm routing every item to the frontier model —
-puts a full run (32 items × 5 arms, answers + judging) at roughly **$1.60–1.70**.
-
-The `classifier-qwen3` and `classifier-arch-router` arms also need a local Ollama server with
-`ollama pull qwen3:8b` and `ollama pull hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M` done first.
+With `MODEL_ROUTER_BENCHMARK_GEMINI=1` every Gemini call is real and billed (`GEMINI_API_KEY`);
+`pricing.py`'s comments cite the source and date. A live call on the earlier Gemini pair measured
+$0.0005–0.010/call for `gemini-3.8-flash` and $0.00003–0.0025/call for `gemini-3.5-flash-lite`,
+and about $0.0024/call for the `gemini-3.1-pro-preview` judge: roughly $1.60–1.70 for a full run in
+the worst case.
 
 Useful flags:
 
 - `--split domain` — route the same items to one route per domain instead of by difficulty.
-
-- `--limit N` — cap the dataset to the first N items, for a cheap smoke test before the full run.
+- `--limit N` — cap the dataset to the first N items, for a quick smoke test before the full run.
 - `--arms baseline-always-frontier heuristic` — run a subset of arms.
-- `--pause SECONDS` (default `1.0`) — courtesy delay between items, gentler on a rate-limited key.
+- `--pause SECONDS` (default `0`) — courtesy delay between items, for a rate-limited key.
+- `--export-ungraded RAW` / `--import-grades RAW GRADES` — the offline grading step above.
 - `--report-only path/to/raw.json` — re-render the report beside a saved run's raw results without
   calling anything again.
 
-Each run writes its raw, per-item results to `results/<timestamp>.json` and the rendered report to
-`results/<timestamp>.md` beside it — so a run's output is versioned and reproducible, not just its
-input.
+Each run writes its raw, per-item results to `results/<timestamp>-<split>.json` and the rendered
+report to `results/<timestamp>-<split>.md` beside it — so a run's output is versioned and
+reproducible, not just its input.
 
 ## Testing this harness itself
 
 `benchmark/tests/` is entirely offline (fake routes, a fake judge, `DeterministicFakeEmbedding`)
 except `test_live_ollama_smoke.py`, which makes real calls to a local Ollama server via
-`arms.ollama_smoke_model()` — not the benchmark's own `small_model()`/`frontier_model()`
-(`@pytest.mark.requires_ollama`, skips without one) — and deliberately never touches Gemini. Run
-with the rest of the suite (`uv run pytest`) or on their own:
+`arms.ollama_smoke_model()` (`@pytest.mark.requires_ollama`, skips without one) and never touches
+Gemini. `test_grading.py` covers the no-judge run, the export and the import. Run them on their
+own:
 
 ```bash
 uv run pytest benchmark/tests

@@ -41,16 +41,21 @@ CHAT_PRICES: dict[str, TokenPrice] = {
     "gemini-3-flash-preview": TokenPrice(input_per_million=0.50, output_per_million=3.00),
     # Gemini 3.1 Pro Preview (the judge model — never a route), prompts <=200k tokens.
     "gemini-3.1-pro-preview": TokenPrice(input_per_million=2.00, output_per_million=12.00),
-    # Ollama runs locally: no per-token $ charge. Real infrastructure cost (electricity, the
-    # machine) isn't zero, but isn't priced in $/token either, so it is out of scope here — an
-    # assumption worth restating in the report, not silently baked into a number that looks
-    # like it means the same thing as Gemini's. Used as the decision model of the
-    # `classifier-qwen3` and `classifier-arch-router` arms, and by the live smoke test.
-    "qwen3:8b": TokenPrice(input_per_million=0.0, output_per_million=0.0),
-    "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M": TokenPrice(
-        input_per_million=0.0, output_per_million=0.0
-    ),
 }
+
+# Ollama runs locally: no per-token $ charge. Real infrastructure cost (electricity, the machine)
+# isn't zero, but isn't priced in $/token either, so it is out of scope here — an assumption the
+# report restates, not silently baked into a number that looks like it means the same thing as
+# Gemini's. With every route local, the report measures cost as the share of frontier calls
+# avoided instead (report.py). Keyed by the name Ollama reports in `usage_metadata`.
+LOCAL_MODELS = (
+    "qwen3:8b",  # the default "small" route, and the `classifier-qwen3` decision model
+    "gpt-oss:20b",  # the default "frontier" route
+    "gemma4",
+    "gemma4:latest",
+    "hf.co/katanemo/Arch-Router-1.5B.gguf:Q4_K_M",  # the `classifier-arch-router` decision model
+)
+CHAT_PRICES |= {model: TokenPrice(0.0, 0.0) for model in LOCAL_MODELS}
 
 # Gemini Embedding 2, PRICING_ASOF: $0.20/1M text input tokens. `EmbeddingStrategy` reports no
 # usage (embedding.py's docstring), so this prices the chars-per-token estimate the strategy

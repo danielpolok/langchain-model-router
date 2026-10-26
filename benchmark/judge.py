@@ -1,9 +1,12 @@
-"""LLM-as-judge quality scoring: a judge model evaluates; it never routes.
+"""Quality scoring against each item's rubric: a judge evaluates; it never routes.
 
-The judge is a model distinct from both candidate routes (`gemini-3-flash-preview` and
-`qwen3:8b`) — `DEFAULT_JUDGE_MODEL` is a separate, stronger Gemini model, chosen so grading
-isn't a route grading its own answer. It is never added to a router's `routes=`; `runner.py`
-only ever calls it through `grade`/`agrade`, never through `ChatRouter`.
+By default there is no judge model: `run.py` records answers ungraded, exports them with the
+grading prompt below (`--export-ungraded`), a grader outside the run (Claude, in the recorded
+results) writes back one `JudgeVerdict` per answer, and `--import-grades` merges them in. Set
+`MODEL_ROUTER_BENCHMARK_JUDGE_MODEL` (for example `google_genai:gemini-3.1-pro-preview`, a paid
+model) to grade inside the run instead. Either way the judge is distinct from both candidate
+routes, so grading isn't a route grading its own answer, and it is never added to a router's
+`routes=`; `runner.py` only ever calls it through `grade`/`agrade`, never through `ChatRouter`.
 """
 
 from __future__ import annotations
@@ -15,9 +18,8 @@ from langchain_core.language_models import BaseChatModel
 from langchain_core.runnables import RunnableConfig
 from pydantic import BaseModel, Field
 
-DEFAULT_JUDGE_MODEL = os.environ.get(
-    "MODEL_ROUTER_BENCHMARK_JUDGE_MODEL", "google_genai:gemini-3.1-pro-preview"
-)
+DEFAULT_JUDGE_MODEL = os.environ.get("MODEL_ROUTER_BENCHMARK_JUDGE_MODEL")
+"""An in-run judge model, or `None` (the default) to grade offline."""
 
 
 class JudgeVerdict(BaseModel):
@@ -53,12 +55,14 @@ it fully satisfies every part of the rubric. Give one sentence of rationale that
 part of the rubric the score turns on."""
 
 
-def judge_model(model: str | None = None) -> BaseChatModel:
-    """The judge model, `DEFAULT_JUDGE_MODEL` unless overridden."""
-    return init_chat_model(model or DEFAULT_JUDGE_MODEL, temperature=0)
+def judge_model(model: str | None = None) -> BaseChatModel | None:
+    """The judge model, `DEFAULT_JUDGE_MODEL` unless overridden; `None` when neither names one."""
+    model = model or DEFAULT_JUDGE_MODEL
+    return init_chat_model(model, temperature=0) if model else None
 
 
-def _prompt(prompt: str, rubric: str, answer: str) -> str:
+def grading_prompt(prompt: str, rubric: str, answer: str) -> str:
+    """The exact text a judge grades from, in-run or exported for offline grading."""
     return _GRADING_PROMPT.format(prompt=prompt, rubric=rubric, answer=answer or "(no answer)")
 
 
@@ -72,7 +76,7 @@ def grade(
 ) -> JudgeVerdict:
     """Score `answer` against `rubric` for the request `prompt`. Sync."""
     structured = judge.with_structured_output(JudgeVerdict)
-    result = structured.invoke(_prompt(prompt, rubric, answer), config=config)
+    result = structured.invoke(grading_prompt(prompt, rubric, answer), config=config)
     assert isinstance(result, JudgeVerdict)
     return result
 
@@ -87,6 +91,6 @@ async def agrade(
 ) -> JudgeVerdict:
     """Score `answer` against `rubric` for the request `prompt`. Async."""
     structured = judge.with_structured_output(JudgeVerdict)
-    result = await structured.ainvoke(_prompt(prompt, rubric, answer), config=config)
+    result = await structured.ainvoke(grading_prompt(prompt, rubric, answer), config=config)
     assert isinstance(result, JudgeVerdict)
     return result

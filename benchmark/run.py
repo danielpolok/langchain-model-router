@@ -2,11 +2,12 @@
 
     uv run python -m benchmark.run
 
-Needs `GEMINI_API_KEY`: every route, the classifier's own call, the embeddings and the judge are
-all Gemini. The `classifier-qwen3` and `classifier-arch-router` arms also need a local Ollama server
-with their models pulled. `--split domain` routes the same items to one route per domain. Every
-Gemini call is real and billed; see `benchmark/README.md` before running this against a metered
-key.
+Needs no API key: every route and decision model is local (Ollama, plus any configured System One
+endpoint), and answers are recorded ungraded. Grade them offline: `--export-ungraded RAW` writes
+each answer with its grading prompt, a grader writes back `[{arm, item_id, score, rationale}]`, and
+`--import-grades RAW GRADES` merges those into the results and renders the report.
+`--split domain` routes the same items to one route per domain. Paid Gemini models run only on
+the opt-ins described in `benchmark/README.md`.
 """
 
 from __future__ import annotations
@@ -15,7 +16,7 @@ import argparse
 import json
 import sys
 from dataclasses import asdict
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -24,7 +25,7 @@ from dotenv import load_dotenv
 from benchmark.arms import build_arms
 from benchmark.costing import CostBreakdown
 from benchmark.dataset import Split, load_dataset
-from benchmark.judge import JudgeVerdict, judge_model
+from benchmark.judge import JudgeVerdict, grading_prompt, judge_model
 from benchmark.report import render_markdown, summarize
 from benchmark.runner import ItemResult, run_arm
 from langchain_model_router import RoutingDecision
@@ -68,6 +69,50 @@ def _from_raw(raw: dict[str, Any]) -> ItemResult:
     )
 
 
+def export_ungraded(raw_path: Path) -> Path:
+    """Write every answered, ungraded result in `raw_path` to `<stem>-ungraded.json` beside it:
+    arm, item id, prompt, rubric, answer, and the exact grading prompt an in-run judge would see.
+    """
+    items = {item.id: item for item in load_dataset()}
+    raw = json.loads(raw_path.read_text())
+    entries = []
+    for arm, results in raw.items():
+        for result in results:
+            if result["error"] is not None or result["judge"] is not None:
+                continue
+            item = items[result["item_id"]]
+            entries.append(
+                {
+                    "arm": arm,
+                    "item_id": item.id,
+                    "prompt": item.prompt,
+                    "rubric": item.rubric,
+                    "answer": result["answer"],
+                    "grading_prompt": grading_prompt(item.prompt, item.rubric, result["answer"]),
+                }
+            )
+    out = raw_path.with_name(f"{raw_path.stem}-ungraded.json")
+    out.write_text(json.dumps(entries, indent=2))
+    return out
+
+
+def import_grades(raw_path: Path, grades_path: Path) -> int:
+    """Merge `[{arm, item_id, score, rationale}]` from `grades_path` into `raw_path`'s results as
+    their `judge` verdicts. Every grade is checked (a known result, a valid `JudgeVerdict`) before
+    the file is rewritten. Returns how many answered results are still ungraded."""
+    raw = json.loads(raw_path.read_text())
+    index = {(arm, r["item_id"]): r for arm, results in raw.items() for r in results}
+    for grade in json.loads(grades_path.read_text()):
+        result = index.get((grade["arm"], grade["item_id"]))
+        if result is None or result["error"] is not None:
+            msg = f"no answered result for {grade['arm']} / {grade['item_id']} in {raw_path}"
+            raise SystemExit(msg)
+        verdict = JudgeVerdict(score=grade["score"], rationale=grade["rationale"])
+        result["judge"] = verdict.model_dump()
+    raw_path.write_text(json.dumps(raw, indent=2))
+    return sum(1 for r in index.values() if r["error"] is None and r["judge"] is None)
+
+
 def _run(
     arm_names: list[str] | None, limit: int | None, pause: float, split: Split
 ) -> tuple[dict[str, list[ItemResult]], Path]:
@@ -98,7 +143,7 @@ def _run(
         print(f"  {len(results) - errors}/{len(results)} ok", file=sys.stderr)
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     raw_path = RESULTS_DIR / f"{stamp}-{split}.json"
     raw = {arm: [_to_raw(r) for r in results] for arm, results in by_arm.items()}
     raw_path.write_text(json.dumps(raw, indent=2))
@@ -117,7 +162,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--limit", type=int, default=None, help="Cap the dataset to N items.")
     parser.add_argument(
-        "--pause", type=float, default=1.0, help="Seconds between items (rate-limit courtesy)."
+        "--pause", type=float, default=0.0, help="Seconds between items (rate-limit courtesy)."
     )
     parser.add_argument(
         "--report-only",
@@ -125,12 +170,34 @@ def main(argv: list[str] | None = None) -> int:
         default=None,
         help="Skip running: re-render the report beside a saved raw-results JSON.",
     )
+    parser.add_argument(
+        "--export-ungraded",
+        type=Path,
+        default=None,
+        metavar="RAW",
+        help="Skip running: write a saved run's ungraded answers for offline grading.",
+    )
+    parser.add_argument(
+        "--import-grades",
+        type=Path,
+        nargs=2,
+        default=None,
+        metavar=("RAW", "GRADES"),
+        help="Skip running: merge offline grades into a saved run, then re-render its report.",
+    )
     args = parser.parse_args(argv)
 
     load_dotenv()
 
-    if args.report_only:
-        raw_path = args.report_only
+    if args.export_ungraded:
+        print(f"ungraded answers: {export_ungraded(args.export_ungraded)}", file=sys.stderr)
+        return 0
+    if args.import_grades:
+        remaining = import_grades(*args.import_grades)
+        print(f"grades merged; {remaining} answers still ungraded", file=sys.stderr)
+
+    if args.report_only or args.import_grades:
+        raw_path = args.report_only or args.import_grades[0]
         raw = json.loads(raw_path.read_text())
         by_arm = {arm: [_from_raw(r) for r in results] for arm, results in raw.items()}
     else:
