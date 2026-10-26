@@ -16,7 +16,7 @@ import argparse
 import json
 import sys
 from dataclasses import asdict
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -143,7 +143,7 @@ def _run(
         print(f"  {len(results) - errors}/{len(results)} ok", file=sys.stderr)
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     raw_path = RESULTS_DIR / f"{stamp}-{split}.json"
     raw = {arm: [_to_raw(r) for r in results] for arm, results in by_arm.items()}
     raw_path.write_text(json.dumps(raw, indent=2))
