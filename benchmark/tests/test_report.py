@@ -131,3 +131,22 @@ def test_the_report_shows_accuracy_latency_and_every_arm_without_a_baseline() ->
     assert "| classifier-qwen3 | 1/1 (100%) | 0 | 0.500 | 0.500 | — |" in report
     assert "priced at $0" in report
     assert "No always-frontier baseline" in report
+
+
+def test_with_every_route_free_cost_saved_is_the_share_of_frontier_calls_avoided() -> None:
+    by_arm = {
+        BASELINE_ARM: [
+            _result(i, BASELINE_ARM, route="frontier", cost=0.0, score=8) for i in "1234"
+        ],
+        "heuristic": [
+            _result(i, "heuristic", route=route, cost=0.0, score=8)
+            for i, route in zip("1234", ["small", "small", "small", "frontier"], strict=True)
+        ],
+    }
+    summaries = summarize(by_arm)
+    assert summaries["heuristic"].cost_saved_pct == 75.0
+    assert summaries["heuristic"].meets_target is True
+
+    report = render_markdown(summaries)
+    assert "| Frontier calls avoided |" in report
+    assert "| heuristic | 4 | 0 | 0.0000 | 75.0% |" in report

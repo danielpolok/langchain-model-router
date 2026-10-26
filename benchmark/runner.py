@@ -3,8 +3,9 @@
 One item, one arm: invoke the router (a two-step tool round trip for `kind == "agent"`),
 capture usage with `get_usage_metadata_callback`, read the routing decision straight off the
 response (`routing_decision`), price it (`costing.py`), and grade the final answer with the
-judge (`judge.py`). Errors are per item — a rate limit or a flaky local model shouldn't lose the
-rest of the run — recorded on the result rather than raised.
+judge (`judge.py`) when one is given; with none, the answer is recorded ungraded for the offline
+grading step (`run.py --export-ungraded`). Errors are per item — a rate limit or a flaky local
+model shouldn't lose the rest of the run — recorded on the result rather than raised.
 """
 
 from __future__ import annotations
@@ -135,16 +136,16 @@ def _run_agent(
 def run_item(
     arm: Arm,
     item: WorkloadItem,
-    judge: BaseChatModel,
+    judge: BaseChatModel | None,
     *,
     embed: bool,
     split: Split = "tier",
 ) -> ItemResult:
-    """Run and grade one item on one arm. `embed=True` when the arm's strategy embeds the
-    request (only `EmbeddingStrategy`'s arm) — the only way to know is to be told, since the
-    router's response carries no signal that an embedding call happened (see the embedding
-    strategy's docstring: `Embeddings` emits no callbacks at all). `split` says which route the
-    dataset counts as right (`dataset.expected_route`)."""
+    """Run one item on one arm, and grade it if `judge` is given. `embed=True` when the arm's
+    strategy embeds the request (only `EmbeddingStrategy`'s arm) — the only way to know is to be
+    told, since the router's response carries no signal that an embedding call happened (see the
+    embedding strategy's docstring: `Embeddings` emits no callbacks at all). `split` says which
+    route the dataset counts as right (`dataset.expected_route`)."""
     expected = expected_route(item, split)
     timer = _DecisionTimer()
     try:
@@ -157,7 +158,11 @@ def run_item(
         answer = response.text
         decision = routing_decision(response)
         cost = cost_of(usage_by_model, embedding_query_text=item.prompt if embed else None)
-        verdict = grade(judge, prompt=item.prompt, rubric=item.rubric, answer=answer)
+        verdict = (
+            grade(judge, prompt=item.prompt, rubric=item.rubric, answer=answer)
+            if judge is not None
+            else None
+        )
         tool_correct = (tool_called == item.expected_tool) if item.kind == "agent" else None
 
         return ItemResult(
@@ -192,7 +197,7 @@ def run_item(
 def run_arm(
     arm: Arm,
     items: list[WorkloadItem],
-    judge: BaseChatModel,
+    judge: BaseChatModel | None,
     *,
     embed: bool,
     pause_seconds: float = 0.0,

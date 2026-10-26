@@ -1,0 +1,1154 @@
+[
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states 5-7 business days to the original payment method; a long table of invented per-method timelines."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-easy-st-2",
+    "score": 9,
+    "rationale": "Sensible generic guidance (forgot-password email link, then support), no fabricated URLs, though it suggests SSN digits as typical identity proof."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-hard-st-1",
+    "score": 8,
+    "rationale": "Addresses all three issues separately with concrete steps, but invents support phone numbers and menu paths as if they were real."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-hard-st-2",
+    "score": 9,
+    "rationale": "Coherent policy that ties refunds and retries to idempotency keys and limits caching to reads with short TTLs and invalidation; caching's key context is only implied."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports up to 3 retries with exponential backoff on 429/5xx and explains how indefinite retries would overload the server and never return an answer."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "support-hard-agent-2",
+    "score": 10,
+    "rationale": "States the cache key includes the route's name and explains in two plain sentences why one route's response can't be served for another."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes % as the modulo operator with short, correct examples, including negative operands; the extra string-formatting note is accurate."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-hard-st-1",
+    "score": 10,
+    "rationale": "Identifies the empty `items` divisor and suggests an explicit guard or default for the empty case."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-hard-st-2",
+    "score": 10,
+    "rationale": "Replaces the per-iteration query with one bulk fetch and names real trade-offs: memory, IN-clause limits and missing rows."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports 2,250,000 operations, about 31 hours at 50 ms each, and calls that infeasible, as the rubric asks."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Computes $0.03000006 per run and $0.9000018 in total, about $0.90, as the rubric asks."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes converting sunlight, water and CO2 into glucose and oxygen."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping that mitochondria make ATP from nutrients."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-hard-st-1",
+    "score": 9,
+    "rationale": "Distinguishes labeled vs unlabeled data and explains starting unsupervised then adding labels, though it includes a garbled claim that supervised models need more labels than samples."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-hard-st-2",
+    "score": 10,
+    "rationale": "Names hasty generalization and the no-guarantee flaw with counter-examples, and proposes modelling drivers and probabilistic conclusions."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-easy-agent-1",
+    "score": 9,
+    "rationale": "Reports the 5-7 business days to the original payment method fact, but adds an unsupported 'a day or two more' for card issuers."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-easy-agent-2",
+    "score": 0,
+    "rationale": "Empty answer: the 429 behaviour is not reported."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-hard-agent-1",
+    "score": 7,
+    "rationale": "Two plain sentences on retrying with exponential backoff versus failing immediately, but adds an undocumented reroute to another instance."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "research-hard-agent-2",
+    "score": 4,
+    "rationale": "Includes the route name but invents tenant and role components and a documentation section, and explains tiers as HTTP endpoints rather than the tiers' models."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-hard-st-1",
+    "score": 10,
+    "rationale": "Derives 1.05 (5% higher), the general (1+m)(1-d) rule and when it is above or below 1, with a worked check."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-hard-st-2",
+    "score": 10,
+    "rationale": "States n^2 and justifies it with the AP sum, induction and telescoping, each step explained."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4,212, the correct product."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 144 / 12 = 12 and 12 + 9 = 21, the correct result."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports about $1,628.89 from 1000 * 1.05**10 and gives a one-sentence remark on interest earning interest."
+  },
+  {
+    "arm": "baseline-always-frontier",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves for width 12 and length 36 and verifies both the perimeter and the 3:1 ratio."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states the 5-7 business day policy; a long breakdown of invented per-method timelines instead of a sentence or two."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-easy-st-2",
+    "score": 9,
+    "rationale": "Sensible forgot-password and contact-support guidance; the platform links are real top-level sites, not fabricated, if beyond what was asked."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-hard-st-1",
+    "score": 10,
+    "rationale": "Addresses the late shipment, missing refund and double charge separately, each with concrete next steps, without claiming the account's state."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-hard-st-2",
+    "score": 5,
+    "rationale": "Covers the three topics but contradicts itself on whether refunds are idempotent and says caching does not affect idempotency, with a muddled summary table."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports 3 retries with exponential backoff on 429/5xx and contrasts it with the excess load of retrying indefinitely."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "support-hard-agent-2",
+    "score": 3,
+    "rationale": "Says no documentation was found and talks of unique identifiers per route, not that the cache key includes the route name."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-easy-st-1",
+    "score": 6,
+    "rationale": "Describes modulo correctly with a good example, but states 10 % -3 is -1 (it is -2), an error in its own examples."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-hard-st-1",
+    "score": 10,
+    "rationale": "Identifies the empty `items` divisor and guards the division, with no unrelated cause."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-hard-st-2",
+    "score": 10,
+    "rationale": "Batches into one fetch_orders call and names real trade-offs including memory, missing ids and all-or-nothing failure."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-hard-agent-1",
+    "score": 9,
+    "rationale": "Reports 2,250,000 operations and about 31 hours at 50 ms each, noting it is very long, though it calls that 'might not be efficient' rather than plainly far too slow."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Reports a total of about $0.90, the rubric's expected result."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes converting light, water and CO2 into glucose/chemical energy."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping the mitochondria/ATP fact."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-hard-st-1",
+    "score": 10,
+    "rationale": "Distinguishes labeled vs unlabeled data and explains why the label cost pushes a mostly unlabeled team toward unsupervised or hybrid methods."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-hard-st-2",
+    "score": 10,
+    "rationale": "Names hasty generalization with no guarantee from past success, notes counter-examples, and proposes probabilistic, data-driven forecasting."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports the 5-7 business days to the original payment method fact."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-easy-agent-2",
+    "score": 0,
+    "rationale": "Returns only a raw search tool-call block, not an answer; the fact is never reported."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-hard-agent-1",
+    "score": 3,
+    "rationale": "Says no documentation was found and gives a generic, longer-than-two-sentence explanation, so it does not reflect the documented retry-with-backoff fact."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "research-hard-agent-2",
+    "score": 6,
+    "rationale": "States the route name is in the cache key and that it isolates tiers, but the tier explanation is generic and never names a cached answer from another tier's model."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-hard-st-1",
+    "score": 3,
+    "rationale": "States the general rule correctly, but computes the example wrongly (1.05P(1.25) = 1.30P) and concludes 30% higher instead of 5%."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-hard-st-2",
+    "score": 9,
+    "rationale": "States n^2 and proves it by the AP formula, algebra and induction; its geometric picture wrongly says row k of a square has 2k-1 cells."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4212, the correct product."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 21, the correct result."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-hard-agent-1",
+    "score": 1,
+    "rationale": "Never reports a final amount: it restates the formula and promises to compute it, so neither the $1628.89 result nor the compounding remark is given."
+  },
+  {
+    "arm": "keyword",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves for width 12 and length 36 and verifies 2*(12+36) = 96."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states the 5-7 business day policy; a long, invented per-method breakdown instead of a sentence or two."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-easy-st-2",
+    "score": 7,
+    "rationale": "Generic guidance is sensible, but it presents specific deep reset URLs for several platforms as fact, some of which are not the real recovery pages."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-hard-st-1",
+    "score": 10,
+    "rationale": "Addresses all three issues separately with concrete next steps and no claims about the account's actual state."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-hard-st-2",
+    "score": 4,
+    "rationale": "Covers the three topics but wrongly calls reading a balance non-idempotent and unsafe to retry, and its summary table mislabels the concepts."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports 3 retries with exponential backoff on 429 and 5xx and contrasts it with the load and degradation of indefinite retries."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "support-hard-agent-2",
+    "score": 4,
+    "rationale": "Says no documentation was found and speaks of unique keys per route from general principles, never stating the cache key includes the route name; three sentences."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes modulo with a short example, and its negative-number examples are right."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-hard-st-1",
+    "score": 10,
+    "rationale": "Identifies len(items) == 0 as the cause and gives guards for the empty case."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-hard-st-2",
+    "score": 10,
+    "rationale": "Batches into a single fetch_orders call and names real trade-offs: memory, partial-failure handling, ordering and IN-clause limits."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-hard-agent-1",
+    "score": 4,
+    "rationale": "Reports 2,250,000 operations but ends at 'Let's compute that.' without the follow-on remark about the 50 ms budget."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Reports a total of about $0.90, the rubric's expected result."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes converting light, water and CO2 into glucose/chemical energy."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping the mitochondria/ATP fact."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-hard-st-1",
+    "score": 10,
+    "rationale": "Distinguishes labeled vs unlabeled data and explains why a mostly unlabeled team leans unsupervised, with semi-supervised and labeling options."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-hard-st-2",
+    "score": 10,
+    "rationale": "Names hasty generalization from a small sample and suggests analysing drivers, data and a limited-release test."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports the 5-7 business days to the original payment method fact."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-easy-agent-2",
+    "score": 2,
+    "rationale": "Says the SDK has no documented 429 behaviour and gives generic advice, missing the 'retries up to 3 times with exponential backoff' fact."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-hard-agent-1",
+    "score": 6,
+    "rationale": "Two plain sentences contrasting automatic retries with failing immediately, but it leaves out the backoff the docs describe."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "research-hard-agent-2",
+    "score": 7,
+    "rationale": "States the route name is in the cache key and that this keeps one tier's cached data from another, though it never says the leak would be another tier model's answer."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-hard-st-1",
+    "score": 9,
+    "rationale": "Computes 1.40 * 0.75 = 1.05 (5% higher) and states final = P(1+m)(1-d) with the above/below-1 cases, though it only states the condition rather than reasoning it out further."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-hard-st-2",
+    "score": 10,
+    "rationale": "States n^2 and justifies it algebraically and by induction, with a correct layer-by-layer picture."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4212, the correct product."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 21, the correct result."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-hard-agent-1",
+    "score": 1,
+    "rationale": "Never reports a final amount; it restates the formula and says it will compute it, with no compounding remark."
+  },
+  {
+    "arm": "heuristic",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves for width 12 and length 36 and verifies the perimeter is 96."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states the 5-7 business day policy; a long, invented per-method breakdown instead of a sentence or two."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-easy-st-2",
+    "score": 10,
+    "rationale": "Sensible generic guidance: forgot-password link, email/SMS reset, then support, with no fabricated URLs or tools."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-hard-st-1",
+    "score": 10,
+    "rationale": "Addresses all three issues separately with concrete next steps, framed as possibilities rather than claims about the account."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-hard-st-2",
+    "score": 8,
+    "rationale": "Coherent policy linking refunds and retries to idempotency keys, but calls caching orthogonal to idempotency rather than connecting it beyond staleness."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-hard-agent-1",
+    "score": 0,
+    "rationale": "Empty answer: no retry policy and no comparison."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "support-hard-agent-2",
+    "score": 0,
+    "rationale": "Empty answer: no explanation given."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-easy-st-1",
+    "score": 6,
+    "rationale": "Describes modulo correctly with an example, but gives 10 % -3 as -1 (it is -2)."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-hard-st-1",
+    "score": 9,
+    "rationale": "Identifies the empty `items` divisor correctly, but its main fix guards and divides by `prices` instead, which does not handle an empty `items` directly."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-hard-st-2",
+    "score": 9,
+    "rationale": "Batches into one query and names real trade-offs (memory, IN-clause limits, partial results), but its code mixes dict and attribute access on the fetched orders."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports 2,250,000 operations and about 31 hours at 50 ms each, and says that is far too slow, as the rubric asks."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Computes 54,000 GB-seconds and a total of $0.9000018, about $0.90, as the rubric asks."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes using sunlight to turn CO2 and water into glucose and oxygen."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping the mitochondria/ATP fact."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-hard-st-1",
+    "score": 10,
+    "rationale": "Distinguishes labeled vs unlabeled data and explains why a mostly unlabeled team should start unsupervised or self-supervised and label selectively."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-hard-st-2",
+    "score": 10,
+    "rationale": "Names hasty generalization from a small biased sample and proposes a probabilistic estimate with explicit assumptions."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports the 5-7 business days to the original payment method fact."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-easy-agent-2",
+    "score": 6,
+    "rationale": "Includes retries up to 3 times with exponential backoff, but surrounds it with invented details (Retry-After handling, delays, error class, config) the docs do not state."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-hard-agent-1",
+    "score": 0,
+    "rationale": "Empty answer: no explanation given."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "research-hard-agent-2",
+    "score": 4,
+    "rationale": "Mentions route names in the key but invents a whole key scheme (tenant, role, version) and reads routes as HTTP endpoints, not the tiers' models."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-hard-st-1",
+    "score": 10,
+    "rationale": "Derives 1.05 (5% higher), the general P(1+m)(1-d), and reasons that it is higher exactly when m > d/(1-d)."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-hard-st-2",
+    "score": 10,
+    "rationale": "States n^2 and proves it by the AP formula, induction and telescoping."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4212, the correct product."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 21, the correct result."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-hard-agent-1",
+    "score": 0,
+    "rationale": "Empty answer: no amount and no remark."
+  },
+  {
+    "arm": "classifier-qwen3",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves for width 12 and length 36 and verifies 2*(36+12) = 96."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states the 5-7 business day policy; a long, invented per-method breakdown instead of a sentence or two."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-easy-st-2",
+    "score": 9,
+    "rationale": "Sensible forgot-password and support guidance; the platform links are real top-level sites, not fabricated, if beyond what was asked."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-hard-st-1",
+    "score": 10,
+    "rationale": "Addresses all three issues separately with concrete next steps for each and no claims about the actual account state."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-hard-st-2",
+    "score": 8,
+    "rationale": "Coherent policy tying refunds and retries to idempotency keys and never caching writes, though it calls idempotency irrelevant to caching."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-hard-agent-1",
+    "score": 3,
+    "rationale": "Says no documentation was found and guesses '3 to 5 retries', missing the 3-retries-with-backoff-on-429/5xx fact, though its indefinite-retry comparison is sensible."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "support-hard-agent-2",
+    "score": 4,
+    "rationale": "Says no documentation was found and speaks of unique keys per route from general principles, never stating the key includes the route name."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-easy-st-1",
+    "score": 6,
+    "rationale": "Describes modulo correctly with a good example, but gives 10 % -3 as -1 (it is -2)."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-hard-st-1",
+    "score": 10,
+    "rationale": "Identifies that `items` is empty and suggests checking the length before dividing."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-hard-st-2",
+    "score": 9,
+    "rationale": "Batches the fetch into one db.fetch_orders call and names memory as a trade-off, though its summary wrongly gives the chunked version log(N) queries."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-hard-agent-1",
+    "score": 4,
+    "rationale": "Reports 2,250,000 operations but stops at 'Let's calculate that:' with no remark on the 50 ms budget, missing half the rubric."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Reports a total of about $0.90, the rubric's expected result."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes converting light, water and CO2 into glucose/chemical energy."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping the mitochondria/ATP fact."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-hard-st-1",
+    "score": 10,
+    "rationale": "Distinguishes labeled from unlabeled training data and explains that a mostly unlabeled team should start unsupervised or invest in labeling via hybrid methods."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-hard-st-2",
+    "score": 9,
+    "rationale": "Names hasty generalization and small/biased sampling and proposes modelling and base-rate reasoning, though its post hoc ergo propter hoc gloss is garbled."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports the 5-7 business days to the original payment method fact."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-easy-agent-2",
+    "score": 2,
+    "rationale": "Claims there is no documented 429 behaviour and gives generic advice instead of the retry-3-times-with-backoff fact."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-hard-agent-1",
+    "score": 5,
+    "rationale": "Contrasts with failing immediately in plain language, but names retries plus invented circuit breakers and never mentions the backoff."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "research-hard-agent-2",
+    "score": 0,
+    "rationale": "Returns an error-style refusal saying it cannot access the information, with no answer."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-hard-st-1",
+    "score": 9,
+    "rationale": "Derives 5% higher, the general rule and the m > d/(1-d) condition, but its example table wrongly calls 1.33 * 0.75 exactly 1.00."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-hard-st-2",
+    "score": 9,
+    "rationale": "States n^2 and proves it three ways, but its checkerboard picture wrongly says each row has an odd number of cells."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4212, the correct product."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 21, the correct result."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-hard-agent-1",
+    "score": 1,
+    "rationale": "Never reports a final amount; it restates the formula and says it will recompute, with no compounding remark."
+  },
+  {
+    "arm": "classifier-arch-router",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves 8w = 96 for width 12 and length 36 and checks 2*(12+36) = 96."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-easy-st-1",
+    "score": 2,
+    "rationale": "Never states the 5-7 business day policy; it gives a long list of invented per-method timelines, far beyond a sentence or two."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-easy-st-2",
+    "score": 10,
+    "rationale": "Sensible generic guidance: the forgot-password flow first, then support with ID proof, with no fabricated URLs or tools."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-hard-st-1",
+    "score": 2,
+    "rationale": "Covers only the late shipment, invents the account's state (a stock-out, a pending status) and a phone number, and defers the refund and double charge."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-hard-st-2",
+    "score": 6,
+    "rationale": "Distinguishes the three and ties refunds and retries to idempotency, but its caching link is muddled (cached results 'safe with an idempotency key')."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports shipped 2026-09-18, arriving 2026-09-24, with nothing invented."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports delivered on 2026-09-15, with nothing invented."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-hard-agent-1",
+    "score": 10,
+    "rationale": "Reports 3 retries with exponential backoff on 429/5xx and compares it with the extra load and instability of indefinite retries."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "support-hard-agent-2",
+    "score": 3,
+    "rationale": "Says no documentation was found and talks of unique identifiers per route, not that the cache key includes the route name."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes % as the modulo/remainder operator with a short correct example."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-easy-st-2",
+    "score": 10,
+    "rationale": "States lists are mutable and tuples immutable in one sentence."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-hard-st-1",
+    "score": 10,
+    "rationale": "Identifies len(items) == 0 as the cause and gives guards for the empty case, with no unrelated cause."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-hard-st-2",
+    "score": 10,
+    "rationale": "Batches into one fetch_orders call and names real trade-offs: query-size limits, memory and missing ids."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-easy-agent-1",
+    "score": 10,
+    "rationale": "Correctly reports the syntax error from the dangling `+` operator; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-easy-agent-2",
+    "score": 10,
+    "rationale": "Correctly reports the unclosed-parenthesis syntax error; the tool call itself is not visible in an answer and is scored by tool accuracy."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-hard-agent-1",
+    "score": 0,
+    "rationale": "Empty answer: reports neither the operation count nor anything about the budget."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "coder-hard-agent-2",
+    "score": 10,
+    "rationale": "Reports a total of about $0.90, the rubric's expected result."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-easy-st-1",
+    "score": 10,
+    "rationale": "Correctly describes converting light, water and CO2 into glucose/chemical energy in one sentence."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-easy-st-2",
+    "score": 10,
+    "rationale": "A faithful one-sentence summary keeping the mitochondria/ATP fact."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-hard-st-1",
+    "score": 10,
+    "rationale": "Distinguishes labeled vs unlabeled data and explains why a mostly unlabeled team should favour unsupervised methods, with a hybrid path to labels."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-hard-st-2",
+    "score": 10,
+    "rationale": "Names hasty generalization and sampling bias and proposes treating the record as evidence with intervals, base rates and scenario analysis."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports the 5-7 business days to the original payment method fact."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-easy-agent-2",
+    "score": 0,
+    "rationale": "Empty answer: the 429 behaviour is not reported."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-hard-agent-1",
+    "score": 3,
+    "rationale": "Says no documentation was found and gives a generic explanation instead of the documented retry-with-backoff fact, in more than two sentences."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "research-hard-agent-2",
+    "score": 0,
+    "rationale": "Empty answer: nothing on cache keys or tiers."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-easy-st-1",
+    "score": 10,
+    "rationale": "Answers 43."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-easy-st-2",
+    "score": 10,
+    "rationale": "Answers 180 miles with the speed-times-time reasoning shown."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-hard-st-1",
+    "score": 10,
+    "rationale": "Derives 1.05 (5% higher), the general (1+m)(1-d) rule and the thresholds for above or below 1, with every step shown."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-hard-st-2",
+    "score": 10,
+    "rationale": "States the sum is n^2 and justifies it algebraically, by induction and by telescoping."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-easy-agent-1",
+    "score": 10,
+    "rationale": "Reports 4212, the correct product."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-easy-agent-2",
+    "score": 10,
+    "rationale": "Reports 21, the correct result."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-hard-agent-1",
+    "score": 1,
+    "rationale": "Never reports a final amount; it restates the formula and says it will compute it, with no compounding remark."
+  },
+  {
+    "arm": "systemone-kev-0.8b",
+    "item_id": "math-hard-agent-2",
+    "score": 10,
+    "rationale": "Solves for width 12 and length 36 and verifies the perimeter is 96."
+  }
+]

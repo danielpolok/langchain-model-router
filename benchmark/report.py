@@ -1,6 +1,11 @@
 """Aggregate `ItemResult`s into the report the task asks for: cost and quality per strategy
 against the always-frontier baseline, and a verdict on the target (>=30% lower cost at
->=95% of baseline quality), plus each arm's routing accuracy and decision latency."""
+>=95% of baseline quality), plus each arm's routing accuracy and decision latency.
+
+When the baseline cost $0 (every route a local model), there are no dollars to compare, so the
+cost figure becomes the share of frontier calls avoided against the baseline, which sends every
+item to the frontier route. That is the dollar saving only if a small call costs nothing next to
+a frontier call; the report says so."""
 
 from __future__ import annotations
 
@@ -11,6 +16,7 @@ from dataclasses import dataclass
 from benchmark.runner import ItemResult
 
 BASELINE_ARM = "baseline-always-frontier"
+FRONTIER_ROUTE = "frontier"
 COST_TARGET_PCT = 30.0
 QUALITY_TARGET_PCT = 95.0
 
@@ -37,8 +43,11 @@ class ArmSummary:
     agent_items: int
     tool_correct: int
     """How many agent items called the tool `expected_tool` named."""
+    frontier_calls: int = 0
+    """Items answered on `FRONTIER_ROUTE`."""
     cost_saved_pct: float | None = None
-    """vs `BASELINE_ARM`'s cost. `None` for the baseline itself, or if the baseline is missing."""
+    """vs `BASELINE_ARM`'s cost, or its frontier calls when the baseline cost $0. `None` for the
+    baseline itself, or if the baseline is missing."""
     quality_pct_of_baseline: float | None = None
     """vs `BASELINE_ARM`'s mean quality. Same `None` cases."""
 
@@ -83,7 +92,14 @@ def _summarize_one(name: str, results: list[ItemResult]) -> ArmSummary:
         decision_p95_s=_p95(times) if times else None,
         agent_items=len(agent),
         tool_correct=len([r for r in agent if r.tool_correct]),
+        frontier_calls=sum(1 for r in results if r.decision and r.decision.route == FRONTIER_ROUTE),
     )
+
+
+def _by_frontier_calls(summaries: dict[str, ArmSummary]) -> bool:
+    """Whether cost is measured as frontier calls avoided: the baseline ran and cost $0."""
+    baseline = summaries.get(BASELINE_ARM)
+    return baseline is not None and baseline.total_cost_usd == 0
 
 
 def summarize(by_arm: dict[str, list[ItemResult]]) -> dict[str, ArmSummary]:
@@ -91,7 +107,10 @@ def summarize(by_arm: dict[str, list[ItemResult]]) -> dict[str, ArmSummary]:
     against `BASELINE_ARM` wherever it's present in `by_arm`."""
     summaries = {name: _summarize_one(name, results) for name, results in by_arm.items()}
     baseline = summaries.get(BASELINE_ARM)
-    if baseline is None or baseline.total_cost_usd == 0 or baseline.mean_quality is None:
+    if baseline is None or baseline.mean_quality is None:
+        return summaries
+    by_calls = _by_frontier_calls(summaries)
+    if by_calls and baseline.frontier_calls == 0:
         return summaries
 
     filled = {}
@@ -99,7 +118,10 @@ def summarize(by_arm: dict[str, list[ItemResult]]) -> dict[str, ArmSummary]:
         if name == BASELINE_ARM or summary.mean_quality is None:
             filled[name] = summary
             continue
-        cost_saved = (1 - summary.total_cost_usd / baseline.total_cost_usd) * 100
+        if by_calls:
+            cost_saved = (1 - summary.frontier_calls / baseline.frontier_calls) * 100
+        else:
+            cost_saved = (1 - summary.total_cost_usd / baseline.total_cost_usd) * 100
         quality_pct = (summary.mean_quality / baseline.mean_quality) * 100
         filled[name] = ArmSummary(
             **{
@@ -133,6 +155,8 @@ def render_markdown(summaries: dict[str, ArmSummary], *, title: str = "Benchmark
     """The markdown report: cost and quality, routing accuracy and decision latency, and a
     verdict."""
     rows = sorted(summaries.values(), key=lambda summary: summary.name != BASELINE_ARM)
+    by_calls = _by_frontier_calls(summaries)
+    saved = "Frontier calls avoided" if by_calls else "Cost saved"
 
     lines = [
         f"# {title}",
@@ -140,7 +164,7 @@ def render_markdown(summaries: dict[str, ArmSummary], *, title: str = "Benchmark
         f"Target: >= {COST_TARGET_PCT:.0f}% lower cost at "
         f">= {QUALITY_TARGET_PCT:.0f}% of always-frontier quality.",
         "",
-        "| Arm | Items | Errors | Cost ($) | Cost saved | Mean quality (/10) "
+        f"| Arm | Items | Errors | Cost ($) | {saved} | Mean quality (/10) "
         "| Quality vs baseline | Target |",
         "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
@@ -157,6 +181,16 @@ def render_markdown(summaries: dict[str, ArmSummary], *, title: str = "Benchmark
         "Local Ollama models are priced at $0: their cost excludes the hardware and power that "
         "run them.",
         "",
+    ]
+    if by_calls:
+        lines += [
+            "Every route in this run is local, so cost is measured as the share of items kept "
+            "off the frontier route, against the baseline's every item: the dollar saving only "
+            "if a small call is free next to a frontier one. A decision model's own calls are "
+            "not counted; see its decision latency.",
+            "",
+        ]
+    lines += [
         "## Routing and tool-use detail",
         "",
         "| Arm | Routing accuracy | Fallbacks | Decision p50 (s) | Decision p95 (s) "

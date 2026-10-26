@@ -1,18 +1,20 @@
-"""The baseline and the four strategies the benchmark compares.
+"""The baseline and the strategies the benchmark compares.
 
-Two candidate routes throughout, both Gemini so the whole benchmark runs from one API key with
-no local server dependency — `"small"` (`gemini-3.5-flash-lite`) and `"frontier"`
-(`gemini-3.8-flash`), picked over this repo's usual small/frontier pair
-(`ollama:qwen3:8b`/`gemini-3-flash-preview`, still `benchmark.arms.ollama_smoke_model`'s default
-for the offline-adjacent live-Ollama test) once a budget-constrained run made an all-cloud pair
-worth measuring first. The baseline always answers on `"frontier"`; each strategy decides per
-request whether `"small"` is safe.
+Two candidate routes, both local Ollama models by default so the benchmark runs with no API key
+and no paid call: `"small"` (`ollama:qwen3:8b`, thinking off) and `"frontier"`
+(`ollama:gpt-oss:20b`, which always reasons). The baseline always answers on `"frontier"`; each
+strategy decides per request whether `"small"` is safe.
 
-Two more arms put `ClassifierStrategy` on a local decision model through Ollama, priced at $0:
-`classifier-qwen3` (`ollama:qwen3:8b`, thinking off) and `classifier-arch-router` (Katanemo's
-Arch-Router-1.5B, a router fine-tune). With `split="domain"` the same items are routed to one route
-per domain instead, by the three classifier arms only — every domain route is the small model, so
-the run measures the decision, not the answers.
+Every strategy that needs no paid model runs by default: `keyword`, `heuristic`,
+`ClassifierStrategy` on two local decision models (`classifier-qwen3`, and
+`classifier-arch-router` on Katanemo's Arch-Router-1.5B), and one `SystemOneStrategy` arm per
+configured System One endpoint. Gemini is an explicit opt-in: `MODEL_ROUTER_BENCHMARK_GEMINI=1`
+switches the routes back to the Gemini pair and adds the `embedding` arm (Gemini embeddings) and
+the `classifier` arm (the small route's own model).
+
+With `split="domain"` the same items are routed to one route per domain instead, by the
+classifier arms only; every domain route is the small model, so the run measures the decision,
+not the answers.
 """
 
 from __future__ import annotations
@@ -35,11 +37,16 @@ from langchain_model_router.strategies import (
     KeywordStrategy,
 )
 
+GEMINI = os.environ.get("MODEL_ROUTER_BENCHMARK_GEMINI") == "1"
+"""The opt-in for paid Gemini calls: the Gemini route pair, and the `embedding` and `classifier`
+arms. Off by default."""
 FRONTIER_MODEL = os.environ.get(
-    "MODEL_ROUTER_BENCHMARK_FRONTIER_MODEL", "google_genai:gemini-3.8-flash"
+    "MODEL_ROUTER_BENCHMARK_FRONTIER_MODEL",
+    "google_genai:gemini-3.8-flash" if GEMINI else "ollama:gpt-oss:20b",
 )
 SMALL_MODEL = os.environ.get(
-    "MODEL_ROUTER_BENCHMARK_SMALL_MODEL", "google_genai:gemini-3.5-flash-lite"
+    "MODEL_ROUTER_BENCHMARK_SMALL_MODEL",
+    "google_genai:gemini-3.5-flash-lite" if GEMINI else "ollama:qwen3:8b",
 )
 EMBED_MODEL = os.environ.get("MODEL_ROUTER_GEMINI_EMBED_MODEL", "gemini-embedding-2-preview")
 OLLAMA_SMOKE_MODEL = os.environ.get("MODEL_ROUTER_OLLAMA_MODEL", "ollama:qwen3:8b")
@@ -134,6 +141,10 @@ def frontier_model() -> BaseChatModel:
 
 
 def small_model() -> BaseChatModel:
+    # Thinking off on a local small model: it stays the quick tier and the frontier route is the
+    # one that reasons, as in the Gemini pair, where only the frontier model reasoned.
+    if SMALL_MODEL.startswith("ollama:"):
+        return init_chat_model(SMALL_MODEL, reasoning=False)
     return init_chat_model(SMALL_MODEL)
 
 
@@ -161,13 +172,17 @@ def embeddings() -> Embeddings:
 def _classifier_arms(
     routes: Callable[[], dict[str, BaseChatModel]], default: str, descriptions: dict[str, str]
 ) -> list[Arm]:
-    """`ClassifierStrategy` on the small Gemini model, on qwen3 and on Arch-Router, then one
-    `SystemOneStrategy` arm per decision-model endpoint that is configured."""
+    """`ClassifierStrategy` on qwen3 and on Arch-Router (and on the small Gemini model, with the
+    Gemini opt-in), then one `SystemOneStrategy` arm per decision-model endpoint that is
+    configured."""
     deciders = {
-        "classifier": small_model,  # "ask a small model" (classifier.py) — the small route's own
         "classifier-qwen3": qwen3_decider,
         "classifier-arch-router": arch_router_decider,
     }
+    if GEMINI:
+        # "ask a small model" (classifier.py): the small route's own. Locally that is qwen3, the
+        # same as `classifier-qwen3`, so the arm only exists with the Gemini pair.
+        deciders = {"classifier": small_model, **deciders}
     return [
         Arm(
             name,
@@ -193,11 +208,11 @@ def _classifier_arms(
 
 
 def build_arms(split: Split = "tier") -> list[Arm]:
-    """The tier split's arms: the baseline plus keyword, heuristic, embedding and the three
-    classifiers — or, for the domain split, the three classifiers alone. A fresh instance of
-    each model per arm, since a route must not be shared between two `ChatRouter`s that might
-    run concurrently (nothing here forbids it, but each arm owning its own keeps the arms
-    independent for a parallel run)."""
+    """The tier split's arms: the baseline plus keyword, heuristic and the classifiers (and
+    embedding, with the Gemini opt-in) — or, for the domain split, the classifiers alone. A fresh
+    instance of each model per arm, since a route must not be shared between two `ChatRouter`s
+    that might run concurrently (nothing here forbids it, but each arm owning its own keeps the
+    arms independent for a parallel run)."""
     if split == "domain":
         return _classifier_arms(
             lambda: {domain: small_model() for domain in _DOMAIN_DESCRIPTIONS},
@@ -225,17 +240,23 @@ def build_arms(split: Split = "tier") -> list[Arm]:
                 strategy=HeuristicStrategy("small", "frontier"),
             ),
         ),
-        Arm(
-            "embedding",
-            ChatRouter(
-                routes={"small": small_model(), "frontier": frontier_model()},
-                default_route="small",
-                strategy=EmbeddingStrategy(
-                    embeddings(),
-                    {"small": list(_EASY_EXAMPLES), "frontier": list(_HARD_EXAMPLES)},
-                    threshold=EMBEDDING_THRESHOLD,
-                ),
-            ),
+        *(
+            [
+                Arm(
+                    "embedding",
+                    ChatRouter(
+                        routes={"small": small_model(), "frontier": frontier_model()},
+                        default_route="small",
+                        strategy=EmbeddingStrategy(
+                            embeddings(),
+                            {"small": list(_EASY_EXAMPLES), "frontier": list(_HARD_EXAMPLES)},
+                            threshold=EMBEDDING_THRESHOLD,
+                        ),
+                    ),
+                )
+            ]
+            if GEMINI
+            else []
         ),
         *_classifier_arms(
             lambda: {"small": small_model(), "frontier": frontier_model()},
